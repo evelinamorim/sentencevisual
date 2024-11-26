@@ -1,0 +1,71 @@
+{
+    "sentences": [
+        {
+            "text_sent": "Lisboa, 03 nov 2020",
+            "events": [],
+            "times": [
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "03 nov 2020",
+            "TemporalFunction": "Publication_Time"
+        },
+        {
+            "text_sent": "O Servi\u00e7o de Estrangeiros e Fronteiras (SEF) anunciou hoje que deteve no aeroporto de Lisboa um cidad\u00e3o estrangeiro ao abrigo de um mandado de captura e deten\u00e7\u00e3o para efeitos de extradi\u00e7\u00e3o emitido pelo Luxemburgo.",
+            "events": [
+                {
+                    "text_event": "anunciou",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "03 nov 2020",
+                    "rel_type": "TLINK_identity",
+                    "TemporalFunction": "Publication_Time"
+                },
+                {
+                    "text_time2": "no \u00faltimo fim de semana",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "hoje",
+            "Time_Type": "Date"
+        },
+        {
+            "text_sent": "Segundo o SEF, o cidad\u00e3o, que provinha de Fortaleza (Brasil) e tinha como destino Londres, foi no \u00faltimo fim de semana e encontra-se em estabelecimento prisional, a fim de ser inquirido no Tribunal da Rela\u00e7\u00e3o de Lisboa (TRL), que \u00e9 competente para apreciar os casos de extradi\u00e7\u00e3o.",
+            "events": [
+                {
+                    "text_event": "foi",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "Movement": "Motion_Literal"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "no \u00faltimo fim de semana",
+            "Time_Type": "Date"
+        }
+    ]
+}

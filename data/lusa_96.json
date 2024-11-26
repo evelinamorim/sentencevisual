@@ -1,0 +1,43 @@
+{
+    "sentences": [
+        {
+            "text_sent": "Santa Cruz, Madeira, 26 nov 2020",
+            "events": [],
+            "times": [
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "26 nov 2020",
+            "Time_Type": "Date",
+            "TemporalFunction": "Publication_Time"
+        },
+        {
+            "text_sent": "Um homem de 29 anos foi detido na Madeira, suspeito da pr\u00e1tica do crime de tr\u00e1fico de estupefacientes, tendo-lhe sido apreendidas 800 doses individuais de hero\u00edna, informou hoje a Pol\u00edcia Judici\u00e1ria.",
+            "events": [
+                {
+                    "text_event": "informou",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "26 nov 2020",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "text_time": "hoje",
+            "Time_Type": "Date"
+        }
+    ]
+}

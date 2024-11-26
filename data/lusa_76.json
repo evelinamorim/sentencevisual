@@ -1,0 +1,140 @@
+{
+    "sentences": [
+        {
+            "text_sent": "Montemor-o - Velho, Coimbra, 06 dez 2020",
+            "events": [],
+            "times": [
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Time"
+                },
+                {
+                    "text_time2": "h\u00e1 quase quatro anos",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Duration"
+                }
+            ],
+            "text_time": "06 dez 2020",
+            "Time_Type": "Date",
+            "TemporalFunction": "Publication_Time"
+        },
+        {
+            "text_sent": "A Pol\u00edcia Judici\u00e1ria (PJ) deteve um homem de 34 anos pela presum\u00edvel pr\u00e1tica de um crime de homic\u00eddio qualificado, ocorrido h\u00e1 quase quatro anos em Montemor-o - Velho, no distrito de Coimbra, informou hoje aquele \u00f3rg\u00e3o de pol\u00edcia criminal.",
+            "events": [
+                {
+                    "text_event": "ocorrido",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Process",
+                    "Pos": "Verb",
+                    "Aspect": "Perfective",
+                    "VForm": "Participle",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "06 dez 2020",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                },
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_after",
+                    "Time_Type": "Time"
+                }
+            ],
+            "text_time": "h\u00e1 quase quatro anos",
+            "Time_Type": "Duration"
+        },
+        {
+            "text_sent": "A Pol\u00edcia Judici\u00e1ria (PJ) deteve um homem de 34 anos pela presum\u00edvel pr\u00e1tica de um crime de homic\u00eddio qualificado, ocorrido h\u00e1 quase quatro anos em Montemor-o - Velho, no distrito de Coimbra, informou hoje aquele \u00f3rg\u00e3o de pol\u00edcia criminal.",
+            "events": [
+                {
+                    "text_event": "informou",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "10 de mar\u00e7o de 2017,",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text_time2": "06 dez 2020",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                },
+                {
+                    "text_time2": "h\u00e1 quase quatro anos",
+                    "rel_type": "TLINK_after",
+                    "Time_Type": "Duration"
+                }
+            ],
+            "text_time": "hoje",
+            "Time_Type": "Time"
+        },
+        {
+            "text_sent": "Em comunicado, a PJ esclarece que o crime ocorreu em 10 de mar\u00e7o de 2017, na localidade de Tent\u00fagal, na sequ\u00eancia de \u201c um conflito relacionado com um neg\u00f3cio falhado \u201d.",
+            "events": [
+                {
+                    "text_event": "ocorreu",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "a madrugada,",
+                    "rel_type": "TLINK_after",
+                    "Time_Type": "Time"
+                },
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Time"
+                }
+            ],
+            "text_time": "10 de mar\u00e7o de 2017 ,",
+            "Time_Type": "Date"
+        },
+        {
+            "text_sent": "De acordo com os investigadores, o detido ter\u00e1 surpreendido a v\u00edtima de 46 anos em sua casa durante a madrugada, e, com um objeto contundente, \u201c desferiu-lhe v\u00e1rios golpes na zona da cabe\u00e7a que lhe provocaram a morte \u201d.",
+            "events": [
+                {
+                    "text_event": "surpreendido",
+                    "rel_type": "TLINK_during",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Tense": "Future",
+                    "Polarity": "Pos",
+                    "Pos": "Verb"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "10 de mar\u00e7o de 2017,",
+                    "rel_type": "TLINK_after",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "a madrugada ,",
+            "Time_Type": "Time"
+        }
+    ]
+}

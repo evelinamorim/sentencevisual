@@ -1,0 +1,1187 @@
+{
+    "sentences": [
+        {
+            "text_sent": "\u00c9vora, 02 nov 2020",
+            "events": [
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "\u00c9vora , 02 nov 2020",
+            "Time_Type": "Time"
+        },
+        {
+            "text_sent": "\u00c9vora, 02 nov 2020",
+            "events": [
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "02 nov 2020",
+            "Time_Type": "Date",
+            "TemporalFunction": "Publication_Time"
+        },
+        {
+            "text_sent": "SYL //",
+            "events": [
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "SYL //",
+            "Time_Type": "Time"
+        },
+        {
+            "text_sent": "ROC",
+            "events": [
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "ROC",
+            "Time_Type": "Time"
+        },
+        {
+            "text_sent": "Jovem de 19 anos detido por tentativa de homic\u00eddio da namorada em Montemor-o - Novo",
+            "events": [
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "Jovem de 19 anos detido por tentativa de homic\u00eddio da namorada em Montemor - o - Novo",
+            "Time_Type": "Time"
+        },
+        {
+            "text_sent": "Um jovem de 19 anos foi detido pela Unidade Local de Investiga\u00e7\u00e3o Criminal de \u00c9vora por suspeita de tentativa de homic\u00eddio da sua pr\u00f3pria namorada em Montemor-o - Novo, informou hoje a Pol\u00edcia Judici\u00e1ria (PJ).",
+            "events": [
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "Um jovem de 19 anos foi detido pela Unidade Local de Investiga\u00e7\u00e3o Criminal de \u00c9vora por suspeita de tentativa de homic\u00eddio da sua pr\u00f3pria namorada em Montemor - o - Novo , informou hoje a Pol\u00edcia Judici\u00e1ria ( PJ ) .",
+            "Time_Type": "Time"
+        },
+        {
+            "text_sent": "Um jovem de 19 anos foi detido pela Unidade Local de Investiga\u00e7\u00e3o Criminal de \u00c9vora por suspeita de tentativa de homic\u00eddio da sua pr\u00f3pria namorada em Montemor-o - Novo, informou hoje a Pol\u00edcia Judici\u00e1ria (PJ).",
+            "events": [
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "suspeita",
+                    "rel_type": "TLINK_before",
+                    "Class": "State",
+                    "Event_Type": "State",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "detido",
+            "Time_Type": "Time"
+        },
+        {
+            "text_sent": "Um jovem de 19 anos foi detido pela Unidade Local de Investiga\u00e7\u00e3o Criminal de \u00c9vora por suspeita de tentativa de homic\u00eddio da sua pr\u00f3pria namorada em Montemor-o - Novo, informou hoje a Pol\u00edcia Judici\u00e1ria (PJ).",
+            "events": [
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "tentativa de homic\u00eddio",
+                    "rel_type": "TLINK_before",
+                    "Class": "I_Action",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "detido",
+                    "rel_type": "TLINK_before",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "suspeita",
+            "Time_Type": "Time"
+        },
+        {
+            "text_sent": "Um jovem de 19 anos foi detido pela Unidade Local de Investiga\u00e7\u00e3o Criminal de \u00c9vora por suspeita de tentativa de homic\u00eddio da sua pr\u00f3pria namorada em Montemor-o - Novo, informou hoje a Pol\u00edcia Judici\u00e1ria (PJ).",
+            "events": [
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "suspeita",
+                    "rel_type": "TLINK_before",
+                    "Class": "State",
+                    "Event_Type": "State",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "informou",
+                    "rel_type": "TLINK_after",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "comunicado,",
+                    "rel_type": "TLINK_after",
+                    "Class": "Reporting",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "tentativa de homic\u00eddio",
+            "Time_Type": "Time"
+        },
+        {
+            "text_sent": "Um jovem de 19 anos foi detido pela Unidade Local de Investiga\u00e7\u00e3o Criminal de \u00c9vora por suspeita de tentativa de homic\u00eddio da sua pr\u00f3pria namorada em Montemor-o - Novo, informou hoje a Pol\u00edcia Judici\u00e1ria (PJ).",
+            "events": [
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "tentativa de homic\u00eddio",
+                    "rel_type": "TLINK_after",
+                    "Class": "I_Action",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "comunicado,",
+                    "rel_type": "TLINK_identity",
+                    "Class": "Reporting",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "informou",
+            "Time_Type": "Time"
+        },
+        {
+            "text_sent": "Um jovem de 19 anos foi detido pela Unidade Local de Investiga\u00e7\u00e3o Criminal de \u00c9vora por suspeita de tentativa de homic\u00eddio da sua pr\u00f3pria namorada em Montemor-o - Novo, informou hoje a Pol\u00edcia Judici\u00e1ria (PJ).",
+            "events": [
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "informou",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "informou",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text_time2": "02 nov 2020",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                },
+                {
+                    "text_time2": "nos pr\u00f3ximos dias \u201d",
+                    "rel_type": "TLINK_after",
+                    "Time_Type": "Duration"
+                },
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text_time2": "02 nov 2020",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                },
+                {
+                    "text_time2": "nos pr\u00f3ximos dias \u201d",
+                    "rel_type": "TLINK_after",
+                    "Time_Type": "Duration"
+                }
+            ],
+            "text_time": "hoje",
+            "Time_Type": "Date"
+        },
+        {
+            "text_sent": "Em comunicado, a PJ adianta que o suspeito foi presente a primeiro interrogat\u00f3rio judicial e ficou sujeito \u00e0 medida de obriga\u00e7\u00e3o de perman\u00eancia na habita\u00e7\u00e3o, com vigil\u00e2ncia eletr\u00f3nica, mantendo-se em pris\u00e3o preventiva at\u00e9 que a mesma seja implementada, \u201c nos pr\u00f3ximos dias \u201d.",
+            "events": [
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "Em comunicado , a PJ adianta que o suspeito foi presente a primeiro interrogat\u00f3rio judicial e ficou sujeito \u00e0 medida de obriga\u00e7\u00e3o de perman\u00eancia na habita\u00e7\u00e3o , com vigil\u00e2ncia eletr\u00f3nica , mantendo - se em pris\u00e3o preventiva at\u00e9 que a mesma seja implementada , \u201c nos pr\u00f3ximos dias \u201d .",
+            "Time_Type": "Time"
+        },
+        {
+            "text_sent": "Em comunicado, a PJ adianta que o suspeito foi presente a primeiro interrogat\u00f3rio judicial e ficou sujeito \u00e0 medida de obriga\u00e7\u00e3o de perman\u00eancia na habita\u00e7\u00e3o, com vigil\u00e2ncia eletr\u00f3nica, mantendo-se em pris\u00e3o preventiva at\u00e9 que a mesma seja implementada, \u201c nos pr\u00f3ximos dias \u201d.",
+            "events": [
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "adianta",
+                    "rel_type": "TLINK_identity",
+                    "Class": "Reporting",
+                    "Event_Type": "Process",
+                    "Pos": "Verb",
+                    "Tense": "Present",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "informou",
+                    "rel_type": "TLINK_identity",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "tentativa de homic\u00eddio",
+                    "rel_type": "TLINK_after",
+                    "Class": "I_Action",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "comunicado ,",
+            "Time_Type": "Time"
+        },
+        {
+            "text_sent": "Em comunicado, a PJ adianta que o suspeito foi presente a primeiro interrogat\u00f3rio judicial e ficou sujeito \u00e0 medida de obriga\u00e7\u00e3o de perman\u00eancia na habita\u00e7\u00e3o, com vigil\u00e2ncia eletr\u00f3nica, mantendo-se em pris\u00e3o preventiva at\u00e9 que a mesma seja implementada, \u201c nos pr\u00f3ximos dias \u201d.",
+            "events": [
+                {
+                    "text_event": "comunicado,",
+                    "rel_type": "TLINK_identity",
+                    "Class": "Reporting",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "foi presente a primeiro interrogat\u00f3rio judicial",
+                    "rel_type": "TLINK_before",
+                    "Class": "Occurrence",
+                    "Event_Type": "Process",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "reporta -",
+                    "rel_type": "TLINK_identity",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Present",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "adianta",
+            "Time_Type": "Time"
+        },
+        {
+            "text_sent": "Em comunicado, a PJ adianta que o suspeito foi presente a primeiro interrogat\u00f3rio judicial e ficou sujeito \u00e0 medida de obriga\u00e7\u00e3o de perman\u00eancia na habita\u00e7\u00e3o, com vigil\u00e2ncia eletr\u00f3nica, mantendo-se em pris\u00e3o preventiva at\u00e9 que a mesma seja implementada, \u201c nos pr\u00f3ximos dias \u201d.",
+            "events": [
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "adianta",
+                    "rel_type": "TLINK_before",
+                    "Class": "Reporting",
+                    "Event_Type": "Process",
+                    "Pos": "Verb",
+                    "Tense": "Present",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "sujeito",
+                    "rel_type": "TLINK_includes",
+                    "Class": "State",
+                    "Event_Type": "State",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "foi presente a primeiro interrogat\u00f3rio judicial",
+            "Time_Type": "Time"
+        },
+        {
+            "text_sent": "Em comunicado, a PJ adianta que o suspeito foi presente a primeiro interrogat\u00f3rio judicial e ficou sujeito \u00e0 medida de obriga\u00e7\u00e3o de perman\u00eancia na habita\u00e7\u00e3o, com vigil\u00e2ncia eletr\u00f3nica, mantendo-se em pris\u00e3o preventiva at\u00e9 que a mesma seja implementada, \u201c nos pr\u00f3ximos dias \u201d.",
+            "events": [
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "foi presente a primeiro interrogat\u00f3rio judicial",
+                    "rel_type": "TLINK_includes",
+                    "Class": "Occurrence",
+                    "Event_Type": "Process",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "medida de obriga\u00e7\u00e3o",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "sujeito",
+            "Time_Type": "Time"
+        },
+        {
+            "text_sent": "Em comunicado, a PJ adianta que o suspeito foi presente a primeiro interrogat\u00f3rio judicial e ficou sujeito \u00e0 medida de obriga\u00e7\u00e3o de perman\u00eancia na habita\u00e7\u00e3o, com vigil\u00e2ncia eletr\u00f3nica, mantendo-se em pris\u00e3o preventiva at\u00e9 que a mesma seja implementada, \u201c nos pr\u00f3ximos dias \u201d.",
+            "events": [
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "sujeito",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "State",
+                    "Event_Type": "State",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "perman\u00eancia",
+                    "rel_type": "TLINK_identity",
+                    "Class": "State",
+                    "Event_Type": "State",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "medida de obriga\u00e7\u00e3o",
+            "Time_Type": "Time"
+        },
+        {
+            "text_sent": "Em comunicado, a PJ adianta que o suspeito foi presente a primeiro interrogat\u00f3rio judicial e ficou sujeito \u00e0 medida de obriga\u00e7\u00e3o de perman\u00eancia na habita\u00e7\u00e3o, com vigil\u00e2ncia eletr\u00f3nica, mantendo-se em pris\u00e3o preventiva at\u00e9 que a mesma seja implementada, \u201c nos pr\u00f3ximos dias \u201d.",
+            "events": [
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "medida de obriga\u00e7\u00e3o",
+                    "rel_type": "TLINK_identity",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "vigil\u00e2ncia eletr\u00f3nica,",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "State",
+                    "Event_Type": "State",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "perman\u00eancia",
+            "Time_Type": "Time"
+        },
+        {
+            "text_sent": "Em comunicado, a PJ adianta que o suspeito foi presente a primeiro interrogat\u00f3rio judicial e ficou sujeito \u00e0 medida de obriga\u00e7\u00e3o de perman\u00eancia na habita\u00e7\u00e3o, com vigil\u00e2ncia eletr\u00f3nica, mantendo-se em pris\u00e3o preventiva at\u00e9 que a mesma seja implementada, \u201c nos pr\u00f3ximos dias \u201d.",
+            "events": [
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "perman\u00eancia",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "State",
+                    "Event_Type": "State",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "mantendo -",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "State",
+                    "Event_Type": "State",
+                    "Pos": "Verb",
+                    "Aspect": "Progressive",
+                    "VForm": "Gerundive",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "vigil\u00e2ncia eletr\u00f3nica ,",
+            "Time_Type": "Time"
+        },
+        {
+            "text_sent": "Em comunicado, a PJ adianta que o suspeito foi presente a primeiro interrogat\u00f3rio judicial e ficou sujeito \u00e0 medida de obriga\u00e7\u00e3o de perman\u00eancia na habita\u00e7\u00e3o, com vigil\u00e2ncia eletr\u00f3nica, mantendo-se em pris\u00e3o preventiva at\u00e9 que a mesma seja implementada, \u201c nos pr\u00f3ximos dias \u201d.",
+            "events": [
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "vigil\u00e2ncia eletr\u00f3nica,",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "State",
+                    "Event_Type": "State",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "implementada,",
+                    "rel_type": "ALINK_continues",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Present",
+                    "Polarity": "Pos",
+                    "Mood": "Subjunctive"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "mantendo -",
+            "Time_Type": "Time"
+        },
+        {
+            "text_sent": "Em comunicado, a PJ adianta que o suspeito foi presente a primeiro interrogat\u00f3rio judicial e ficou sujeito \u00e0 medida de obriga\u00e7\u00e3o de perman\u00eancia na habita\u00e7\u00e3o, com vigil\u00e2ncia eletr\u00f3nica, mantendo-se em pris\u00e3o preventiva at\u00e9 que a mesma seja implementada, \u201c nos pr\u00f3ximos dias \u201d.",
+            "events": [
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "mantendo -",
+                    "rel_type": "ALINK_continues",
+                    "Class": "State",
+                    "Event_Type": "State",
+                    "Pos": "Verb",
+                    "Aspect": "Progressive",
+                    "VForm": "Gerundive",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "acusa\u00e7\u00e3o",
+                    "rel_type": "TLINK_includes",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text_time2": "nos pr\u00f3ximos dias \u201d",
+                    "rel_type": "TLINK_simultaneous",
+                    "Time_Type": "Duration"
+                }
+            ],
+            "text_time": "implementada ,",
+            "Time_Type": "Time"
+        },
+        {
+            "text_sent": "Em comunicado, a PJ adianta que o suspeito foi presente a primeiro interrogat\u00f3rio judicial e ficou sujeito \u00e0 medida de obriga\u00e7\u00e3o de perman\u00eancia na habita\u00e7\u00e3o, com vigil\u00e2ncia eletr\u00f3nica, mantendo-se em pris\u00e3o preventiva at\u00e9 que a mesma seja implementada, \u201c nos pr\u00f3ximos dias \u201d.",
+            "events": [
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "implementada,",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Present",
+                    "Polarity": "Pos",
+                    "Mood": "Subjunctive"
+                },
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "implementada,",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Present",
+                    "Polarity": "Pos",
+                    "Mood": "Subjunctive"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_after",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_after",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "nos pr\u00f3ximos dias \u201d",
+            "Time_Type": "Duration"
+        },
+        {
+            "text_sent": "A acusa\u00e7\u00e3o reporta-se a factos ocorridos na quinta-feira, perto das 19:00, no concelho de Montemor-o - Novo (distrito de \u00c9vora), \u00a0 quando o suspeito, munido de uma arma branca,",
+            "events": [
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "A acusa\u00e7\u00e3o reporta - se a factos ocorridos na quinta - feira ,",
+            "Time_Type": "Time"
+        },
+        {
+            "text_sent": "A acusa\u00e7\u00e3o reporta-se a factos ocorridos na quinta-feira, perto das 19:00, no concelho de Montemor-o - Novo (distrito de \u00c9vora), \u00a0 quando o suspeito, munido de uma arma branca,",
+            "events": [
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "reporta -",
+                    "rel_type": "TLINK_after",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Present",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "implementada,",
+                    "rel_type": "TLINK_includes",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Present",
+                    "Polarity": "Pos",
+                    "Mood": "Subjunctive"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "acusa\u00e7\u00e3o",
+            "Time_Type": "Time"
+        },
+        {
+            "text_sent": "A acusa\u00e7\u00e3o reporta-se a factos ocorridos na quinta-feira, perto das 19:00, no concelho de Montemor-o - Novo (distrito de \u00c9vora), \u00a0 quando o suspeito, munido de uma arma branca,",
+            "events": [
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "acusa\u00e7\u00e3o",
+                    "rel_type": "TLINK_after",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "segundo",
+                    "rel_type": "TLINK_identity",
+                    "Class": "Reporting",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "adianta",
+                    "rel_type": "TLINK_identity",
+                    "Class": "Reporting",
+                    "Event_Type": "Process",
+                    "Pos": "Verb",
+                    "Tense": "Present",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "factos",
+                    "rel_type": "TLINK_before",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "reporta -",
+            "Time_Type": "Time"
+        },
+        {
+            "text_sent": "A acusa\u00e7\u00e3o reporta-se a factos ocorridos na quinta-feira, perto das 19:00, no concelho de Montemor-o - Novo (distrito de \u00c9vora), \u00a0 quando o suspeito, munido de uma arma branca,",
+            "events": [
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_identity",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "reporta -",
+                    "rel_type": "TLINK_before",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Present",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "factos",
+            "Time_Type": "Time"
+        },
+        {
+            "text_sent": "A acusa\u00e7\u00e3o reporta-se a factos ocorridos na quinta-feira, perto das 19:00, no concelho de Montemor-o - Novo (distrito de \u00c9vora), \u00a0 quando o suspeito, munido de uma arma branca,",
+            "events": [
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "munido",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "State",
+                    "Event_Type": "State",
+                    "Pos": "Verb",
+                    "VForm": "Participle",
+                    "Polarity": "Pos",
+                    "Aspect": "Perfective"
+                },
+                {
+                    "text_event": "factos",
+                    "rel_type": "TLINK_identity",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text_time2": "\u00c9vora, 02 nov 2020 SYL // ROC Jovem de 19 anos detido por tentativa de homic\u00eddio da namorada em Montemor-o - Novo Um jovem de 19 anos foi detido pela Unidade Local de Investiga\u00e7\u00e3o Criminal de \u00c9vora por suspeita de tentativa de homic\u00eddio da sua pr\u00f3pria namorada em Montemor-o - Novo, informou hoje a Pol\u00edcia Judici\u00e1ria (PJ). Em comunicado, a PJ adianta que o suspeito foi presente a primeiro interrogat\u00f3rio judicial e ficou sujeito \u00e0 medida de obriga\u00e7\u00e3o de perman\u00eancia na habita\u00e7\u00e3o, com vigil\u00e2ncia eletr\u00f3nica, mantendo-se em pris\u00e3o preventiva at\u00e9 que a mesma seja implementada, \u201c nos pr\u00f3ximos dias \u201d. A acusa\u00e7\u00e3o reporta-se a factos ocorridos na quinta-feira,",
+                    "rel_type": "TLINK_simultaneous",
+                    "Time_Type": "Time"
+                },
+                {
+                    "text_time2": "perto das 19:00,",
+                    "rel_type": "TLINK_simultaneous",
+                    "Time_Type": "Time"
+                }
+            ],
+            "text_time": "ocorridos",
+            "Time_Type": "Time"
+        },
+        {
+            "text_sent": "A acusa\u00e7\u00e3o reporta-se a factos ocorridos na quinta-feira, perto das 19:00, no concelho de Montemor-o - Novo (distrito de \u00c9vora), \u00a0 quando o suspeito, munido de uma arma branca,",
+            "events": [
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                },
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text_time2": "nos pr\u00f3ximos dias \u201d",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Duration"
+                },
+                {
+                    "text_time2": "\u00c9vora, 02 nov 2020 SYL // ROC Jovem de 19 anos detido por tentativa de homic\u00eddio da namorada em Montemor-o - Novo Um jovem de 19 anos foi detido pela Unidade Local de Investiga\u00e7\u00e3o Criminal de \u00c9vora por suspeita de tentativa de homic\u00eddio da sua pr\u00f3pria namorada em Montemor-o - Novo, informou hoje a Pol\u00edcia Judici\u00e1ria (PJ). Em comunicado, a PJ adianta que o suspeito foi presente a primeiro interrogat\u00f3rio judicial e ficou sujeito \u00e0 medida de obriga\u00e7\u00e3o de perman\u00eancia na habita\u00e7\u00e3o, com vigil\u00e2ncia eletr\u00f3nica, mantendo-se em pris\u00e3o preventiva at\u00e9 que a mesma seja implementada, \u201c nos pr\u00f3ximos dias \u201d. A acusa\u00e7\u00e3o reporta-se a factos ocorridos na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Time"
+                },
+                {
+                    "text_time2": "perto das 19:00,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Time"
+                },
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text_time2": "nos pr\u00f3ximos dias \u201d",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Duration"
+                },
+                {
+                    "text_time2": "\u00c9vora, 02 nov 2020 SYL // ROC Jovem de 19 anos detido por tentativa de homic\u00eddio da namorada em Montemor-o - Novo Um jovem de 19 anos foi detido pela Unidade Local de Investiga\u00e7\u00e3o Criminal de \u00c9vora por suspeita de tentativa de homic\u00eddio da sua pr\u00f3pria namorada em Montemor-o - Novo, informou hoje a Pol\u00edcia Judici\u00e1ria (PJ). Em comunicado, a PJ adianta que o suspeito foi presente a primeiro interrogat\u00f3rio judicial e ficou sujeito \u00e0 medida de obriga\u00e7\u00e3o de perman\u00eancia na habita\u00e7\u00e3o, com vigil\u00e2ncia eletr\u00f3nica, mantendo-se em pris\u00e3o preventiva at\u00e9 que a mesma seja implementada, \u201c nos pr\u00f3ximos dias \u201d. A acusa\u00e7\u00e3o reporta-se a factos ocorridos na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Time"
+                },
+                {
+                    "text_time2": "perto das 19:00,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Time"
+                }
+            ],
+            "text_time": "na quinta - feira ,",
+            "Time_Type": "Date"
+        },
+        {
+            "text_sent": "A acusa\u00e7\u00e3o reporta-se a factos ocorridos na quinta-feira, perto das 19:00, no concelho de Montemor-o - Novo (distrito de \u00c9vora), \u00a0 quando o suspeito, munido de uma arma branca,",
+            "events": [
+                {
+                    "text_event": "ocorridos",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "perto das 19:00 ,",
+            "Time_Type": "Time"
+        }
+    ]
+}

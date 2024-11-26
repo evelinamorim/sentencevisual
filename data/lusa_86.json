@@ -1,0 +1,112 @@
+{
+    "sentences": [
+        {
+            "text_sent": "Lisboa, 20 out 2020   DYBS",
+            "events": [],
+            "times": [
+                {
+                    "text_time2": "no s\u00e1bado,",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "20 out 2020",
+            "Time_Type": "Date",
+            "TemporalFunction": "Publication_Time"
+        },
+        {
+            "text_sent": "Um homem de 39 anos foi detido por tentativa de homic\u00eddio e viol\u00eancia dom\u00e9stica depois de ter desferido \u201c v\u00e1rios golpes profundos \u201d \u00e0 sua companheira, de 47 anos, num hotel em Lisboa, no s\u00e1bado, informou hoje a Pol\u00edcia Judici\u00e1ria.",
+            "events": [
+                {
+                    "text_event": "detido",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "20 out 2020",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                },
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_after",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "no s\u00e1bado ,",
+            "Time_Type": "Date"
+        },
+        {
+            "text_sent": "Um homem de 39 anos foi detido por tentativa de homic\u00eddio e viol\u00eancia dom\u00e9stica depois de ter desferido \u201c v\u00e1rios golpes profundos \u201d \u00e0 sua companheira, de 47 anos, num hotel em Lisboa, no s\u00e1bado, informou hoje a Pol\u00edcia Judici\u00e1ria.",
+            "events": [
+                {
+                    "text_event": "informou",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "no s\u00e1bado,",
+                    "rel_type": "TLINK_after",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text_time2": "na madrugada de s\u00e1bado",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Time"
+                },
+                {
+                    "text_time2": "20 out 2020",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "text_time": "hoje",
+            "Time_Type": "Date"
+        },
+        {
+            "text_sent": "Segundo a nota, o crime ocorreu na madrugada de s\u00e1bado e a v\u00edtima ficou \u201c em estado grave \u201d, tendo sido estabilizada pelos servi\u00e7os de emerg\u00eancia m\u00e9dica e transportada para uma unidade hospitalar, onde \u201c foi submetida a interven\u00e7\u00e3o cir\u00fargica de urg\u00eancia, permanecendo internada com progn\u00f3stico reservado \u201d.",
+            "events": [
+                {
+                    "text_event": "ocorreu",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "na madrugada de s\u00e1bado",
+            "Time_Type": "Time"
+        }
+    ]
+}

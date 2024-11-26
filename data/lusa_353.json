@@ -1,0 +1,71 @@
+{
+    "sentences": [
+        {
+            "text_sent": "Vila Nova de Foz C\u00f4a, Guarda, 21 nov 2020",
+            "events": [],
+            "times": [
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "21 nov 2020",
+            "Time_Type": "Date",
+            "TemporalFunction": "Publication_Time"
+        },
+        {
+            "text_sent": "O Tribunal de Foz C\u00f4a, no distrito de Guarda, decretou hoje pris\u00e3o preventiva para um homem de 71 anos acusado de viol\u00eancia dom\u00e9stica, ap\u00f3s ter sido detido pelas autoridades em flagrante delito na sexta-feira, indicou fonte da GNR.",
+            "events": [
+                {
+                    "text_event": "decretou",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na sexta-feira,",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text_time2": "21 nov 2020",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "text_time": "hoje",
+            "Time_Type": "Date"
+        },
+        {
+            "text_sent": "O Tribunal de Foz C\u00f4a, no distrito de Guarda, decretou hoje pris\u00e3o preventiva para um homem de 71 anos acusado de viol\u00eancia dom\u00e9stica, ap\u00f3s ter sido detido pelas autoridades em flagrante delito na sexta-feira, indicou fonte da GNR.",
+            "events": [
+                {
+                    "text_event": "detido",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Aspect": "Perfective",
+                    "VForm": "Infinitive"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "na sexta - feira ,",
+            "Time_Type": "Date"
+        }
+    ]
+}

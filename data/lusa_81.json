@@ -1,0 +1,43 @@
+{
+    "sentences": [
+        {
+            "text_sent": "Lisboa, 21 dez 2020",
+            "events": [],
+            "times": [
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "21 dez 2020",
+            "Time_Type": "Date",
+            "TemporalFunction": "Publication_Time"
+        },
+        {
+            "text_sent": "A Pol\u00edcia Judici\u00e1ria (PJ) de Lisboa deteve um homem de 41 anos suspeito de assassinar uma mulher de 75 anos e de incendiar a casa da v\u00edtima, na sequ\u00eancia de um assalto no dia 5 de novembro, foi hoje anunciado.",
+            "events": [
+                {
+                    "text_event": "anunciado.",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "21 dez 2020",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "text_time": "hoje",
+            "Time_Type": "Date"
+        }
+    ]
+}

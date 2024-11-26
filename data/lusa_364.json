@@ -1,0 +1,36 @@
+{
+    "sentences": [
+        {
+            "text_sent": "Em rela\u00e7\u00e3o aos internamentos, o n\u00famero de pessoas hospitalizadas continua a subir h\u00e1 cerca de duas semanas, sendo agora 2.122 pessoas, mais 150 do que no s\u00e1bado.",
+            "events": [],
+            "times": [],
+            "text_time": "no s\u00e1bado .",
+            "Time_Type": "Date"
+        },
+        {
+            "text_sent": "Nas \u00faltimas 24 horas s\u00e3o menos dois os doentes internados nas Unidades de Cuidados Intensivos, totalizando 284.",
+            "events": [],
+            "times": [],
+            "text_time": "Nas \u00faltimas 24 horas",
+            "Time_Type": "Date"
+        },
+        {
+            "text_sent": "De acordo com o boletim hoje divulgado, Portugal j\u00e1 contabilizou 144.341 casos confirmados de infe\u00e7\u00e3o pelo novo coronav\u00edrus e 2.544 \u00f3bitos.",
+            "events": [
+                {
+                    "text_event": "divulgado,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Aspect": "Perfective",
+                    "VForm": "Participle",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [],
+            "text_time": "hoje",
+            "Time_Type": "Date"
+        }
+    ]
+}

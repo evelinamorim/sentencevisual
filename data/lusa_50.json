@@ -1,0 +1,49 @@
+{
+    "sentences": [
+        {
+            "text_sent": "Lisboa, 05 nov 2020",
+            "events": [],
+            "times": [
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date",
+                    "AnnotatorNotes": [
+                        "value=2020-11-05 anchorTime=Publication-Time"
+                    ]
+                }
+            ],
+            "text_time": "05 nov 2020",
+            "Time_Type": "Date",
+            "TemporalFunction": "Publication_Time"
+        },
+        {
+            "text_sent": "Uma mulher foi detida pela Pol\u00edcia Judici\u00e1ria (PJ) por crime de extors\u00e3o, atrav\u00e9s de \" contactos iniciados em aplica\u00e7\u00e3o inform\u00e1tica comummente designada como plataforma de encontros \", informou hoje esta pol\u00edcia de investiga\u00e7\u00e3o criminal.",
+            "events": [
+                {
+                    "text_event": "informou",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "05 nov 2020",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "text_time": "hoje",
+            "Time_Type": "Date",
+            "AnnotatorNotes": [
+                "value=2020-11-05 anchorTime=Publication-Time"
+            ]
+        }
+    ]
+}

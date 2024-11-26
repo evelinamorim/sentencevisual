@@ -1,0 +1,101 @@
+{
+    "sentences": [
+        {
+            "text_sent": "Atenas, 13 dez 2020",
+            "events": [],
+            "times": [
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "13 dez 2020",
+            "Time_Type": "Date",
+            "TemporalFunction": "Publication_Time"
+        },
+        {
+            "text_sent": "No s\u00e1bado, as tendas onde vivem ficaram inundadas por causa de fortes chuvadas.",
+            "events": [
+                {
+                    "text_event": "inundadas",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "State",
+                    "Event_Type": "State",
+                    "Pos": "Adjective",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "Na sexta-feira,",
+                    "rel_type": "TLINK_after",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "No s\u00e1bado ,",
+            "Time_Type": "Date"
+        },
+        {
+            "text_sent": "Na sexta-feira, a pol\u00edcia grega anunciou a abertura de um inqu\u00e9rito ao sucedido.",
+            "events": [
+                {
+                    "text_event": "anunciou",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text_time2": "No s\u00e1bado,",
+                    "rel_type": "TLINK_after",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "Na sexta - feira ,",
+            "Time_Type": "Date"
+        },
+        {
+            "text_sent": "Quatro elementos das for\u00e7as de seguran\u00e7a gregas foram acusados de ter agredido requerentes de asilo perto do campo de Kara Tepe, na ilha de Lesbos, afirmaram hoje fontes policiais \u00e0 ag\u00eancia France Presse.",
+            "events": [
+                {
+                    "text_event": "afirmaram",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "13 dez 2020",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                },
+                {
+                    "text_time2": "Na sexta-feira,",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "hoje",
+            "Time_Type": "Date"
+        }
+    ]
+}

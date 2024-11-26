@@ -1,0 +1,43 @@
+{
+    "sentences": [
+        {
+            "text_sent": "\u00c9vora, 27 nov 2020",
+            "events": [],
+            "times": [
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "27 nov 2020",
+            "Time_Type": "Date",
+            "TemporalFunction": "Publication_Time"
+        },
+        {
+            "text_sent": "A Pol\u00edcia Judici\u00e1ria (PJ) deteve um homem, de 50 anos, suspeito de ter abusado sexualmente de uma filha, presentemente com 18 anos, no distrito de \u00c9vora, foi hoje anunciado.",
+            "events": [
+                {
+                    "text_event": "anunciado.",
+                    "rel_type": "TLINK_isIncluded",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "Class": "Occurrence"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "27 nov 2020",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "text_time": "hoje",
+            "Time_Type": "Date"
+        }
+    ]
+}

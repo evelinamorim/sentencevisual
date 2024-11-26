@@ -1,0 +1,72 @@
+{
+    "sentences": [
+        {
+            "text_sent": "Almada, Set\u00fabal, 15 nov 2020",
+            "events": [],
+            "times": [
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "15 nov 2020",
+            "Time_Type": "Date",
+            "TemporalFunction": "Publication_Time"
+        },
+        {
+            "text_sent": "A GNR anunciou hoje que terminou uma festa que reunia cerca de 30 pessoas em desrespeito das normas referentes ao combate \u00e0 covid-19, tendo ainda identificado uma mulher de 40 anos, no concelho de Almada (Set\u00fabal).",
+            "events": [
+                {
+                    "text_event": "anunciou",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "15 nov 2020",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                },
+                {
+                    "text_time2": "no s\u00e1bado",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "hoje",
+            "Time_Type": "Date"
+        },
+        {
+            "text_sent": "O Comando Territorial de Set\u00fabal da GNR explica, em comunicado, que cessou no s\u00e1bado uma festa no Monte da Caparica, concelho de Almada, na sequ\u00eancia de uma den\u00fancia que dava conta de um evento no interior de uma habita\u00e7\u00e3o.",
+            "events": [
+                {
+                    "text_event": "cessou",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "no s\u00e1bado",
+            "Time_Type": "Date"
+        }
+    ]
+}

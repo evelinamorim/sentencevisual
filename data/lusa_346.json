@@ -1,0 +1,103 @@
+{
+    "sentences": [
+        {
+            "text_sent": "Libreville, 29 dez 2020",
+            "events": [],
+            "times": [
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date",
+                    "Class": "Occurrence"
+                }
+            ],
+            "text_time": "29 dez 2020",
+            "Time_Type": "Date",
+            "TemporalFunction": "Publication_Time"
+        },
+        {
+            "text_sent": "O parlamento do Gab\u00e3o aprovou hoje a revis\u00e3o da Constitui\u00e7\u00e3o que confia o poder aos presidentes da Assembleia Nacional e do Senado e ao ministro da Defesa em caso de impedimento tempor\u00e1rio ou definitivo do Presidente do pa\u00eds.",
+            "events": [
+                {
+                    "text_event": "aprovou",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "29 dez 2020",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                },
+                {
+                    "text_time2": "outubro de 2018",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "hoje",
+            "Time_Type": "Date",
+            "Class": "Occurrence"
+        },
+        {
+            "text_sent": "Ap\u00f3s ter sofrido em outubro de 2018 um Acidente Vascular Cerebral, Ali Bongo Ondimba esteve v\u00e1rios meses em convalescen\u00e7a antes de retomar fun\u00e7\u00f5es, deixando o Gab\u00e3o num vazio jur\u00eddico.",
+            "events": [
+                {
+                    "text_event": "sofrido",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "VForm": "Infinitive",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "v\u00e1rios meses",
+                    "rel_type": "TLINK_after",
+                    "Time_Type": "Duration"
+                },
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date",
+                    "Class": "Occurrence"
+                }
+            ],
+            "text_time": "outubro de 2018",
+            "Time_Type": "Date"
+        },
+        {
+            "text_sent": "Ap\u00f3s ter sofrido em outubro de 2018 um Acidente Vascular Cerebral, Ali Bongo Ondimba esteve v\u00e1rios meses em convalescen\u00e7a antes de retomar fun\u00e7\u00f5es, deixando o Gab\u00e3o num vazio jur\u00eddico.",
+            "events": [
+                {
+                    "text_event": "esteve",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "State",
+                    "Event_Type": "State",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "outubro de 2018",
+                    "rel_type": "TLINK_after",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "v\u00e1rios meses",
+            "Time_Type": "Duration"
+        }
+    ]
+}

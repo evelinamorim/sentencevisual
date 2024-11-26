@@ -1,0 +1,43 @@
+{
+    "sentences": [
+        {
+            "text_sent": "Ovar, Aveiro, 20 nov 2020",
+            "events": [],
+            "times": [
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "20 nov 2020",
+            "Time_Type": "Date",
+            "TemporalFunction": "Publication_Time"
+        },
+        {
+            "text_sent": "A Pol\u00edcia Judici\u00e1ria (PJ) deteve um empres\u00e1rio, de 58 anos, de Ovar, no distrito de Aveiro, que ter\u00e1 incentivado um menor a enviar-lhe fotos em tronco nu, informou hoje aquele \u00f3rg\u00e3o de pol\u00edcia criminal.",
+            "events": [
+                {
+                    "text_event": "informou",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "20 nov 2020",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "text_time": "hoje",
+            "Time_Type": "Date"
+        }
+    ]
+}

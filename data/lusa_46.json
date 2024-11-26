@@ -1,0 +1,43 @@
+{
+    "sentences": [
+        {
+            "text_sent": "Moura, Beja, 03 dez 2020",
+            "events": [],
+            "times": [
+                {
+                    "text_time2": "\u00e0s 11:59.",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Time"
+                }
+            ],
+            "text_time": "03 dez 2020",
+            "Time_Type": "Date",
+            "TemporalFunction": "Publication_Time"
+        },
+        {
+            "text_sent": "A rixa, de acordo com o CDOS, ocorreu no Monte das Sesmarias, tendo o alerta sido dado \u00e0s 11:59.",
+            "events": [
+                {
+                    "text_event": "dado",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Aspect": "Perfective",
+                    "VForm": "Gerundive",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "03 dez 2020",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "text_time": "\u00e0s 11:59 .",
+            "Time_Type": "Time"
+        }
+    ]
+}

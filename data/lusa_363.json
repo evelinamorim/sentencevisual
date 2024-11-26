@@ -1,0 +1,135 @@
+{
+    "sentences": [
+        {
+            "text_sent": "Lausana, Su\u00ed\u00e7a, 24 dez 2020",
+            "events": [],
+            "times": [
+                {
+                    "text_time2": "fevereiro",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "24 dez 2020",
+            "Time_Type": "Date",
+            "TemporalFunction": "Publication_Time"
+        },
+        {
+            "text_sent": "Em fevereiro, Sun Yang, tricampe\u00e3o ol\u00edmpico de nata\u00e7\u00e3o, foi suspenso por oito anos pelo TAS, por ter destru\u00eddo amostras durante um controlo antidoping surpresa.",
+            "events": [
+                {
+                    "text_event": "suspenso",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Adjective",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "fevereiro",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text_time2": "setembro de 2018.",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "fevereiro ,",
+            "Time_Type": "Date"
+        },
+        {
+            "text_sent": "Em fevereiro, Sun Yang, tricampe\u00e3o ol\u00edmpico de nata\u00e7\u00e3o, foi suspenso por oito anos pelo TAS, por ter destru\u00eddo amostras durante um controlo antidoping surpresa.",
+            "events": [
+                {
+                    "text_event": "suspenso",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Adjective",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [],
+            "text_time": "oito anos",
+            "Time_Type": "Duration"
+        },
+        {
+            "text_sent": "O Supremo Tribunal Federal su\u00ed\u00e7o anulou a suspens\u00e3o de oito anos do nadador chin\u00eas Sun Yang, pronunciada em fevereiro pelo Tribunal de Arbitragem para o Desporto (TAS), que ter\u00e1 de decidir o caso \u201c numa composi\u00e7\u00e3o diferente \u201d.",
+            "events": [
+                {
+                    "text_event": "suspens\u00e3o",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Process",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [],
+            "text_time": "oito anos",
+            "Time_Type": "Duration"
+        },
+        {
+            "text_sent": "O Supremo Tribunal Federal su\u00ed\u00e7o anulou a suspens\u00e3o de oito anos do nadador chin\u00eas Sun Yang, pronunciada em fevereiro pelo Tribunal de Arbitragem para o Desporto (TAS), que ter\u00e1 de decidir o caso \u201c numa composi\u00e7\u00e3o diferente \u201d.",
+            "events": [
+                {
+                    "text_event": "pronunciada",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Aspect": "Perfective",
+                    "VForm": "Participle",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "fevereiro,",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text_time2": "24 dez 2020",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "text_time": "fevereiro",
+            "Time_Type": "Date"
+        },
+        {
+            "text_sent": "De acordo com o TAS, ficou provado que Sun Yang, de 28 anos, destruiu com um martelo amostras de sangue e urina e n\u00e3o respeitou as credenciais de um agente de controlo antidoping, num incidente ocorrido em setembro de 2018.",
+            "events": [
+                {
+                    "text_event": "ocorrido",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Aspect": "Perfective",
+                    "VForm": "Participle",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "fevereiro,",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "setembro de 2018 .",
+            "Time_Type": "Date"
+        }
+    ]
+}

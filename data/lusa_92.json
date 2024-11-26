@@ -1,0 +1,98 @@
+{
+    "sentences": [
+        {
+            "text_sent": "Lisboa, 16 nov 2020   SO (FCC)",
+            "events": [],
+            "times": [
+                {
+                    "text_time2": "na madrugada de hoje",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Time"
+                }
+            ],
+            "text_time": "16 nov 2020",
+            "TemporalFunction": "Publication_Time"
+        },
+        {
+            "text_sent": "Uma mulher gr\u00e1vida e o pai foram encontrados mortos no s\u00e1bado, numa habita\u00e7\u00e3o em Santa Cruz, no concelho de Torres Vedras, distrito de Lisboa.",
+            "events": [
+                {
+                    "text_event": "encontrados",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na madrugada de hoje",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Time"
+                },
+                {
+                    "text_time2": "pelas 11:30.",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Time"
+                }
+            ],
+            "text_time": "no s\u00e1bado ,",
+            "Time_Type": "Date"
+        },
+        {
+            "text_sent": "As autoridades foram alertadas para o eventual crime pelas 11:30.",
+            "events": [
+                {
+                    "text_event": "eventual crime",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos",
+                    "Modality": "Poder"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "no s\u00e1bado,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "pelas 11:30 .",
+            "Time_Type": "Time"
+        },
+        {
+            "text_sent": "O homem suspeito de matar a irm\u00e3, gr\u00e1vida, e o pai, em Torres Vedras, no fim de semana, foi detido na madrugada de hoje na Amadora, disse \u00e0 ag\u00eancia Lusa fonte da PSP.",
+            "events": [
+                {
+                    "text_event": "detido",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "16 nov 2020",
+                    "rel_type": "TLINK_isIncluded",
+                    "TemporalFunction": "Publication_Time"
+                },
+                {
+                    "text_time2": "no s\u00e1bado,",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "na madrugada de hoje",
+            "Time_Type": "Time"
+        }
+    ]
+}

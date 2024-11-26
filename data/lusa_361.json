@@ -1,0 +1,130 @@
+{
+    "sentences": [
+        {
+            "text_sent": "Braga, 13 nov 2020",
+            "events": [],
+            "times": [
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "13 nov 2020",
+            "Time_Type": "Date",
+            "TemporalFunction": "Publication_Time"
+        },
+        {
+            "text_sent": "Os dois homens foram detidos na quinta-feira, em Braga, no \u00e2mbito de uma investiga\u00e7\u00e3o que decorria h\u00e1 dois meses.",
+            "events": [
+                {
+                    "text_event": "detidos",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text_time2": "h\u00e1 dois meses.",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Duration"
+                }
+            ],
+            "text_time": "na quinta - feira ,",
+            "Time_Type": "Date"
+        },
+        {
+            "text_sent": "Os dois homens foram detidos na quinta-feira, em Braga, no \u00e2mbito de uma investiga\u00e7\u00e3o que decorria h\u00e1 dois meses.",
+            "events": [
+                {
+                    "text_event": "decorria",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Process",
+                    "Pos": "Verb",
+                    "Tense": "Imperfect",
+                    "Aspect": "Imperfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "h\u00e1 dois meses .",
+            "Time_Type": "Duration"
+        },
+        {
+            "text_sent": "O Tribunal de Braga aplicou hoje pris\u00e3o preventiva aos dois homens detidos pela GNR pela alegada autoria de 16 furtos, 11 dos quais de m\u00e1quinas de venda de tabaco em estabelecimentos comerciais, anunciou hoje aquela for\u00e7a.",
+            "events": [
+                {
+                    "text_event": "aplicou",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text_time2": "13 nov 2020",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "text_time": "hoje",
+            "Time_Type": "Date"
+        },
+        {
+            "text_sent": "O Tribunal de Braga aplicou hoje pris\u00e3o preventiva aos dois homens detidos pela GNR pela alegada autoria de 16 furtos, 11 dos quais de m\u00e1quinas de venda de tabaco em estabelecimentos comerciais, anunciou hoje aquela for\u00e7a.",
+            "events": [
+                {
+                    "text_event": "anunciou",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira,",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "hoje",
+            "Time_Type": "Date"
+        }
+    ]
+}

@@ -1,0 +1,70 @@
+{
+    "sentences": [
+        {
+            "text_sent": "Jacarta, 26 nov 2020",
+            "events": [],
+            "times": [
+                {
+                    "text_time2": "na quarta-feira \u00e0 noite,",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Time"
+                }
+            ],
+            "text_time": "26 nov 2020",
+            "Time_Type": "Date",
+            "TemporalFunction": "Publication_Time"
+        },
+        {
+            "text_sent": "As autoridades indon\u00e9sias anunciaram, na quarta-feira \u00e0 noite, a deten\u00e7\u00e3o do Ministro dos Assuntos Mar\u00edtimos e das Pescas, Edhy Prabowo, por suspeita de corrup\u00e7\u00e3o.",
+            "events": [
+                {
+                    "text_event": "anunciaram,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quarta-feira,",
+                    "rel_type": "TLINK_includes",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text_time2": "26 nov 2020",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "text_time": "na quarta - feira \u00e0 noite ,",
+            "Time_Type": "Time"
+        },
+        {
+            "text_sent": "O ministro foi detido \u00e0 chegada ao Aeroporto Internacional de Jacarta na quarta-feira, ap\u00f3s uma visita de trabalho aos Estados Unidos.",
+            "events": [
+                {
+                    "text_event": "chegada",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quarta-feira \u00e0 noite,",
+                    "rel_type": "TLINK_includes",
+                    "Time_Type": "Time"
+                }
+            ],
+            "text_time": "na quarta - feira ,",
+            "Time_Type": "Date"
+        }
+    ]
+}

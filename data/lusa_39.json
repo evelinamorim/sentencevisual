@@ -1,0 +1,45 @@
+{
+    "sentences": [
+        {
+            "text_sent": "Cidade do M\u00e9xico, 29 dez 2020",
+            "events": [],
+            "times": [
+                {
+                    "text_time2": "na segunda-feira",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "None"
+                }
+            ],
+            "text_time": "29 dez 2020",
+            "Time_Type": "Date",
+            "TemporalFunction": "Publication_Time"
+        },
+        {
+            "text_sent": "Cerca de 10,3 milh\u00f5es de pessoas ficaram na segunda-feira \u00e0s escuras no M\u00e9xico devido a uma avaria na rede de eletricidade que atingiu v\u00e1rias zonas do pa\u00eds, incluindo a capital, indicaram as autoridades.",
+            "events": [
+                {
+                    "text_event": "\u00e0s escuras",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "State",
+                    "Event_Type": "State",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "29 dez 2020",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "text_time": "na segunda - feira",
+            "Time_Type": "Date",
+            "TemporalFunction": "None"
+        }
+    ]
+}

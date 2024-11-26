@@ -1,0 +1,126 @@
+{
+    "sentences": [
+        {
+            "text_sent": "Abidjan, 07 nov 2020",
+            "events": [],
+            "times": [
+                {
+                    "text_time2": "a noite de sexta-feira",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Time"
+                }
+            ],
+            "text_time": "07 nov 2020",
+            "TemporalFunction": "Publication_Time"
+        },
+        {
+            "text_sent": "O porta - voz da oposi\u00e7\u00e3o da Costa do Marfim, Pascal Affi NGuessan, foi preso durante a noite de sexta-feira para hoje a caminho do seu reduto de Bongouanou (no centro - leste), informou um quadro do seu partido.",
+            "events": [
+                {
+                    "text_event": "preso",
+                    "rel_type": "TLINK_begunBy",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Adjective",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "07 nov 2020",
+                    "rel_type": "TLINK_before",
+                    "TemporalFunction": "Publication_Time"
+                },
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_after",
+                    "Time_Type": "Duration"
+                }
+            ],
+            "text_time": "a noite de sexta - feira",
+            "Time_Type": "Time"
+        },
+        {
+            "text_sent": "O porta - voz da oposi\u00e7\u00e3o da Costa do Marfim, Pascal Affi NGuessan, foi preso durante a noite de sexta-feira para hoje a caminho do seu reduto de Bongouanou (no centro - leste), informou um quadro do seu partido.",
+            "events": [
+                {
+                    "text_event": "preso",
+                    "rel_type": "TLINK_endedBy",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Adjective",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text_time2": "a noite de sexta-feira",
+                    "rel_type": "TLINK_after",
+                    "Time_Type": "Time"
+                }
+            ],
+            "text_time": "hoje",
+            "Time_Type": "Duration"
+        },
+        {
+            "text_sent": "O procurador de Abidjan, Richard Adou, anunciou na quinta-feira que Affi N'Guessan e o ex - ministro Abdallah Mabri Toikeusse estavam \u201c em fuga e eram ativamente procurados \u201d depois de terem apelado \u00e0 desobedi\u00eancia e \u00e0 cria\u00e7\u00e3o de um Conselho Nacional de Transi\u00e7\u00e3o por oposi\u00e7\u00e3o \u00e0s elei\u00e7\u00f5es presidenciais de 31 de outubro que deram a vit\u00f3ria a Alassane Ouattara.",
+            "events": [
+                {
+                    "text_event": "anunciou",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "31 de outubro",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Duration"
+                }
+            ],
+            "text_time": "na quinta - feira",
+            "Time_Type": "Date"
+        },
+        {
+            "text_sent": "O procurador de Abidjan, Richard Adou, anunciou na quinta-feira que Affi N'Guessan e o ex - ministro Abdallah Mabri Toikeusse estavam \u201c em fuga e eram ativamente procurados \u201d depois de terem apelado \u00e0 desobedi\u00eancia e \u00e0 cria\u00e7\u00e3o de um Conselho Nacional de Transi\u00e7\u00e3o por oposi\u00e7\u00e3o \u00e0s elei\u00e7\u00f5es presidenciais de 31 de outubro que deram a vit\u00f3ria a Alassane Ouattara.",
+            "events": [
+                {
+                    "text_event": "elei\u00e7\u00f5es presidenciais",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "na quinta-feira",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "31 de outubro",
+            "Time_Type": "Date"
+        }
+    ]
+}

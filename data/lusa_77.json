@@ -1,0 +1,72 @@
+{
+    "sentences": [
+        {
+            "text_sent": "Porto, 15 dez 2020",
+            "events": [],
+            "times": [
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "15 dez 2020",
+            "Time_Type": "Date",
+            "TemporalFunction": "Publication_Time"
+        },
+        {
+            "text_sent": "Um homem de 54 anos foi detido pela Pol\u00edcia Judici\u00e1ria (PJ) por suspeita de ter tentado matar, a tiro, um homem na sequ\u00eancia de um furto, em Paredes, no distrito do Porto, informou hoje aquela pol\u00edcia.",
+            "events": [
+                {
+                    "text_event": "informou",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "15 dez 2020",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                },
+                {
+                    "text_time2": "no passado dia 14 de novembro de 2020,",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "hoje",
+            "Time_Type": "Date"
+        },
+        {
+            "text_sent": "O suspeito foi detido \u201c pela pr\u00e1tica de um crime de homic\u00eddio na forma tentada ocorrido no passado dia 14 de novembro de 2020, em Vilela, Paredes \u201d, refere a PJ.",
+            "events": [
+                {
+                    "text_event": "ocorrido",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "VForm": "Participle"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "no passado dia 14 de novembro de 2020 ,",
+            "Time_Type": "Date"
+        }
+    ]
+}

@@ -1,0 +1,128 @@
+{
+    "sentences": [
+        {
+            "text_sent": "Luanda, 02 dez 2020",
+            "events": [],
+            "times": [
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "02 dez 2020",
+            "Time_Type": "Date",
+            "TemporalFunction": "Publication_Time"
+        },
+        {
+            "text_sent": "Um homem de 18 anos foi detido pelas autoridades angolanas por violar uma sobrinha, de quatro anos, no Lubango, capital da prov\u00edncia angolana da Hu\u00edla, anunciou hoje o Servi\u00e7o de Investiga\u00e7\u00e3o Criminal (SIC).",
+            "events": [
+                {
+                    "text_event": "anunciou",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "02 dez 2020",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                },
+                {
+                    "text_time2": "no fim - de - semana.",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Duration"
+                }
+            ],
+            "text_time": "hoje",
+            "Time_Type": "Date"
+        },
+        {
+            "text_sent": "O abuso sexual de menores em Angola tem crescido significativamente nos \u00faltimos anos, de acordo com um estudo lan\u00e7ado em agosto em Luanda, por uma psic\u00f3loga angolana, concluindo que a maioria das agress\u00f5es acontecem em ambiente familiar.",
+            "events": [
+                {
+                    "text_event": "crescido",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "State",
+                    "Event_Type": "State",
+                    "Pos": "Verb",
+                    "Tense": "Present",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "no fim - de - semana.",
+                    "rel_type": "TLINK_includes",
+                    "Time_Type": "Duration"
+                },
+                {
+                    "text_time2": "agosto",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "nos \u00faltimos anos ,",
+            "Time_Type": "Duration"
+        },
+        {
+            "text_sent": "O abuso sexual de menores em Angola tem crescido significativamente nos \u00faltimos anos, de acordo com um estudo lan\u00e7ado em agosto em Luanda, por uma psic\u00f3loga angolana, concluindo que a maioria das agress\u00f5es acontecem em ambiente familiar.",
+            "events": [
+                {
+                    "text_event": "lan\u00e7ado",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Occurrence",
+                    "Pos": "Verb",
+                    "Aspect": "Perfective",
+                    "VForm": "Participle",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "nos \u00faltimos anos,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Duration"
+                }
+            ],
+            "text_time": "agosto",
+            "Time_Type": "Date"
+        },
+        {
+            "text_sent": "Segundo o porta - voz do SIC local, Sebasti\u00e3o Vika, o acusado ter\u00e1 cometido o crime e fugiu, tendo sido localizado durante uma opera\u00e7\u00e3o realizada no fim - de - semana.",
+            "events": [
+                {
+                    "text_event": "realizada",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Aspect": "Perfective",
+                    "VForm": "Participle",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text_time2": "nos \u00faltimos anos,",
+                    "rel_type": "TLINK_includes",
+                    "Time_Type": "Duration"
+                }
+            ],
+            "text_time": "no fim - de - semana .",
+            "Time_Type": "Duration"
+        }
+    ]
+}

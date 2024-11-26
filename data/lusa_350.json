@@ -1,0 +1,72 @@
+{
+    "sentences": [
+        {
+            "text_sent": "Porto, 15 out 2020",
+            "events": [],
+            "times": [
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "15 out 2020",
+            "Time_Type": "Date",
+            "TemporalFunction": "Publication_Time"
+        },
+        {
+            "text_sent": "Em comunicado, o Comando Metropolitano do Porto da PSP esclarece que a deten\u00e7\u00e3o ocorreu na quarta-feira, no decurso de uma a\u00e7\u00e3o policial no \u00e2mbito do combate ao crime de tr\u00e1fico de estupefacientes.",
+            "events": [
+                {
+                    "text_event": "ocorreu",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "na quarta - feira ,",
+            "Time_Type": "Date"
+        },
+        {
+            "text_sent": "Um homem de 20 anos suspeito de tr\u00e1fico de droga foi detido pela PSP no bairro da Pasteleira Nova, no Porto, tendo tamb\u00e9m sido apreendida hero\u00edna, coca\u00edna e uma arma de fogo, informou hoje aquela for\u00e7a policial.",
+            "events": [
+                {
+                    "text_event": "informou",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "15 out 2020",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                },
+                {
+                    "text_time2": "na quarta-feira,",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "hoje",
+            "Time_Type": "Date"
+        }
+    ]
+}

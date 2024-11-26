@@ -1,0 +1,101 @@
+{
+    "sentences": [
+        {
+            "text_sent": "Porto, 16 nov 2020",
+            "events": [],
+            "times": [
+                {
+                    "text_time2": "no domingo \u00e0 noite,",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Time"
+                }
+            ],
+            "text_time": "16 nov 2020",
+            "Time_Type": "Date",
+            "TemporalFunction": "Publication_Time"
+        },
+        {
+            "text_sent": "Um homem, com cerca de 30 anos, morreu no domingo \u00e0 noite, em Cete, no concelho de Paredes, ap\u00f3s ter sido atacado com uma arma branca, disse \u00e0 Lusa fonte da GNR.",
+            "events": [
+                {
+                    "text_event": "morreu",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "pelas 22:00 de domingo,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Time"
+                },
+                {
+                    "text_time2": "16 nov 2020",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "text_time": "no domingo \u00e0 noite ,",
+            "Time_Type": "Time"
+        },
+        {
+            "text_sent": "Segundo a mesma fonte, o suspeito do \" hom\u00edcidio \", que aconteceu pelas 22:00 de domingo, estava pelas 00:30 de hoje \" em fuga \", estando a GNR \" a desenvolver dilig\u00eancias para encontrar o suspeito \", que \u00e9 tamb\u00e9m um homem com cerca de 30 anos.",
+            "events": [
+                {
+                    "text_event": "aconteceu",
+                    "rel_type": "TLINK_simultaneous",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "no domingo \u00e0 noite,",
+                    "rel_type": "TLINK_isIncluded",
+                    "Time_Type": "Time"
+                },
+                {
+                    "text_time2": "pelas 00:30 de hoje",
+                    "rel_type": "TLINK_after",
+                    "Time_Type": "Time"
+                }
+            ],
+            "text_time": "pelas 22:00 de domingo ,",
+            "Time_Type": "Time"
+        },
+        {
+            "text_sent": "Segundo a mesma fonte, o suspeito do \" hom\u00edcidio \", que aconteceu pelas 22:00 de domingo, estava pelas 00:30 de hoje \" em fuga \", estando a GNR \" a desenvolver dilig\u00eancias para encontrar o suspeito \", que \u00e9 tamb\u00e9m um homem com cerca de 30 anos.",
+            "events": [
+                {
+                    "text_event": "em fuga \"",
+                    "rel_type": "TLINK_simultaneous",
+                    "Polarity": "Pos",
+                    "Pos": "Verb",
+                    "Aspect": "Imperfective",
+                    "Class": "State",
+                    "Event_Type": "State",
+                    "Tense": "Imperfect"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "pelas 22:00 de domingo,",
+                    "rel_type": "TLINK_after",
+                    "Time_Type": "Time"
+                }
+            ],
+            "text_time": "pelas 00:30 de hoje",
+            "Time_Type": "Time"
+        }
+    ]
+}

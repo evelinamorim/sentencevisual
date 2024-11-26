@@ -1,0 +1,12 @@
+{
+    "sentences": [
+        {
+            "text_sent": "Covilh\u00e3, Castelo Branco, 09 out 2020",
+            "events": [],
+            "times": [],
+            "text_time": "09 out 2020",
+            "Time_Type": "Date",
+            "TemporalFunction": "Publication_Time"
+        }
+    ]
+}

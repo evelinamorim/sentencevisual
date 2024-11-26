@@ -1,0 +1,72 @@
+{
+    "sentences": [
+        {
+            "text_sent": "\u00cdlhavo, Aveiro, 05 jan 2021",
+            "events": [],
+            "times": [
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "05 jan 2021",
+            "Time_Type": "Date",
+            "TemporalFunction": "Publication_Time"
+        },
+        {
+            "text_sent": "A GNR deteve um homem de 34 anos suspeito de v\u00e1rios furtos em resid\u00eancias no concelho de \u00cdlhavo, distrito de Aveiro, \u00a0 informou hoje aquela for\u00e7a militar.",
+            "events": [
+                {
+                    "text_event": "informou",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "05 jan 2021",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                },
+                {
+                    "text_time2": "na segunda-feira,",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "hoje",
+            "Time_Type": "Date"
+        },
+        {
+            "text_sent": "Em comunicado, a GNR esclarece que o indiv\u00edduo foi detido na segunda-feira, quando se encontrava a assaltar uma casa na Gafanha da Nazar\u00e9, naquele concelho.",
+            "events": [
+                {
+                    "text_event": "detido",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "na segunda - feira ,",
+            "Time_Type": "Date"
+        }
+    ]
+}

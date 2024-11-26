@@ -1,0 +1,72 @@
+{
+    "sentences": [
+        {
+            "text_sent": "Pa\u00e7os de Ferreira, Porto, 09 out 2020",
+            "events": [],
+            "times": [
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "09 out 2020",
+            "Time_Type": "Date",
+            "TemporalFunction": "Publication_Time"
+        },
+        {
+            "text_sent": "Um homem de 24 anos com antecedentes criminais foi constitu\u00eddo arguido por suspeita de ser o autor de um atropelamento com fuga em Meixomil, no concelho de Pa\u00e7os de Ferreira, revelou hoje a Guarda.",
+            "events": [
+                {
+                    "text_event": "revelou",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "09 out 2020",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                },
+                {
+                    "text_time2": "na quinta-feira",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "hoje",
+            "Time_Type": "Date"
+        },
+        {
+            "text_sent": "Numa a\u00e7\u00e3o levada a cabo na quinta-feira pelo Posto Territorial de Pa\u00e7os de Ferreira, a GNR identificou um homem de 24 anos pelo crime de omiss\u00e3o de aux\u00edlio naquele concelho do distrito do Porto, indica aquela for\u00e7a policial em comunicado.",
+            "events": [
+                {
+                    "text_event": "levada",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Aspect": "Perfective",
+                    "VForm": "Participle",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "na quinta - feira",
+            "Time_Type": "Date"
+        }
+    ]
+}

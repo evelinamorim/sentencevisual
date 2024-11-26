@@ -1,0 +1,100 @@
+{
+    "sentences": [
+        {
+            "text_sent": "Vila Flor, Bragan\u00e7a, 04 jan 2021",
+            "events": [],
+            "times": [
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "04 jan 2021",
+            "Time_Type": "Date",
+            "TemporalFunction": "Publication_Time"
+        },
+        {
+            "text_sent": "O homem foi detido e presente hoje ao Tribunal Judicial de Vila Flor, que lhe aplicou a medida de coa\u00e7\u00e3o mais grave, a pris\u00e3o preventiva, por viola\u00e7\u00e3o de imposi\u00e7\u00f5es, proibi\u00e7\u00f5es ou interdi\u00e7\u00f5es.",
+            "events": [
+                {
+                    "text_event": "presente",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Adjective",
+                    "Polarity": "Pos",
+                    "Tense": "Past"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "no domingo,",
+                    "rel_type": "TLINK_after",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "hoje",
+            "Time_Type": "Date"
+        },
+        {
+            "text_sent": "Um suspeito de viol\u00eancia dom\u00e9stica foi posto em pris\u00e3o preventiva, em Vila Flor, no distrito de Bragan\u00e7a, por ter cortado a pulseira eletr\u00f3nica aplicada para o afastar da v\u00edtima, informou hoje a GNR.",
+            "events": [
+                {
+                    "text_event": "informou",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "04 jan 2021",
+                    "rel_type": "TLINK_identity",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                },
+                {
+                    "text_time2": "no domingo,",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "hoje",
+            "Time_Type": "Date"
+        },
+        {
+            "text_sent": "O alerta foi dado \u00e0 GNR, no domingo, pela Dire\u00e7\u00e3o Geral de Reinser\u00e7\u00e3o e Servi\u00e7os Prisionais com um pedido para \u201c averiguar o funcionamento de uma pulseira eletr\u00f3nica para garantir a dist\u00e2ncia de, pelo menos, 300 metros da v\u00edtima \u201d.",
+            "events": [
+                {
+                    "text_event": "dado",
+                    "rel_type": "TLINK_isIncluded",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos"
+                }
+            ],
+            "times": [
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_after",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text_time2": "hoje",
+                    "rel_type": "TLINK_before",
+                    "Time_Type": "Date"
+                }
+            ],
+            "text_time": "no domingo ,",
+            "Time_Type": "Date"
+        }
+    ]
+}
