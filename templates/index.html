@@ -113,7 +113,7 @@
 		    console.log('JSON data fetched:', data); // Debugging log
 		    d3.select("#visualization").html("");   // Clear existing visualization
 
-		    //treeData = convertToTree(data);   // Convert JSON to tree
+		    treeData = convertToTree(data);   // Convert JSON to tree
 
 	            		
 		    console.log('Tree data:', treeData);    // Debugging log
@@ -154,7 +154,7 @@
             //const treeData = convertToTree(data);
     }
  
-    function renderD3Tree(){
+    function renderD3Tree(treeData){
 	     if (!treeData) {
 	       console.error('Tree data is not defined');
 	       return;
