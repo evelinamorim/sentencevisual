@@ -106,10 +106,9 @@ function renderSentences(sentences) {
                 .text(event.text)
                 .attr("class", "blue-box")
                 .on("mouseover", function(event) {
-                    const mouseEvent = d3.event;
                     tooltip
-                        .style("left", `${mouseEvent.pageX + 10}px`)
-                        .style("top", `${mouseEvent.pageY + 10}px`)
+                        .style("left", `${event.pageX + 10}px`)
+                        .style("top", `${event.pageY + 10}px`)
                         .style("display", "block")
                         .html(Object.entries(event).map(([key, value]) => `${key}: ${value}`).join("<br>"));
                 })
