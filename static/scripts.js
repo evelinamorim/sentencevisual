@@ -92,15 +92,32 @@ function renderSentences(sentences) {
 
         // Display sentence text
         const sentenceText = sentenceContainer.append("div");
-        console.log("sentence: ", sentence.text_sent)
-        sentence.text_sent.split(" ").forEach(word => {
+        /*sentence.text_sent.split(" ").forEach(word => {
             if (sentence.text_time.includes(word)) {
                 sentenceText.append("span").text(word).attr("class", "yellow-box");
-                console.log("word:",word)
             } else {
                 sentenceText.append("span").text(word + " ");
             }
-        });
+        });*/
+
+        let textSent = sentence.text_sent;
+        let textTime = sentence.text_time;
+        let index = textSent.indexOf(textTime);
+
+        if (index !== -1) {
+            // If found, split the sentence into three parts: before the match, the match, and after the match
+            let beforeMatch = textSent.substring(0, index);
+            let match = textSent.substring(index, index + textTime.length);
+            let afterMatch = textSent.substring(index + textTime.length);
+
+            // Append the parts to the sentenceText element, highlighting the match
+            sentenceText.append("span").text(beforeMatch);  // Before the match
+            sentenceText.append("span").text(match).attr("class", "yellow-box");  // Highlighted match
+            sentenceText.append("span").text(afterMatch);  // After the match
+        } else {
+            // If no match is found, just append the whole sentence
+            sentenceText.append("span").text(textSent);
+        }
 
         // Display events
         sentence.events.forEach(event => {
