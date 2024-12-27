@@ -92,13 +92,6 @@ function renderSentences(sentences) {
 
         // Display sentence text
         const sentenceText = sentenceContainer.append("div");
-        /*sentence.text_sent.split(" ").forEach(word => {
-            if (sentence.text_time.includes(word)) {
-                sentenceText.append("span").text(word).attr("class", "yellow-box");
-            } else {
-                sentenceText.append("span").text(word + " ");
-            }
-        });*/
 
         let textSent = sentence.text_sent;
         let textTime = sentence.text_time;
@@ -120,7 +113,7 @@ function renderSentences(sentences) {
         }
 
         // Display events
-        sentence.events.forEach(event => {
+        /*sentence.events.forEach(event => {
             sentenceText.append("span")
                 .text(event.text)
                 .attr("class", "blue-box")
@@ -134,6 +127,43 @@ function renderSentences(sentences) {
                 .on("mouseout", function() {
                     tooltip.style("display", "none");
                 });
+        });*/
+
+        // Loop through each event
+        sentence.events.forEach(event => {
+            // Check if the event text is present in sentence.text
+            let index = sentence.text.indexOf(event.text);
+
+            if (index !== -1) {
+                // Split sentence into three parts: before event, event text, after event
+                let beforeMatch = sentence.text.substring(0, index);
+                let match = sentence.text.substring(index, index + event.text.length);
+                let afterMatch = sentence.text.substring(index + event.text.length);
+
+                // Append before part
+                sentenceText.append("span").text(beforeMatch);
+
+                // Highlight the event text in blue and append event attributes on hover
+                sentenceText.append("span")
+                    .text(match)
+                    .attr("class", "blue-box")
+                    .on("mouseover", function(e) {
+                        tooltip
+                            .style("left", `${e.pageX + 10}px`)
+                            .style("top", `${e.pageY + 10}px`)
+                            .style("display", "block")
+                            .html(Object.entries(event).map(([key, value]) => `${key}: ${value}`).join("<br>"));
+                    })
+                    .on("mouseout", function() {
+                        tooltip.style("display", "none");
+                    });
+
+                // Append after part
+                sentenceText.append("span").text(afterMatch);
+            } else {
+                // If event text isn't found in the sentence, just append the whole sentence
+                sentenceText.append("span").text(sentence.text);
+            }
         });
 
         // Display time expressions as cards
