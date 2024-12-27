@@ -132,13 +132,13 @@ function renderSentences(sentences) {
         // Loop through each event
         sentence.events.forEach(event => {
             // Check if the event text is present in sentence.text
-            let index = sentence.text.indexOf(event.text);
+            let index = textSent.indexOf(event.text);
 
             if (index !== -1) {
                 // Split sentence into three parts: before event, event text, after event
-                let beforeMatch = sentence.text.substring(0, index);
-                let match = sentence.text.substring(index, index + event.text.length);
-                let afterMatch = sentence.text.substring(index + event.text.length);
+                let beforeMatch = textSent.substring(0, index);
+                let match = textSent.substring(index, index + event.text.length);
+                let afterMatch = textSent.substring(index + event.text.length);
 
                 // Append before part
                 sentenceText.append("span").text(beforeMatch);
