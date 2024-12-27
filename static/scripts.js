@@ -113,32 +113,16 @@ function renderSentences(sentences) {
         }
 
         // Display events
-        /*sentence.events.forEach(event => {
-            sentenceText.append("span")
-                .text(event.text)
-                .attr("class", "blue-box")
-                .on("mouseover", function(event) {
-                    tooltip
-                        .style("left", `${event.pageX + 10}px`)
-                        .style("top", `${event.pageY + 10}px`)
-                        .style("display", "block")
-                        .html(Object.entries(event).map(([key, value]) => `${key}: ${value}`).join("<br>"));
-                })
-                .on("mouseout", function() {
-                    tooltip.style("display", "none");
-                });
-        });*/
-
         // Loop through each event
         sentence.events.forEach(event => {
             // Check if the event text is present in sentence.text
-            let index = textSent.indexOf(event.text);
+            let index = textSent.indexOf(event.text_event);
 
             if (index !== -1) {
                 // Split sentence into three parts: before event, event text, after event
                 let beforeMatch = textSent.substring(0, index);
-                let match = textSent.substring(index, index + event.text.length);
-                let afterMatch = textSent.substring(index + event.text.length);
+                let match = textSent.substring(index, index + event.text_event.length);
+                let afterMatch = textSent.substring(index + event.text_event.length);
 
                 // Append before part
                 sentenceText.append("span").text(beforeMatch);
