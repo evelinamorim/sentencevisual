@@ -92,9 +92,11 @@ function renderSentences(sentences) {
 
         // Display sentence text
         const sentenceText = sentenceContainer.append("div");
+        console.log("sentence: ", sentence.text_sent)
         sentence.text_sent.split(" ").forEach(word => {
             if (sentence.text_time.includes(word)) {
                 sentenceText.append("span").text(word).attr("class", "yellow-box");
+                console.log("word:",word)
             } else {
                 sentenceText.append("span").text(word + " ");
             }
