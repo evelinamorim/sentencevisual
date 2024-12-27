@@ -43,10 +43,9 @@ function visualizeJSON(fileName) {
             console.log('JSON data fetched:', data); // Debugging log
             d3.select("#visualization").html("");   // Clear existing visualization
 
-            // treeData = convertToTree(data);   // Convert JSON to tree
-            // console.log('Tree data:', treeData);    // Debugging log
+            //treeData = convertToTree(data);   // Convert JSON to tree
+            //console.log('Tree data:', treeData);    // Debugging log
             // renderD3Tree(treeData);                  // Render with D3.js
-            const dataJson = JSON.parse(json.data);
             renderSentences(data.sentences);
 
         })
