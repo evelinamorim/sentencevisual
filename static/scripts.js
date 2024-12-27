@@ -1,3 +1,5 @@
+const tooltip = d3.select("#tooltip");
+
 function populateFileDropdown() {
     fetch('/get-files')
         .then(response => response.json())
@@ -41,12 +43,12 @@ function visualizeJSON(fileName) {
             console.log('JSON data fetched:', data); // Debugging log
             d3.select("#visualization").html("");   // Clear existing visualization
 
-            treeData = convertToTree(data);   // Convert JSON to tree
+            // treeData = convertToTree(data);   // Convert JSON to tree
+            // console.log('Tree data:', treeData);    // Debugging log
+            // renderD3Tree(treeData);                  // Render with D3.js
+            const dataJson = JSON.parse(json.data);
+            renderSentences(data.sentences);
 
-
-            console.log('Tree data:', treeData);    // Debugging log
-
-            renderD3Tree(treeData);                  // Render with D3.js
         })
         .catch(error => console.error('Error fetching JSON data:', error));
 
@@ -80,6 +82,49 @@ function visualizeJSON(fileName) {
     }
 
     //const treeData = convertToTree(data);
+}
+
+// Render sentences with events and time expressions
+function renderSentences(sentences) {
+    const container = d3.select("#visualization").html("");
+
+    sentences.forEach(sentence => {
+        const sentenceContainer = container.append("div").style("margin-bottom", "20px");
+
+        // Display sentence text
+        const sentenceText = sentenceContainer.append("div");
+        sentence.text_sent.split(" ").forEach(word => {
+            if (sentence.text_time.includes(word)) {
+                sentenceText.append("span").text(word).attr("class", "yellow-box");
+            } else {
+                sentenceText.append("span").text(word + " ");
+            }
+        });
+
+        // Display events
+        sentence.events.forEach(event => {
+            sentenceText.append("span")
+                .text(event.text)
+                .attr("class", "blue-box")
+                .on("mouseover", function(event) {
+                    const mouseEvent = d3.event;
+                    tooltip
+                        .style("left", `${mouseEvent.pageX + 10}px`)
+                        .style("top", `${mouseEvent.pageY + 10}px`)
+                        .style("display", "block")
+                        .html(Object.entries(event).map(([key, value]) => `${key}: ${value}`).join("<br>"));
+                })
+                .on("mouseout", function() {
+                    tooltip.style("display", "none");
+                });
+        });
+
+        // Display time expressions as cards
+        const timeContainer = sentenceContainer.append("div");
+        sentence.times.forEach(time => {
+            timeContainer.append("div").attr("class", "card").text(time.text);
+        });
+    });
 }
 
 function renderD3Tree(treeData){

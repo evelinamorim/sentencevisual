@@ -47,3 +47,31 @@ body {
     color: white;
     font-size: 12px;
 }
+
+.yellow-box {
+    background-color: yellow;
+    display: inline-block;
+    padding: 5px;
+    margin: 2px;
+}
+
+.blue-box {
+    background-color: lightblue;
+    display: inline-block;
+    padding: 5px;
+    margin: 2px;
+    cursor: pointer;
+}
+
+.card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px;
+}
+
+.tooltip {
+    position: absolute;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 5px;
+    display: none; }
