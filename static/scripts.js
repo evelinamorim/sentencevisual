@@ -89,72 +89,87 @@ function renderSentences(sentences) {
 
     sentences.forEach(sentence => {
         const sentenceContainer = container.append("div").style("margin-bottom", "20px");
-
-        // Display sentence text
         const sentenceText = sentenceContainer.append("div");
-
         let textSent = sentence.text_sent;
-        let textTime = sentence.text_time;
-        let index = textSent.indexOf(textTime);
+        let fragments = [];
 
-        if (index !== -1) {
-            // If found, split the sentence into three parts: before the match, the match, and after the match
-            let beforeMatch = textSent.substring(0, index);
-            let match = textSent.substring(index, index + textTime.length);
-            let afterMatch = textSent.substring(index + textTime.length);
+       // First, collect all highlights (both time and events)
+        let highlights = [
+            { text: sentence.text_time, type: 'yellow-box' },
+            ...sentence.events.map(event => ({
+                text: event.text_event,
+                type: 'blue-box',
+                event: event
+            }))
+        ];
 
-            // Append the parts to the sentenceText element, highlighting the match
-            sentenceText.append("span").text(beforeMatch);  // Before the match
-            sentenceText.append("span").text(match).attr("class", "yellow-box");  // Highlighted match
-            sentenceText.append("span").text(afterMatch);  // After the match
-        } else {
-            // If no match is found, just append the whole sentence
-            sentenceText.append("span").text(textSent);
+       // Sort highlights by their position in the text
+        highlights.forEach(highlight => {
+            highlight.index = textSent.indexOf(highlight.text);
+        });
+        highlights = highlights.filter(h => h.index !== -1)
+            .sort((a, b) => a.index - b.index);
+
+       // Build fragments
+        let lastIndex = 0;
+        highlights.forEach(highlight => {
+            // Add text before highlight
+            if (highlight.index > lastIndex) {
+                fragments.push({
+                    text: textSent.substring(lastIndex, highlight.index),
+                    type: 'normal'
+                });
+            }
+
+            // Add highlighted text
+            fragments.push({
+                text: highlight.text,
+                type: highlight.type,
+                event: highlight.event
+            });
+
+            lastIndex = highlight.index + highlight.text.length;
+        });
+
+       // Add remaining text
+        if (lastIndex < textSent.length) {
+            fragments.push({
+                text: textSent.substring(lastIndex),
+                type: 'normal'
+            });
         }
 
-        // Display events
-        // Loop through each event
-        sentence.events.forEach(event => {
-            // Check if the event text is present in sentence.text
-            let index = textSent.indexOf(event.text_event);
+        // Render fragments
+        fragments.forEach(fragment => {
+            let span = sentenceText.append("span")
+                .text(fragment.text);
 
-            if (index !== -1) {
-                // Split sentence into three parts: before event, event text, after event
-                let beforeMatch = textSent.substring(0, index);
-                let match = textSent.substring(index, index + event.text_event.length);
-                let afterMatch = textSent.substring(index + event.text_event.length);
+            if (fragment.type !== 'normal') {
+                span.attr("class", fragment.type);
 
-                // Append before part
-                sentenceText.append("span").text(beforeMatch);
-
-                // Highlight the event text in blue and append event attributes on hover
-                sentenceText.append("span")
-                    .text(match)
-                    .attr("class", "blue-box")
-                    .on("mouseover", function(e) {
+                if (fragment.event) {
+                    span.on("mouseover", function(e) {
                         tooltip
                             .style("left", `${e.pageX + 10}px`)
                             .style("top", `${e.pageY + 10}px`)
                             .style("display", "block")
-                            .html(Object.entries(event).map(([key, value]) => `${key}: ${value}`).join("<br>"));
+                            .html(Object.entries(fragment.event)
+                                .map(([key, value]) => `${key}: ${value}`)
+                                .join("<br>")
+                            );
                     })
-                    .on("mouseout", function() {
-                        tooltip.style("display", "none");
-                    });
-
-                // Append after part
-                sentenceText.append("span").text(afterMatch);
-            } else {
-                // If event text isn't found in the sentence, just append the whole sentence
-                sentenceText.append("span").text(sentence.text);
+                        .on("mouseout", function() {
+                            tooltip.style("display", "none");
+                        });
+                }
             }
         });
 
         // Display time expressions as cards
-        const timeContainer = sentenceContainer.append("div");
-        sentence.times.forEach(time => {
-            timeContainer.append("div").attr("class", "card").text(time.text);
-        });
+        //const timeContainer = sentenceContainer.append("div");
+        //sentence.times.forEach(time => {
+         //   timeContainer.append("div").attr("class", "card").text(time.text);
+        //});
     });
 }
 

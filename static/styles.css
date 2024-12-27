@@ -57,7 +57,8 @@ body {
 }
 
 .blue-box {
-    background-color: lightblue;
+    background-color: blue;
+    color: #1e1e1e;
     display: inline-block;
     padding: 5px;
     margin: 2px;
