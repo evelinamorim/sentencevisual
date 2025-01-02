@@ -159,7 +159,9 @@ function renderSentences(sentences) {
                                 .join("<br>")
                             );
                     })
-                        .on("mouseout", function() {
+                        .on("mouseout", function(e) {
+                            console.log("Mouseover on:", fragment.text);
+                            console.log("Mouse position:", event.pageX, event.pageY);
                             tooltip.style("display", "none");
                         });
                 }
