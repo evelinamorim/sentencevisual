@@ -37,16 +37,6 @@ body {
     stroke: #555;
     stroke-width: 1.5px;
 }
-/* Add tooltip style */
-.tooltip {
-    position: absolute;
-    padding: 8px;
-    background: rgba(0, 0, 0, 0.8);
-    border-radius: 4px;
-    pointer-events: none;
-    color: white;
-    font-size: 12px;
-}
 
 .yellow-box {
     background-color: yellow;
@@ -73,7 +63,13 @@ body {
 
 .tooltip {
     position: absolute;
-    background: #fff;
-    border: 1px solid #ccc;
-    padding: 5px;
-    display: none; }
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.8); /* or change to #fff depending on your design */
+    border-radius: 4px;
+    pointer-events: none;
+    color: white;
+    font-size: 12px;
+    display: none; /* Ensure the tooltip is hidden initially */
+    z-index: 9999; /* Ensure it's displayed above other elements */
+    border: 1px solid #ccc; /* Add border if needed */
+}
