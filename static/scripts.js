@@ -148,7 +148,6 @@ function renderSentences(sentences) {
                 span.attr("class", fragment.type);
 
                 if (fragment.event) {
-                    console.log("Attributes for hovergin:",fragment.event);
                     span.on("mouseover", function(e) {
                         tooltip
                             .style("left", `${e.pageX + 10}px`)
@@ -160,8 +159,6 @@ function renderSentences(sentences) {
                             );
                     })
                         .on("mouseout", function(e) {
-                            console.log("Mouseover on:", fragment.text);
-                            console.log("Mouse position:", event.pageX, event.pageY);
                             tooltip.style("display", "none");
                         });
                 }
