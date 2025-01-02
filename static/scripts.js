@@ -148,6 +148,7 @@ function renderSentences(sentences) {
                 span.attr("class", fragment.type);
 
                 if (fragment.event) {
+                    console.log(fragment.event);
                     span.on("mouseover", function(e) {
                         tooltip
                             .style("left", `${e.pageX + 10}px`)
