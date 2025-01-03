@@ -172,7 +172,20 @@ function renderSentences(sentences) {
             .style("gap","10px");
         sentence.times.forEach(time => {
             console.log("Time related info: ",time)
-            timeContainer.append("div").attr("class", "card").text(time.text);
+
+            const card = timeContainer.append("div")
+                .attr("class", "card")
+                .style("padding", "10px")
+                .style("border", "1px solid #ccc")
+                .style("border-radius", "5px")
+                .style("background-color", "#f9f9f9");
+
+            Object.entries(time).forEach(([key, value]) => {
+                card.append("div")
+                    .style("margin-bottom", "5px") // Add spacing between fields
+                    .style("font-size", "12px")    // Adjust text size
+                    .html(`<strong>${key}:</strong> ${value}`); // Display key-value pair
+            });
         });
     });
 }
