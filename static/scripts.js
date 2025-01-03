@@ -95,7 +95,7 @@ function renderSentences(sentences) {
 
        // First, collect all highlights (both time and events)
         let highlights = [
-            { text: sentence.text_time, type: 'yellow-box' },
+            { text: sentence.text_time.replace(",",""), type: 'yellow-box' },
             ...sentence.events.map(event => ({
                 text: event.text_event,
                 type: 'blue-box',
@@ -177,7 +177,6 @@ function renderSentences(sentences) {
             .style("font-size", "14px")       // Slightly larger font size for title
             .text("Linked Time Expressions"); // Title text
         sentence.times.forEach(time => {
-            console.log("Time related info: ",time)
 
             const card = timeContainer.append("div")
                 .attr("class", "card")
