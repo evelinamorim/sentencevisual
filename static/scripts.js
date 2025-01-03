@@ -166,10 +166,14 @@ function renderSentences(sentences) {
         });
 
         // Display time expressions as cards
-        //const timeContainer = sentenceContainer.append("div");
-        //sentence.times.forEach(time => {
-         //   timeContainer.append("div").attr("class", "card").text(time.text);
-        //});
+        const timeContainer = sentenceContainer.append("div")
+            .attr("class","card")
+            .style("display","flex")
+            .style("gap","10px");
+        sentence.times.forEach(time => {
+            console.log("Time related info: ",time)
+            timeContainer.append("div").attr("class", "card").text(time.text);
+        });
     });
 }
 
