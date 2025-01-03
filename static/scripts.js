@@ -102,7 +102,7 @@ function renderSentences(sentences) {
                 event: event
             }))
         ];
-
+        console.log(highlights);
        // Sort highlights by their position in the text
         highlights.forEach(highlight => {
             highlight.index = textSent.indexOf(highlight.text);
