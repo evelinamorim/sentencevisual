@@ -95,7 +95,7 @@ function renderSentences(sentences) {
 
        // First, collect all highlights (both time and events)
         let highlights = [
-            { text: sentence.text_time.replace(",",""), type: 'yellow-box' },
+            { text: sentence.text_time.replace(",","").trim(), type: 'yellow-box' },
             ...sentence.events.map(event => ({
                 text: event.text_event,
                 type: 'blue-box',
