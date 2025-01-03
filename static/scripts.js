@@ -173,6 +173,12 @@ function renderSentences(sentences) {
         sentence.times.forEach(time => {
             console.log("Time related info: ",time)
 
+            const card = timeContainer.append("div")
+                .attr("class", "card")
+                .style("padding", "10px")
+                .style("border", "1px solid #ccc")
+                .style("border-radius", "5px")
+                .style("background-color", "#f9f9f9");
 
             Object.entries(time).forEach(([key, value]) => {
                 card.append("div")
