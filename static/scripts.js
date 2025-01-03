@@ -178,7 +178,8 @@ function renderSentences(sentences) {
                 .style("padding", "10px")
                 .style("border", "1px solid #ccc")
                 .style("border-radius", "5px")
-                .style("background-color", "#f9f9f9");
+                .style("background-color", "#ffffff")
+                .style("color", "#000000") ;
 
             Object.entries(time).forEach(([key, value]) => {
                 card.append("div")
