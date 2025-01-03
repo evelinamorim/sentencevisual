@@ -170,6 +170,12 @@ function renderSentences(sentences) {
             .attr("class","card")
             .style("display","flex")
             .style("gap","10px");
+
+        timeContainer.append("div")
+            .style("font-weight", "bold")      // Bold text
+            .style("margin-bottom", "10px")   // Space below the title
+            .style("font-size", "14px")       // Slightly larger font size for title
+            .text("Linked Time Expressions"); // Title text
         sentence.times.forEach(time => {
             console.log("Time related info: ",time)
 
@@ -181,11 +187,7 @@ function renderSentences(sentences) {
                 .style("background-color", "#ffffff")
                 .style("color", "#000000") ;
 
-            card.append("div")
-                .style("font-weight", "bold")      // Bold text
-                .style("margin-bottom", "10px")   // Space below the title
-                .style("font-size", "14px")       // Slightly larger font size for title
-                .text("Linked Time Expressions"); // Title text
+
 
             Object.entries(time).forEach(([key, value]) => {
                 card.append("div")
