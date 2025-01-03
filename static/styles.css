@@ -68,7 +68,7 @@ body {
     border-radius: 4px;
     pointer-events: none;
     color: white;
-    font-size: 12px;
+    font-size: 16px;
     display: none; /* Ensure the tooltip is hidden initially */
     z-index: 9999; /* Ensure it's displayed above other elements */
     border: 1px solid #ccc; /* Add border if needed */
