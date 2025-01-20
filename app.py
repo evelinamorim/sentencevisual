@@ -82,7 +82,7 @@ def upload_file():
         except UnicodeDecodeError:
             # If UTF-8 fails, try other encodings
             try:
-                content = raw_content.decode('latin-1')
+                content = content.decode('latin-1')
             except UnicodeDecodeError:
                 return jsonify({'error': 'Unable to decode file content. Please ensure it is properly encoded.'}), 400
 

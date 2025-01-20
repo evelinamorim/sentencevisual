@@ -73,3 +73,12 @@ body {
     z-index: 9999; /* Ensure it's displayed above other elements */
     border: 1px solid #ccc; /* Add border if needed */
 }
+
+.sentences-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.sentence {
+    width: 100%;
+}

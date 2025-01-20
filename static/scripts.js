@@ -87,8 +87,17 @@ function visualizeJSON(fileName) {
 function renderSentences(sentences) {
     const container = d3.select("#visualization").html("");
 
-    sentences.forEach(sentence => {
-        const sentenceContainer = container.append("div").style("margin-bottom", "20px");
+    const sentencesContainer = container
+        .append("div")
+        .attr("class", "sentences-container");
+
+    sentences.forEach((sentence, index) => {
+        const sentenceContainer = sentencesContainer
+            .append("div").
+            .attr("class","sentence")
+            .style("margin-bottom", "20px")
+            .style("order", index);
+
         const sentenceText = sentenceContainer.append("div");
         let textSent = sentence.text_sent;
         let fragments = [];
