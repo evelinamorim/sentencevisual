@@ -259,6 +259,39 @@ function renderSentences(sentences) {
                          .attr("stroke-width", "1.25")
                          .attr("marker-end", "url(#arrowhead)");
                 }
+
+                 const relType = fragments[i].event?.rel_type;
+
+                 if (relType) {
+                    // Create label background
+                    const label = svg.append("g")
+                        .attr("class", "relation-label");
+
+                    // Position label above the midpoint of the curve
+                    const labelY = controlY - 10; // Position above the curve peak
+
+                    // Add white background rectangle for better readability
+                    const textElement = label.append("text")
+                        .attr("x", midX)
+                        .attr("y", labelY)
+                        .attr("text-anchor", "middle")
+                        .attr("fill", "black")
+                        .attr("font-size", "12px")
+                        .text(relType);
+
+                    // Get text boundary for background
+                    const bbox = textElement.node().getBBox();
+
+                    // Add background rectangle
+                    label.insert("rect", "text")
+                        .attr("x", bbox.x - 4)
+                        .attr("y", bbox.y - 2)
+                        .attr("width", bbox.width + 8)
+                        .attr("height", bbox.height + 4)
+                        .attr("fill", "white")
+                        .attr("stroke", "none");
+                }
+
             });
 
             // Update SVG height to match content

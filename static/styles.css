@@ -98,6 +98,24 @@ body {
     flex-direction: column;
 }
 
+.relation-label text {
+   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+   font-size: 12px;
+   font-weight: 500;
+   pointer-events: none;
+}
+
+.relation-label rect {
+   fill: white;
+   fill-opacity: 0.9;
+   rx: 3;
+   ry: 3;
+}
+
+.relation-label:hover text {
+   font-weight: 600;
+ }
+
 .sentence {
     width: 100%;
     position: relative;
