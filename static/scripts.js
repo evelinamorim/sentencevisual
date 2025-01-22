@@ -228,6 +228,10 @@ function renderSentences(sentences) {
             eventElements.forEach((eventElement, i) => {
                 const timeElement = timeElements[i];
                 if (eventElement && timeElement) {
+                    const relType = d3.select(eventElement).attr("data-rel-type");
+                    console.log("rel_type",relType)
+                    console.log("event_data",eventElement)
+
                     const eventRect = eventElement.getBoundingClientRect();
                     const timeRect = timeElement.getBoundingClientRect();
 
@@ -261,41 +265,36 @@ function renderSentences(sentences) {
                          .attr("stroke", "black")
                          .attr("stroke-width", "1.25")
                          .attr("marker-end", "url(#arrowhead)");
-                }
 
-                 const relType = fragments[i].event?.rel_type;
-                 console.log("rel_type",relType)
-                 console.log("event_data",eventElement)
+                    if (relType) {
+                        // Create label background
+                        const label = svg.append("g")
+                            .attr("class", "relation-label");
 
+                        // Position label above the midpoint of the curve
+                        const labelY = controlY - 10; // Position above the curve peak
 
-                 if (relType) {
-                    // Create label background
-                    const label = svg.append("g")
-                        .attr("class", "relation-label");
+                       // Add white background rectangle for better readability
+                       const textElement = label.append("text")
+                          .attr("x", midX)
+                          .attr("y", labelY)
+                          .attr("text-anchor", "middle")
+                          .attr("fill", "black")
+                          .attr("font-size", "12px")
+                          .text(relType);
 
-                    // Position label above the midpoint of the curve
-                    const labelY = controlY - 10; // Position above the curve peak
+                         // Get text boundary for background
+                         const bbox = textElement.node().getBBox();
 
-                    // Add white background rectangle for better readability
-                    const textElement = label.append("text")
-                        .attr("x", midX)
-                        .attr("y", labelY)
-                        .attr("text-anchor", "middle")
-                        .attr("fill", "black")
-                        .attr("font-size", "12px")
-                        .text(relType);
-
-                    // Get text boundary for background
-                    const bbox = textElement.node().getBBox();
-
-                    // Add background rectangle
-                    label.insert("rect", "text")
-                        .attr("x", bbox.x - 4)
-                        .attr("y", bbox.y - 2)
-                        .attr("width", bbox.width + 8)
-                        .attr("height", bbox.height + 4)
-                        .attr("fill", "white")
-                        .attr("stroke", "none");
+                        // Add background rectangle
+                        label.insert("rect", "text")
+                           .attr("x", bbox.x - 4)
+                           .attr("y", bbox.y - 2)
+                           .attr("width", bbox.width + 8)
+                           .attr("height", bbox.height + 4)
+                           .attr("fill", "white")
+                           .attr("stroke", "none");
+                   }
                 }
 
             });
