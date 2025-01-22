@@ -143,7 +143,6 @@ function renderSentences(sentences) {
             ...sentence.events.map(event => ({
                 text: event.text_event,
                 type: 'blue-box',
-                rel_type: event.rel_type,
                 event: event
             }))
         ];
@@ -263,6 +262,7 @@ function renderSentences(sentences) {
 
                  const relType = fragments[i].event?.rel_type;
                  console.log("rel_type",relType)
+                 console.log("event_data",fragments[i].event)
 
                  if (relType) {
                     // Create label background
