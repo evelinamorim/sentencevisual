@@ -39,6 +39,11 @@ body {
 }
 
 .yellow-box {
+    background-color: #ffff0033;
+    padding: 2px 4px;
+    border-radius: 3px;
+    position: relative;
+
     background-color: yellow;
     color: #555555;
     display: inline-block;
@@ -47,10 +52,13 @@ body {
 }
 
 .blue-box {
-    background-color: blue;
+    background-color: #4444ff33;
+    padding: 2px 4px;
+    border-radius: 3px;
+    position: relative;
+
     color: #1e1e1e;
     display: inline-block;
-    padding: 5px;
     margin: 2px;
     cursor: pointer;
 }
@@ -81,4 +89,6 @@ body {
 
 .sentence {
     width: 100%;
+    position: relative;
+    z-index: 2;
 }

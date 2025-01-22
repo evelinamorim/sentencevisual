@@ -89,7 +89,8 @@ function renderSentences(sentences) {
 
     const sentencesContainer = container
         .append("div")
-        .attr("class", "sentences-container");
+        .attr("class", "sentences-container")
+        .style("position","relative");
 
         // Add an SVG layer for the arrows
     const svg = container
@@ -100,7 +101,8 @@ function renderSentences(sentences) {
         .style("left", 0)
         .style("width", "100%")
         .style("height", "100%")
-        .style("pointer-events", "none"); // Prevent interaction with the SVG.
+        .style("pointer-events", "none") // Prevent interaction with the SVG.
+        .style("z-index","1"); // arrow above the text
 
         // Create arrow marker definition
     svg.append("defs")
@@ -111,7 +113,7 @@ function renderSentences(sentences) {
         .attr("refY", 5)
         .attr("markerWidth", 6)
         .attr("markerHeight", 6)
-        .attr("orient", "auto-start-reverse")  // This helps with orientation
+        .attr("orient", "auto")  // This helps with orientation
         .append("path")
         .attr("d", "M 0 0 L 10 5 L 0 10 Z")
         .attr("fill", "#666");  // Softer color for the arrow
@@ -122,7 +124,8 @@ function renderSentences(sentences) {
             .attr("class","sentence")
             .style("margin-bottom", "20px")
             .style("order", index)
-            .style("position", "relative");
+            .style("position", "relative")
+            .style("padding", "5px");
 
         const sentenceText = sentenceContainer.append("div");
         let textSent = sentence.text_sent;
@@ -174,7 +177,8 @@ function renderSentences(sentences) {
             });
         }
 
-        let eventElement, timeElement;
+        let eventElements = [];
+        let timeElements = [];
 
         // Render fragments
         fragments.forEach(fragment => {
@@ -185,9 +189,9 @@ function renderSentences(sentences) {
                 span.attr("class", fragment.type);
 
                 if (fragment.type === "blue-box") {
-                    eventElement = span.node(); // Save event element for the arrow.
+                    eventElements.push (span.node()); // Save event element for the arrow.
                 } else if (fragment.type === "yellow-box") {
-                    timeElement = span.node(); // Save time element for the arrow.
+                    timeElements.push(span.node()); // Save time element for the arrow.
                 }
 
                 if (fragment.event) {
@@ -208,36 +212,37 @@ function renderSentences(sentences) {
             }
         });
 
-        // Draw arrow if both elements exist
-        if (eventElement && timeElement) {
-               // Get the container's position for offset calculation
+        // Draw arrows after a short delay to ensure proper positioning
+        setTimeout(() => {
             const containerRect = container.node().getBoundingClientRect();
-            const eventRect = eventElement.getBoundingClientRect();
-            const timeRect = timeElement.getBoundingClientRect();
 
-            // Calculate arrow positions relative to container
-            const startX = eventRect.left + (eventRect.width / 2) - containerRect.left;
-            const startY = eventRect.top + (eventRect.height / 2) - containerRect.top;
-            const endX = timeRect.left + (timeRect.width / 2) - containerRect.left;
-            const endY = timeRect.top + (timeRect.height / 2) - containerRect.top;
+            eventElements.forEach((eventElement, i) => {
+                const timeElement = timeElements[i];
+                if (eventElement && timeElement) {
+                    const eventRect = eventElement.getBoundingClientRect();
+                    const timeRect = timeElement.getBoundingClientRect();
 
-            // Calculate control points for the curve
-            const dx = endX - startX;
-            const dy = endY - startY;
-            const controlPoint1X = startX + dx / 2;
-            const controlPoint1Y = startY;
-            const controlPoint2X = startX + dx / 2;
-            const controlPoint2Y = endY;
+                    // Calculate positions relative to container
+                    const startX = eventRect.left - containerRect.left + (eventRect.width);
+                    const startY = eventRect.top - containerRect.top + (eventRect.height / 2);
+                    const endX = timeRect.left - containerRect.left;
+                    const endY = timeRect.top - containerRect.top + (timeRect.height / 2);
 
-            // Create curved path
-            const path = svg.append("path")
-                .attr("d", `M ${startX},${startY} C ${controlPoint1X},${controlPoint1Y} ${controlPoint2X},${controlPoint2Y} ${endX},${endY}`)
-                .attr("fill", "none")
-                .attr("stroke", "#666")
-                .attr("stroke-width", 1.5)
-                .attr("marker-end", "url(#arrowhead)")
-                .style("stroke-dasharray", "4,4");  // Optional: makes the line dashed
-        }
+                    // Create straight line with small curve
+                    const midX = (startX + endX) / 2;
+
+                    svg.append("path")
+                        .attr("d", `M ${startX},${startY}
+                                  Q ${midX},${startY} ${midX},${(startY + endY) / 2}
+                                  Q ${midX},${endY} ${endX},${endY}`)
+                        .attr("fill", "none")
+                        .attr("stroke", "#666")
+                        .attr("stroke-width", 1.5)
+                        .attr("marker-end", "url(#arrowhead)")
+                        .style("stroke-dasharray", "4,4");
+                }
+            });
+        }, 100);  // Small delay to ensure DOM is ready
 
 
         // Display time expressions as cards
