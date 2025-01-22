@@ -262,7 +262,7 @@ function renderSentences(sentences) {
 
                  const relType = fragments[i].event?.rel_type;
                  console.log("rel_type",relType)
-                 console.log("event_data",fragments[i])
+                 console.log("event_data",eventElement)
 
 
                  if (relType) {
