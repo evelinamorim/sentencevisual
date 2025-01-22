@@ -229,8 +229,6 @@ function renderSentences(sentences) {
                 const timeElement = timeElements[i];
                 if (eventElement && timeElement) {
                     const relType = d3.select(eventElement).attr("data-rel-type");
-                    console.log("rel_type",relType)
-                    console.log("event_data",eventElement)
 
                     const eventRect = eventElement.getBoundingClientRect();
                     const timeRect = timeElement.getBoundingClientRect();
@@ -283,17 +281,33 @@ function renderSentences(sentences) {
                           .attr("font-size", "12px")
                           .text(relType);
 
-                         // Get text boundary for background
-                         const bbox = textElement.node().getBBox();
+                       // Get text boundary for background
+                       const bbox = textElement.node().getBBox();
 
                         // Add background rectangle
-                        label.insert("rect", "text")
+                       label.insert("rect", "text")
                            .attr("x", bbox.x - 4)
                            .attr("y", bbox.y - 2)
                            .attr("width", bbox.width + 8)
                            .attr("height", bbox.height + 4)
                            .attr("fill", "white")
                            .attr("stroke", "none");
+
+                       label
+                           .on("mouseover", function() {
+                            d3.select(this).select("rect")
+                            .transition()
+                            .duration(200)
+                            .style("fill-opacity", 1);
+                            })
+                           .on("mouseout", function() {
+                            d3.select(this).select("rect")
+                            .transition()
+                            .duration(200)
+                            .style("fill-opacity", 0.9);
+                         });
+
+
                    }
                 }
 
