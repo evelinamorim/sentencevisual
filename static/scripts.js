@@ -264,16 +264,6 @@ function renderSentences(sentences) {
                         .attr("stroke-width", "4")
                         .style("z-index", "1");
 
-                    svg.append("path")
-                        .attr("d", `M ${startX},${startY}
-                                  C ${startX + 50},${startY}
-                                    ${endX - 50},${endY}
-                                    ${endX},${endY}`)
-                        .attr("fill", "none")
-                        .attr("stroke", "black")
-                        .attr("stroke-width", "2")
-                        .attr("marker-end", "url(#arrowhead)")
-                        .style("z-index", "2");
                 }
             });
 
