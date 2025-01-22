@@ -91,12 +91,24 @@ function renderSentences(sentences) {
         .append("div")
         .attr("class", "sentences-container");
 
+        // Add an SVG layer for the arrows
+    const svg = container
+        .append("svg")
+        .attr("class", "arrows")
+        .style("position", "absolute")
+        .style("top", 0)
+        .style("left", 0)
+        .style("width", "100%")
+        .style("height", "100%")
+        .style("pointer-events", "none"); // Prevent interaction with the SVG.
+
     sentences.forEach((sentence, index) => {
         const sentenceContainer = sentencesContainer
             .append("div").
             .attr("class","sentence")
             .style("margin-bottom", "20px")
-            .style("order", index);
+            .style("order", index)
+            .style("position", "relative");
 
         const sentenceText = sentenceContainer.append("div");
         let textSent = sentence.text_sent;
@@ -148,6 +160,8 @@ function renderSentences(sentences) {
             });
         }
 
+        let eventElement, timeElement;
+
         // Render fragments
         fragments.forEach(fragment => {
             let span = sentenceText.append("span")
@@ -155,6 +169,12 @@ function renderSentences(sentences) {
 
             if (fragment.type !== 'normal') {
                 span.attr("class", fragment.type);
+
+                if (fragment.type === "blue-box") {
+                    eventElement = span.node(); // Save event element for the arrow.
+                } else if (fragment.type === "yellow-box") {
+                    timeElement = span.node(); // Save time element for the arrow.
+                }
 
                 if (fragment.event) {
                     span.on("mouseover", function(e) {
@@ -173,6 +193,31 @@ function renderSentences(sentences) {
                 }
             }
         });
+
+         if (eventElement && timeElement) {
+            const eventBox = eventElement.getBoundingClientRect();
+            const timeBox = timeElement.getBoundingClientRect();
+
+            const startX = eventBox.left + eventBox.width / 2;
+            const startY = eventBox.top + eventBox.height / 2;
+            const endX = timeBox.left + timeBox.width / 2;
+            const endY = timeBox.top + timeBox.height / 2;
+
+            const svgStartX = startX - container.node().getBoundingClientRect().left;
+            const svgStartY = startY - container.node().getBoundingClientRect().top;
+            const svgEndX = endX - container.node().getBoundingClientRect().left;
+            const svgEndY = endY - container.node().getBoundingClientRect().top;
+
+            svg.append("line")
+                .attr("x1", svgStartX)
+                .attr("y1", svgStartY)
+                .attr("x2", svgEndX)
+                .attr("y2", svgEndY)
+                .attr("stroke", "black")
+                .attr("stroke-width", 2)
+                .attr("marker-end", "url(#arrowhead)");
+        }
+
 
         // Display time expressions as cards
         const timeContainer = sentenceContainer.append("div")
@@ -205,6 +250,20 @@ function renderSentences(sentences) {
             });
         });
     });
+
+      // Define arrowhead marker for all arrows
+    svg.append("defs")
+        .append("marker")
+        .attr("id", "arrowhead")
+        .attr("viewBox", "0 0 10 10")
+        .attr("refX", 5)
+        .attr("refY", 5)
+        .attr("markerWidth", 6)
+        .attr("markerHeight", 6)
+        .attr("orient", "auto")
+        .append("path")
+        .attr("d", "M 0 0 L 10 5 L 0 10 Z")
+        .attr("fill", "black");
 }
 
 function renderD3Tree(treeData){
