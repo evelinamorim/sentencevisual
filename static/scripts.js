@@ -241,7 +241,7 @@ function renderSentences(sentences) {
                                     ${endX - 50},${endY}
                                     ${endX},${endY}`)
                         .attr("fill", "none")
-                        .attr("stroke", "white")
+                        .attr("stroke", "black")
                         .attr("stroke-width", "4")
                         .style("z-index", "1");
 
