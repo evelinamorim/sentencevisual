@@ -89,6 +89,8 @@ function renderSentences(sentences) {
     const container = d3.select("#visualization").html("");
 
     wrapper.style("height", "auto");
+    // Clear any existing SVG before creating a new one
+    wrapper.selectAll("svg.arrows").remove();
 
     const sentencesContainer = container
         .append("div")
@@ -97,7 +99,8 @@ function renderSentences(sentences) {
         .style("z-index","2");
 
         // Add an SVG layer for the arrows
-    const svg = wrapper.append("svg")
+    const svg = wrapper
+        .insert("svg", ":first-child")
         .attr("class", "arrows")
         .style("position", "absolute")
         .style("top", 0)
@@ -111,15 +114,15 @@ function renderSentences(sentences) {
     svg.append("defs")
         .append("marker")
         .attr("id", "arrowhead")
-        .attr("viewBox", "0 0 10 10")
-        .attr("refX", 9)  // Adjusted to move arrow closer to end
-        .attr("refY", 5)
-        .attr("markerWidth", 6)
-        .attr("markerHeight", 6)
+        .attr("viewBox", "0 -5 10 10")
+        .attr("refX", 8)  // Adjusted to move arrow closer to end
+        .attr("refY", 0)
+        .attr("markerWidth", 8)
+        .attr("markerHeight", 8)
         .attr("orient", "auto")  // This helps with orientation
         .append("path")
-        .attr("d", "M 0 0 L 10 5 L 0 10 Z")
-        .attr("fill", "#666");  // Softer color for the arrow
+        .attr("d", "M0,-5L10,0L0,5")
+        .attr("fill", "#333");  // Softer color for the arrow
 
     sentences.forEach((sentence, index) => {
         const sentenceContainer = sentencesContainer
@@ -234,26 +237,24 @@ function renderSentences(sentences) {
                     // Create straight line with small curve
                     svg.append("path")
                         .attr("d", `M ${startX},${startY}
-                                  C ${startX + 20},${startY}
-                                    ${endX - 20},${endY}
+                                  C ${startX + 50},${startY}
+                                    ${endX - 50},${endY}
                                     ${endX},${endY}`)
                         .attr("fill", "none")
                         .attr("stroke", "white")
                         .attr("stroke-width", "4")
-                        .attr("stroke-opacity", "0.8")
                         .style("z-index", "1");
 
                     svg.append("path")
                         .attr("d", `M ${startX},${startY}
-                                  C ${startX + 20},${startY}
-                                    ${endX - 20},${endY}
+                                  C ${startX + 50},${startY}
+                                    ${endX - 50},${endY}
                                     ${endX},${endY}`)
                         .attr("fill", "none")
-                        .attr("stroke", "#666")
-                        .attr("stroke-width", "1.5")
+                        .attr("stroke", "#333")
+                        .attr("stroke-width", "2")
                         .attr("marker-end", "url(#arrowhead)")
-                        .style("stroke-dasharray", "4,4")
-                        .style("z-index", "1");
+                        .style("z-index", "2");
                 }
             });
 
