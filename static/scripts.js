@@ -195,6 +195,9 @@ function renderSentences(sentences) {
                 span.attr("class", fragment.type);
 
                 if (fragment.type === "blue-box") {
+                   if (fragment.event && fragment.event.rel_type) {
+                           span.attr("data-rel-type", fragment.event.rel_type);
+                   }
                     eventElements.push (span.node()); // Save event element for the arrow.
                 } else if (fragment.type === "yellow-box") {
                     timeElements.push(span.node()); // Save time element for the arrow.
