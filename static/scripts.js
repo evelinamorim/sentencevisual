@@ -264,6 +264,7 @@ function renderSentences(sentences) {
                  console.log("rel_type",relType)
                  console.log("event_data",fragments[i].event)
 
+
                  if (relType) {
                     // Create label background
                     const label = svg.append("g")
