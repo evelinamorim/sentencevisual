@@ -235,28 +235,26 @@ function renderSentences(sentences) {
                     const endY = timeRect.top - wrapperRect.top + (timeRect.height / 2);
 
                     // Define control points for the Bézier curve
-                    // Calculate control points for a semicircular path
+                    // Calculate the distance between start and end points
+                    const dx = endX - startX;
+                    const dy = endY - startY;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
                     const midX = (startX + endX) / 2; // Midpoint X
                     const midY = (startY + endY) / 2; // Midpoint Y
 
-                    // Adjust control points to create the semicircle shape
-                    const curvatureFactor = 2.0;
-                    const controlOffset = Math.abs(startY - endY) * curvatureFactor; // Adjust curvature
-                    const control1X = midX - controlOffset; // Shift left for symmetry
-                    const control1Y = midY - controlOffset; // Shift up for the first curve
-                    const control2X = midX + controlOffset; // Shift right for symmetry
-                    const control2Y = midY + controlOffset; // Shift down for the second curve
+                    // Adjust this factor to control the curve height
+                    const curveFactor = 0.5;
+                    const controlY = midY - distance * curveFactor;
 
-                    // Draw the path with two curves forming a semicircle
-                   svg.append("path")
-                        .attr("d", `M ${startX},${startY}
-                                    C ${control1X},${control1Y}
-                                      ${control2X},${control2Y}
-                                      ${endX},${endY}`)
-                        .attr("fill", "none")
-                        .attr("stroke", "black")
-                        .attr("stroke-width", "4")
-                        .style("z-index", "1");
+                    // Create the curved path using quadratic Bézier curve
+                    svg.append("path")
+                         .attr("d", `M ${startX},${startY}
+                           Q ${midX},${controlY} ${endX},${endY}`)
+                         .attr("fill", "none")
+                         .attr("stroke", "black")
+                         .attr("stroke-width", "1.5")
+                         .attr("marker-end", "url(#arrowhead)");
                 }
             });
 
