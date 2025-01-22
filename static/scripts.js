@@ -102,6 +102,20 @@ function renderSentences(sentences) {
         .style("height", "100%")
         .style("pointer-events", "none"); // Prevent interaction with the SVG.
 
+        // Create arrow marker definition
+    svg.append("defs")
+        .append("marker")
+        .attr("id", "arrowhead")
+        .attr("viewBox", "0 0 10 10")
+        .attr("refX", 9)  // Adjusted to move arrow closer to end
+        .attr("refY", 5)
+        .attr("markerWidth", 6)
+        .attr("markerHeight", 6)
+        .attr("orient", "auto-start-reverse")  // This helps with orientation
+        .append("path")
+        .attr("d", "M 0 0 L 10 5 L 0 10 Z")
+        .attr("fill", "#666");  // Softer color for the arrow
+
     sentences.forEach((sentence, index) => {
         const sentenceContainer = sentencesContainer
             .append("div")
@@ -194,28 +208,35 @@ function renderSentences(sentences) {
             }
         });
 
-         if (eventElement && timeElement) {
-            const eventBox = eventElement.getBoundingClientRect();
-            const timeBox = timeElement.getBoundingClientRect();
+        // Draw arrow if both elements exist
+        if (eventElement && timeElement) {
+               // Get the container's position for offset calculation
+            const containerRect = container.node().getBoundingClientRect();
+            const eventRect = eventElement.getBoundingClientRect();
+            const timeRect = timeElement.getBoundingClientRect();
 
-            const startX = eventBox.left + eventBox.width / 2;
-            const startY = eventBox.top + eventBox.height / 2;
-            const endX = timeBox.left + timeBox.width / 2;
-            const endY = timeBox.top + timeBox.height / 2;
+            // Calculate arrow positions relative to container
+            const startX = eventRect.left + (eventRect.width / 2) - containerRect.left;
+            const startY = eventRect.top + (eventRect.height / 2) - containerRect.top;
+            const endX = timeRect.left + (timeRect.width / 2) - containerRect.left;
+            const endY = timeRect.top + (timeRect.height / 2) - containerRect.top;
 
-            const svgStartX = startX - container.node().getBoundingClientRect().left;
-            const svgStartY = startY - container.node().getBoundingClientRect().top;
-            const svgEndX = endX - container.node().getBoundingClientRect().left;
-            const svgEndY = endY - container.node().getBoundingClientRect().top;
+            // Calculate control points for the curve
+            const dx = endX - startX;
+            const dy = endY - startY;
+            const controlPoint1X = startX + dx / 2;
+            const controlPoint1Y = startY;
+            const controlPoint2X = startX + dx / 2;
+            const controlPoint2Y = endY;
 
-            svg.append("line")
-                .attr("x1", svgStartX)
-                .attr("y1", svgStartY)
-                .attr("x2", svgEndX)
-                .attr("y2", svgEndY)
-                .attr("stroke", "black")
-                .attr("stroke-width", 2)
-                .attr("marker-end", "url(#arrowhead)");
+            // Create curved path
+            const path = svg.append("path")
+                .attr("d", `M ${startX},${startY} C ${controlPoint1X},${controlPoint1Y} ${controlPoint2X},${controlPoint2Y} ${endX},${endY}`)
+                .attr("fill", "none")
+                .attr("stroke", "#666")
+                .attr("stroke-width", 1.5)
+                .attr("marker-end", "url(#arrowhead)")
+                .style("stroke-dasharray", "4,4");  // Optional: makes the line dashed
         }
 
 
@@ -251,19 +272,6 @@ function renderSentences(sentences) {
         });
     });
 
-      // Define arrowhead marker for all arrows
-    svg.append("defs")
-        .append("marker")
-        .attr("id", "arrowhead")
-        .attr("viewBox", "0 0 10 10")
-        .attr("refX", 5)
-        .attr("refY", 5)
-        .attr("markerWidth", 6)
-        .attr("markerHeight", 6)
-        .attr("orient", "auto")
-        .append("path")
-        .attr("d", "M 0 0 L 10 5 L 0 10 Z")
-        .attr("fill", "black");
 }
 
 function renderD3Tree(treeData){
