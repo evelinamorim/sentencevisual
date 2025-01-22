@@ -245,8 +245,8 @@ function renderSentences(sentences) {
 
                     // Adjust this factor to control the curve height
                     const curveFactor = 0.5;
-                    const maxCurveHeight = 50; // Adjust this value as needed
-                    const curveHeight = Math.min(distance * 0.3, maxCurveHeight);
+                    const maxCurveHeight = 100; // Adjust this value as needed
+                    const curveHeight = Math.min(distance * curveFactor, maxCurveHeight);
                     /*const controlY = midY - distance * curveFactor;*/
                     const controlY = midY - curveHeight;
 
