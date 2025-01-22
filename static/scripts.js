@@ -234,12 +234,31 @@ function renderSentences(sentences) {
                     const endX = timeRect.left - wrapperRect.left;
                     const endY = timeRect.top - wrapperRect.top + (timeRect.height / 2);
 
+                    // Define control points for the Bézier curve
+                    const control1X = startX + 100; // Pull the curve horizontally to the right from the event
+                    const control1Y = startY;       // Keep it aligned vertically with the start
+
+                    const control2X = (startX + endX) / 2; // Midpoint for horizontal positioning
+                    const control2Y = startY - 50;         // Pull the curve upward for a smoother shape
+
+                    const control3X = (startX + endX) / 2; // Midpoint for horizontal positioning
+                    const control3Y = endY + 50;           // Pull the curve downward to balance the shape
+
+                    const control4X = endX - 100; // Pull the curve horizontally to the left near the time
+                    const control4Y = endY;       // Keep it aligned vertically with the end
+
+
                     // Create straight line with small curve
                     svg.append("path")
-                        .attr("d", `M ${startX},${startY}
-                                  C ${startX + 100},${startY}
-                                    ${endX - 100},${endY}
-                                    ${endX},${endY}`)
+                        .attr("d", `
+                                     M ${startX},${startY}
+                                     C ${control1X},${control1Y}
+                                       ${control2X},${control2Y}
+                                       ${(startX + endX) / 2},${(startY + endY) / 2}
+                                     C ${control3X},${control3Y}
+                                       ${control4X},${control4Y}
+                                       ${endX},${endY}
+                        `)
                         .attr("fill", "none")
                         .attr("stroke", "black")
                         .attr("stroke-width", "4")
