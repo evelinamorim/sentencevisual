@@ -240,7 +240,8 @@ function renderSentences(sentences) {
                     const midY = (startY + endY) / 2; // Midpoint Y
 
                     // Adjust control points to create the semicircle shape
-                    const controlOffset = Math.abs(startY - endY) / 2; // Adjust curvature
+                    const curvatureFactor = 2.0;
+                    const controlOffset = Math.abs(startY - endY) * curvatureFactor; // Adjust curvature
                     const control1X = midX - controlOffset; // Shift left for symmetry
                     const control1Y = midY - controlOffset; // Shift up for the first curve
                     const control2X = midX + controlOffset; // Shift right for symmetry
