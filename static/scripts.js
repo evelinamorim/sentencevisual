@@ -92,7 +92,9 @@ function renderSentences(sentences) {
 
     const sentencesContainer = container
         .append("div")
-        .attr("class", "sentences-container");
+        .attr("class", "sentences-container")
+        .style("position","relative")
+        .style("z-index","2");
 
         // Add an SVG layer for the arrows
     const svg = wrapper.append("svg")
@@ -102,7 +104,8 @@ function renderSentences(sentences) {
         .style("left", 0)
         .style("width", "100%")
         .style("height", "100%")
-        .style("pointer-events", "none");
+        .style("pointer-events", "none")
+        .style("z-index","1");
 
         // Create arrow marker definition
     svg.append("defs")
@@ -121,10 +124,13 @@ function renderSentences(sentences) {
     sentences.forEach((sentence, index) => {
         const sentenceContainer = sentencesContainer
             .append("div")
-            .attr("class","sentence");
+            .attr("class","sentence")
+            .style("position", "relative")
+            .style("z-index", "2");
 
         const sentenceText = sentenceContainer.append("div")
-                  .style("position", "relative");
+                  .style("position", "relative")
+                  .style("z-index", "2");
         let textSent = sentence.text_sent;
         let fragments = [];
 
@@ -211,7 +217,7 @@ function renderSentences(sentences) {
 
         // Draw arrows after a short delay to ensure proper positioning
         setTimeout(() => {
-            const containerRect = container.node().getBoundingClientRect();
+            const wrapperRect = wrapper.node().getBoundingClientRect();
 
             eventElements.forEach((eventElement, i) => {
                 const timeElement = timeElements[i];
@@ -220,25 +226,41 @@ function renderSentences(sentences) {
                     const timeRect = timeElement.getBoundingClientRect();
 
                     // Calculate positions relative to container
-                    const startX = eventRect.left - containerRect.left + (eventRect.width);
-                    const startY = eventRect.top - containerRect.top + (eventRect.height / 2);
-                    const endX = timeRect.left - containerRect.left;
-                    const endY = timeRect.top - containerRect.top + (timeRect.height / 2);
+                    const startX = eventRect.left - wrapperRect.left + (eventRect.width);
+                    const startY = eventRect.top -  wrapperRect.top + (eventRect.height / 2);
+                    const endX = timeRect.left - wrapperRect.left;
+                    const endY = timeRect.top - wrapperRect.top + (timeRect.height / 2);
 
                     // Create straight line with small curve
-                    const midX = (startX + endX) / 2;
+                    svg.append("path")
+                        .attr("d", `M ${startX},${startY}
+                                  C ${startX + 20},${startY}
+                                    ${endX - 20},${endY}
+                                    ${endX},${endY}`)
+                        .attr("fill", "none")
+                        .attr("stroke", "white")
+                        .attr("stroke-width", "4")
+                        .attr("stroke-opacity", "0.8")
+                        .style("z-index", "1");
 
                     svg.append("path")
                         .attr("d", `M ${startX},${startY}
-                                  Q ${midX},${startY} ${midX},${(startY + endY) / 2}
-                                  Q ${midX},${endY} ${endX},${endY}`)
+                                  C ${startX + 20},${startY}
+                                    ${endX - 20},${endY}
+                                    ${endX},${endY}`)
                         .attr("fill", "none")
                         .attr("stroke", "#666")
-                        .attr("stroke-width", 1.5)
+                        .attr("stroke-width", "1.5")
                         .attr("marker-end", "url(#arrowhead)")
-                        .style("stroke-dasharray", "4,4");
+                        .style("stroke-dasharray", "4,4")
+                        .style("z-index", "1");
                 }
             });
+
+            // Update SVG height to match content
+            const contentHeight = container.node().getBoundingClientRect().height;
+            svg.style("height", `${contentHeight}px`);
+
         }, 100);  // Small delay to ensure DOM is ready
 
 

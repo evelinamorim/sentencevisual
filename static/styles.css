@@ -19,6 +19,7 @@ body {
     margin-top: 20px;
     position: relative;
     overflow: auto;
+    z-index: 2;
 }
 
 #visualization-wrapper {
@@ -46,7 +47,7 @@ body {
 }
 
 .yellow-box {
-    background-color: #ffff0033;
+    background-color: rgba(255, 255, 0, 0.2);
     padding: 2px 4px;
     border-radius: 3px;
     position: relative;
@@ -56,10 +57,11 @@ body {
     display: inline-block;
     padding: 5px;
     margin: 2px;
+    z-index: 2;
 }
 
 .blue-box {
-    background-color: #4444ff33;
+    background-color: rgba(68, 68, 255, 0.2);
     padding: 2px 4px;
     border-radius: 3px;
     position: relative;
@@ -68,6 +70,7 @@ body {
     display: inline-block;
     margin: 2px;
     cursor: pointer;
+    z-index: 2;
 }
 
 .card {
@@ -97,7 +100,10 @@ body {
 .sentence {
     width: 100%;
     position: relative;
-    z-index: 2;
+    margin-bottom: 20px;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+    /*z-index: 2;*/
 }
 
 .arrows {
