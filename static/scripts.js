@@ -261,6 +261,7 @@ function renderSentences(sentences) {
                 }
 
                  const relType = fragments[i].event?.rel_type;
+                 console.log("rel_type",relType)
 
                  if (relType) {
                     // Create label background
