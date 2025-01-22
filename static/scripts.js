@@ -245,7 +245,10 @@ function renderSentences(sentences) {
 
                     // Adjust this factor to control the curve height
                     const curveFactor = 0.5;
-                    const controlY = midY - distance * curveFactor;
+                    const maxCurveHeight = 50; // Adjust this value as needed
+                    const curveHeight = Math.min(distance * 0.3, maxCurveHeight);
+                    /*const controlY = midY - distance * curveFactor;*/
+                    const controlY = midY - curveHeight;
 
                     // Create the curved path using quadratic Bézier curve
                     svg.append("path")
@@ -253,7 +256,7 @@ function renderSentences(sentences) {
                            Q ${midX},${controlY} ${endX},${endY}`)
                          .attr("fill", "none")
                          .attr("stroke", "black")
-                         .attr("stroke-width", "1.5")
+                         .attr("stroke-width", "1.25")
                          .attr("marker-end", "url(#arrowhead)");
                 }
             });
