@@ -263,7 +263,7 @@ function renderSentences(sentences) {
                          .attr("marker-end", "url(#arrowhead)");
                 }
 
-                 const relType = fragments[i].event?.rel_type;
+                 const relType = d3.select(eventElement).attr("data-rel-type");
                  console.log("rel_type",relType)
                  console.log("event_data",eventElement)
 
