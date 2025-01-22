@@ -237,8 +237,8 @@ function renderSentences(sentences) {
                     // Create straight line with small curve
                     svg.append("path")
                         .attr("d", `M ${startX},${startY}
-                                  C ${startX + 50},${startY}
-                                    ${endX - 50},${endY}
+                                  C ${startX + 100},${startY}
+                                    ${endX - 100},${endY}
                                     ${endX},${endY}`)
                         .attr("fill", "none")
                         .attr("stroke", "black")
