@@ -143,6 +143,7 @@ function renderSentences(sentences) {
             ...sentence.events.map(event => ({
                 text: event.text_event,
                 type: 'blue-box',
+                rel_type: event.rel_type,
                 event: event
             }))
         ];
