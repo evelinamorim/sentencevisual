@@ -85,24 +85,24 @@ function visualizeJSON(fileName) {
 
 // Render sentences with events and time expressions
 function renderSentences(sentences) {
+    const wrapper = d3.select("#visualization-wrapper");
     const container = d3.select("#visualization").html("");
+
+    wrapper.style("height", "auto");
 
     const sentencesContainer = container
         .append("div")
-        .attr("class", "sentences-container")
-        .style("position","relative");
+        .attr("class", "sentences-container");
 
         // Add an SVG layer for the arrows
-    const svg = container
-        .append("svg")
+    const svg = wrapper.append("svg")
         .attr("class", "arrows")
         .style("position", "absolute")
         .style("top", 0)
         .style("left", 0)
         .style("width", "100%")
         .style("height", "100%")
-        .style("pointer-events", "none") // Prevent interaction with the SVG.
-        .style("z-index","1"); // arrow above the text
+        .style("pointer-events", "none");
 
         // Create arrow marker definition
     svg.append("defs")
@@ -121,13 +121,10 @@ function renderSentences(sentences) {
     sentences.forEach((sentence, index) => {
         const sentenceContainer = sentencesContainer
             .append("div")
-            .attr("class","sentence")
-            .style("margin-bottom", "20px")
-            .style("order", index)
-            .style("position", "relative")
-            .style("padding", "5px");
+            .attr("class","sentence");
 
-        const sentenceText = sentenceContainer.append("div");
+        const sentenceText = sentenceContainer.append("div")
+                  .style("position", "relative");
         let textSent = sentence.text_sent;
         let fragments = [];
 
