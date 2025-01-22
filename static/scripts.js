@@ -104,7 +104,7 @@ function renderSentences(sentences) {
 
     sentences.forEach((sentence, index) => {
         const sentenceContainer = sentencesContainer
-            .append("div").
+            .append("div")
             .attr("class","sentence")
             .style("margin-bottom", "20px")
             .style("order", index)
