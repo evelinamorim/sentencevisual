@@ -122,7 +122,7 @@ function renderSentences(sentences) {
         .attr("orient", "auto")  // This helps with orientation
         .append("path")
         .attr("d", "M0,-5L10,0L0,5")
-        .attr("fill", "#333");  // Softer color for the arrow
+        .attr("fill", "black");  // Softer color for the arrow
 
     sentences.forEach((sentence, index) => {
         const sentenceContainer = sentencesContainer
@@ -251,7 +251,7 @@ function renderSentences(sentences) {
                                     ${endX - 50},${endY}
                                     ${endX},${endY}`)
                         .attr("fill", "none")
-                        .attr("stroke", "#333")
+                        .attr("stroke", "black")
                         .attr("stroke-width", "2")
                         .attr("marker-end", "url(#arrowhead)")
                         .style("z-index", "2");
