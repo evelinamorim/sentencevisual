@@ -290,15 +290,15 @@ function renderSentences(sentences) {
                        const bbox = textElement.node().getBBox();
 
                         // Add background rectangle
-                       label.insert("rect", "text")
+                       /*label.insert("rect", "text")
                            .attr("x", bbox.x - 4)
                            .attr("y", bbox.y - 2)
                            .attr("width", bbox.width + 8)
                            .attr("height", bbox.height + 4)
                            .attr("fill", "white")
-                           .attr("stroke", "none");
+                           .attr("stroke", "none");*/
 
-                       const hoverBox = label.append("rect")
+                       const hoverBox = svg.append("rect")
                            .attr("class", "hover-box")
                            .attr("x", bbox.x - 8)
                            .attr("y", bbox.y - 22)
@@ -310,21 +310,17 @@ function renderSentences(sentences) {
                           .style("display", "none");
                        console.log("Hover box created:", hoverBox.node());
 
-                       label
-                          .on("mouseover", function() {
-                            console.log("Hover over label");
-                            console.log("Label bounding box:", d3.select(this).node().getBoundingClientRect());
-                            console.log("Hover box bounding box:", d3.select(this).select(".hover-box").node().getBoundingClientRect());
-
-                          d3.select(this).select(".hover-box")
-                            .style("display", "block");
-                         })
-                          .on("mouseout", function() {
-                          console.log("Hover off label");
-                           d3.select(this).select(".hover-box")
-                            .style("display", "none");
-                         });
-
+                       hoverBox
+                           .on("mouseover", function() {
+                              console.log("Hover over hover box");
+                              d3.select(this)
+                                .style("display", "block");
+                           })
+                           .on("mouseout", function() {
+                              console.log("Hover off hover box");
+                              d3.select(this)
+                                .style("display", "none");
+                          });
                        // Add hover-over content
                       hoverBox.append("text")
                          .attr("x", bbox.x)
