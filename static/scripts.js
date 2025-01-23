@@ -295,6 +295,7 @@ function renderSentences(sentences) {
                            .attr("stroke", "none");
 
                        const hoverBox = label.append("rect")
+                           .attr("class", "hover-box")
                            .attr("x", bbox.x - 8)
                            .attr("y", bbox.y - 22)
                            .attr("width", bbox.width + 16)
@@ -306,11 +307,11 @@ function renderSentences(sentences) {
 
                        label
                           .on("mouseover", function() {
-                          d3.select(this).select("rect.hover-box")
+                          d3.select(this).select(".hover-box")
                             .style("display", "block");
                          })
                           .on("mouseout", function() {
-                           d3.select(this).select("rect.hover-box")
+                           d3.select(this).select(".hover-box")
                             .style("display", "none");
                          });
 
