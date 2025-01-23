@@ -218,8 +218,14 @@ function drawArrows(wrapper, eventElements, timeElements) {
     eventElements.forEach((eventElement, i) => {
         const timeElement = timeElements[i];
         if (eventElement && timeElement) {
-            const startRect = eventElement.node().getBoundingClientRect();
-            const endRect = timeElement.node().getBoundingClientRect();
+
+            const eventNode = d3.select(eventElement).node();
+            const timeNode = d3.select(timeElement).node();
+
+            if (!eventNode || !timeNode) return;
+
+            const startRect = eventNode.getBoundingClientRect();
+            const endRect = timeNode.getBoundingClientRect();
 
             const startX = startRect.left - wrapperRect.left + startRect.width;
             const startY = startRect.top - wrapperRect.top + startRect.height / 2;
