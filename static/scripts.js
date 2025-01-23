@@ -269,8 +269,9 @@ function renderSentences(sentences) {
                         const label = svg.append("g")
                             .attr("class", "relation-label");
 
-                        // Position label above the midpoint of the curve
-                        const labelY = controlY - 12; // Position above the curve peak
+                        // Calculate the label's vertical position above the curve
+                        const labelVerticalSpacing = 20; // Adjust this value to change the label's vertical spacing
+                        const labelY = controlY - curveHeight - labelVerticalSpacing;
 
                        // Add white background rectangle for better readability
                        const textElement = label.append("text")
