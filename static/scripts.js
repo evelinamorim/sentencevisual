@@ -196,7 +196,7 @@ function renderFragments(container, fragments) {
     });
 }
 
-function categorizeElements(sentenceText, ) {
+function categorizeElements(sentenceText, fragments) {
     let eventElements = [];
     let timeElements = [];
 
