@@ -228,10 +228,13 @@ function renderSentences(sentences) {
             eventElements.forEach((eventElement, i) => {
                 const timeElement = timeElements[i];
                 if (eventElement && timeElement) {
+                    console.log("Processing event element", i);
                     const relType = d3.select(eventElement).attr("data-rel-type");
 
                     const eventRect = eventElement.getBoundingClientRect();
+                    console.log("Event element rect:", eventRect);
                     const timeRect = timeElement.getBoundingClientRect();
+                    console.log("Time element rect:", timeRect);
 
                     // Calculate positions relative to container
                     const startX = eventRect.left - wrapperRect.left + (eventRect.width);
@@ -265,6 +268,7 @@ function renderSentences(sentences) {
                          /*.attr("marker-end", "url(#arrowhead)");*/
 
                     if (relType) {
+                        console.log("Creating label for relation type:", relType);
                         // Create label background
                         const label = svg.append("g")
                             .attr("class", "relation-label");
@@ -304,6 +308,7 @@ function renderSentences(sentences) {
                            .attr("stroke", "#ccc")
                           .attr("stroke-width", 1)
                           .style("display", "none");
+                       console.log("Hover box created:", hoverBox.node());
 
                        label
                           .on("mouseover", function() {
