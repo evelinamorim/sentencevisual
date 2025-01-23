@@ -270,7 +270,7 @@ function renderSentences(sentences) {
                             .attr("class", "relation-label");
 
                         // Position label above the midpoint of the curve
-                        const labelY = controlY - 10; // Position above the curve peak
+                        const labelY = controlY - 12; // Position above the curve peak
 
                        // Add white background rectangle for better readability
                        const textElement = label.append("text")
