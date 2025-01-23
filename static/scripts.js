@@ -200,13 +200,39 @@ function categorizeElements(fragments) {
     let eventElements = [];
     let timeElements = [];
 
-    fragments.forEach(fragment => {
+fragments.forEach(fragment => {
+    let span = sentenceText.append("span")
+        .text(fragment.text);
+
+    if (fragment.type !== 'normal') {
+        span.attr("class", fragment.type);
+
         if (fragment.type === "blue-box") {
-            eventElements.push(fragment);
+            if (fragment.event && fragment.event.rel_type) {
+                span.attr("data-rel-type", fragment.event.rel_type);
+            }
+            eventElements.push(span.node()); // Store the actual DOM node
         } else if (fragment.type === "yellow-box") {
-            timeElements.push(fragment);
+            timeElements.push(span.node()); // Store the actual DOM node
         }
-    });
+
+        if (fragment.event) {
+            span.on("mouseover", function (e) {
+                tooltip
+                    .style("left", `${e.pageX + 10}px`)
+                    .style("top", `${e.pageY + 10}px`)
+                    .style("display", "block")
+                    .html(Object.entries(fragment.event)
+                        .map(([key, value]) => `${key}: ${value}`)
+                        .join("<br>")
+                    );
+            })
+            .on("mouseout", function () {
+                tooltip.style("display", "none");
+            });
+        }
+    }
+   });
 
     return { eventElements, timeElements };
 }
