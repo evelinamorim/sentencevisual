@@ -294,19 +294,33 @@ function renderSentences(sentences) {
                            .attr("fill", "white")
                            .attr("stroke", "none");
 
+                       const hoverBox = label.append("rect")
+                           .attr("x", bbox.x - 8)
+                           .attr("y", bbox.y - 22)
+                           .attr("width", bbox.width + 16)
+                           .attr("height", bbox.height + 24)
+                           .attr("fill", "white")
+                           .attr("stroke", "#ccc")
+                          .attr("stroke-width", 1)
+                          .style("display", "none");
+
                        label
-                           .on("mouseover", function() {
-                            d3.select(this).select("rect")
-                            .transition()
-                            .duration(200)
-                            .style("fill-opacity", 1);
-                            })
-                           .on("mouseout", function() {
-                            d3.select(this).select("rect")
-                            .transition()
-                            .duration(200)
-                            .style("fill-opacity", 0.9);
+                          .on("mouseover", function() {
+                          d3.select(this).select("rect.hover-box")
+                            .style("display", "block");
+                         })
+                          .on("mouseout", function() {
+                           d3.select(this).select("rect.hover-box")
+                            .style("display", "none");
                          });
+
+                       // Add hover-over content
+                      hoverBox.append("text")
+                         .attr("x", bbox.x)
+                         .attr("y", bbox.y)
+                         .attr("fill", "#333")
+                         .attr("font-size", "12px")
+                        .text(`Relation: ${relType}`);
 
 
                    }
