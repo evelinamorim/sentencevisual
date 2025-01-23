@@ -307,10 +307,15 @@ function renderSentences(sentences) {
 
                        label
                           .on("mouseover", function() {
+                            console.log("Hover over label");
+                            console.log("Label bounding box:", d3.select(this).node().getBoundingClientRect());
+                            console.log("Hover box bounding box:", d3.select(this).select(".hover-box").node().getBoundingClientRect());
+
                           d3.select(this).select(".hover-box")
                             .style("display", "block");
                          })
                           .on("mouseout", function() {
+                          console.log("Hover off label");
                            d3.select(this).select(".hover-box")
                             .style("display", "none");
                          });
