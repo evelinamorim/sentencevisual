@@ -85,20 +85,23 @@ function visualizeJSON(fileName) {
 
 // Render sentences with events and time expressions
 function renderSentences(sentences) {
+    setupVisualization();
+    sentences.forEach((sentence, index) => renderSentence(sentence, index));
+}
+
+function setupVisualization() {
     const wrapper = d3.select("#visualization-wrapper");
     const container = d3.select("#visualization").html("");
 
     wrapper.style("height", "auto");
-    // Clear any existing SVG before creating a new one
     wrapper.selectAll("svg.arrows").remove();
 
     const sentencesContainer = container
         .append("div")
         .attr("class", "sentences-container")
-        .style("position","relative")
-        .style("z-index","2");
+        .style("position", "relative")
+        .style("z-index", "2");
 
-        // Add an SVG layer for the arrows
     const svg = wrapper
         .insert("svg", ":first-child")
         .attr("class", "arrows")
@@ -108,408 +111,174 @@ function renderSentences(sentences) {
         .style("width", "100%")
         .style("height", "100%")
         .style("pointer-events", "none")
-        .style("z-index","1");
+        .style("z-index", "1");
 
-        // Create arrow marker definition
     svg.append("defs")
         .append("marker")
         .attr("id", "arrowhead")
         .attr("viewBox", "0 -5 10 10")
-        .attr("refX", 8)  // Adjusted to move arrow closer to end
+        .attr("refX", 8)
         .attr("refY", 0)
         .attr("markerWidth", 8)
         .attr("markerHeight", 8)
-        .attr("orient", "auto")  // This helps with orientation
+        .attr("orient", "auto")
         .append("path")
         .attr("d", "M0,-5L10,0L0,5")
-        .attr("fill", "black");  // Softer color for the arrow
-
-    sentences.forEach((sentence, index) => {
-        const sentenceContainer = sentencesContainer
-            .append("div")
-            .attr("class","sentence")
-            .style("position", "relative")
-            .style("z-index", "2");
-
-        const sentenceText = sentenceContainer.append("div")
-                  .style("position", "relative")
-                  .style("z-index", "2");
-        let textSent = sentence.text_sent;
-        let fragments = [];
-
-       // First, collect all highlights (both time and events)
-        let highlights = [
-            { text: sentence.text_time.replace(",","").trim(), type: 'yellow-box' },
-            ...sentence.events.map(event => ({
-                text: event.text_event,
-                type: 'blue-box',
-                event: event
-            }))
-        ];
-        console.log(highlights);
-       // Sort highlights by their position in the text
-        highlights.forEach(highlight => {
-            highlight.index = textSent.indexOf(highlight.text);
-        });
-        highlights = highlights.filter(h => h.index !== -1)
-            .sort((a, b) => a.index - b.index);
-
-       // Build fragments
-        let lastIndex = 0;
-        highlights.forEach(highlight => {
-            // Add text before highlight
-            if (highlight.index > lastIndex) {
-                fragments.push({
-                    text: textSent.substring(lastIndex, highlight.index),
-                    type: 'normal'
-                });
-            }
-
-            // Add highlighted text
-            fragments.push({
-                text: highlight.text,
-                type: highlight.type,
-                event: highlight.event
-            });
-
-            lastIndex = highlight.index + highlight.text.length;
-        });
-
-       // Add remaining text
-        if (lastIndex < textSent.length) {
-            fragments.push({
-                text: textSent.substring(lastIndex),
-                type: 'normal'
-            });
-        }
-
-        let eventElements = [];
-        let timeElements = [];
-
-        // Render fragments
-        fragments.forEach(fragment => {
-            let span = sentenceText.append("span")
-                .text(fragment.text);
-
-            if (fragment.type !== 'normal') {
-                span.attr("class", fragment.type);
-
-                if (fragment.type === "blue-box") {
-                   if (fragment.event && fragment.event.rel_type) {
-                           span.attr("data-rel-type", fragment.event.rel_type);
-                   }
-                    eventElements.push (span.node()); // Save event element for the arrow.
-                } else if (fragment.type === "yellow-box") {
-                    timeElements.push(span.node()); // Save time element for the arrow.
-                }
-
-                if (fragment.event) {
-                    span.on("mouseover", function(e) {
-                        tooltip
-                            .style("left", `${e.pageX + 10}px`)
-                            .style("top", `${e.pageY + 10}px`)
-                            .style("display", "block")
-                            .html(Object.entries(fragment.event)
-                                .map(([key, value]) => `${key}: ${value}`)
-                                .join("<br>")
-                            );
-                    })
-                        .on("mouseout", function(e) {
-                            tooltip.style("display", "none");
-                        });
-                }
-            }
-        });
-
-        // Draw arrows after a short delay to ensure proper positioning
-        setTimeout(() => {
-            const wrapperRect = wrapper.node().getBoundingClientRect();
-
-            eventElements.forEach((eventElement, i) => {
-                const timeElement = timeElements[i];
-                if (eventElement && timeElement) {
-                    console.log("Processing event element", i);
-                    const relType = d3.select(eventElement).attr("data-rel-type");
-
-                    const eventRect = eventElement.getBoundingClientRect();
-                    console.log("Event element rect:", eventRect);
-                    const timeRect = timeElement.getBoundingClientRect();
-                    console.log("Time element rect:", timeRect);
-
-                    // Calculate positions relative to container
-                    const startX = eventRect.left - wrapperRect.left + (eventRect.width);
-                    const startY = eventRect.top -  wrapperRect.top + (eventRect.height / 2);
-                    const endX = timeRect.left - wrapperRect.left;
-                    const endY = timeRect.top - wrapperRect.top + (timeRect.height / 2);
-
-                    // Define control points for the Bézier curve
-                    // Calculate the distance between start and end points
-                    const dx = endX - startX;
-                    const dy = endY - startY;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-
-                    const midX = (startX + endX) / 2; // Midpoint X
-                    const midY = (startY + endY) / 2; // Midpoint Y
-
-                    // Adjust this factor to control the curve height
-                    const curveFactor = 0.5;
-                    const maxCurveHeight = 100; // Adjust this value as needed
-                    const curveHeight = Math.min(distance * curveFactor, maxCurveHeight);
-                    /*const controlY = midY - distance * curveFactor;*/
-                    const controlY = midY - curveHeight;
-
-                    // Create the curved path using quadratic Bézier curve
-                    svg.append("path")
-                         .attr("d", `M ${startX},${startY}
-                           Q ${midX},${controlY} ${endX},${endY}`)
-                         .attr("fill", "none")
-                         .attr("stroke", "black")
-                         .attr("stroke-width", "1.25");
-                         /*.attr("marker-end", "url(#arrowhead)");*/
-
-                    if (relType) {
-                        console.log("Creating label for relation type:", relType);
-                        // Create label background
-                        const label = svg.append("g")
-                            .attr("class", "relation-label");
-
-                        // Calculate the label's vertical position above the curve
-                        const labelVerticalSpacing = 20; // Adjust this value to change the label's vertical spacing
-                        const labelY = controlY - curveHeight - labelVerticalSpacing;
-
-                       // Add white background rectangle for better readability
-                       const textElement = label.append("text")
-                          .attr("x", midX)
-                          .attr("y", labelY)
-                          .attr("text-anchor", "middle")
-                          .attr("fill", "black")
-                          .attr("font-size", "12px")
-                          .text(relType);
-
-                       // Get text boundary for background
-                       const bbox = textElement.node().getBBox();
-
-                        // Add background rectangle
-                       /*label.insert("rect", "text")
-                           .attr("x", bbox.x - 4)
-                           .attr("y", bbox.y - 2)
-                           .attr("width", bbox.width + 8)
-                           .attr("height", bbox.height + 4)
-                           .attr("fill", "white")
-                           .attr("stroke", "none");*/
-
-                       const hoverBox = svg.append("rect")
-                           .attr("class", "hover-box")
-                           .attr("x", bbox.x - 8)
-                           .attr("y", bbox.y - 22)
-                           .attr("width", bbox.width + 16)
-                           .attr("height", bbox.height + 24)
-                           .attr("fill", "white")
-                           .attr("stroke", "#ccc")
-                          .attr("stroke-width", 1)
-                          .style("display", "none");
-                       console.log("Hover box created:", hoverBox.node());
-
-                       hoverBox
-                           .on("mouseover", function() {
-                              console.log("Hover over hover box");
-                              d3.select(this)
-                                .style("display", "block");
-                           })
-                           .on("mouseout", function() {
-                              console.log("Hover off hover box");
-                              d3.select(this)
-                                .style("display", "none");
-                          });
-                       // Add hover-over content
-                      hoverBox.append("text")
-                         .attr("x", bbox.x)
-                         .attr("y", bbox.y)
-                         .attr("fill", "#333")
-                         .attr("font-size", "12px")
-                        .text(`Relation: ${relType}`);
-
-
-                   }
-                }
-
-            });
-
-            // Update SVG height to match content
-            const contentHeight = container.node().getBoundingClientRect().height;
-            svg.style("height", `${contentHeight}px`);
-
-        }, 100);  // Small delay to ensure DOM is ready
-
-
-        // Display time expressions as cards
-        const timeContainer = sentenceContainer.append("div")
-            .attr("class","card")
-            .style("display","flex")
-            .style("gap","10px");
-
-        timeContainer.append("div")
-            .style("font-weight", "bold")      // Bold text
-            .style("margin-bottom", "10px")   // Space below the title
-            .style("font-size", "14px")       // Slightly larger font size for title
-            .text("Linked Time Expressions"); // Title text
-        sentence.times.forEach(time => {
-
-            const card = timeContainer.append("div")
-                .attr("class", "card")
-                .style("padding", "10px")
-                .style("border", "1px solid #ccc")
-                .style("border-radius", "5px")
-                .style("background-color", "#ffffff")
-                .style("color", "#000000") ;
-
-
-
-            Object.entries(time).forEach(([key, value]) => {
-                card.append("div")
-                    .style("margin-bottom", "5px") // Add spacing between fields
-                    .style("font-size", "12px")    // Adjust text size
-                    .html(`<strong>${key}:</strong> ${value}`); // Display key-value pair
-            });
-        });
-    });
-
+        .attr("fill", "black");
 }
 
-function renderD3Tree(treeData){
-    if (!treeData) {
-        console.error('Tree data is not defined');
-        return;
-    }
+function renderSentence(sentence, index) {
+    const wrapper = d3.select("#visualization-wrapper");
+    const container = d3.select(".sentences-container");
 
-    // Set up the d3 tree visualization
-    const width = 1000;
-    const height = 800;
-    const margin = { top: 20, right: 120, bottom: 20, left: 120 };
+    const sentenceContainer = container
+        .append("div")
+        .attr("class", "sentence")
+        .style("position", "relative")
+        .style("z-index", "2");
 
-    // Create a hierarchical layout
-    const tree = d3.tree()
-        .size([height - margin.top - margin.bottom, width - margin.right - margin.left]);
+    const sentenceText = sentenceContainer
+        .append("div")
+        .style("position", "relative")
+        .style("z-index", "2");
 
-    // Create the root node
-    const root = d3.hierarchy(treeData);
+    const fragments = createFragments(sentence.text_sent, sentence);
+    renderFragments(sentenceText, fragments);
+    const { eventElements, timeElements } = categorizeElements(fragments);
 
-    // Create the SVG container
-    const svg = d3.select("#visualization")
-        .append("svg")
-        .attr("width", width)
-        .attr("height", height)
-        .append("g")
-        .attr("transform", `translate(${margin.left},${margin.top})`);
+    setTimeout(() => drawArrows(wrapper, eventElements, timeElements), 100);
+    renderTimeExpressions(sentenceContainer, sentence.times);
+}
 
-    // Create tooltip
-    const tooltip = d3.select("body").append("div")
-        .attr("class", "tooltip")
-        .style("opacity", 0);
+function createFragments(text, sentence) {
+    let fragments = [];
+    let highlights = [
+        { text: sentence.text_time.replace(",", "").trim(), type: "yellow-box" },
+        ...sentence.events.map(event => ({
+            text: event.text_event,
+            type: "blue-box",
+            event: event
+        }))
+    ];
 
-    // Initialize the layout
-    const nodes = tree(root);
-
-    // Create the links
-    const links = svg.selectAll(".link")
-        .data(nodes.links())
-        .enter()
-        .append("path")
-        .attr("class", "link");
-
-    // Create the nodes
-    const node = svg.selectAll(".node")
-        .data(nodes.descendants())
-        .enter()
-        .append("g")
-        .attr("class", "node")
-        .attr("transform", d => `translate(${d.y},${d.x})`);
-
-    // Add circles to nodes
-    node.append("circle")
-        .attr("r", 4);
-
-    // Add labels to nodes
-    node.append("text")
-        .attr("dy", ".35em")
-        .attr("x", d => d.children ? -13 : 13)
-        .style("text-anchor", d => d.children ? "end" : "start")
-        .text(d => d.data.name);
-
-    // Define drag behavior
-    const drag = d3.drag()
-        .on("start", dragstarted)
-        .on("drag", dragged)
-        .on("end", dragended);
-
-    // Apply drag behavior to nodes
-    node.call(drag);
-
-    // Store original positions
-    nodes.descendants().forEach(d => {
-        d.originalX = d.x;
-        d.originalY = d.y;
+    highlights.forEach(highlight => {
+        highlight.index = text.indexOf(highlight.text);
     });
 
-    // Drag functions
-    function dragstarted(event, d) {
-        d3.select(this).raise().classed("active", true);
-        // Show tooltip
-        tooltip.style("opacity", 1)
-            .html("Dragging: " + d.data.name)
-            .style("left", (event.sourceEvent.pageX + 10) + "px")
-            .style("top", (event.sourceEvent.pageY - 10) + "px");
+    highlights = highlights.filter(h => h.index !== -1).sort((a, b) => a.index - b.index);
+
+    let lastIndex = 0;
+    highlights.forEach(highlight => {
+        if (highlight.index > lastIndex) {
+            fragments.push({ text: text.substring(lastIndex, highlight.index), type: "normal" });
+        }
+        fragments.push({ text: highlight.text, type: highlight.type, event: highlight.event });
+        lastIndex = highlight.index + highlight.text.length;
+    });
+
+    if (lastIndex < text.length) {
+        fragments.push({ text: text.substring(lastIndex), type: "normal" });
     }
 
-    function dragged(event, d) {
-        // Update node position
-        d.x = event.y;
-        d.y = event.x;
-        d3.select(this)
-            .attr("transform", `translate(${d.y},${d.x})`);
+    return fragments;
+}
 
-        // Update tooltip position
-        tooltip.style("left", (event.sourceEvent.pageX + 10) + "px")
-            .style("top", (event.sourceEvent.pageY - 10) + "px");
+function renderFragments(container, fragments) {
+    fragments.forEach(fragment => {
+        const span = container.append("span").text(fragment.text);
+        if (fragment.type !== "normal") {
+            span.attr("class", fragment.type);
+            if (fragment.event) {
+                span.on("mouseover", e => showTooltip(e, fragment.event))
+                    .on("mouseout", hideTooltip);
+            }
+        }
+    });
+}
 
-        // Update connected links
-        updateLinks();
-    }
+function categorizeElements(fragments) {
+    let eventElements = [];
+    let timeElements = [];
 
-    function dragended(event, d) {
-        d3.select(this).classed("active", false);
-        // Hide tooltip
-        tooltip.style("opacity", 0);
-    }
+    fragments.forEach(fragment => {
+        if (fragment.type === "blue-box") {
+            eventElements.push(fragment);
+        } else if (fragment.type === "yellow-box") {
+            timeElements.push(fragment);
+        }
+    });
 
-    // Function to update links during drag
-    function updateLinks() {
-        links.attr("d", d3.linkHorizontal()
-            .x(d => d.y)
-            .y(d => d.x));
-    }
+    return { eventElements, timeElements };
+}
 
-    // Initial link positioning
-    updateLinks();
+function drawArrows(wrapper, eventElements, timeElements) {
+    const svg = d3.select("svg.arrows");
+    const wrapperRect = wrapper.node().getBoundingClientRect();
 
-    // Add double-click to reset positions
-    svg.on("dblclick", () => {
-        // Reset all nodes to their original positions
-        node.transition()
-            .duration(750)
-            .attr("transform", d => `translate(${d.originalY},${d.originalX})`);
+    eventElements.forEach((eventElement, i) => {
+        const timeElement = timeElements[i];
+        if (eventElement && timeElement) {
+            const startRect = eventElement.node().getBoundingClientRect();
+            const endRect = timeElement.node().getBoundingClientRect();
 
-        // Reset stored positions
-        nodes.descendants().forEach(d => {
-            d.x = d.originalX;
-            d.y = d.originalY;
+            const startX = startRect.left - wrapperRect.left + startRect.width;
+            const startY = startRect.top - wrapperRect.top + startRect.height / 2;
+            const endX = endRect.left - wrapperRect.left;
+            const endY = endRect.top - wrapperRect.top + endRect.height / 2;
+
+            const midX = (startX + endX) / 2;
+            const midY = (startY + endY) / 2;
+            const curveHeight = Math.min(Math.sqrt((endX - startX) ** 2 + (endY - startY) ** 2) * 0.5, 100);
+            const controlY = midY - curveHeight;
+
+            svg.append("path")
+                .attr("d", `M ${startX},${startY} Q ${midX},${controlY} ${endX},${endY}`)
+                .attr("fill", "none")
+                .attr("stroke", "black")
+                .attr("stroke-width", 1.25);
+        }
+    });
+}
+
+function renderTimeExpressions(container, times) {
+    const timeContainer = container
+        .append("div")
+        .attr("class", "time-expressions")
+        .style("display", "flex")
+        .style("gap", "10px");
+
+    timeContainer.append("div")
+        .style("font-weight", "bold")
+        .style("margin-bottom", "10px")
+        .style("font-size", "14px")
+        .text("Linked Time Expressions");
+
+    times.forEach(time => {
+        const card = timeContainer
+            .append("div")
+            .attr("class", "card")
+            .style("padding", "10px")
+            .style("border", "1px solid #ccc")
+            .style("border-radius", "5px")
+            .style("background-color", "#fff");
+
+        Object.entries(time).forEach(([key, value]) => {
+            card.append("div")
+                .style("margin-bottom", "5px")
+                .style("font-size", "12px")
+                .html(`<strong>${key}:</strong> ${value}`);
         });
-
-        // Update links
-        links.transition()
-            .duration(750)
-            .attr("d", d3.linkHorizontal()
-                .x(d => d.y)
-                .y(d => d.x));
     });
+}
+
+function showTooltip(event, data) {
+    const tooltip = d3.select("#tooltip");
+    tooltip.style("left", `${event.pageX + 10}px`)
+        .style("top", `${event.pageY + 10}px`)
+        .style("display", "block")
+        .html(Object.entries(data).map(([key, value]) => `<strong>${key}:</strong> ${value}`).join("<br>"));
+}
+
+function hideTooltip() {
+    d3.select("#tooltip").style("display", "none");
 }
