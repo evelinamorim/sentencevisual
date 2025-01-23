@@ -261,8 +261,8 @@ function renderSentences(sentences) {
                            Q ${midX},${controlY} ${endX},${endY}`)
                          .attr("fill", "none")
                          .attr("stroke", "black")
-                         .attr("stroke-width", "1.25")
-                         .attr("marker-end", "url(#arrowhead)");
+                         .attr("stroke-width", "1.25");
+                         /*.attr("marker-end", "url(#arrowhead)");*/
 
                     if (relType) {
                         // Create label background
