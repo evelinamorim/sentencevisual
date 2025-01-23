@@ -224,6 +224,8 @@ function drawArrows(wrapper, eventElements, timeElements) {
 
             if (!eventNode || !timeNode) return;
 
+            console.log("Event Node:", eventNode)
+
             const startRect = eventNode.getBoundingClientRect();
             const endRect = timeNode.getBoundingClientRect();
 
