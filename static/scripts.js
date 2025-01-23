@@ -144,7 +144,7 @@ function renderSentence(sentence, index) {
 
     const fragments = createFragments(sentence.text_sent, sentence);
     renderFragments(sentenceText, fragments);
-    const { eventElements, timeElements } = categorizeElements(fragments);
+    const { eventElements, timeElements } = categorizeElements(sentenceText, fragments);
 
     setTimeout(() => drawArrows(wrapper, eventElements, timeElements), 100);
     renderTimeExpressions(sentenceContainer, sentence.times);
@@ -196,7 +196,7 @@ function renderFragments(container, fragments) {
     });
 }
 
-function categorizeElements(fragments) {
+function categorizeElements(sentenceText, ) {
     let eventElements = [];
     let timeElements = [];
 
@@ -232,8 +232,7 @@ fragments.forEach(fragment => {
             });
         }
     }
-   });
-
+});
     return { eventElements, timeElements };
 }
 
