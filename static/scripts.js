@@ -145,7 +145,7 @@ function renderSentence(sentence, index) {
     const fragments = createFragments(sentence.text_sent, sentence);
     const { eventElements, timeElements } = categorizeElements(sentenceText, fragments);
 
-    // setTimeout(() => drawArrows(wrapper, eventElements, timeElements), 100);
+    setTimeout(() => drawArrows(wrapper, eventElements, timeElements), 100);
     renderTimeExpressions(sentenceContainer, sentence.times);
 }
 
@@ -233,6 +233,8 @@ function drawArrows(wrapper, eventElements, timeElements) {
 
             const eventNode = d3.select(eventElement).node();
             const timeNode = d3.select(timeElement).node();
+
+            console.log("Event Node",eventNode)
 
             if (!eventNode || !timeNode) return;
 
