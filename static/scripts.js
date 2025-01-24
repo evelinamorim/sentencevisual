@@ -229,6 +229,11 @@ function drawArrows(wrapper, eventElements, timeElements) {
 
     console.log("Wrapper Rect:", wrapperRect);
 
+    svg.on('click', function () {
+    console.log('SVG clicked!');
+});
+
+
 
     // Add a transparent rect to catch mouse events on entire SVG
     svg.append('rect')
