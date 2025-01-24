@@ -116,7 +116,9 @@ function setupVisualization() {
         .style("width", "100%")
         .style("height", "100%")
         .style("z-index", "1");
-
+    svg.on('mousemove', function (event) {
+    console.log('svg Mousemove:', d3.pointer(event, this));
+});
     svg.append("defs")
         .append("marker")
         .attr("id", "arrowhead")
