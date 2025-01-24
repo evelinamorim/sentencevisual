@@ -112,10 +112,7 @@ function setupVisualization() {
     .style("width", "100%")
     .style("height", "100%")
     .style("z-index", "10")
-    .style("background", "rgba(0,0,0,0.01)")
-    .on('mousemove', function (event) {
-        console.log('svg Mousemove:', d3.pointer(event, this));
-    });
+    .style("background", "rgba(0,0,0,0.01)");
 
 
     svg.append("defs")
@@ -130,16 +127,6 @@ function setupVisualization() {
         .append("path")
         .attr("d", "M0,-5L10,0L0,5")
         .attr("fill", "black");
-    /*svg
-    .on('mousemove', function (event) {
-        console.log('Mousemove:', d3.pointer(event, this));
-    })
-    .on('mouseenter', function() {
-        console.log('Mouse entered SVG');
-    })
-    .on('mouseover', function() {
-        console.log('Mouse over SVG');
-    });*/
 }
 
 function renderSentence(sentence, index) {
@@ -261,8 +248,6 @@ function drawArrows(wrapper, eventElements, timeElements) {
         console.log('Mousemove triggered!');
             const mouse = d3.pointer(event, this);
             const paths = svg.selectAll('path.arrow-path');
-
-            console.log("wrapperRect", wrapperRect.width, wrapperRect.height)
 
             // Check if mouse is near any path
             paths.each(function() {
