@@ -214,6 +214,7 @@ fragments.forEach(fragment => {
 
 function drawArrows(wrapper, eventElements, timeElements) {
     const svg = d3.select("svg.arrows");
+    console.log("SVG", svg);
 
     svg.append("defs")
         .append("marker")
