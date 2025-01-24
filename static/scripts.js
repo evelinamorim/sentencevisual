@@ -303,10 +303,13 @@ function renderTimeExpressions(container, times) {
     });
 }
 
+
 function showTooltip(event, data) {
     const tooltip = d3.select("#tooltip");
-    tooltip.style("left", `${event.pageX + 10}px`)
-        .style("top", `${event.pageY + 10}px`)
+    const targetRect = event.target.getBoundingClientRect();
+
+    tooltip.style("left", `${targetRect.right + 10}px`)
+        .style("top", `${targetRect.top}px`)
         .style("display", "block")
         .html(Object.entries(data).map(([key, value]) => `<strong>${key}:</strong> ${value}`).join("<br>"));
 }
