@@ -182,18 +182,6 @@ function createFragments(text, sentence) {
     return fragments;
 }
 
-function renderFragments(container, fragments) {
-    fragments.forEach(fragment => {
-        const span = container.append("span").text(fragment.text);
-        if (fragment.type !== "normal") {
-            span.attr("class", fragment.type);
-            if (fragment.event) {
-                span.on("mouseover", e => showTooltip(e, fragment.event))
-                    .on("mouseout", hideTooltip);
-            }
-        }
-    });
-}
 
 function categorizeElements(sentenceText, fragments) {
     let eventElements = [];
@@ -304,30 +292,3 @@ function renderTimeExpressions(container, times) {
 }
 
 
-function showTooltip(event, data) {
-    const tooltip = document.getElementById('tooltip');
-    const wrapper = document.getElementById('visualization-wrapper');
-
-    // Print out debug information
-    console.log('Event clientX:', event.clientX);
-    console.log('Event clientY:', event.clientY);
-    console.log('Wrapper rect:', wrapper.getBoundingClientRect());
-
-    const rect = wrapper.getBoundingClientRect();
-    const x = event.clientX - rect.left + 10;
-    const y = event.clientY - rect.top + 10;
-
-    console.log('Calculated X:', x);
-    console.log('Calculated Y:', y);
-
-    tooltip.style.left = `${x}px`;
-    tooltip.style.top = `${y}px`;
-    tooltip.style.display = 'block';
-    tooltip.innerHTML = Object.entries(data)
-        .map(([key, value]) => `<strong>${key}:</strong> ${value}`)
-        .join('<br>');
-}
-
-function hideTooltip() {
-    d3.select("#tooltip").style("display", "none");
-}
