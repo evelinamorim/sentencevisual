@@ -255,6 +255,7 @@ function drawArrows(wrapper, eventElements, timeElements) {
                 const relType = path.attr('data-rel-type');
 
                 if (isPointNearPath(this, mouse[0], mouse[1])) {
+                    console.log("-->", d3.event)
                     tooltip.html(relType)
                         .style("display", "block")
                         .style("left", (d3.event.pageX + 10) + "px")
