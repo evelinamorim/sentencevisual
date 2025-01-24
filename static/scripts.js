@@ -253,24 +253,26 @@ function drawArrows(wrapper, eventElements, timeElements) {
                 .attr("d", `M ${startX},${startY} Q ${midX},${controlY} ${endX},${endY}`)
                 .attr("fill", "none")
                 .attr("stroke", "black")
-                .attr("stroke-width", 1.25)
+                .attr("stroke-width", 1.5)
                 .attr("data-rel-type", eventNode.getAttribute("data-rel-type"));
 
             // Add tooltip events
             path.on("mouseover", function() {
                 const relType = this.getAttribute("data-rel-type");
+                console.log("Mouseover triggered", this);
                 tooltip.html(relType)
                     .style("display", "block")
-                    .style("left", (d3.event.pageX + 10) + "px")
-                    .style("top", (d3.event.pageY + 10) + "px");
+                    .style("left", (d3.event.offsetX + 10) + "px")
+                    .style("top", (d3.event.offsetY + 10) + "px");
             })
             .on("mouseout", function() {
                 tooltip.style("display", "none");
             })
             .on("mousemove", function() {
+                console.log("Mousemove triggered", this);
                 tooltip
-                    .style("left", (d3.event.pageX + 10) + "px")
-                    .style("top", (d3.event.pageY + 10) + "px");
+                    .style("left", (d3.event.offsetX + 10) + "px")
+                    .style("top", (d3.event.offsetY + 10) + "px");
             });
         }
     });
