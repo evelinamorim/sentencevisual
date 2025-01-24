@@ -254,11 +254,10 @@ function drawArrows(wrapper, eventElements, timeElements) {
                 const relType = path.attr('data-rel-type');
 
                 if (isPointNearPath(this, mouse[0], mouse[1])) {
-                    console.log("-->", event)
                     tooltip.html(relType)
                         .style("display", "block")
-                        .style("left", (d3.event.pageX + 10) + "px")
-                        .style("top", (d3.event.pageY + 10) + "px");
+                        .style("left", (event.pageX + 10) + "px")
+                        .style("top", (event.pageY + 10) + "px");
                 }
             });
         })
