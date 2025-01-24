@@ -102,6 +102,10 @@ function setupVisualization() {
         .style("position", "relative")
         .style("z-index", "2");
 
+    wrapper.on('mousemove', function (event) {
+    console.log('Wrapper Mousemove:', d3.pointer(event, this));
+});
+
     const svg = wrapper
         .insert("svg", ":first-child")
         .attr("class", "arrows")
