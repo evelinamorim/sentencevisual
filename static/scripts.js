@@ -218,8 +218,8 @@ fragments.forEach(fragment => {
         if (fragment.event) {
             span.on("mouseover", function (e) {
                 tooltip
-                    .style("left", `${e.pageX + 5}px`)
-                    .style("top", `${e.pageY + 5}px`)
+                    .style("left", `${e.offsetX + 5}px`)
+                    .style("top", `${e.offsetY + 5}px`)
                     .style("display", "block")
                     .html(Object.entries(fragment.event)
                         .map(([key, value]) => `${key}: ${value}`)
