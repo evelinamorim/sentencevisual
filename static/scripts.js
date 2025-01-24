@@ -229,7 +229,6 @@ function drawArrows(wrapper, eventElements, timeElements) {
     const wrapperRect = wrapper.node().getBoundingClientRect();
 
     // Add a transparent rect to catch mouse events on entire SVG
-    console.log("wrapperRect", wrapperRect.width, wrapperRect.height)
     svg.append('rect')
         .attr('width', wrapperRect.width)
         .attr('height', wrapperRect.height)
@@ -238,6 +237,8 @@ function drawArrows(wrapper, eventElements, timeElements) {
         .on('mousemove', function() {
             const mouse = d3.mouse(this);
             const paths = svg.selectAll('path.arrow-path');
+
+            console.log("wrapperRect", wrapperRect.width, wrapperRect.height)
 
             // Check if mouse is near any path
             paths.each(function() {
@@ -289,7 +290,7 @@ function drawArrows(wrapper, eventElements, timeElements) {
 }
 
 // Helper function to check if point is near path
-function isPointNearPath(pathElement, x, y, tolerance = 5) {
+function isPointNearPath(pathElement, x, y, tolerance = 10) {
     const path = pathElement;
     const pathLength = path.getTotalLength();
 
