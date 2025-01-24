@@ -309,8 +309,8 @@ function showTooltip(event, data) {
     const wrapper = d3.select("#visualization-wrapper");
     const wrapperRect = wrapper.node().getBoundingClientRect();
 
-    tooltip.style("left", `${event.clientX - wrapperRect.left + 10}px`)
-        .style("top", `${event.clientY - wrapperRect.top + 10}px`)
+    tooltip.style("left", `${event.clientX - wrapperRect.left + 5}px`)
+        .style("top", `${event.clientY - wrapperRect.top + 5}px`)
         .style("display", "block")
         .html(Object.entries(data).map(([key, value]) => `<strong>${key}:</strong> ${value}`).join("<br>"));
 }
