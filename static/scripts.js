@@ -105,6 +105,7 @@ function setupVisualization() {
     const svg = wrapper
         .insert("svg", ":first-child")
         .attr("class", "arrows")
+        .style("pointer-events", "all");
         .style("position", "absolute")
         .style("top", 0)
         .style("left", 0)
