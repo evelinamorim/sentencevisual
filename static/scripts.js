@@ -237,6 +237,7 @@ function drawArrows(wrapper, eventElements, timeElements) {
         .attr('fill', 'none')
         .attr('pointer-events', 'all')
         .on('mousemove', function() {
+        console.log('Mousemove triggered!');
             const mouse = d3.mouse(this);
             const paths = svg.selectAll('path.arrow-path');
 
