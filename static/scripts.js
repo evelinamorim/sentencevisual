@@ -206,8 +206,8 @@ fragments.forEach(fragment => {
         }
 
         if (fragment.event) {
-            span.on("mouseover", function (e) {
-                console.log("Mouseover event!")
+            span.on("mouseenter", function (e) {
+                console.log("Mouseover event!", e)
                 tooltip
                     .style("left", `${e.offsetX + 5}px`)
                     .style("top", `${e.offsetY + 5}px`)
@@ -217,7 +217,7 @@ fragments.forEach(fragment => {
                         .join("<br>")
                     );
             })
-            .on("mouseout", function () {
+            .on("mouseleave", function () {
                 tooltip.style("display", "none");
             });
         }
