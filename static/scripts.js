@@ -234,7 +234,7 @@ function drawArrows(wrapper, eventElements, timeElements) {
     svg.append('rect')
         .attr('width', wrapperRect.width)
         .attr('height', wrapperRect.height)
-        .attr('fill', 'rgba(255, 0, 0, 0.2))
+        .attr('fill', 'rgba(255, 0, 0, 0.2)')
         .attr('pointer-events', 'all')
         .on('mousemove', function() {
         console.log('Mousemove triggered!');
