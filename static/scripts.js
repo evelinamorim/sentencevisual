@@ -102,9 +102,17 @@ function setupVisualization() {
         .style("position", "relative")
         .style("z-index", "2");
 
+const svg = d3.select("body")
+    .append("svg")
+    .attr("width", 800)
+    .attr("height", 400)
+    .style("border", "1px solid black") // Visible border for debugging
+    .on("click", function () {
+        console.log("SVG clicked!");
+    });
 
 
-    const svg = wrapper
+  /*  const svg = wrapper
         .insert("svg", ":first-child")
         .attr("class", "arrows")
         .style("pointer-events", "all")
@@ -116,7 +124,7 @@ function setupVisualization() {
         .style("z-index", "1");
     svg.on('mousemove', function (event) {
     console.log('svg Mousemove:', d3.pointer(event, this));
-});
+});*/
     svg.append("defs")
         .append("marker")
         .attr("id", "arrowhead")
