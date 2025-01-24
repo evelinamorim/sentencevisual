@@ -253,7 +253,7 @@ function drawArrows(wrapper, eventElements, timeElements) {
                 .attr("d", `M ${startX},${startY} Q ${midX},${controlY} ${endX},${endY}`)
                 .attr("fill", "none")
                 .attr("stroke", "black")
-                .attr("stroke-width", 1.5)
+                .attr("stroke-width", 2)
                 .attr("data-rel-type", eventNode.getAttribute("data-rel-type"))
                 .style("pointer-events", "stroke");
 
