@@ -254,7 +254,8 @@ function drawArrows(wrapper, eventElements, timeElements) {
                 .attr("fill", "none")
                 .attr("stroke", "black")
                 .attr("stroke-width", 1.5)
-                .attr("data-rel-type", eventNode.getAttribute("data-rel-type"));
+                .attr("data-rel-type", eventNode.getAttribute("data-rel-type"))
+                .style("pointer-events", "stroke");
 
             // Add tooltip events
             path.on("mouseover", function() {
