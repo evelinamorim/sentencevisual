@@ -110,7 +110,6 @@ function setupVisualization() {
         .style("left", 0)
         .style("width", "100%")
         .style("height", "100%")
-        .style("pointer-events", "none")
         .style("z-index", "1");
 
     svg.append("defs")
