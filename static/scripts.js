@@ -102,15 +102,6 @@ function setupVisualization() {
         .style("position", "relative")
         .style("z-index", "2");
 
-/*const svg = d3.select("body")
-    .append("svg")
-    .attr("width", 800)
-    .attr("height", 400)
-    .style("border", "1px solid black") // Visible border for debugging
-    .on("click", function () {
-        console.log("SVG clicked!");
-    });*/
-
     const svg = wrapper
     .insert("svg", ":first-child")
     .attr("class", "arrows")
@@ -120,23 +111,13 @@ function setupVisualization() {
     .style("left", 0)
     .style("width", "100%")
     .style("height", "100%")
-    .style("z-index", "1")
+    .style("z-index", "10")
+    .style("background", "rgba(0,0,0,0.01)")
     .on('mousemove', function (event) {
         console.log('svg Mousemove:', d3.pointer(event, this));
     });
 
 
-svg.on('mouseover', function(event) {
-    // Tooltip logic here
-    d3.select("#tooltip")
-        .style("display", "block")
-        .style("left", (event.pageX + 10) + "px")
-        .style("top", (event.pageY + 10) + "px")
-        .html("Your tooltip content");
-})
-.on('mouseout', function() {
-    d3.select("#tooltip").style("display", "none");
-});
     svg.append("defs")
         .append("marker")
         .attr("id", "arrowhead")
@@ -264,7 +245,7 @@ function drawArrows(wrapper, eventElements, timeElements) {
     svg.append('rect')
         .attr('width', wrapperRect.width)
         .attr('height', wrapperRect.height)
-        .attr('fill', 'rgba(255, 0, 0, 0.2)')
+        .attr('fill', "none")
         .attr('pointer-events', 'all')
         .on('mousemove', function(event) {
         console.log('Mousemove triggered!');
