@@ -228,6 +228,7 @@ function drawArrows(wrapper, eventElements, timeElements) {
     const tooltip = d3.select("#tooltip");
     const wrapperRect = wrapper.node().getBoundingClientRect();
 
+    console.log("position mouse:",d3.mouse(this));
     // Add a transparent rect to catch mouse events on entire SVG
     svg.append('rect')
         .attr('width', wrapperRect.width)
