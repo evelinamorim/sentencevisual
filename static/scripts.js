@@ -236,9 +236,9 @@ function drawArrows(wrapper, eventElements, timeElements) {
         .attr('height', wrapperRect.height)
         .attr('fill', 'rgba(255, 0, 0, 0.2)')
         .attr('pointer-events', 'all')
-        .on('mousemove', function() {
+        .on('mousemove', function(event) {
         console.log('Mousemove triggered!');
-            const mouse = d3.mouse(this);
+            const mouse = d3.pointer(event, this);
             const paths = svg.selectAll('path.arrow-path');
 
             console.log("wrapperRect", wrapperRect.width, wrapperRect.height)
