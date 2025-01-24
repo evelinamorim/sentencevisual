@@ -305,14 +305,27 @@ function renderTimeExpressions(container, times) {
 
 
 function showTooltip(event, data) {
-    const tooltip = d3.select("#tooltip");
-    const wrapper = d3.select("#visualization-wrapper");
-    const wrapperRect = wrapper.node().getBoundingClientRect();
+    const tooltip = document.getElementById('tooltip');
+    const wrapper = document.getElementById('visualization-wrapper');
 
-    tooltip.style("left", `${event.clientX - wrapperRect.left + 5}px`)
-        .style("top", `${event.clientY - wrapperRect.top + 5}px`)
-        .style("display", "block")
-        .html(Object.entries(data).map(([key, value]) => `<strong>${key}:</strong> ${value}`).join("<br>"));
+    // Print out debug information
+    console.log('Event clientX:', event.clientX);
+    console.log('Event clientY:', event.clientY);
+    console.log('Wrapper rect:', wrapper.getBoundingClientRect());
+
+    const rect = wrapper.getBoundingClientRect();
+    const x = event.clientX - rect.left + 10;
+    const y = event.clientY - rect.top + 10;
+
+    console.log('Calculated X:', x);
+    console.log('Calculated Y:', y);
+
+    tooltip.style.left = `${x}px`;
+    tooltip.style.top = `${y}px`;
+    tooltip.style.display = 'block';
+    tooltip.innerHTML = Object.entries(data)
+        .map(([key, value]) => `<strong>${key}:</strong> ${value}`)
+        .join('<br>');
 }
 
 function hideTooltip() {
