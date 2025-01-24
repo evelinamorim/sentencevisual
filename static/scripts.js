@@ -145,7 +145,7 @@ function renderSentence(sentence, index) {
     const fragments = createFragments(sentence.text_sent, sentence);
     const { eventElements, timeElements } = categorizeElements(sentenceText, fragments);
 
-    setTimeout(() => drawArrows(wrapper, eventElements, timeElements), 100);
+    // setTimeout(() => drawArrows(wrapper, eventElements, timeElements), 100);
     renderTimeExpressions(sentenceContainer, sentence.times);
 }
 
