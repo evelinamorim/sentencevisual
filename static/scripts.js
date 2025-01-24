@@ -102,29 +102,41 @@ function setupVisualization() {
         .style("position", "relative")
         .style("z-index", "2");
 
-const svg = d3.select("body")
+/*const svg = d3.select("body")
     .append("svg")
     .attr("width", 800)
     .attr("height", 400)
     .style("border", "1px solid black") // Visible border for debugging
     .on("click", function () {
         console.log("SVG clicked!");
+    });*/
+
+    const svg = wrapper
+    .insert("svg", ":first-child")
+    .attr("class", "arrows")
+    .style("pointer-events", "all")
+    .style("position", "absolute")
+    .style("top", 0)
+    .style("left", 0)
+    .style("width", "100%")
+    .style("height", "100%")
+    .style("z-index", "1")
+    .on('mousemove', function (event) {
+        console.log('svg Mousemove:', d3.pointer(event, this));
     });
 
 
-  /*  const svg = wrapper
-        .insert("svg", ":first-child")
-        .attr("class", "arrows")
-        .style("pointer-events", "all")
-        .style("position", "absolute")
-        .style("top", 0)
-        .style("left", 0)
-        .style("width", "100%")
-        .style("height", "100%")
-        .style("z-index", "1");
-    svg.on('mousemove', function (event) {
-    console.log('svg Mousemove:', d3.pointer(event, this));
-});*/
+svg.on('mouseover', function(event) {
+    // Tooltip logic here
+    d3.select("#tooltip")
+        .style("display", "block")
+        .style("left", (event.pageX + 10) + "px")
+        .style("top", (event.pageY + 10) + "px")
+        .html("Your tooltip content");
+})
+.on('mouseout', function() {
+    d3.select("#tooltip").style("display", "none");
+});
     svg.append("defs")
         .append("marker")
         .attr("id", "arrowhead")
