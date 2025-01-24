@@ -225,6 +225,59 @@ fragments.forEach(fragment => {
 
 function drawArrows(wrapper, eventElements, timeElements) {
     const svg = d3.select("svg.arrows");
+    const tooltip = d3.select("#tooltip");
+    const wrapperRect = wrapper.node().getBoundingClientRect();
+
+    eventElements.forEach((eventElement, i) => {
+        const timeElement = timeElements[i];
+        if (eventElement && timeElement) {
+            const eventNode = d3.select(eventElement).node();
+            const timeNode = d3.select(timeElement).node();
+
+            if (!eventNode || !timeNode) return;
+
+            const startRect = eventNode.getBoundingClientRect();
+            const endRect = timeNode.getBoundingClientRect();
+
+            const startX = startRect.left - wrapperRect.left + startRect.width;
+            const startY = startRect.top - wrapperRect.top + startRect.height / 2;
+            const endX = endRect.left - wrapperRect.left;
+            const endY = endRect.top - wrapperRect.top + endRect.height / 2;
+
+            const midX = (startX + endX) / 2;
+            const midY = (startY + endY) / 2;
+            const curveHeight = Math.min(Math.sqrt((endX - startX) ** 2 + (endY - startY) ** 2) * 0.5, 100);
+            const controlY = midY - curveHeight;
+
+            const path = svg.append("path")
+                .attr("d", `M ${startX},${startY} Q ${midX},${controlY} ${endX},${endY}`)
+                .attr("fill", "none")
+                .attr("stroke", "black")
+                .attr("stroke-width", 1.25)
+                .attr("data-rel-type", eventNode.getAttribute("data-rel-type"));
+
+            // Add tooltip events
+            path.on("mouseover", function() {
+                const relType = this.getAttribute("data-rel-type");
+                tooltip.html(relType)
+                    .style("display", "block")
+                    .style("left", (d3.event.pageX + 10) + "px")
+                    .style("top", (d3.event.pageY + 10) + "px");
+            })
+            .on("mouseout", function() {
+                tooltip.style("display", "none");
+            })
+            .on("mousemove", function() {
+                tooltip
+                    .style("left", (d3.event.pageX + 10) + "px")
+                    .style("top", (d3.event.pageY + 10) + "px");
+            });
+        }
+    });
+}
+
+function drawArrowsNoLabel(wrapper, eventElements, timeElements) {
+    const svg = d3.select("svg.arrows");
     const wrapperRect = wrapper.node().getBoundingClientRect();
 
     eventElements.forEach((eventElement, i) => {
