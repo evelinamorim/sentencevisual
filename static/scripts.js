@@ -102,7 +102,7 @@ function setupVisualization() {
         .style("position", "relative")
         .style("z-index", "2");
 
-    const svg = wrapper
+    /*const svg = wrapper
         .insert("svg", ":first-child")
         .attr("class", "arrows")
         .style("position", "absolute")
@@ -111,20 +111,9 @@ function setupVisualization() {
         .style("width", "100%")
         .style("height", "100%")
         .style("pointer-events", "none")
-        .style("z-index", "1");
+        .style("z-index", "1");*/
 
-    svg.append("defs")
-        .append("marker")
-        .attr("id", "arrowhead")
-        .attr("viewBox", "0 -5 10 10")
-        .attr("refX", 8)
-        .attr("refY", 0)
-        .attr("markerWidth", 8)
-        .attr("markerHeight", 8)
-        .attr("orient", "auto")
-        .append("path")
-        .attr("d", "M0,-5L10,0L0,5")
-        .attr("fill", "black");
+
 }
 
 function renderSentence(sentence, index) {
@@ -225,10 +214,23 @@ fragments.forEach(fragment => {
 
 function drawArrows(wrapper, eventElements, timeElements) {
     const svg = d3.select("svg.arrows");
+
+    svg.append("defs")
+        .append("marker")
+        .attr("id", "arrowhead")
+        .attr("viewBox", "0 -5 10 10")
+        .attr("refX", 8)
+        .attr("refY", 0)
+        .attr("markerWidth", 8)
+        .attr("markerHeight", 8)
+        .attr("orient", "auto")
+        .append("path")
+        .attr("d", "M0,-5L10,0L0,5")
+        .attr("fill", "black");
+
     const tooltip = d3.select("#tooltip");
     const wrapperRect = wrapper.node().getBoundingClientRect();
 
-    console.log("position mouse:", d3.pointer(event, this));
     // Add a transparent rect to catch mouse events on entire SVG
     svg.append('rect')
         .attr('width', wrapperRect.width)
