@@ -130,6 +130,16 @@ function setupVisualization() {
         .append("path")
         .attr("d", "M0,-5L10,0L0,5")
         .attr("fill", "black");
+    svg
+    .on('mousemove', function (event) {
+        console.log('Mousemove:', d3.pointer(event, this));
+    })
+    .on('mouseenter', function() {
+        console.log('Mouse entered SVG');
+    })
+    .on('mouseover', function() {
+        console.log('Mouse over SVG');
+    });
 }
 
 function renderSentence(sentence, index) {
