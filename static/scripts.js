@@ -256,6 +256,9 @@ function drawArrows(wrapper, eventElements, timeElements) {
                 }
             });
         })
+            .on('click', function () {
+                console.log('Rect clicked!');
+            })
         .on('mouseout', function() {
             tooltip.style("display", "none");
         });
