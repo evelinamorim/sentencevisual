@@ -228,6 +228,33 @@ function drawArrows(wrapper, eventElements, timeElements) {
     const tooltip = d3.select("#tooltip");
     const wrapperRect = wrapper.node().getBoundingClientRect();
 
+    // Add a transparent rect to catch mouse events on entire SVG
+    svg.append('rect')
+        .attr('width', wrapperRect.width)
+        .attr('height', wrapperRect.height)
+        .attr('fill', 'none')
+        .attr('pointer-events', 'all')
+        .on('mousemove', function() {
+            const mouse = d3.mouse(this);
+            const paths = svg.selectAll('path.arrow-path');
+
+            // Check if mouse is near any path
+            paths.each(function() {
+                const path = d3.select(this);
+                const relType = path.attr('data-rel-type');
+
+                if (isPointNearPath(this, mouse[0], mouse[1])) {
+                    tooltip.html(relType)
+                        .style("display", "block")
+                        .style("left", (d3.event.pageX + 10) + "px")
+                        .style("top", (d3.event.pageY + 10) + "px");
+                }
+            });
+        })
+        .on('mouseout', function() {
+            tooltip.style("display", "none");
+        });
+
     eventElements.forEach((eventElement, i) => {
         const timeElement = timeElements[i];
         if (eventElement && timeElement) {
@@ -249,34 +276,35 @@ function drawArrows(wrapper, eventElements, timeElements) {
             const curveHeight = Math.min(Math.sqrt((endX - startX) ** 2 + (endY - startY) ** 2) * 0.5, 100);
             const controlY = midY - curveHeight;
 
-            const path = svg.append("path")
+            svg.append("path")
                 .attr("d", `M ${startX},${startY} Q ${midX},${controlY} ${endX},${endY}`)
                 .attr("fill", "none")
                 .attr("stroke", "black")
-                .attr("stroke-width", 2)
-                .attr("data-rel-type", eventNode.getAttribute("data-rel-type"))
-                .style("pointer-events", "stroke");
-
-            // Add tooltip events
-            path.on("mouseover", function() {
-                const relType = this.getAttribute("data-rel-type");
-                console.log("Mouseover triggered", this);
-                tooltip.html(relType)
-                    .style("display", "block")
-                    .style("left", (d3.event.offsetX + 10) + "px")
-                    .style("top", (d3.event.offsetY + 10) + "px");
-            })
-            .on("mouseout", function() {
-                tooltip.style("display", "none");
-            })
-            .on("mousemove", function() {
-                console.log("Mousemove triggered", this);
-                tooltip
-                    .style("left", (d3.event.offsetX + 10) + "px")
-                    .style("top", (d3.event.offsetY + 10) + "px");
-            });
+                .attr("stroke-width", 3)
+                .attr("class", "arrow-path")
+                .attr("data-rel-type", eventNode.getAttribute("data-rel-type"));
         }
     });
+}
+
+// Helper function to check if point is near path
+function isPointNearPath(pathElement, x, y, tolerance = 5) {
+    const path = pathElement;
+    const pathLength = path.getTotalLength();
+
+    for (let i = 0; i < pathLength; i += 5) {
+        const point = path.getPointAtLength(i);
+        const distance = Math.sqrt(
+            Math.pow(point.x - x, 2) +
+            Math.pow(point.y - y, 2)
+        );
+
+        if (distance < tolerance) {
+            return true;
+        }
+    }
+
+    return false;
 }
 
 function drawArrowsNoLabel(wrapper, eventElements, timeElements) {
