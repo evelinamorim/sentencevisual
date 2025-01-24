@@ -306,10 +306,11 @@ function renderTimeExpressions(container, times) {
 
 function showTooltip(event, data) {
     const tooltip = d3.select("#tooltip");
-    const targetRect = event.target.getBoundingClientRect();
+    const wrapper = d3.select("#visualization-wrapper");
+    const wrapperRect = wrapper.node().getBoundingClientRect();
 
-    tooltip.style("left", `${targetRect.right + 10}px`)
-        .style("top", `${targetRect.top}px`)
+    tooltip.style("left", `${event.clientX - wrapperRect.left + 10}px`)
+        .style("top", `${event.clientY - wrapperRect.top + 10}px`)
         .style("display", "block")
         .html(Object.entries(data).map(([key, value]) => `<strong>${key}:</strong> ${value}`).join("<br>"));
 }
