@@ -207,6 +207,7 @@ fragments.forEach(fragment => {
 
         if (fragment.event) {
             span.on("mouseover", function (e) {
+                console.log("Mouseover event!")
                 tooltip
                     .style("left", `${e.offsetX + 5}px`)
                     .style("top", `${e.offsetY + 5}px`)
@@ -229,14 +230,6 @@ function drawArrows(wrapper, eventElements, timeElements) {
     const svg = d3.select("svg.arrows");
     const tooltip = d3.select("#tooltip");
     const wrapperRect = wrapper.node().getBoundingClientRect();
-
-    console.log("Wrapper Rect:", wrapperRect);
-
-    svg.on('click', function () {
-    console.log('SVG clicked!');
-});
-
-
 
     // Add a transparent rect to catch mouse events on entire SVG
     svg.append('rect')
@@ -261,9 +254,6 @@ function drawArrows(wrapper, eventElements, timeElements) {
                 }
             });
         })
-            .on('click', function () {
-                console.log('Rect clicked!');
-            })
         .on('mouseout', function() {
             tooltip.style("display", "none");
         });
