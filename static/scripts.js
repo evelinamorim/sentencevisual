@@ -321,7 +321,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
             // Redraw all arrows on resize
             const allEventElements = Array.from(document.querySelectorAll('.blue-box'));
             const allTimeElements = Array.from(document.querySelectorAll('.yellow-box'));
-            updateArrows(wrapper, allEventElements, allTimeElements);
+            updateArrows(wrapper, allEventElements, allTimeElements, externalTimeElements);
         });
 
         window.arrowResizeObserver.observe(wrapper.node());
@@ -330,7 +330,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
         window.addEventListener('resize', () => {
             const allEventElements = Array.from(document.querySelectorAll('.blue-box'));
             const allTimeElements = Array.from(document.querySelectorAll('.yellow-box'));
-            updateArrows(wrapper, allEventElements, allTimeElements);
+            updateArrows(wrapper, allEventElements, allTimeElements, externalTimeElements);
         });
     }
 }
@@ -460,6 +460,7 @@ function updateArrows(wrapper, eventElements, timeElements, externalTimeElements
             tooltip.style("display", "none");
         });
 }
+
 function drawArrows(wrapper, eventElements, timeElements) {
     const svg = d3.select("svg.arrows");
     const tooltip = d3.select("#tooltip");
@@ -544,44 +545,7 @@ function isPointNearPath(pathElement, x, y, tolerance = 10) {
     return false;
 }
 
-function drawArrowsNoLabel(wrapper, eventElements, timeElements) {
-    const svg = d3.select("svg.arrows");
-    const wrapperRect = wrapper.node().getBoundingClientRect();
 
-    eventElements.forEach((eventElement, i) => {
-        const timeElement = timeElements[i];
-        if (eventElement && timeElement) {
-
-            const eventNode = d3.select(eventElement).node();
-            const timeNode = d3.select(timeElement).node();
-
-            console.log("Event Node",eventNode)
-
-            if (!eventNode || !timeNode) return;
-
-            console.log("Event Node:", eventNode)
-
-            const startRect = eventNode.getBoundingClientRect();
-            const endRect = timeNode.getBoundingClientRect();
-
-            const startX = startRect.left - wrapperRect.left + startRect.width;
-            const startY = startRect.top - wrapperRect.top + startRect.height / 2;
-            const endX = endRect.left - wrapperRect.left;
-            const endY = endRect.top - wrapperRect.top + endRect.height / 2;
-
-            const midX = (startX + endX) / 2;
-            const midY = (startY + endY) / 2;
-            const curveHeight = Math.min(Math.sqrt((endX - startX) ** 2 + (endY - startY) ** 2) * 0.5, 100);
-            const controlY = midY - curveHeight;
-
-            svg.append("path")
-                .attr("d", `M ${startX},${startY} Q ${midX},${controlY} ${endX},${endY}`)
-                .attr("fill", "none")
-                .attr("stroke", "black")
-                .attr("stroke-width", 1.25);
-        }
-    });
-}
 
 function renderTimeExpressions(container, times) {
     const timeContainer = container
