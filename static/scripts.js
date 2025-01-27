@@ -264,15 +264,13 @@ function categorizeElements(sentenceText, fragments) {
             "#A7C7E7" );
    });
 
-    // Create cards for event and time attributes
-    /*if (eventElements.length > 0) {
+   timeFragments.forEach(t => {
         createAttributeCard(
             cardsContainer,
-            "Event Attributes",
-            eventElements[0].attributes,
-            "rgba(135, 206, 235, 0.2)" // Light blue background matching the event highlight
-        );
-    }*/
+            "Time's Atributes",
+            t,
+            "#555555" );
+   });
 
   return { eventElements, timeElements };
 }
