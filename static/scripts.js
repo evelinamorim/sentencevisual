@@ -248,10 +248,11 @@ function categorizeElements(sentenceText, fragments) {
                }
 
                span.attr("data-id",fragment.event_id);
-               span.attr("arg2",fragment.arg2);
+               span.attr("arg2",fragment.event.arg2);
 
                eventFragments.push(fragment.event);
-               console.log("SPAN EVENT:", span.node(), fragment.arg2);
+               console.log("SPAN EVENT:", span.node());
+
                eventElements.push(span.node()); // Store the actual DOM node
             } else if (fragment.type === "yellow-box") {
                const timeFragment = {};
