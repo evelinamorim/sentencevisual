@@ -176,7 +176,12 @@ function createFragments(text, sentence) {
         if (highlight.index > lastIndex) {
             fragments.push({ text: text.substring(lastIndex, highlight.index), type: "normal" });
         }
-        fragments.push({ text: highlight.text, type: highlight.type, event: highlight.event });
+        fragments.push({ text: highlight.text,
+                         type: highlight.type,
+                         event: highlight.event,
+                         TemporalFunction: highlight.TemporalFunction,
+                         TimeType: highlight.TimeType
+         });
         lastIndex = highlight.index + highlight.text.length;
     });
 
