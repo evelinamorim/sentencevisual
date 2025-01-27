@@ -242,6 +242,7 @@ function categorizeElements(sentenceText, fragments) {
                eventFragments.push(fragment.event);
                eventElements.push(span.node()); // Store the actual DOM node
             } else if (fragment.type === "yellow-box") {
+               console.log("Fragment", fragment)
                timeFragments.push({"TemporalFunction":fragment.TemporalFunction,
                                    "TimeType":fragment.TimeType})
                timeElements.push(span.node()); // Store the actual DOM node
@@ -269,7 +270,7 @@ function categorizeElements(sentenceText, fragments) {
             cardsContainer,
             "Time's Atributes",
             t,
-            "#555555" );
+            "rgba(255, 255, 0, 0.2)" );
    });
 
   return { eventElements, timeElements };
