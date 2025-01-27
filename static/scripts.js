@@ -1,5 +1,7 @@
 const tooltip = d3.select("#tooltip");
 
+let idCounter = 0;
+
 function populateFileDropdown() {
     fetch('/get-files')
         .then(response => response.json())
@@ -232,7 +234,6 @@ function categorizeElements(sentenceText, fragments) {
 
     let eventFragments = []
     let timeFragments = []
-    let idCounter = 0;
 
     fragments.forEach(fragment => {
         let span = sentenceText.append("span")
