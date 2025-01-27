@@ -251,7 +251,6 @@ function categorizeElements(sentenceText, fragments) {
                span.attr("arg2",fragment.event.arg2);
 
                eventFragments.push(fragment.event);
-               console.log("SPAN EVENT:", span.node());
 
                eventElements.push(span.node()); // Store the actual DOM node
             } else if (fragment.type === "yellow-box") {
@@ -267,7 +266,6 @@ function categorizeElements(sentenceText, fragments) {
 
                timeFragments.push(timeFragment);
                span.attr("data-id",fragment.TimeId);
-               console.log("SPAN TIME:", span.node());
                timeElements.push(span.node()); // Store the actual DOM node
             }
        }
@@ -342,9 +340,6 @@ function updateArrows(wrapper, eventElements, timeElements) {
     const tooltip = d3.select("#tooltip");
     const wrapperRect = wrapper.node().getBoundingClientRect();
 
-    console.log("Event Elements:", eventElements);
-    console.log("Time Elements:", timeElements);
-
     // Update SVG dimensions
     svg
         .attr("width", wrapperRect.width)
@@ -383,7 +378,6 @@ function updateArrows(wrapper, eventElements, timeElements) {
             relType: eventNode.getAttribute("data-rel-type")
         };
 
-        console.log("Created path data:", data);
         return data;
     }).filter(Boolean);
 
