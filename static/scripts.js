@@ -313,9 +313,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
     }
 
     // Initial draw for this set of elements
-    updateArrows(wrapper, eventElements, timeElements);
-    console.log("ExternaltimeElements:", externalTimeElements)
-    //updateArrows(wrapper, externalTimeElements, timeElements);
+    updateArrows(wrapper, eventElements, timeElements, externalTimeElements);
 
     // Add resize listener if not already added
     if (!window.arrowResizeObserver) {
@@ -337,7 +335,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
     }
 }
 
-function updateArrows(wrapper, eventElements, timeElements) {
+function updateArrows(wrapper, eventElements, timeElements, externalTimeElements) {
     const svg = d3.select("svg.arrows");
     const tooltip = d3.select("#tooltip");
     const wrapperRect = wrapper.node().getBoundingClientRect();
@@ -348,7 +346,7 @@ function updateArrows(wrapper, eventElements, timeElements) {
         .attr("height", wrapperRect.height);
 
     // Create data array for the paths
-    const pathData = eventElements.map((eventElement, i) => {
+    const eventTimePathData = eventElements.map((eventElement, i) => {
         const timeElement = timeElements[i];
         if (!eventElement || !timeElement) return null;
 
@@ -375,6 +373,31 @@ function updateArrows(wrapper, eventElements, timeElements) {
         return data;
     }).filter(Boolean);
 
+     // Create data array for the paths between external time elements
+    const externalTimePathData = externalTimeElements.map(externalTimeElement => {
+        const textId = externalTimeElement.time_id;
+        const arg2 = externalTimeElement.arg2;
+
+        const textElement = document.querySelector(`[data-id="${textId}"]`);
+        const arg2Element = document.querySelector(`[data-id="${arg2}"]`);
+
+        if (!textElement || !arg2Element) return null;
+
+        const textRect = textElement.getBoundingClientRect();
+        const arg2Rect = arg2Element.getBoundingClientRect();
+
+        return {
+            startX: textRect.left - wrapperRect.left + textRect.width,
+            startY: textRect.top - wrapperRect.top + textRect.height / 2,
+            endX: arg2Rect.left - wrapperRect.left,
+            endY: arg2Rect.top - wrapperRect.top + arg2Rect.height / 2,
+            eventId: textId,
+            timeId: arg2,
+            relType: externalTimeElement.rel_type
+        };
+    }).filter(Boolean);
+
+    const pathData = [...eventTimePathData, ...externalTimePathData];
     // Select all existing paths and bind data
     const paths = svg.selectAll("path.arrow-path")
         .data(pathData, d => `${d.eventId}-${d.timeId}`);
