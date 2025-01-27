@@ -358,10 +358,14 @@ function updateArrows(wrapper, eventElements, timeElements) {
 
                return `path[data-event-id="${eventId}"][data-time-id="${timeId}"]`;
              }
-
         }
+        return null;
 
-    }).join(',');
+    })
+    .filter(Boolean)
+    .join(',');
+
+    console.log("Generated pathSelector:", pathSelector);
 
     if (pathSelector) {
         svg.selectAll(pathSelector).remove();
