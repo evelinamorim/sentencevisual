@@ -153,6 +153,7 @@ function renderSentence(sentence, index) {
 
 function createFragments(text, sentence) {
     let fragments = [];
+    console.log("SENTENCE: ", sentence)
     let highlights = [
         { text: sentence.text_time.replace(",", "").trim(), type: "yellow-box" },
         ...sentence.events.map(event => ({
@@ -223,6 +224,7 @@ function categorizeElements(sentenceText, fragments) {
     let timeElements = [];
 
     let eventFragments = []
+    let timeFragments = []
 
     fragments.forEach(fragment => {
         let span = sentenceText.append("span")
@@ -238,6 +240,7 @@ function categorizeElements(sentenceText, fragments) {
                eventFragments.push(fragment.event);
                eventElements.push(span.node()); // Store the actual DOM node
             } else if (fragment.type === "yellow-box") {
+               //timeFragments.push(fragment)
                timeElements.push(span.node()); // Store the actual DOM node
             }
        }
