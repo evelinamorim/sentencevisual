@@ -359,7 +359,7 @@ function updateArrows(wrapper, eventElements, timeElements) {
         const startRect = eventNode.getBoundingClientRect();
         const endRect = timeNode.getBoundingClientRect();
 
-        return {
+        const data = {
             startX: startRect.left - wrapperRect.left + startRect.width,
             startY: startRect.top - wrapperRect.top + startRect.height / 2,
             endX: endRect.left - wrapperRect.left,
@@ -368,6 +368,9 @@ function updateArrows(wrapper, eventElements, timeElements) {
             timeId: timeId,
             relType: eventNode.getAttribute("data-rel-type")
         };
+
+        console.log("Created path data:", data);
+        return data;
     }).filter(Boolean);
 
     // Select all existing paths and bind data
