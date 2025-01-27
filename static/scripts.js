@@ -247,9 +247,17 @@ function categorizeElements(sentenceText, fragments) {
                eventFragments.push(fragment.event);
                eventElements.push(span.node()); // Store the actual DOM node
             } else if (fragment.type === "yellow-box") {
-               console.log("Fragment", fragment)
-               timeFragments.push({"TemporalFunction":fragment.TemporalFunction,
-                                   "TimeType":fragment.TimeType})
+               const timeFragment = {};
+
+               if (fragment.TemporalFunction !== undefined) {
+                  timeFragment.TemporalFunction = fragment.TemporalFunction;
+               }
+
+               if (fragment.TimeType !== undefined) {
+                  timeFragment.TimeType = fragment.TimeType;
+               }
+
+               timeFragments.push(timeFragment)
                timeElements.push(span.node()); // Store the actual DOM node
             }
        }
