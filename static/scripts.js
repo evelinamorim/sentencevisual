@@ -52,7 +52,7 @@ function visualizeJSON(fileName) {
         .catch(error => console.error('Error fetching JSON data:', error));
 
     // Convert JSON to tree structure
-    function convertToTree(obj, parent = null) {
+   /* function convertToTree(obj, parent = null) {
         let result = { name: name };
         //console.log('Conversion of json to tree of :', obj); // Add this line
 
@@ -78,7 +78,7 @@ function visualizeJSON(fileName) {
             }
         }
         return result;
-    }
+    }*/
 
     //const treeData = convertToTree(data);
 }
@@ -129,6 +129,8 @@ function setupVisualization() {
         .attr("fill", "black");
 }
 
+const cleanupFunctions = new Map();
+
 function renderSentence(sentence, index) {
     const wrapper = d3.select("#visualization-wrapper");
     const container = d3.select(".sentences-container");
@@ -147,8 +149,36 @@ function renderSentence(sentence, index) {
     const fragments = createFragments(sentence.text_sent, sentence);
     const { eventElements, timeElements } = categorizeElements(sentenceText, fragments);
 
-    setTimeout(() => drawArrows(wrapper, eventElements, timeElements), 100);
+    // Wait for DOM to be ready and elements to be positioned
+    const cleanup = waitForRendering(() => {
+        return initializeArrows(wrapper, eventElements, timeElements);
+    });
+
+    // Store cleanup function
+    cleanupFunctions.set(index, cleanup);
+    //setTimeout(() => drawArrows(wrapper, eventElements, timeElements), 100);
+
     renderTimeExpressions(sentenceContainer, sentence.times);
+}
+
+// Helper function to wait for rendering
+function waitForRendering(callback) {
+    let cleanup = null;
+
+    // First, try using requestAnimationFrame
+    requestAnimationFrame(() => {
+        // Then wait a small amount of time to ensure all styles are applied
+        setTimeout(() => {
+            cleanup = callback();
+        }, 50);
+    });
+
+    // Return a cleanup function that handles the case where cleanup wasn't set yet
+    return () => {
+        if (cleanup) {
+            cleanup();
+        }
+    };
 }
 
 function createFragments(text, sentence) {
@@ -287,6 +317,129 @@ function categorizeElements(sentenceText, fragments) {
    });
 
   return { eventElements, timeElements };
+}
+
+
+function initializeArrows(wrapper, eventElements, timeElements) {
+    // Clear any existing SVG
+    d3.select("svg.arrows").remove();
+
+    // Create new SVG that fills the wrapper
+    const svg = d3.select(wrapper.node())
+        .append("svg")
+        .attr("class", "arrows")
+        .style("position", "absolute")
+        .style("top", 0)
+        .style("left", 0)
+        .style("pointer-events", "none")
+        .style("z-index", 1);
+
+    // Initial draw
+    updateArrows(wrapper, eventElements, timeElements);
+
+    // Add resize listener
+    const resizeObserver = new ResizeObserver(entries => {
+        for (const entry of entries) {
+            if (entry.target === wrapper.node()) {
+                updateArrows(wrapper, eventElements, timeElements);
+            }
+        }
+    });
+
+    // Observe the wrapper element
+    resizeObserver.observe(wrapper.node());
+
+    // Also handle window resize events
+    window.addEventListener('resize', () => {
+        updateArrows(wrapper, eventElements, timeElements);
+    });
+
+    return () => {
+        resizeObserver.disconnect();
+        window.removeEventListener('resize', updateArrows);
+    };
+}
+
+function updateArrows(wrapper, eventElements, timeElements) {
+    const svg = d3.select("svg.arrows");
+    const tooltip = d3.select("#tooltip");
+    const wrapperRect = wrapper.node().getBoundingClientRect();
+
+    // Update SVG dimensions
+    svg
+        .attr("width", wrapperRect.width)
+        .attr("height", wrapperRect.height);
+
+    // Clear existing paths
+    svg.selectAll("path.arrow-path").remove();
+
+    // Add transparent rect for mouse events
+    svg.selectAll("rect.event-catcher").remove();
+    svg.append('rect')
+        .attr('class', 'event-catcher')
+        .attr('width', wrapperRect.width)
+        .attr('height', wrapperRect.height)
+        .attr('fill', "none")
+        .attr('pointer-events', 'all')
+        .on('mousemove', function(event) {
+            const mouse = d3.pointer(event, this);
+            const paths = svg.selectAll('path.arrow-path');
+            let foundPath = false;
+
+            paths.each(function() {
+                const path = d3.select(this);
+                if (isPointNearPath(this, mouse[0], mouse[1])) {
+                    foundPath = true;
+                    const relType = path.attr('data-rel-type');
+                    tooltip.html(relType)
+                        .style("display", "block")
+                        .style("left", (event.pageX + 10) + "px")
+                        .style("top", (event.pageY + 10) + "px");
+                }
+            });
+
+            if (!foundPath) {
+                tooltip.style("display", "none");
+            }
+        })
+        .on('mouseout', function() {
+            tooltip.style("display", "none");
+        });
+
+    // Draw arrows
+    eventElements.forEach((eventElement, i) => {
+        const timeElement = timeElements[i];
+        if (eventElement && timeElement) {
+            const eventNode = d3.select(eventElement).node();
+            const timeNode = d3.select(timeElement).node();
+
+            if (!eventNode || !timeNode) return;
+
+            const startRect = eventNode.getBoundingClientRect();
+            const endRect = timeNode.getBoundingClientRect();
+
+            const startX = startRect.left - wrapperRect.left + startRect.width;
+            const startY = startRect.top - wrapperRect.top + startRect.height / 2;
+            const endX = endRect.left - wrapperRect.left;
+            const endY = endRect.top - wrapperRect.top + endRect.height / 2;
+
+            // Calculate curve parameters
+            const midX = (startX + endX) / 2;
+            const midY = (startY + endY) / 2;
+            const distance = Math.sqrt((endX - startX) ** 2 + (endY - startY) ** 2);
+            const curveHeight = Math.min(distance * 0.5, 100);
+            const controlY = midY - curveHeight;
+
+            // Draw the path
+            svg.append("path")
+                .attr("d", `M ${startX},${startY} Q ${midX},${controlY} ${endX},${endY}`)
+                .attr("fill", "none")
+                .attr("stroke", "black")
+                .attr("stroke-width", 1.5)
+                .attr("class", "arrow-path")
+                .attr("data-rel-type", eventNode.getAttribute("data-rel-type"));
+        }
+    });
 }
 
 function drawArrows(wrapper, eventElements, timeElements) {
