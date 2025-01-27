@@ -153,9 +153,11 @@ function renderSentence(sentence, index) {
 
 function createFragments(text, sentence) {
     let fragments = [];
-    console.log("SENTENCE: ", sentence)
     let highlights = [
-        { text: sentence.text_time.replace(",", "").trim(), type: "yellow-box" },
+        { text: sentence.text_time.replace(",", "").trim(),
+          type: "yellow-box" ,
+          TemporalFunction: sentence.TemporalFunction,
+          TimeType: sentence.Time_Type},
         ...sentence.events.map(event => ({
             text: event.text_event,
             type: "blue-box",
@@ -240,7 +242,8 @@ function categorizeElements(sentenceText, fragments) {
                eventFragments.push(fragment.event);
                eventElements.push(span.node()); // Store the actual DOM node
             } else if (fragment.type === "yellow-box") {
-               //timeFragments.push(fragment)
+               timeFragments.push({"TemporalFunction":fragment.TemporalFunction,
+                                   "TimeType":fragment.TimeType})
                timeElements.push(span.node()); // Store the actual DOM node
             }
        }
