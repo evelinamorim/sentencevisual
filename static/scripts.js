@@ -407,14 +407,7 @@ function renderTimeExpressions(container, times) {
         .style("font-size", "14px")
         .text("Linked Time Expressions");*/
 
-        if (time.text_time2) {
-        card.append("div")
-            .attr("class", "card-header")
-            .style("margin-bottom", "10px")
-            .style("font-size", "14px")
-            .style("font-weight", "bold")
-            .text(time.text_time2);
-    }
+
 
 
     times.forEach(time => {
@@ -425,6 +418,15 @@ function renderTimeExpressions(container, times) {
             .style("border", "1px solid #ccc")
             .style("border-radius", "5px")
             .style("background-color", "#fff");
+
+        if (time.text_time2) {
+          card.append("div")
+            .attr("class", "card-header")
+            .style("margin-bottom", "10px")
+            .style("font-size", "14px")
+            .style("font-weight", "bold")
+            .text(time.text_time2);
+        }
 
 
         Object.entries(time).forEach(([key, value]) => {
