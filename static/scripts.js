@@ -1,7 +1,5 @@
 const tooltip = d3.select("#tooltip");
 
-let idCounter = 0;
-
 function populateFileDropdown() {
     fetch('/get-files')
         .then(response => response.json())
@@ -159,7 +157,8 @@ function createFragments(text, sentence) {
         { text: sentence.text_time.replace(",", "").trim(),
           type: "yellow-box" ,
           TemporalFunction: sentence.TemporalFunction,
-          TimeType: sentence.Time_Type},
+          TimeType: sentence.Time_Type,
+          TimeId: sentence.time_id},
         ...sentence.events.map(event => ({
             text: event.text_event,
             type: "blue-box",
@@ -182,7 +181,8 @@ function createFragments(text, sentence) {
                          type: highlight.type,
                          event: highlight.event,
                          TemporalFunction: highlight.TemporalFunction,
-                         TimeType: highlight.TimeType
+                         TimeType: highlight.TimeType,
+                         TimeId: highlight.TimeId
          });
         lastIndex = highlight.index + highlight.text.length;
     });
@@ -246,8 +246,9 @@ function categorizeElements(sentenceText, fragments) {
                 if (fragment.event && fragment.event.rel_type) {
                    span.attr("data-rel-type", fragment.event.rel_type);
                }
-               const uniqueId = `event-${idCounter++}`;
-               span.attr("data-id",`${uniqueId}`);
+
+               span.attr("data-id",fragment.event_id);
+               span.attr("arg2",fragment.arg2);
                console.log("ID:", idCounter);
 
                eventFragments.push(fragment.event);
@@ -262,11 +263,9 @@ function categorizeElements(sentenceText, fragments) {
                if (fragment.TimeType !== undefined) {
                   timeFragment.TimeType = fragment.TimeType;
                }
-               const uniqueId = `time-${idCounter++}`;
-               console.log("ID:", idCounter);
 
                timeFragments.push(timeFragment);
-               span.attr("data-id",`${uniqueId}`);
+               span.attr("data-id",fragment.TimeId);
                timeElements.push(span.node()); // Store the actual DOM node
             }
        }
@@ -350,16 +349,18 @@ function updateArrows(wrapper, eventElements, timeElements) {
     const pathSelector = eventElements.map((el, i) => {
 
         const eventId = el.getAttribute('data-id');
+        const arg2 = el.getAttribute('arg2');
         if (timeElements[i]){
-             console.log("Event Arrow:",el);
-             console.log("TIme arrow:", timeElements[i]);
-             console.log("---------------")
              const timeId = timeElements[i].getAttribute('data-id');
-             return `path[data-event-id="${eventId}"][data-time-id="${timeId}"]`;
-        } else {
-             return;
-        }
+             if (timeId == arg2){
+                console.log("Event Arrow:",el);
+                console.log("TIme arrow:", timeElements[i]);
+                console.log("---------------")
 
+               return `path[data-event-id="${eventId}"][data-time-id="${timeId}"]`;
+             }
+
+        }
 
     }).join(',');
 
@@ -562,7 +563,8 @@ function renderTimeExpressions(container, times) {
 
 
         Object.entries(time).forEach(([key, value]) => {
-            if (key == "text_time2") return;
+            if (key == "TextTime") return;
+            if (key == "arg2") return;
             card.append("div")
                 .style("margin-bottom", "5px")
                 .style("font-size", "12px")
