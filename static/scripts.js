@@ -219,6 +219,7 @@ function createAttributeCard(container, title, attributes, backgroundColor) {
 function categorizeElements(sentenceText, fragments) {
     let eventElements = [];
     let timeElements = [];
+    console.log("Categorizing elements...")
 
     // Create a container for the cards below the sentence
     const cardsContainer = d3.select(sentenceText.node().parentNode)
