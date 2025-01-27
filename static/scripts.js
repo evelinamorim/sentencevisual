@@ -401,6 +401,39 @@ function updateArrows(wrapper, eventElements, timeElements) {
             const controlY = midY - curveHeight;
             return `M ${d.startX},${d.startY} Q ${midX},${controlY} ${d.endX},${d.endY}`;
         });
+
+     // Tooltip handling
+    svg.append("rect")
+        .attr("width", wrapperRect.width)
+        .attr("height", wrapperRect.height)
+        .attr("fill", "none")
+        .attr("pointer-events", "all")
+        .on("mousemove", function(event) {
+            const mouse = d3.pointer(event, this);
+            const paths = svg.selectAll("path.arrow-path");
+
+            // Check if mouse is near any path
+            let tooltipVisible = false;
+            paths.each(function() {
+                const path = d3.select(this);
+                const relType = path.attr("data-rel-type");
+
+                if (isPointNearPath(this, mouse[0], mouse[1])) {
+                    tooltip.html(relType)
+                        .style("display", "block")
+                        .style("left", (event.pageX + 10) + "px")
+                        .style("top", (event.pageY + 10) + "px");
+                    tooltipVisible = true;
+                }
+            });
+
+            if (!tooltipVisible) {
+                tooltip.style("display", "none");
+            }
+        })
+        .on("mouseout", function() {
+            tooltip.style("display", "none");
+        });
 }
 function drawArrows(wrapper, eventElements, timeElements) {
     const svg = d3.select("svg.arrows");
