@@ -42,7 +42,7 @@ function visualizeJSON(fileName) {
             return response.json();
         })
         .then(data => {
-            console.log('JSON data fetched:', data); // Debugging log
+            //console.log('JSON data fetched:', data); // Debugging log
             d3.select("#visualization").html("");   // Clear existing visualization
 
             //treeData = convertToTree(data);   // Convert JSON to tree
@@ -353,6 +353,7 @@ function updateArrows(wrapper, eventElements, timeElements) {
         if (timeElements[i]){
              console.log("Event Arrow:",el);
              console.log("TIme arrow:", timeElements[i]);
+             console.log("---------------")
              const timeId = timeElements[i].getAttribute('data-id');
              return `path[data-event-id="${eventId}"][data-time-id="${timeId}"]`;
         } else {
