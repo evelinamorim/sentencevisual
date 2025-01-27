@@ -357,6 +357,14 @@ function updateArrows(wrapper, eventElements, timeElements) {
         const arg2 = eventNode.getAttribute('arg2');
         const timeId = timeNode.getAttribute('data-id');
 
+          console.log("Attributes:", {
+            arg2,
+            timeId,
+            eventId: eventNode.getAttribute("data-id"),
+            relType: eventNode.getAttribute("data-rel-type")
+        });
+
+
         if (!eventNode || !timeNode || timeId !== arg2) return null;
 
         const startRect = eventNode.getBoundingClientRect();
