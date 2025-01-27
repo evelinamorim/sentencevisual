@@ -155,6 +155,9 @@ body {
     margin: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     flex: 1;
+    display: inline-block;
+    min-width: 200px;
+    max-width: fit-content;
 }
 
 /* Style for the title */
@@ -165,18 +168,19 @@ body {
 
 /* Style for the attribute list */
 .attribute-card-list {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 4px 8px;
+   border-spacing:0;
+   border-collapse: collapse;
 }
 
 /* Style for terms (keys) */
 .attribute-card-term {
+    padding: 2px 8px 2px 0;
+    white-space: nowrap;
     font-weight: 500;
 }
 
 /* Style for definitions (values) */
 .attribute-card-definition {
-    margin: 0;
+    padding: 2px 0;
 }
 

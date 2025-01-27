@@ -196,17 +196,19 @@ function createAttributeCard(container, title, attributes, backgroundColor) {
         .text(title);
 
     // Add attributes
-    const attributeList = card.append("dl")
+    const attributeList = card.append("table")
         .attr("class", "attribute-card-list");
 
     Object.entries(attributes).forEach(([key, value]) => {
+        const row = attributeList.append("tr");
+
         // Term
-        attributeList.append("dt")
+        row.append("td")
             .attr("class", "attribute-card-term")
             .text(`${key}:`);
 
         // Definition
-        attributeList.append("dd")
+        row.append("dd")
             .attr("class", "attribute-card-definition")
             .text(value);
     });
@@ -251,7 +253,7 @@ function categorizeElements(sentenceText, fragments) {
    eventFragments.forEach(e => {
         createAttributeCard(
             cardsContainer,
-            "Event's Atrributes",
+            "Event's Atributes",
             e,
             "rgba(135, 206, 235, 0.2)" );
    });
