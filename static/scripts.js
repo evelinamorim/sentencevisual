@@ -51,36 +51,6 @@ function visualizeJSON(fileName) {
         })
         .catch(error => console.error('Error fetching JSON data:', error));
 
-    // Convert JSON to tree structure
-   /* function convertToTree(obj, parent = null) {
-        let result = { name: name };
-        //console.log('Conversion of json to tree of :', obj); // Add this line
-
-        //console.log('Conditions of conversion..', typeof obj === 'object'); // Add this line
-        //console.log('Conditions of conversion..', obj !== null); // Add this line
-        if (typeof obj === 'object' && obj !== null) {
-            result.children = [];
-            for (let key in obj) {
-                if (Array.isArray(obj[key])) {
-                    result.children.push({
-                        name: key,
-                        children: obj[key].map((item, index) =>
-                            convertToTree(item, typeof item === 'object' ? key : item)
-                        )
-                    });
-                } else if (typeof obj[key] === 'object' && obj[key] !== null) {
-                    result.children.push(convertToTree(obj[key], key));
-                } else {
-                    result.children.push({
-                        name: `${key}: ${obj[key]}`
-                    });
-                }
-            }
-        }
-        return result;
-    }*/
-
-    //const treeData = convertToTree(data);
 }
 
 // Render sentences with events and time expressions
@@ -323,6 +293,8 @@ function categorizeElements(sentenceText, fragments) {
 function initializeArrows(wrapper, eventElements, timeElements) {
     // Clear any existing SVG
     d3.select("svg.arrows").remove();
+    console.log("EVENTS", eventElements);
+    console.log("TIMES", timeElements);
 
     // Create new SVG that fills the wrapper
     const svg = d3.select(wrapper.node())
