@@ -249,7 +249,6 @@ function categorizeElements(sentenceText, fragments) {
 
                span.attr("data-id",fragment.event_id);
                span.attr("arg2",fragment.arg2);
-               console.log("ID:", idCounter);
 
                eventFragments.push(fragment.event);
                eventElements.push(span.node()); // Store the actual DOM node
