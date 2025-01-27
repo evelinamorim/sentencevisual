@@ -347,10 +347,11 @@ function updateArrows(wrapper, eventElements, timeElements) {
 
     // Only clear paths related to these elements
     const pathSelector = eventElements.map((el, i) => {
-        console.log("Event Arrow:",el);
-        console.log("TIme arrow:", timeElements[i]);
+
         const eventId = el.getAttribute('data-id');
         if (timeElements[i]){
+             console.log("Event Arrow:",el);
+             console.log("TIme arrow:", timeElements[i]);
              const timeId = timeElements[i].getAttribute('data-id');
              return `path[data-event-id="${eventId}"][data-time-id="${timeId}"]`;
         } else {
