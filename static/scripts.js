@@ -246,7 +246,7 @@ function categorizeElements(sentenceText, fragments) {
                    span.attr("data-rel-type", fragment.event.rel_type);
                }
                const uniqueId = `event-${idCounter++}`;
-               span.attr("data-id",`event-${uniqueId}`);
+               span.attr("data-id",`${uniqueId}`);
                console.log("ID:", idCounter);
 
                eventFragments.push(fragment.event);
@@ -261,11 +261,11 @@ function categorizeElements(sentenceText, fragments) {
                if (fragment.TimeType !== undefined) {
                   timeFragment.TimeType = fragment.TimeType;
                }
-               const uniqueId = `event-${idCounter++}`;
+               const uniqueId = `time-${idCounter++}`;
                console.log("ID:", idCounter);
 
                timeFragments.push(timeFragment);
-               span.attr("data-id",`time-${uniqueId}`);
+               span.attr("data-id",`${uniqueId}`);
                timeElements.push(span.node()); // Store the actual DOM node
             }
        }
@@ -350,8 +350,14 @@ function updateArrows(wrapper, eventElements, timeElements) {
         console.log("Event Arrow:",el);
         console.log("TIme arrow:", timeElements[i]);
         const eventId = el.getAttribute('data-id');
-        const timeId = timeElements[i].getAttribute('data-id');
-        return `path[data-event-id="${eventId}"][data-time-id="${timeId}"]`;
+        if (timeElements[i]){
+             const timeId = timeElements[i].getAttribute('data-id');
+             return `path[data-event-id="${eventId}"][data-time-id="${timeId}"]`;
+        } else {
+             return;
+        }
+
+
     }).join(',');
 
     if (pathSelector) {
