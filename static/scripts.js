@@ -232,6 +232,7 @@ function categorizeElements(sentenceText, fragments) {
 
     let eventFragments = []
     let timeFragments = []
+    let idCounter = 0;
 
     fragments.forEach(fragment => {
         let span = sentenceText.append("span")
@@ -244,6 +245,10 @@ function categorizeElements(sentenceText, fragments) {
                 if (fragment.event && fragment.event.rel_type) {
                    span.attr("data-rel-type", fragment.event.rel_type);
                }
+               const uniqueId = `event-${idCounter++}`;
+               span.attr("data-id",`event-${uniqueId}`);
+               console.log("ID:", idCounter);
+
                eventFragments.push(fragment.event);
                eventElements.push(span.node()); // Store the actual DOM node
             } else if (fragment.type === "yellow-box") {
@@ -256,8 +261,11 @@ function categorizeElements(sentenceText, fragments) {
                if (fragment.TimeType !== undefined) {
                   timeFragment.TimeType = fragment.TimeType;
                }
+               const uniqueId = `event-${idCounter++}`;
+               console.log("ID:", idCounter);
 
-               timeFragments.push(timeFragment)
+               timeFragments.push(timeFragment);
+               span.attr("data-id",`time-${someUniqueId}`);
                timeElements.push(span.node()); // Store the actual DOM node
             }
        }
@@ -291,45 +299,40 @@ function categorizeElements(sentenceText, fragments) {
 
 
 function initializeArrows(wrapper, eventElements, timeElements) {
-    // Clear any existing SVG
-    d3.select("svg.arrows").remove();
-    console.log("EVENTS", eventElements);
-    console.log("TIMES", timeElements);
+    // Create SVG only if it doesn't exist
+    let svg = d3.select("svg.arrows");
+    if (svg.empty()) {
+        svg = d3.select(wrapper.node())
+            .append("svg")
+            .attr("class", "arrows")
+            .style("position", "absolute")
+            .style("top", 0)
+            .style("left", 0)
+            .style("pointer-events", "none")
+            .style("z-index", 1);
+    }
 
-    // Create new SVG that fills the wrapper
-    const svg = d3.select(wrapper.node())
-        .append("svg")
-        .attr("class", "arrows")
-        .style("position", "absolute")
-        .style("top", 0)
-        .style("left", 0)
-        .style("pointer-events", "none")
-        .style("z-index", 1);
-
-    // Initial draw
+    // Initial draw for this set of elements
     updateArrows(wrapper, eventElements, timeElements);
 
-    // Add resize listener
-    const resizeObserver = new ResizeObserver(entries => {
-        for (const entry of entries) {
-            if (entry.target === wrapper.node()) {
-                updateArrows(wrapper, eventElements, timeElements);
-            }
-        }
-    });
+    // Add resize listener if not already added
+    if (!window.arrowResizeObserver) {
+        window.arrowResizeObserver = new ResizeObserver(entries => {
+            // Redraw all arrows on resize
+            const allEventElements = Array.from(document.querySelectorAll('.blue-box'));
+            const allTimeElements = Array.from(document.querySelectorAll('.yellow-box'));
+            updateArrows(wrapper, allEventElements, allTimeElements);
+        });
 
-    // Observe the wrapper element
-    resizeObserver.observe(wrapper.node());
+        window.arrowResizeObserver.observe(wrapper.node());
 
-    // Also handle window resize events
-    window.addEventListener('resize', () => {
-        updateArrows(wrapper, eventElements, timeElements);
-    });
-
-    return () => {
-        resizeObserver.disconnect();
-        window.removeEventListener('resize', updateArrows);
-    };
+        // Window resize handler
+        window.addEventListener('resize', () => {
+            const allEventElements = Array.from(document.querySelectorAll('.blue-box'));
+            const allTimeElements = Array.from(document.querySelectorAll('.yellow-box'));
+            updateArrows(wrapper, allEventElements, allTimeElements);
+        });
+    }
 }
 
 function updateArrows(wrapper, eventElements, timeElements) {
@@ -342,43 +345,18 @@ function updateArrows(wrapper, eventElements, timeElements) {
         .attr("width", wrapperRect.width)
         .attr("height", wrapperRect.height);
 
-    // Clear existing paths
-    svg.selectAll("path.arrow-path").remove();
+    // Only clear paths related to these elements
+    const pathSelector = eventElements.map((el, i) => {
+        const eventId = el.getAttribute('data-id');
+        const timeId = timeElements[i].getAttribute('data-id');
+        return `path[data-event-id="${eventId}"][data-time-id="${timeId}"]`;
+    }).join(',');
 
-    // Add transparent rect for mouse events
-    svg.selectAll("rect.event-catcher").remove();
-    svg.append('rect')
-        .attr('class', 'event-catcher')
-        .attr('width', wrapperRect.width)
-        .attr('height', wrapperRect.height)
-        .attr('fill', "none")
-        .attr('pointer-events', 'all')
-        .on('mousemove', function(event) {
-            const mouse = d3.pointer(event, this);
-            const paths = svg.selectAll('path.arrow-path');
-            let foundPath = false;
+    if (pathSelector) {
+        svg.selectAll(pathSelector).remove();
+    }
 
-            paths.each(function() {
-                const path = d3.select(this);
-                if (isPointNearPath(this, mouse[0], mouse[1])) {
-                    foundPath = true;
-                    const relType = path.attr('data-rel-type');
-                    tooltip.html(relType)
-                        .style("display", "block")
-                        .style("left", (event.pageX + 10) + "px")
-                        .style("top", (event.pageY + 10) + "px");
-                }
-            });
-
-            if (!foundPath) {
-                tooltip.style("display", "none");
-            }
-        })
-        .on('mouseout', function() {
-            tooltip.style("display", "none");
-        });
-
-    // Draw arrows
+    // Draw arrows for this set of elements
     eventElements.forEach((eventElement, i) => {
         const timeElement = timeElements[i];
         if (eventElement && timeElement) {
@@ -395,20 +373,20 @@ function updateArrows(wrapper, eventElements, timeElements) {
             const endX = endRect.left - wrapperRect.left;
             const endY = endRect.top - wrapperRect.top + endRect.height / 2;
 
-            // Calculate curve parameters
             const midX = (startX + endX) / 2;
             const midY = (startY + endY) / 2;
             const distance = Math.sqrt((endX - startX) ** 2 + (endY - startY) ** 2);
             const curveHeight = Math.min(distance * 0.5, 100);
             const controlY = midY - curveHeight;
 
-            // Draw the path
             svg.append("path")
                 .attr("d", `M ${startX},${startY} Q ${midX},${controlY} ${endX},${endY}`)
                 .attr("fill", "none")
                 .attr("stroke", "black")
                 .attr("stroke-width", 1.5)
                 .attr("class", "arrow-path")
+                .attr("data-event-id", eventNode.getAttribute("data-id"))
+                .attr("data-time-id", timeNode.getAttribute("data-id"))
                 .attr("data-rel-type", eventNode.getAttribute("data-rel-type"));
         }
     });
