@@ -344,69 +344,61 @@ function updateArrows(wrapper, eventElements, timeElements) {
         .attr("width", wrapperRect.width)
         .attr("height", wrapperRect.height);
 
-    // Only clear paths related to these elements
-    const pathSelector = eventElements.map((el, i) => {
-
-        const eventId = el.getAttribute('data-id');
-        const arg2 = el.getAttribute('arg2');
-        if (timeElements[i]){
-             const timeId = timeElements[i].getAttribute('data-id');
-             if (timeId == arg2){
-                console.log("Event Arrow:",el);
-                console.log("TIme arrow:", timeElements[i]);
-                console.log("---------------")
-
-               return `path[data-event-id="${eventId}"][data-time-id="${timeId}"]`;
-             }
-        }
-        return null;
-
-    })
-    .filter(Boolean)
-    .join(',');
-
-    console.log("Generated pathSelector:", pathSelector);
-
-    if (pathSelector) {
-        svg.selectAll(pathSelector).remove();
-    }
-
-    // Draw arrows for this set of elements
-    eventElements.forEach((eventElement, i) => {
+    // Create data array for the paths
+    const pathData = eventElements.map((eventElement, i) => {
         const timeElement = timeElements[i];
-        if (eventElement && timeElement) {
-            const eventNode = d3.select(eventElement).node();
-            const timeNode = d3.select(timeElement).node();
+        if (!eventElement || !timeElement) return null;
 
-            if (!eventNode || !timeNode) return;
+        const eventNode = d3.select(eventElement).node();
+        const timeNode = d3.select(timeElement).node();
+        const arg2 = eventNode.getAttribute('arg2');
+        const timeId = timeNode.getAttribute('data-id');
 
-            const startRect = eventNode.getBoundingClientRect();
-            const endRect = timeNode.getBoundingClientRect();
+        if (!eventNode || !timeNode || timeId !== arg2) return null;
 
-            const startX = startRect.left - wrapperRect.left + startRect.width;
-            const startY = startRect.top - wrapperRect.top + startRect.height / 2;
-            const endX = endRect.left - wrapperRect.left;
-            const endY = endRect.top - wrapperRect.top + endRect.height / 2;
+        const startRect = eventNode.getBoundingClientRect();
+        const endRect = timeNode.getBoundingClientRect();
 
-            const midX = (startX + endX) / 2;
-            const midY = (startY + endY) / 2;
-            const distance = Math.sqrt((endX - startX) ** 2 + (endY - startY) ** 2);
+        return {
+            startX: startRect.left - wrapperRect.left + startRect.width,
+            startY: startRect.top - wrapperRect.top + startRect.height / 2,
+            endX: endRect.left - wrapperRect.left,
+            endY: endRect.top - wrapperRect.top + endRect.height / 2,
+            eventId: eventNode.getAttribute("data-id"),
+            timeId: timeId,
+            relType: eventNode.getAttribute("data-rel-type")
+        };
+    }).filter(Boolean);
+
+    // Select all existing paths and bind data
+    const paths = svg.selectAll("path.arrow-path")
+        .data(pathData, d => `${d.eventId}-${d.timeId}`);
+
+    // Remove old paths
+    paths.exit().remove();
+
+    // Add new paths
+    const newPaths = paths.enter()
+        .append("path")
+        .attr("class", "arrow-path")
+        .attr("fill", "none")
+        .attr("stroke", "black")
+        .attr("stroke-width", 1.5);
+
+    // Update all paths (both new and existing)
+    paths.merge(newPaths)
+        .attr("data-event-id", d => d.eventId)
+        .attr("data-time-id", d => d.timeId)
+        .attr("data-rel-type", d => d.relType)
+        .attr("d", d => {
+            const midX = (d.startX + d.endX) / 2;
+            const midY = (d.startY + d.endY) / 2;
+            const distance = Math.sqrt((d.endX - d.startX) ** 2 + (d.endY - d.startY) ** 2);
             const curveHeight = Math.min(distance * 0.5, 100);
             const controlY = midY - curveHeight;
-
-            svg.append("path")
-                .attr("d", `M ${startX},${startY} Q ${midX},${controlY} ${endX},${endY}`)
-                .attr("fill", "none")
-                .attr("stroke", "black")
-                .attr("stroke-width", 1.5)
-                .attr("class", "arrow-path")
-                .attr("data-event-id", eventNode.getAttribute("data-id"))
-                .attr("data-time-id", timeNode.getAttribute("data-id"))
-                .attr("data-rel-type", eventNode.getAttribute("data-rel-type"));
-        }
-    });
+            return `M ${d.startX},${d.startY} Q ${midX},${controlY} ${d.endX},${d.endY}`;
+        });
 }
-
 function drawArrows(wrapper, eventElements, timeElements) {
     const svg = d3.select("svg.arrows");
     const tooltip = d3.select("#tooltip");
