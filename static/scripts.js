@@ -255,7 +255,7 @@ function categorizeElements(sentenceText, fragments) {
             cardsContainer,
             "Event's Atributes",
             e,
-            "rgba(135, 206, 235, 0.2)" );
+            "#A7C7E7" );
    });
 
     // Create cards for event and time attributes
