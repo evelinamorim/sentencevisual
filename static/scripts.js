@@ -121,14 +121,14 @@ function renderSentence(sentence, index) {
 
     // Wait for DOM to be ready and elements to be positioned
     const cleanup = waitForRendering(() => {
-        return initializeArrows(wrapper, eventElements, timeElements);
+        return initializeArrows(wrapper, eventElements, timeElements, sentence.times);
     });
 
     // Store cleanup function
     cleanupFunctions.set(index, cleanup);
     //setTimeout(() => drawArrows(wrapper, eventElements, timeElements), 100);
 
-    renderTimeExpressions(sentenceContainer, sentence.times);
+    //renderTimeExpressions(sentenceContainer, sentence.times);
 }
 
 // Helper function to wait for rendering
@@ -298,7 +298,7 @@ function categorizeElements(sentenceText, fragments) {
 }
 
 
-function initializeArrows(wrapper, eventElements, timeElements) {
+function initializeArrows(wrapper, eventElements, timeElements, externalTimeElements) {
     // Create SVG only if it doesn't exist
     let svg = d3.select("svg.arrows");
     if (svg.empty()) {
@@ -314,6 +314,8 @@ function initializeArrows(wrapper, eventElements, timeElements) {
 
     // Initial draw for this set of elements
     updateArrows(wrapper, eventElements, timeElements);
+    console.log("ExternaltimeElements:", externalTimeElements)
+    //updateArrows(wrapper, externalTimeElements, timeElements);
 
     // Add resize listener if not already added
     if (!window.arrowResizeObserver) {
