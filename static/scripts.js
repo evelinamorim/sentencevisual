@@ -401,11 +401,21 @@ function renderTimeExpressions(container, times) {
         .style("display", "flex")
         .style("gap", "10px");
 
-    timeContainer.append("div")
+    /*timeContainer.append("div")
         .style("font-weight", "bold")
         .style("margin-bottom", "10px")
         .style("font-size", "14px")
-        .text("Linked Time Expressions");
+        .text("Linked Time Expressions");*/
+
+        if (time.text_time2) {
+        card.append("div")
+            .attr("class", "card-header")
+            .style("margin-bottom", "10px")
+            .style("font-size", "14px")
+            .style("font-weight", "bold")
+            .text(time.text_time2);
+    }
+
 
     times.forEach(time => {
         const card = timeContainer
@@ -416,7 +426,9 @@ function renderTimeExpressions(container, times) {
             .style("border-radius", "5px")
             .style("background-color", "#fff");
 
+
         Object.entries(time).forEach(([key, value]) => {
+            if (key == "text_time2") return;
             card.append("div")
                 .style("margin-bottom", "5px")
                 .style("font-size", "12px")
