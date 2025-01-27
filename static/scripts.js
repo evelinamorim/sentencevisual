@@ -200,8 +200,8 @@ function createAttributeCard(container, title, attributes, backgroundColor) {
         .attr("class", "attribute-card-list");
 
     Object.entries(attributes).forEach(([key, value]) => {
+        if (key === "rel_type") return;
         const row = attributeList.append("tr");
-
         // Term
         row.append("td")
             .attr("class", "attribute-card-term")
