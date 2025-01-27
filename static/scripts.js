@@ -251,7 +251,7 @@ function categorizeElements(sentenceText, fragments) {
                span.attr("arg2",fragment.arg2);
 
                eventFragments.push(fragment.event);
-               console.log("SPAN EVENT:", span.node());
+               console.log("SPAN EVENT:", span.node(), fragment.arg2);
                eventElements.push(span.node()); // Store the actual DOM node
             } else if (fragment.type === "yellow-box") {
                const timeFragment = {};
