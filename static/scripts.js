@@ -339,6 +339,9 @@ function updateArrows(wrapper, eventElements, timeElements) {
     const tooltip = d3.select("#tooltip");
     const wrapperRect = wrapper.node().getBoundingClientRect();
 
+    console.log("Event Elements:", eventElements);
+    console.log("Time Elements:", timeElements);
+
     // Update SVG dimensions
     svg
         .attr("width", wrapperRect.width)
