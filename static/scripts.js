@@ -265,7 +265,7 @@ function categorizeElements(sentenceText, fragments) {
                console.log("ID:", idCounter);
 
                timeFragments.push(timeFragment);
-               span.attr("data-id",`time-${someUniqueId}`);
+               span.attr("data-id",`time-${uniqueId}`);
                timeElements.push(span.node()); // Store the actual DOM node
             }
        }
