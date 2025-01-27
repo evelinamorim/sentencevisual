@@ -356,8 +356,8 @@ function updateArrows(wrapper, eventElements, timeElements) {
         const timeNode = d3.select(timeElement).node();
         const arg2 = eventNode.getAttribute('arg2');
         const timeId = timeNode.getAttribute('data-id');
-        console.log("Event node:", eventNode);
-        console.log("Time node:", timeNode);
+        console.log("Event element:", eventElement);
+        console.log("Time element:", timeElement);
           console.log("Attributes:", {
             arg2,
             timeId,
