@@ -251,6 +251,7 @@ function categorizeElements(sentenceText, fragments) {
                span.attr("arg2",fragment.arg2);
 
                eventFragments.push(fragment.event);
+               console.log("SPAN EVENT:", span.node());
                eventElements.push(span.node()); // Store the actual DOM node
             } else if (fragment.type === "yellow-box") {
                const timeFragment = {};
@@ -265,6 +266,7 @@ function categorizeElements(sentenceText, fragments) {
 
                timeFragments.push(timeFragment);
                span.attr("data-id",fragment.TimeId);
+               console.log("SPAN TIME:", span.node());
                timeElements.push(span.node()); // Store the actual DOM node
             }
        }
@@ -356,8 +358,7 @@ function updateArrows(wrapper, eventElements, timeElements) {
         const timeNode = d3.select(timeElement).node();
         const arg2 = eventNode.getAttribute('arg2');
         const timeId = timeNode.getAttribute('data-id');
-        console.log("Event element:", eventElement);
-        console.log("Time element:", timeElement);
+
           console.log("Attributes:", {
             arg2,
             timeId,
