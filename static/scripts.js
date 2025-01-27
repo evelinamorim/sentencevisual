@@ -185,45 +185,96 @@ function createFragments(text, sentence) {
 }
 
 
+function createAttributeCard(container, title, attributes, backgroundColor) {
+    const card = container.append("div")
+        .attr("class", "attribute-card")
+        .style("background-color", backgroundColor); // Keep dynamic background color here
+
+    // Add title
+    card.append("div")
+        .attr("class", "attribute-card-title")
+        .text(title);
+
+    // Add attributes
+    const attributeList = card.append("dl")
+        .attr("class", "attribute-card-list");
+
+    Object.entries(attributes).forEach(([key, value]) => {
+        // Term
+        attributeList.append("dt")
+            .attr("class", "attribute-card-term")
+            .text(`${key}:`);
+
+        // Definition
+        attributeList.append("dd")
+            .attr("class", "attribute-card-definition")
+            .text(value);
+    });
+
+    return card;
+}
+
+
+
 function categorizeElements(sentenceText, fragments) {
     let eventElements = [];
     let timeElements = [];
 
-fragments.forEach(fragment => {
-    let span = sentenceText.append("span")
-        .text(fragment.text);
+    // Create a container for the cards below the sentence
+    const cardsContainer = d3.select(sentenceText.node().parentNode)
+        .append("div")
+        .style("display", "flex")
+        .style("margin-top", "20px")
+        .style("gap", "16px");
 
-    if (fragment.type !== 'normal') {
-        span.attr("class", fragment.type);
+    fragments.forEach(fragment => {
+        let span = sentenceText.append("span")
+           .text(fragment.text);
 
-        if (fragment.type === "blue-box") {
-            if (fragment.event && fragment.event.rel_type) {
-                span.attr("data-rel-type", fragment.event.rel_type);
+        if (fragment.type !== 'normal') {
+            span.attr("class", fragment.type);
+
+            if (fragment.type === "blue-box") {
+                if (fragment.event && fragment.event.rel_type) {
+                   span.attr("data-rel-type", fragment.event.rel_type);
+               }
+               eventElements.push(span.node()); // Store the actual DOM node
+            } else if (fragment.type === "yellow-box") {
+               timeElements.push(span.node()); // Store the actual DOM node
             }
-            eventElements.push(span.node()); // Store the actual DOM node
-        } else if (fragment.type === "yellow-box") {
-            timeElements.push(span.node()); // Store the actual DOM node
-        }
 
-        if (fragment.event) {
-            span.on("mouseenter", function (e) {
-                console.log("Mouseover event!", e)
-                tooltip
-                    .style("left", `${e.offsetX + 5}px`)
-                    .style("top", `${e.offsetY + 5}px`)
-                    .style("display", "block")
-                    .html(Object.entries(fragment.event)
-                        .map(([key, value]) => `${key}: ${value}`)
-                        .join("<br>")
-                    );
-            })
-            .on("mouseleave", function () {
-                tooltip.style("display", "none");
-            });
-        }
-    }
-});
-    return { eventElements, timeElements };
+            if (fragment.event) {
+               span.on("mouseenter", function (e) {
+                   console.log("Mouseover event!", e)
+                   tooltip
+                       .style("left", `${e.offsetX + 5}px`)
+                       .style("top", `${e.offsetY + 5}px`)
+                       .style("display", "block")
+                       .html(Object.entries(fragment.event)
+                           .map(([key, value]) => `${key}: ${value}`)
+                           .join("<br>")
+                       );
+              })
+              .on("mouseleave", function () {
+                  tooltip.style("display", "none");
+              });
+           }
+       }
+   });
+
+   console.log("eventsElements:", eventElements);
+   console.log("eventsElements[0]:", eventElements[0]);
+    // Create cards for event and time attributes
+    /*if (eventElements.length > 0) {
+        createAttributeCard(
+            cardsContainer,
+            "Event Attributes",
+            eventElements[0].attributes,
+            "rgba(135, 206, 235, 0.2)" // Light blue background matching the event highlight
+        );
+    }*/
+
+  return { eventElements, timeElements };
 }
 
 function drawArrows(wrapper, eventElements, timeElements) {

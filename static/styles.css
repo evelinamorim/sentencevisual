@@ -62,7 +62,7 @@ body {
 }
 
 .blue-box {
-    background-color: rgba(68, 68, 255, 0.2);
+    background-color: rgba(135, 206, 235, 0.2);
     padding: 2px 4px;
     border-radius: 3px;
     position: relative;
@@ -147,3 +147,36 @@ body {
   font-size: 12px; /* Set the font size */
   color: #333; /* Set the text color */
 }
+
+/* Style for the attribute card container */
+.attribute-card {
+    border-radius: 8px;
+    padding: 12px;
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1;
+}
+
+/* Style for the title */
+.attribute-card-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* Style for the attribute list */
+.attribute-card-list {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 4px 8px;
+}
+
+/* Style for terms (keys) */
+.attribute-card-term {
+    font-weight: 500;
+}
+
+/* Style for definitions (values) */
+.attribute-card-definition {
+    margin: 0;
+}
+
