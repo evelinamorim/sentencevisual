@@ -124,9 +124,8 @@ function renderSentence(sentence, index) {
 
     // Initial render after a short delay
     setTimeout(() => {
-        //const cleanup =
-        initializeArrows(wrapper, eventElements, timeElements, sentence.times);
-        //cleanupFunctions.set(index, cleanup);
+        const cleanup = initializeArrows(wrapper, eventElements, timeElements, sentence.times);
+        cleanupFunctions.set(index, cleanup);
     }, 100);
 }
 
