@@ -249,6 +249,7 @@ function categorizeElements(sentenceText, fragments) {
 
                span.attr("data-id",fragment.event_id);
                span.attr("arg2",fragment.event.arg2);
+               console.log("Event: ", fragment.text, " ", fragment.event_id);
 
                eventFragments.push(fragment.event);
 
@@ -263,7 +264,7 @@ function categorizeElements(sentenceText, fragments) {
                if (fragment.TimeType !== undefined) {
                   timeFragment.TimeType = fragment.TimeType;
                }
-
+               console.log("Time: ", fragment.text, " ", fragment.TimeId);
                timeFragments.push(timeFragment);
                span.attr("data-id",fragment.TimeId);
                timeElements.push(span.node()); // Store the actual DOM node
@@ -355,11 +356,16 @@ function updateArrows(wrapper, eventElements, timeElements, externalTimeElements
         const arg2 = eventNode.getAttribute('arg2');
         const timeId = timeNode.getAttribute('data-id');
 
+        console.log("RELATION EVENT TIME");
+        console.log("Event: ", eventNode.getAttribute('data-id'), "Event arg2: ", eventNode.getAttribute('arg2'));
+        console.log("Time: ", timeNode.getAttribute('data-id'));
+        console.log("------");
+
         if (!eventNode || !timeNode || timeId !== arg2) return null;
 
         const startRect = eventNode.getBoundingClientRect();
         const endRect = timeNode.getBoundingClientRect();
-
+        console
         const data = {
             startX: startRect.left - wrapperRect.left + startRect.width,
             startY: startRect.top - wrapperRect.top + startRect.height / 2,
