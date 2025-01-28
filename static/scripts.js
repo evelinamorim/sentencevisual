@@ -134,17 +134,53 @@ function renderSentence(sentence, index) {
 // Helper function to wait for rendering
 function waitForRendering(callback) {
     let cleanup = null;
+    let isCleanedUp = false;
 
-    // First, try using requestAnimationFrame
+    // Chain two animation frames to ensure styles and layout are complete
     requestAnimationFrame(() => {
-        // Then wait a small amount of time to ensure all styles are applied
-        setTimeout(() => {
+        if (isCleanedUp) return;
+
+        requestAnimationFrame(() => {
+            if (isCleanedUp) return;
+
+            // Use MutationObserver to watch for layout changes
+            const observer = new MutationObserver((mutations) => {
+                // Debounce the callback to avoid multiple rapid calls
+                requestAnimationFrame(() => {
+                    if (isCleanedUp) return;
+
+                    if (cleanup) {
+                        cleanup();
+                    }
+                    cleanup = callback();
+                });
+            });
+
+            // Start observing after initial render
+            observer.observe(document.querySelector('#visualization-wrapper'), {
+                childList: true,
+                subtree: true,
+                attributes: true,
+                characterData: true
+            });
+
+            // Initial call
             cleanup = callback();
-        }, 50);
+
+            // Update the cleanup function to also disconnect the observer
+            const originalCleanup = cleanup;
+            cleanup = () => {
+                observer.disconnect();
+                if (originalCleanup) {
+                    originalCleanup();
+                }
+            };
+        });
     });
 
-    // Return a cleanup function that handles the case where cleanup wasn't set yet
+    // Return a cleanup function that handles all cases
     return () => {
+        isCleanedUp = true;
         if (cleanup) {
             cleanup();
         }
