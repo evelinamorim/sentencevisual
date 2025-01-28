@@ -323,26 +323,30 @@ function categorizeElements(sentenceText, fragments) {
 
 function initializeArrows(wrapper, eventElements, timeElements, externalTimeElements) {
     function createArrows() {
-        // Always remove old SVG first
-        //wrapper.select("svg.arrows").remove();
+        let svg = wrapper.select("svg.arrows");
 
-        // Create new SVG
-        const svg = wrapper.append("svg")
-            .attr("class", "arrows")
-            .style("position", "absolute")
-            .style("top", 0)
-            .style("left", 0)
-            .style("pointer-events", "none")
-            .style("z-index", 1);
+        // Check if the SVG exists; if not, create it
+        if (svg.empty()) {
+            svg = wrapper.append("svg")
+                .attr("class", "arrows")
+                .style("position", "absolute")
+                .style("top", 0)
+                .style("left", 0)
+                .style("pointer-events", "none")
+                .style("z-index", 1);
+        }
 
         const wrapperRect = wrapper.node().getBoundingClientRect();
 
-        // Set SVG dimensions
+        // Update SVG dimensions
         svg
             .attr("width", wrapperRect.width)
             .attr("height", wrapperRect.height);
 
-        // Create paths data
+        // Clear old paths
+        svg.selectAll("path").remove();
+
+        // Create paths for event-time connections
         eventElements.forEach((eventElement, i) => {
             const timeElement = timeElements[i];
             if (!eventElement || !timeElement) return;
@@ -362,7 +366,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
                 ));
         });
 
-        // Add external time paths
+        // Add paths for external time connections
         externalTimeElements.forEach(ext => {
             const textElement = document.querySelector(`[data-id="${ext.time_id}"]`);
             const arg2Element = document.querySelector(`[data-id="${ext.arg2}"]`);
@@ -398,7 +402,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
     createArrows();
 
     // Handle window resize
-   /* const handleResize = () => {
+    const handleResize = () => {
         requestAnimationFrame(createArrows);
     };
 
@@ -407,9 +411,9 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
     // Return cleanup function
     return () => {
         window.removeEventListener('resize', handleResize);
-        wrapper.select("svg.arrows").remove();
-    };*/
+    };
 }
+
 
 // Debounce helper function
 function debounce(func, wait) {
