@@ -381,10 +381,10 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
         });
 
         // Bind data to paths
-        /*const paths = svg.selectAll("path").data(connections);
+        const paths = svg.selectAll("path").data(connections);
 
         // Enter new paths
-        paths.enter()
+        /*paths.enter()
             .append("path")
             .attr("fill", "none")
             .attr("stroke-width", 1.5)
