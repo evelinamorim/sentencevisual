@@ -344,7 +344,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
             .attr("height", wrapperRect.height);
 
         // Clear old paths
-        svg.selectAll("path").remove();
+        //svg.selectAll("path").remove();
 
         // Create paths for event-time connections
         eventElements.forEach((eventElement, i) => {
