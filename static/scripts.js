@@ -278,73 +278,60 @@ function createAttributeCard(container, title, attributes, backgroundColor) {
 
 
 function categorizeElements(sentenceText, fragments) {
-    let eventElements = [];
-    let timeElements = [];
-
-    let eventFragments = []
-    let timeFragments = []
-
-    fragments.forEach(fragment => {
-        let span = sentenceText.append("span")
-           .text(fragment.text);
+    // Create all spans first
+    const spans = fragments.map(fragment => {
+        const span = sentenceText.append("span")
+            .text(fragment.text);
 
         if (fragment.type !== 'normal') {
-            span.attr("class", fragment.type);
+            span.attr("class", fragment.type)
+                .style("position", "relative")
+                .style("display", "inline-block"); // Ensure stable layout
+        }
 
-            if (fragment.type === "blue-box") {
-                if (fragment.event && fragment.event.rel_type) {
-                   span.attr("data-rel-type", fragment.event.rel_type);
-               }
+        return span;
+    });
 
-               span.attr("data-id",fragment.event.event_id);
-               span.attr("arg2",fragment.event.arg2);
-               console.log("Event: ", fragment.text, " ", fragment.event.event_id);
+    // Then collect and configure special elements
+    const eventElements = [];
+    const timeElements = [];
+    const eventFragments = [];
+    const timeFragments = [];
 
-               eventFragments.push(fragment.event);
+    spans.forEach((span, i) => {
+        const fragment = fragments[i];
+        if (fragment.type === "blue-box") {
+            span.attr("data-rel-type", fragment.event?.rel_type || '')
+                .attr("data-id", fragment.event?.event_id || '')
+                .attr("arg2", fragment.event?.arg2 || '');
 
-               eventElements.push(span.node()); // Store the actual DOM node
-            } else if (fragment.type === "yellow-box") {
-               const timeFragment = {};
+            eventFragments.push(fragment.event);
+            eventElements.push(span.node());
+        } else if (fragment.type === "yellow-box") {
+            const timeFragment = {
+                TemporalFunction: fragment.TemporalFunction,
+                TimeType: fragment.TimeType
+            };
 
-               if (fragment.TemporalFunction !== undefined) {
-                  timeFragment.TemporalFunction = fragment.TemporalFunction;
-               }
+            span.attr("data-id", fragment.TimeId);
+            timeFragments.push(timeFragment);
+            timeElements.push(span.node());
+        }
+    });
 
-               if (fragment.TimeType !== undefined) {
-                  timeFragment.TimeType = fragment.TimeType;
-               }
-               console.log("Time: ", fragment.text, " ", fragment.TimeId);
-               timeFragments.push(timeFragment);
-               span.attr("data-id",fragment.TimeId);
-               timeElements.push(span.node()); // Store the actual DOM node
-            }
-       }
-   });
-
-    // Create a container for the cards below the sentence
+    // Create cards container with explicit positioning
     const cardsContainer = d3.select(sentenceText.node().parentNode)
         .append("div")
         .style("display", "flex")
         .style("margin-top", "20px")
-        .style("gap", "16px");
+        .style("gap", "16px")
+        .style("position", "relative");
 
-   eventFragments.forEach(e => {
-        createAttributeCard(
-            cardsContainer,
-            "Event's Atributes",
-            e,
-            "#A7C7E7" );
-   });
+    // Create cards
+    eventFragments.forEach(e => createAttributeCard(cardsContainer, "Event's Atributes", e, "#A7C7E7"));
+    timeFragments.forEach(t => createAttributeCard(cardsContainer, "Time's Atributes", t, "rgba(255, 255, 0, 0.2)"));
 
-   timeFragments.forEach(t => {
-        createAttributeCard(
-            cardsContainer,
-            "Time's Atributes",
-            t,
-            "rgba(255, 255, 0, 0.2)" );
-   });
-
-  return { eventElements, timeElements };
+    return { eventElements, timeElements };
 }
 
 
