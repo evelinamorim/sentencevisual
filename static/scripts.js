@@ -324,7 +324,7 @@ function categorizeElements(sentenceText, fragments) {
 function initializeArrows(wrapper, eventElements, timeElements, externalTimeElements) {
     function createArrows() {
         // Always remove old SVG first
-        wrapper.select("svg.arrows").remove();
+        //wrapper.select("svg.arrows").remove();
 
         // Create new SVG
         const svg = wrapper.append("svg")
