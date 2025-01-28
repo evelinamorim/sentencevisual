@@ -119,26 +119,14 @@ function renderSentence(sentence, index) {
     const fragments = createFragments(sentence.text_sent, sentence);
     const { eventElements, timeElements } = categorizeElements(sentenceText, fragments);
 
-    // Initialize arrows with continuous updates
-    let updateCount = 0;
-    const maxUpdates = 20; // Will try for 2 seconds (20 * 100ms)
-    const interval = setInterval(() => {
-        initializeArrows(wrapper, eventElements, timeElements, sentence.times);
-        updateCount++;
+    // Force layout calculation
+    sentenceContainer.node().offsetHeight;
 
-        if (updateCount >= maxUpdates) {
-            clearInterval(interval);
-        }
+    // Initial render after a short delay
+    setTimeout(() => {
+        const cleanup = initializeArrows(wrapper, eventElements, timeElements, sentence.times);
+        cleanupFunctions.set(index, cleanup);
     }, 100);
-
-    // Store cleanup function
-    cleanupFunctions.set(index, () => {
-        clearInterval(interval);
-        const svg = wrapper.select("svg.arrows");
-        if (!svg.empty()) {
-            svg.remove();
-        }
-    });
 }
 
 // Helper function to wait for rendering
@@ -333,86 +321,93 @@ function categorizeElements(sentenceText, fragments) {
 
 
 function initializeArrows(wrapper, eventElements, timeElements, externalTimeElements) {
-    // Create or select SVG
-    let svg = wrapper.select("svg.arrows");
-    if (svg.empty()) {
-        svg = wrapper.append("svg")
+    function createArrows() {
+        // Always remove old SVG first
+        wrapper.select("svg.arrows").remove();
+
+        // Create new SVG
+        const svg = wrapper.append("svg")
             .attr("class", "arrows")
             .style("position", "absolute")
             .style("top", 0)
             .style("left", 0)
             .style("pointer-events", "none")
             .style("z-index", 1);
+
+        const wrapperRect = wrapper.node().getBoundingClientRect();
+
+        // Set SVG dimensions
+        svg
+            .attr("width", wrapperRect.width)
+            .attr("height", wrapperRect.height);
+
+        // Create paths data
+        eventElements.forEach((eventElement, i) => {
+            const timeElement = timeElements[i];
+            if (!eventElement || !timeElement) return;
+
+            const eventRect = eventElement.getBoundingClientRect();
+            const timeRect = timeElement.getBoundingClientRect();
+
+            svg.append("path")
+                .attr("fill", "none")
+                .attr("stroke", "black")
+                .attr("stroke-width", 1.5)
+                .attr("d", createPath(
+                    eventRect.left - wrapperRect.left + eventRect.width,
+                    eventRect.top - wrapperRect.top + eventRect.height / 2,
+                    timeRect.left - wrapperRect.left,
+                    timeRect.top - wrapperRect.top + timeRect.height / 2
+                ));
+        });
+
+        // Add external time paths
+        externalTimeElements.forEach(ext => {
+            const textElement = document.querySelector(`[data-id="${ext.time_id}"]`);
+            const arg2Element = document.querySelector(`[data-id="${ext.arg2}"]`);
+
+            if (!textElement || !arg2Element) return;
+
+            const textRect = textElement.getBoundingClientRect();
+            const arg2Rect = arg2Element.getBoundingClientRect();
+
+            svg.append("path")
+                .attr("fill", "none")
+                .attr("stroke", "blue")
+                .attr("stroke-width", 1.5)
+                .attr("d", createPath(
+                    textRect.left - wrapperRect.left + textRect.width,
+                    textRect.top - wrapperRect.top + textRect.height / 2,
+                    arg2Rect.left - wrapperRect.left,
+                    arg2Rect.top - wrapperRect.top + arg2Rect.height / 2
+                ));
+        });
     }
 
-    const wrapperRect = wrapper.node().getBoundingClientRect();
+    function createPath(startX, startY, endX, endY) {
+        const midX = (startX + endX) / 2;
+        const midY = (startY + endY) / 2;
+        const distance = Math.sqrt((endX - startX) ** 2 + (endY - startY) ** 2);
+        const curveHeight = Math.min(distance * 0.5, 100);
+        const controlY = midY - curveHeight;
+        return `M ${startX},${startY} Q ${midX},${controlY} ${endX},${endY}`;
+    }
 
-    // Update SVG dimensions
-    svg
-        .attr("width", wrapperRect.width)
-        .attr("height", wrapperRect.height);
+    // Initial creation
+    createArrows();
 
-    // Create paths data
-    const paths = [];
+    // Handle window resize
+    const handleResize = () => {
+        requestAnimationFrame(createArrows);
+    };
 
-    // Add event-time paths
-    eventElements.forEach((eventElement, i) => {
-        const timeElement = timeElements[i];
-        if (!eventElement || !timeElement) return;
+    window.addEventListener('resize', handleResize);
 
-        const eventRect = eventElement.getBoundingClientRect();
-        const timeRect = timeElement.getBoundingClientRect();
-
-        paths.push({
-            startX: eventRect.left - wrapperRect.left + eventRect.width,
-            startY: eventRect.top - wrapperRect.top + eventRect.height / 2,
-            endX: timeRect.left - wrapperRect.left,
-            endY: timeRect.top - wrapperRect.top + timeRect.height / 2,
-            type: 'event-time'
-        });
-    });
-
-    // Add external time paths
-    externalTimeElements.forEach(ext => {
-        const textElement = document.querySelector(`[data-id="${ext.time_id}"]`);
-        const arg2Element = document.querySelector(`[data-id="${ext.arg2}"]`);
-
-        if (!textElement || !arg2Element) return;
-
-        const textRect = textElement.getBoundingClientRect();
-        const arg2Rect = arg2Element.getBoundingClientRect();
-
-        paths.push({
-            startX: textRect.left - wrapperRect.left + textRect.width,
-            startY: textRect.top - wrapperRect.top + textRect.height / 2,
-            endX: arg2Rect.left - wrapperRect.left,
-            endY: arg2Rect.top - wrapperRect.top + arg2Rect.height / 2,
-            type: 'time-time'
-        });
-    });
-
-    // Update paths
-    const pathElements = svg.selectAll("path")
-        .data(paths);
-
-    // Remove old paths
-    pathElements.exit().remove();
-
-    // Add new paths
-    pathElements.enter()
-        .append("path")
-        .merge(pathElements)
-        .attr("fill", "none")
-        .attr("stroke", d => d.type === 'event-time' ? 'black' : 'blue')
-        .attr("stroke-width", 1.5)
-        .attr("d", d => {
-            const midX = (d.startX + d.endX) / 2;
-            const midY = (d.startY + d.endY) / 2;
-            const distance = Math.sqrt((d.endX - d.startX) ** 2 + (d.endY - d.startY) ** 2);
-            const curveHeight = Math.min(distance * 0.5, 100);
-            const controlY = midY - curveHeight;
-            return `M ${d.startX},${d.startY} Q ${midX},${controlY} ${d.endX},${d.endY}`;
-        });
+    // Return cleanup function
+    return () => {
+        window.removeEventListener('resize', handleResize);
+        wrapper.select("svg.arrows").remove();
+    };
 }
 
 // Debounce helper function
