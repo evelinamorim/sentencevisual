@@ -322,39 +322,26 @@ function categorizeElements(sentenceText, fragments) {
 
 function initializeArrows(wrapper, eventElements, timeElements, externalTimeElements) {
     function createArrows() {
-        let svg = wrapper.select("svg.arrows");
-        // Check if the SVG exists; if not, create it
-        if (svg.empty()) {
-            svg = wrapper.append("svg")
-                .attr("class", "arrows")
-                .style("position", "absolute")
-                .style("top", 0)
-                .style("left", 0)
-                .style("pointer-events", "none")
-                .style("z-index", 1);
-        }
-        svg.append("path")
-    .attr("fill", "none")
-    .attr("stroke", "red")
-    .attr("stroke-width", 2)
-    .attr("d", "M 10,10 Q 100,50 200,10");
+        // Always remove old SVG first
+        wrapper.select("svg.arrows").remove();
 
-    svg.style("background", "rgba(255, 0, 0, 0.5)");
-
-    console.log("SVG width:", svg.attr("width"));
-console.log("SVG height:", svg.attr("height"));
-
-
+        // Create new SVG
+        const svg = wrapper.append("svg")
+            .attr("class", "arrows")
+            .style("position", "absolute")
+            .style("top", 0)
+            .style("left", 0)
+            .style("pointer-events", "none")
+            .style("z-index", 1);
 
         const wrapperRect = wrapper.node().getBoundingClientRect();
 
-        // Update SVG dimensions
+        // Set SVG dimensions
         svg
             .attr("width", wrapperRect.width)
             .attr("height", wrapperRect.height);
 
-        // Create paths data for event-time pairs
-        const connections = [];
+        // Create paths data
         eventElements.forEach((eventElement, i) => {
             const timeElement = timeElements[i];
             if (!eventElement || !timeElement) return;
@@ -362,16 +349,19 @@ console.log("SVG height:", svg.attr("height"));
             const eventRect = eventElement.getBoundingClientRect();
             const timeRect = timeElement.getBoundingClientRect();
 
-            connections.push({
-                x1: eventRect.left - wrapperRect.left + eventRect.width,
-                y1: eventRect.top - wrapperRect.top + eventRect.height / 2,
-                x2: timeRect.left - wrapperRect.left,
-                y2: timeRect.top - wrapperRect.top + timeRect.height / 2,
-                color: "red"
-            });
+            svg.append("path")
+                .attr("fill", "none")
+                .attr("stroke", "black")
+                .attr("stroke-width", 1.5)
+                .attr("d", createPath(
+                    eventRect.left - wrapperRect.left + eventRect.width,
+                    eventRect.top - wrapperRect.top + eventRect.height / 2,
+                    timeRect.left - wrapperRect.left,
+                    timeRect.top - wrapperRect.top + timeRect.height / 2
+                ));
         });
 
-        // Add paths data for external time connections
+        // Add external time paths
         externalTimeElements.forEach(ext => {
             const textElement = document.querySelector(`[data-id="${ext.time_id}"]`);
             const arg2Element = document.querySelector(`[data-id="${ext.arg2}"]`);
@@ -381,29 +371,17 @@ console.log("SVG height:", svg.attr("height"));
             const textRect = textElement.getBoundingClientRect();
             const arg2Rect = arg2Element.getBoundingClientRect();
 
-            connections.push({
-                x1: textRect.left - wrapperRect.left + textRect.width,
-                y1: textRect.top - wrapperRect.top + textRect.height / 2,
-                x2: arg2Rect.left - wrapperRect.left,
-                y2: arg2Rect.top - wrapperRect.top + arg2Rect.height / 2,
-                color: "blue"
-            });
+            svg.append("path")
+                .attr("fill", "none")
+                .attr("stroke", "blue")
+                .attr("stroke-width", 1.5)
+                .attr("d", createPath(
+                    textRect.left - wrapperRect.left + textRect.width,
+                    textRect.top - wrapperRect.top + textRect.height / 2,
+                    arg2Rect.left - wrapperRect.left,
+                    arg2Rect.top - wrapperRect.top + arg2Rect.height / 2
+                ));
         });
-
-        // Bind data to paths
-        const paths = svg.selectAll("path").data(connections);
-        // Enter new paths
-        paths.enter()
-            .append("path")
-            .attr("fill", "none")
-            .attr("stroke-width", 3)
-            .merge(paths) // Update existing paths
-            .attr("stroke", d => d.color)
-            .attr("d", d => createPath(d.x1, d.y1, d.x2, d.y2));
-
-        // Remove old paths
-        paths.exit().remove();
-
     }
 
     function createPath(startX, startY, endX, endY) {
@@ -418,16 +396,17 @@ console.log("SVG height:", svg.attr("height"));
     // Initial creation
     createArrows();
 
-    // Handle window resize
-    const handleResize = () => {
+    // Handle window resize with debounce
+    const handleResize = debounce(() => {
         requestAnimationFrame(createArrows);
-    };
+    }, 100);
 
     window.addEventListener('resize', handleResize);
 
     // Return cleanup function
     return () => {
         window.removeEventListener('resize', handleResize);
+        wrapper.select("svg.arrows").remove();
     };
 }
 
@@ -435,13 +414,9 @@ console.log("SVG height:", svg.attr("height"));
 // Debounce helper function
 function debounce(func, wait) {
     let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
+    return function(...args) {
         clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
+        timeout = setTimeout(() => func.apply(this, args), wait);
     };
 }
 
