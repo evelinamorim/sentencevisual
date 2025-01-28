@@ -339,6 +339,13 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
     .attr("stroke-width", 2)
     .attr("d", "M 10,10 Q 100,50 200,10");
 
+    svg.style("background", "rgba(255, 0, 0, 0.5)");
+
+    console.log("SVG width:", svg.attr("width"));
+console.log("SVG height:", svg.attr("height"));
+
+
+
         const wrapperRect = wrapper.node().getBoundingClientRect();
 
         // Update SVG dimensions
