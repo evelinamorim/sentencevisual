@@ -185,7 +185,7 @@ body {
 }
 
 .event-time-path {
-    stroke: black;
+    stroke: red;
 }
 .time-time-path {
     stroke: blue;
