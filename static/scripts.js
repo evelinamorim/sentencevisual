@@ -343,11 +343,8 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
             .attr("width", wrapperRect.width)
             .attr("height", wrapperRect.height);
 
-        // Clear old paths
-        //svg.selectAll("path").remove();
-
-        // Create paths for event-time connections
-        const connections = []
+        // Create paths data for event-time pairs
+        const connections = [];
         eventElements.forEach((eventElement, i) => {
             const timeElement = timeElements[i];
             if (!eventElement || !timeElement) return;
@@ -364,7 +361,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
             });
         });
 
-        // Add paths for external time connections
+        // Add paths data for external time connections
         externalTimeElements.forEach(ext => {
             const textElement = document.querySelector(`[data-id="${ext.time_id}"]`);
             const arg2Element = document.querySelector(`[data-id="${ext.arg2}"]`);
@@ -383,7 +380,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
             });
         });
 
-           // Bind data to paths
+        // Bind data to paths
         const paths = svg.selectAll("path").data(connections);
 
         // Enter new paths
@@ -396,7 +393,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
             .attr("d", d => createPath(d.x1, d.y1, d.x2, d.y2));
 
         // Remove old paths
-        //paths.exit().remove();
+        paths.exit().remove();
     }
 
     function createPath(startX, startY, endX, endY) {
