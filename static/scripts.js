@@ -124,9 +124,8 @@ function renderSentence(sentence, index) {
 
     // Initial render after a short delay
     setTimeout(() => {
-        //const cleanup =
-        initializeArrows(wrapper, eventElements, timeElements, sentence.times);
-        //cleanupFunctions.set(index, cleanup);
+        const cleanup =  initializeArrows(wrapper, eventElements, timeElements, sentence.times);
+        cleanupFunctions.set(index, cleanup);
     }, 200);
 }
 
@@ -324,6 +323,8 @@ function categorizeElements(sentenceText, fragments) {
 function initializeArrows(wrapper, eventElements, timeElements, externalTimeElements) {
     function createArrows() {
         let svg = wrapper.select("svg.arrows");
+        console.log("1",wrapper.select("svg.arrows").node());
+
 
         // Check if the SVG exists; if not, create it
         if (svg.empty()) {
@@ -342,6 +343,8 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
         svg
             .attr("width", wrapperRect.width)
             .attr("height", wrapperRect.height);
+
+        console.log("2",wrapper.select("svg.arrows").node());
 
         // Create paths data for event-time pairs
         const connections = [];
@@ -382,6 +385,8 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
 
         // Bind data to paths
         const paths = svg.selectAll("path").data(connections);
+        console.log("3:",wrapper.select("svg.arrows").node());
+
 
         // Enter new paths
         paths.enter()
@@ -393,7 +398,9 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
             .attr("d", d => createPath(d.x1, d.y1, d.x2, d.y2));
 
         // Remove old paths
-        /*paths.exit().remove();*/
+        paths.exit().remove();
+        console.log("4:",wrapper.select("svg.arrows").node());
+
     }
 
     function createPath(startX, startY, endX, endY) {
@@ -407,18 +414,19 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
 
     // Initial creation
     createArrows();
+    console.log("5:",wrapper.select("svg.arrows").node());
 
     // Handle window resize
-    //const handleResize = () => {
-    //    requestAnimationFrame(createArrows);
-    //};
+    const handleResize = () => {
+        requestAnimationFrame(createArrows);
+    };
 
-    //window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize);
 
     // Return cleanup function
-    //return () => {
-    //    window.removeEventListener('resize', handleResize);
-    //};
+    return () => {
+        window.removeEventListener('resize', handleResize);
+    };
 }
 
 
