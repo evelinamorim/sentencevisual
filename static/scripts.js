@@ -408,9 +408,9 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
     createArrows();
 
     // Handle window resize
-    const handleResize = () => {
-        requestAnimationFrame(createArrows);
-    };
+    //const handleResize = () => {
+    //    requestAnimationFrame(createArrows);
+    //};
 
     window.addEventListener('resize', handleResize);
 
