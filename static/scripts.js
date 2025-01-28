@@ -119,16 +119,29 @@ function renderSentence(sentence, index) {
     const fragments = createFragments(sentence.text_sent, sentence);
     const { eventElements, timeElements } = categorizeElements(sentenceText, fragments);
 
-    // Wait for DOM to be ready and elements to be positioned
+    // Force a reflow to ensure elements are positioned
+    sentenceContainer.node().offsetHeight;
+
+    // Add a class when rendering is complete
+    sentenceContainer.classed("rendered", true);
+
     const cleanup = waitForRendering(() => {
+        // Verify elements are actually in the DOM and positioned
+        const areElementsReady = () => {
+            return eventElements.every(el => el.offsetParent !== null) &&
+                   timeElements.every(el => el.offsetParent !== null);
+        };
+
+        if (!areElementsReady()) {
+            console.log("Elements not ready yet, retrying...");
+            return null;  // Return null to indicate we need to retry
+        }
+
         return initializeArrows(wrapper, eventElements, timeElements, sentence.times);
     });
 
     // Store cleanup function
     cleanupFunctions.set(index, cleanup);
-    //setTimeout(() => drawArrows(wrapper, eventElements, timeElements), 100);
-
-    //renderTimeExpressions(sentenceContainer, sentence.times);
 }
 
 // Helper function to wait for rendering
