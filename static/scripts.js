@@ -333,11 +333,10 @@ function categorizeElements(sentenceText, fragments) {
 
 
 function initializeArrows(wrapper, eventElements, timeElements, externalTimeElements) {
-    // Create SVG only if it doesn't exist
-    let svg = d3.select(wrapper.node()).select("svg.arrows");
+    // Create or select SVG
+    let svg = wrapper.select("svg.arrows");
     if (svg.empty()) {
-        svg = d3.select(wrapper.node())
-            .append("svg")
+        svg = wrapper.append("svg")
             .attr("class", "arrows")
             .style("position", "absolute")
             .style("top", 0)
@@ -346,43 +345,74 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
             .style("z-index", 1);
     }
 
-    // Store element references and dimensions in a closure
-    let cachedElements = {
-        wrapper: wrapper,
-        events: eventElements,
-        times: timeElements,
-        external: externalTimeElements
-    };
+    const wrapperRect = wrapper.node().getBoundingClientRect();
 
-    // Initial draw with a small delay to ensure DOM is ready
-    setTimeout(() => {
-        updateArrows(wrapper, eventElements, timeElements, externalTimeElements);
-    }, 100);
+    // Update SVG dimensions
+    svg
+        .attr("width", wrapperRect.width)
+        .attr("height", wrapperRect.height);
 
-    // Improved resize observer with debouncing
-    if (!window.arrowResizeObserver) {
-        const debounceUpdate = debounce(() => {
-            if (!document.contains(wrapper.node())) {
-                window.arrowResizeObserver.disconnect();
-                return;
-            }
-            updateArrows(
-                cachedElements.wrapper,
-                cachedElements.events,
-                cachedElements.times,
-                cachedElements.external
-            );
-        }, 150);
+    // Create paths data
+    const paths = [];
 
-        window.arrowResizeObserver = new ResizeObserver(entries => {
-            debounceUpdate();
+    // Add event-time paths
+    eventElements.forEach((eventElement, i) => {
+        const timeElement = timeElements[i];
+        if (!eventElement || !timeElement) return;
+
+        const eventRect = eventElement.getBoundingClientRect();
+        const timeRect = timeElement.getBoundingClientRect();
+
+        paths.push({
+            startX: eventRect.left - wrapperRect.left + eventRect.width,
+            startY: eventRect.top - wrapperRect.top + eventRect.height / 2,
+            endX: timeRect.left - wrapperRect.left,
+            endY: timeRect.top - wrapperRect.top + timeRect.height / 2,
+            type: 'event-time'
         });
+    });
 
-        window.arrowResizeObserver.observe(wrapper.node());
+    // Add external time paths
+    externalTimeElements.forEach(ext => {
+        const textElement = document.querySelector(`[data-id="${ext.time_id}"]`);
+        const arg2Element = document.querySelector(`[data-id="${ext.arg2}"]`);
 
-        // Debounced window resize handler
-        window.addEventListener('resize', debounceUpdate);
-    }
+        if (!textElement || !arg2Element) return;
+
+        const textRect = textElement.getBoundingClientRect();
+        const arg2Rect = arg2Element.getBoundingClientRect();
+
+        paths.push({
+            startX: textRect.left - wrapperRect.left + textRect.width,
+            startY: textRect.top - wrapperRect.top + textRect.height / 2,
+            endX: arg2Rect.left - wrapperRect.left,
+            endY: arg2Rect.top - wrapperRect.top + arg2Rect.height / 2,
+            type: 'time-time'
+        });
+    });
+
+    // Update paths
+    const pathElements = svg.selectAll("path")
+        .data(paths);
+
+    // Remove old paths
+    pathElements.exit().remove();
+
+    // Add new paths
+    pathElements.enter()
+        .append("path")
+        .merge(pathElements)
+        .attr("fill", "none")
+        .attr("stroke", d => d.type === 'event-time' ? 'black' : 'blue')
+        .attr("stroke-width", 1.5)
+        .attr("d", d => {
+            const midX = (d.startX + d.endX) / 2;
+            const midY = (d.startY + d.endY) / 2;
+            const distance = Math.sqrt((d.endX - d.startX) ** 2 + (d.endY - d.startY) ** 2);
+            const curveHeight = Math.min(distance * 0.5, 100);
+            const controlY = midY - curveHeight;
+            return `M ${d.startX},${d.startY} Q ${midX},${controlY} ${d.endX},${d.endY}`;
+        });
 }
 
 // Debounce helper function
