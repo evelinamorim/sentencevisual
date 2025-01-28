@@ -356,10 +356,10 @@ function updateArrows(wrapper, eventElements, timeElements, externalTimeElements
         const arg2 = eventNode.getAttribute('arg2');
         const timeId = timeNode.getAttribute('data-id');
 
-        console.log("RELATION EVENT TIME");
+        /*console.log("RELATION EVENT TIME");
         console.log("Event: ", eventNode.getAttribute('data-id'), "Event arg2: ", eventNode.getAttribute('arg2'));
         console.log("Time: ", timeNode.getAttribute('data-id'));
-        console.log("------");
+        console.log("------");*/
 
         if (!eventNode || !timeNode || timeId !== arg2) return null;
 
