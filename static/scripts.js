@@ -301,7 +301,7 @@ function categorizeElements(sentenceText, fragments) {
 
 function initializeArrows(wrapper, eventElements, timeElements, externalTimeElements) {
     // Create SVG only if it doesn't exist
-    let svg = d3.select("svg.arrows");
+    let svg = d3.select(wrapper.node()).select("svg.arrows");
     if (svg.empty()) {
         svg = d3.select(wrapper.node())
             .append("svg")
@@ -313,60 +313,101 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
             .style("z-index", 1);
     }
 
-    // Initial draw for this set of elements
-    updateArrows(wrapper, eventElements, timeElements, externalTimeElements);
+    // Store element references and dimensions in a closure
+    let cachedElements = {
+        wrapper: wrapper,
+        events: eventElements,
+        times: timeElements,
+        external: externalTimeElements
+    };
 
-    // Add resize listener if not already added
+    // Initial draw with a small delay to ensure DOM is ready
+    setTimeout(() => {
+        updateArrows(wrapper, eventElements, timeElements, externalTimeElements);
+    }, 100);
+
+    // Improved resize observer with debouncing
     if (!window.arrowResizeObserver) {
+        const debounceUpdate = debounce(() => {
+            if (!document.contains(wrapper.node())) {
+                window.arrowResizeObserver.disconnect();
+                return;
+            }
+            updateArrows(
+                cachedElements.wrapper,
+                cachedElements.events,
+                cachedElements.times,
+                cachedElements.external
+            );
+        }, 150);
+
         window.arrowResizeObserver = new ResizeObserver(entries => {
-            // Redraw all arrows on resize
-            const allEventElements = Array.from(document.querySelectorAll('.blue-box'));
-            const allTimeElements = Array.from(document.querySelectorAll('.yellow-box'));
-            updateArrows(wrapper, allEventElements, allTimeElements, externalTimeElements);
+            debounceUpdate();
         });
 
         window.arrowResizeObserver.observe(wrapper.node());
 
-        // Window resize handler
-        window.addEventListener('resize', () => {
-            const allEventElements = Array.from(document.querySelectorAll('.blue-box'));
-            const allTimeElements = Array.from(document.querySelectorAll('.yellow-box'));
-            updateArrows(wrapper, allEventElements, allTimeElements, externalTimeElements);
-        });
+        // Debounced window resize handler
+        window.addEventListener('resize', debounceUpdate);
     }
 }
 
+// Debounce helper function
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
 function updateArrows(wrapper, eventElements, timeElements, externalTimeElements) {
-    const svg = d3.select("svg.arrows");
-    const tooltip = d3.select("#tooltip");
+    // Ensure wrapper exists in DOM
+    if (!document.contains(wrapper.node())) return;
+
+    console.log('Updating arrows', {
+    wrapper: wrapper.node(),
+    eventElements: eventElements.length,
+    timeElements: timeElements.length,
+    externalTimeElements: externalTimeElements.length
+});
+
+    const svg = d3.select(wrapper.node()).select("svg.arrows");
     const wrapperRect = wrapper.node().getBoundingClientRect();
 
     // Update SVG dimensions
     svg
         .attr("width", wrapperRect.width)
-        .attr("height", wrapperRect.height);
+        .attr("height", wrapperRect.height)
+        .style("opacity", 1); // Ensure visibility
 
-    // Create data array for the paths
+    // Validate elements before creating path data
     const eventTimePathData = eventElements.map((eventElement, i) => {
         const timeElement = timeElements[i];
-        if (!eventElement || !timeElement) return null;
+        if (!eventElement || !timeElement || !document.contains(eventElement) || !document.contains(timeElement)) {
+            return null;
+        }
 
         const eventNode = d3.select(eventElement).node();
         const timeNode = d3.select(timeElement).node();
         const arg2 = eventNode.getAttribute('arg2');
         const timeId = timeNode.getAttribute('data-id');
 
-        /*console.log("RELATION EVENT TIME");
-        console.log("Event: ", eventNode.getAttribute('data-id'), "Event arg2: ", eventNode.getAttribute('arg2'));
-        console.log("Time: ", timeNode.getAttribute('data-id'));
-        console.log("------");*/
-
         if (!eventNode || !timeNode || timeId !== arg2) return null;
 
         const startRect = eventNode.getBoundingClientRect();
         const endRect = timeNode.getBoundingClientRect();
-        console
-        const data = {
+
+        // Validate rectangle dimensions
+        if (!startRect.width || !startRect.height || !endRect.width || !endRect.height) {
+            return null;
+        }
+
+        return {
             startX: startRect.left - wrapperRect.left + startRect.width,
             startY: startRect.top - wrapperRect.top + startRect.height / 2,
             endX: endRect.left - wrapperRect.left,
@@ -376,11 +417,9 @@ function updateArrows(wrapper, eventElements, timeElements, externalTimeElements
             relType: eventNode.getAttribute("data-rel-type"),
             pathType: 'event-time'
         };
-
-        return data;
     }).filter(Boolean);
 
-     // Create data array for the paths between external time elements
+    // Similar validation for external time elements
     const externalTimePathData = externalTimeElements.map(externalTimeElement => {
         const textId = externalTimeElement.time_id;
         const arg2 = externalTimeElement.arg2;
@@ -388,18 +427,17 @@ function updateArrows(wrapper, eventElements, timeElements, externalTimeElements
         const textElement = document.querySelector(`[data-id="${textId}"]`);
         const arg2Element = document.querySelector(`[data-id="${arg2}"]`);
 
-        if (!textElement || !arg2Element) return null;
-
-        console.log("RELATION TIME TIME");
-        console.log("Time 1: ", textId, " ", textElement);
-        console.log("Time 2: ", arg2Element, " ", arg2Element);
-        console.log("------");
+        if (!textElement || !arg2Element || !document.contains(textElement) || !document.contains(arg2Element)) {
+            return null;
+        }
 
         const textRect = textElement.getBoundingClientRect();
         const arg2Rect = arg2Element.getBoundingClientRect();
 
-         // Add offset to prevent overlap
-        const offset = 5;
+        // Validate rectangle dimensions
+        if (!textRect.width || !textRect.height || !arg2Rect.width || !arg2Rect.height) {
+            return null;
+        }
 
         return {
             startX: textRect.left - wrapperRect.left + textRect.width,
@@ -413,40 +451,14 @@ function updateArrows(wrapper, eventElements, timeElements, externalTimeElements
         };
     }).filter(Boolean);
 
-    const pathData = [...eventTimePathData, ...externalTimePathData];
-    // Create separate selections for different path types
-    const eventTimePaths = svg.selectAll("path.event-time-path")
-        .data(eventTimePathData, d => `${d.eventId}-${d.timeId}`);
-
-    const timeTimePaths = svg.selectAll("path.time-time-path")
-        .data(externalTimePathData, d => `${d.eventId}-${d.timeId}`);
-
-    // Handle event-time paths
-    eventTimePaths.exit().remove();
-
-    const newEventTimePaths = eventTimePaths.enter()
-        .append("path")
-        .attr("class", "arrow-path event-time-path")
-        .attr("fill", "none")
-        .attr("stroke", "black")
-        .attr("stroke-width", 1.5);
-
-    // Handle time-time paths
-    timeTimePaths.exit().remove();
-
-    const newTimeTimePaths = timeTimePaths.enter()
-        .append("path")
-        .attr("class", "arrow-path time-time-path")
-        .attr("fill", "none")
-        .attr("stroke", "blue") // Different color for time-time paths
-        .attr("stroke-width", 1.5);
-
-    // Update function for paths
+    // Update paths with transition
     function updatePath(selection) {
         selection
             .attr("data-event-id", d => d.eventId)
             .attr("data-time-id", d => d.timeId)
             .attr("data-rel-type", d => d.relType)
+            .transition()
+            .duration(200)
             .attr("d", d => {
                 const midX = (d.startX + d.endX) / 2;
                 const midY = (d.startY + d.endY) / 2;
@@ -457,41 +469,35 @@ function updateArrows(wrapper, eventElements, timeElements, externalTimeElements
             });
     }
 
-    // Update all paths
-    eventTimePaths.merge(newEventTimePaths).call(updatePath);
-    timeTimePaths.merge(newTimeTimePaths).call(updatePath);
-     // Tooltip handling
-    svg.append("rect")
-        .attr("width", wrapperRect.width)
-        .attr("height", wrapperRect.height)
+    // Update event-time paths
+    const eventTimePaths = svg.selectAll("path.event-time-path")
+        .data(eventTimePathData, d => `${d.eventId}-${d.timeId}`);
+
+    eventTimePaths.exit().remove();
+
+    const newEventTimePaths = eventTimePaths.enter()
+        .append("path")
+        .attr("class", "arrow-path event-time-path")
         .attr("fill", "none")
-        .attr("pointer-events", "all")
-        .on("mousemove", function(event) {
-            const mouse = d3.pointer(event, this);
-            const paths = svg.selectAll("path.arrow-path");
+        .attr("stroke", "black")
+        .attr("stroke-width", 1.5);
 
-            // Check if mouse is near any path
-            let tooltipVisible = false;
-            paths.each(function() {
-                const path = d3.select(this);
-                const relType = path.attr("data-rel-type");
+    eventTimePaths.merge(newEventTimePaths).call(updatePath);
 
-                if (isPointNearPath(this, mouse[0], mouse[1])) {
-                    tooltip.html(relType)
-                        .style("display", "block")
-                        .style("left", (event.pageX + 10) + "px")
-                        .style("top", (event.pageY + 10) + "px");
-                    tooltipVisible = true;
-                }
-            });
+    // Update time-time paths
+    const timeTimePaths = svg.selectAll("path.time-time-path")
+        .data(externalTimePathData, d => `${d.eventId}-${d.timeId}`);
 
-            if (!tooltipVisible) {
-                tooltip.style("display", "none");
-            }
-        })
-        .on("mouseout", function() {
-            tooltip.style("display", "none");
-        });
+    timeTimePaths.exit().remove();
+
+    const newTimeTimePaths = timeTimePaths.enter()
+        .append("path")
+        .attr("class", "arrow-path time-time-path")
+        .attr("fill", "none")
+        .attr("stroke", "blue")
+        .attr("stroke-width", 1.5);
+
+    timeTimePaths.merge(newTimeTimePaths).call(updatePath);
 }
 
 function drawArrows(wrapper, eventElements, timeElements) {
