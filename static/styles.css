@@ -184,3 +184,10 @@ body {
     padding: 2px 0;
 }
 
+.event-time-path {
+    stroke: black;
+}
+.time-time-path {
+    stroke: blue;
+}
+
