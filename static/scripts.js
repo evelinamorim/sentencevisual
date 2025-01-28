@@ -266,15 +266,148 @@ function categorizeElements(sentenceText, fragments) {
 
 function initializeArrows(wrapper, eventElements, timeElements, externalTimeElements) {
     let svg;
+    let tooltip;
 
-    // Helper function to check if a point is near a path
+    function createArrows() {
+        try {
+            // Remove old SVG if it exists
+            if (svg) {
+                svg.remove();
+            }
+
+            // Create new SVG and store it in the outer scope
+            svg = wrapper.append("svg")
+                .attr("class", "arrows")
+                .style("position", "absolute")
+                .style("top", 0)
+                .style("left", 0)
+                .style("pointer-events", "none")
+                .style("z-index", 1);
+
+            const wrapperRect = wrapper.node().getBoundingClientRect();
+
+            // Set SVG dimensions
+            svg
+                .attr("width", wrapperRect.width)
+                .attr("height", wrapperRect.height);
+
+            // Create paths data
+            eventElements.forEach((eventElement, i) => {
+                const timeElement = timeElements[i];
+                if (!eventElement || !timeElement) return;
+
+                const eventRect = eventElement.getBoundingClientRect();
+                const timeRect = timeElement.getBoundingClientRect();
+
+                svg.append("path")
+                    .attr("class", "arrow-path")
+                    .attr("fill", "none")
+                    .attr("stroke", "black")
+                    .attr("stroke-width", 1.5)
+                    .attr("data-rel-type", d3.select(eventElement).attr("data-rel-type"))
+                    .attr("d", createPath(
+                        eventRect.left - wrapperRect.left + eventRect.width,
+                        eventRect.top - wrapperRect.top + eventRect.height / 2,
+                        timeRect.left - wrapperRect.left,
+                        timeRect.top - wrapperRect.top + timeRect.height / 2
+                    ));
+            });
+
+            // Add external time paths
+            externalTimeElements.forEach(ext => {
+                const textElement = document.querySelector(`[data-id="${ext.time_id}"]`);
+                const arg2Element = document.querySelector(`[data-id="${ext.arg2}"]`);
+
+                if (!textElement || !arg2Element) return;
+
+                const textRect = textElement.getBoundingClientRect();
+                const arg2Rect = arg2Element.getBoundingClientRect();
+
+                svg.append("path")
+                    .attr("class", "arrow-path")
+                    .attr("fill", "none")
+                    .attr("stroke", "blue")
+                    .attr("stroke-width", 1.5)
+                    .attr("data-rel-type", ext.rel_type)
+                    .attr("d", createPath(
+                        textRect.left - wrapperRect.left + textRect.width,
+                        textRect.top - wrapperRect.top + textRect.height / 2,
+                        arg2Rect.left - wrapperRect.left,
+                        arg2Rect.top - wrapperRect.top + arg2Rect.height / 2
+                    ));
+            });
+
+            // Create tooltip if it doesn't exist
+            tooltip = d3.select("#tooltip");
+            if (tooltip.empty()) {
+                tooltip = d3.select("body")
+                    .append("div")
+                    .attr("id", "tooltip")
+                    .style("position", "absolute")
+                    .style("display", "none")
+                    .style("background", "white")
+                    .style("padding", "5px")
+                    .style("border", "1px solid #ccc")
+                    .style("border-radius", "4px")
+                    .style("pointer-events", "none")
+                    .style("z-index", "1000");
+            }
+
+            // Add the mouse event handling rect at the end
+            if (svg && !svg.empty()) {
+                svg.append("rect")
+                    .attr("width", wrapperRect.width)
+                    .attr("height", wrapperRect.height)
+                    .attr("fill", "none")
+                    .style("pointer-events", "all")
+                    .on("mousemove", handleMouseMove)
+                    .on("mouseout", handleMouseOut);
+            }
+
+        } catch (error) {
+            console.error("Error in createArrows:", error);
+        }
+    }
+
+    function handleMouseMove(event) {
+        if (!svg || svg.empty() || !tooltip) return;
+
+        const mouse = d3.pointer(event, this);
+        const paths = svg.selectAll("path.arrow-path");
+        let foundPath = false;
+
+        paths.each(function() {
+            const path = d3.select(this);
+            if (isPointNearPath(this, mouse[0], mouse[1])) {
+                const relType = path.attr("data-rel-type");
+                tooltip
+                    .html(relType)
+                    .style("display", "block")
+                    .style("left", (event.pageX + 10) + "px")
+                    .style("top", (event.pageY + 10) + "px");
+                foundPath = true;
+            }
+        });
+
+        if (!foundPath) {
+            tooltip.style("display", "none");
+        }
+    }
+
+    function handleMouseOut() {
+        if (tooltip) {
+            tooltip.style("display", "none");
+        }
+    }
+
     function isPointNearPath(pathNode, x, y, threshold = 5) {
+        if (!pathNode) return false;
+
         const pathLength = pathNode.getTotalLength();
         let start = 0;
         let end = pathLength;
         let closest = Infinity;
 
-        // Binary search for the closest point on the path
         while (start <= end) {
             const mid = (start + end) / 2;
             const point = pathNode.getPointAtLength(mid);
@@ -287,7 +420,6 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
                 return true;
             }
 
-            // Check the next segment
             const nextPoint = pathNode.getPointAtLength(mid + 1);
             const direction = (nextPoint.x - point.x) * (y - point.y) -
                             (nextPoint.y - point.y) * (x - point.x);
@@ -301,122 +433,6 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
 
         return closest <= threshold;
     }
-
-    function createArrows() {
-        // Remove old SVG if it exists
-        if (svg) {
-            svg.remove();
-        }
-
-        // Create new SVG
-        svg = wrapper.append("svg")
-            .attr("class", "arrows")
-            .style("position", "absolute")
-            .style("top", 0)
-            .style("left", 0)
-            .style("pointer-events", "none")
-            .style("z-index", 1);
-
-        const wrapperRect = wrapper.node().getBoundingClientRect();
-
-        // Set SVG dimensions
-        svg
-            .attr("width", wrapperRect.width)
-            .attr("height", wrapperRect.height);
-
-        // Create paths data
-        eventElements.forEach((eventElement, i) => {
-            const timeElement = timeElements[i];
-            if (!eventElement || !timeElement) return;
-
-            const eventRect = eventElement.getBoundingClientRect();
-            const timeRect = timeElement.getBoundingClientRect();
-
-            svg.append("path")
-                .attr("fill", "none")
-                .attr("stroke", "black")
-                .attr("stroke-width", 1.5)
-                .attr("data-rel-type", d3.select(eventElement).attr("data-rel-type"))
-                .attr("d", createPath(
-                    eventRect.left - wrapperRect.left + eventRect.width,
-                    eventRect.top - wrapperRect.top + eventRect.height / 2,
-                    timeRect.left - wrapperRect.left,
-                    timeRect.top - wrapperRect.top + timeRect.height / 2
-                ));
-        });
-
-        // Add external time paths
-        externalTimeElements.forEach(ext => {
-            const textElement = document.querySelector(`[data-id="${ext.time_id}"]`);
-            const arg2Element = document.querySelector(`[data-id="${ext.arg2}"]`);
-
-            if (!textElement || !arg2Element) return;
-
-            const textRect = textElement.getBoundingClientRect();
-            const arg2Rect = arg2Element.getBoundingClientRect();
-
-            svg.append("path")
-                .attr("fill", "none")
-                .attr("stroke", "blue")
-                .attr("stroke-width", 1.5)
-                 .attr("data-rel-type", ext.rel_type)
-                .attr("d", createPath(
-                    textRect.left - wrapperRect.left + textRect.width,
-                    textRect.top - wrapperRect.top + textRect.height / 2,
-                    arg2Rect.left - wrapperRect.left,
-                    arg2Rect.top - wrapperRect.top + arg2Rect.height / 2
-                ));
-        });
-    }
-
-     // Create tooltip if it doesn't exist
-        let tooltip = d3.select("#tooltip");
-        if (tooltip.empty()) {
-            tooltip = d3.select("body")
-                .append("div")
-                .attr("id", "tooltip")
-                .style("position", "absolute")
-                .style("display", "none")
-                .style("background", "white")
-                .style("padding", "5px")
-                .style("border", "1px solid #ccc")
-                .style("border-radius", "4px")
-                .style("pointer-events", "none")
-                .style("z-index", "1000");
-        }
-
-        // Add transparent overlay for mouse events
-        svg.append("rect")
-            .attr("width", wrapperRect.width)
-            .attr("height", wrapperRect.height)
-            .attr("fill", "none")
-            .style("pointer-events", "all")
-            .on("mousemove", function(event) {
-                const mouse = d3.pointer(event, this);
-                const paths = svg.selectAll("path.arrow-path");
-                let foundPath = false;
-
-                paths.each(function() {
-                    const path = d3.select(this);
-                    if (isPointNearPath(this, mouse[0], mouse[1])) {
-                        const relType = path.attr("data-rel-type");
-                        tooltip
-                            .html(relType)
-                            .style("display", "block")
-                            .style("left", (event.pageX + 10) + "px")
-                            .style("top", (event.pageY + 10) + "px");
-                        foundPath = true;
-                    }
-                });
-
-                if (!foundPath) {
-                    tooltip.style("display", "none");
-                }
-            })
-            .on("mouseout", function() {
-                tooltip.style("display", "none");
-            });
-
 
     function createPath(startX, startY, endX, endY) {
         const midX = (startX + endX) / 2;
@@ -436,13 +452,15 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
     }, 100);
 
     window.addEventListener('resize', handleResize);
+
     function cleanup() {
         window.removeEventListener('resize', handleResize);
-        if (svg) {
+        if (svg && !svg.empty()) {
             svg.remove();
         }
-        // Clean up tooltip when component unmounts
-        d3.select("#tooltip").remove();
+        if (tooltip && !tooltip.empty()) {
+            tooltip.remove();
+        }
     }
 
     return cleanup;
