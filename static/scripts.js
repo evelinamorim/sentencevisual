@@ -436,16 +436,16 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
     }, 100);
 
     window.addEventListener('resize', handleResize);
-
-    // Return cleanup function
-    return () => {
+    function cleanup() {
         window.removeEventListener('resize', handleResize);
         if (svg) {
             svg.remove();
         }
         // Clean up tooltip when component unmounts
         d3.select("#tooltip").remove();
-    };
+    }
+
+    return cleanup;
 }
 
 // Debounce helper function
