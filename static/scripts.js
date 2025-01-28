@@ -119,71 +119,15 @@ function renderSentence(sentence, index) {
     const fragments = createFragments(sentence.text_sent, sentence);
     const { eventElements, timeElements } = categorizeElements(sentenceText, fragments);
 
-    // Force layout calculation
-    sentenceContainer.node().offsetHeight;
-
-    // Initial render after a short delay
-    setTimeout(() => {
-        const cleanup =  initializeArrows(wrapper, eventElements, timeElements, sentence.times);
-        cleanupFunctions.set(index, cleanup);
-    }, 200);
-}
-
-// Helper function to wait for rendering
-function waitForRendering(callback) {
-    let cleanup = null;
-    let isCleanedUp = false;
-
-    // Chain two animation frames to ensure styles and layout are complete
+    // Wait for DOM to be fully rendered before initializing arrows
     requestAnimationFrame(() => {
-        if (isCleanedUp) return;
-
-        requestAnimationFrame(() => {
-            if (isCleanedUp) return;
-
-            // Use MutationObserver to watch for layout changes
-            const observer = new MutationObserver((mutations) => {
-                // Debounce the callback to avoid multiple rapid calls
-                requestAnimationFrame(() => {
-                    if (isCleanedUp) return;
-
-                    if (cleanup) {
-                        cleanup();
-                    }
-                    cleanup = callback();
-                });
-            });
-
-            // Start observing after initial render
-            observer.observe(document.querySelector('#visualization-wrapper'), {
-                childList: true,
-                subtree: true,
-                attributes: true,
-                characterData: true
-            });
-
-            // Initial call
-            cleanup = callback();
-
-            // Update the cleanup function to also disconnect the observer
-            const originalCleanup = cleanup;
-            cleanup = () => {
-                observer.disconnect();
-                if (originalCleanup) {
-                    originalCleanup();
-                }
-            };
-        });
-    });
-
-    // Return a cleanup function that handles all cases
-    return () => {
-        isCleanedUp = true;
-        if (cleanup) {
-            cleanup();
+        const cleanup = initializeArrows(wrapper, eventElements, timeElements, sentence.times);
+        if (typeof cleanupFunctions !== 'undefined') {
+            cleanupFunctions.set(index, cleanup);
         }
-    };
+    });
 }
+
 
 function createFragments(text, sentence) {
     let fragments = [];
@@ -321,12 +265,16 @@ function categorizeElements(sentenceText, fragments) {
 
 
 function initializeArrows(wrapper, eventElements, timeElements, externalTimeElements) {
+    let svg;
+
     function createArrows() {
-        // Always remove old SVG first
-        wrapper.select("svg.arrows").remove();
+        // Remove old SVG if it exists
+        if (svg) {
+            svg.remove();
+        }
 
         // Create new SVG
-        const svg = wrapper.append("svg")
+        svg = wrapper.append("svg")
             .attr("class", "arrows")
             .style("position", "absolute")
             .style("top", 0)
@@ -406,10 +354,11 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
     // Return cleanup function
     return () => {
         window.removeEventListener('resize', handleResize);
-        wrapper.select("svg.arrows").remove();
+        if (svg) {
+            svg.remove();
+        }
     };
 }
-
 
 // Debounce helper function
 function debounce(func, wait) {
@@ -419,7 +368,6 @@ function debounce(func, wait) {
         timeout = setTimeout(() => func.apply(this, args), wait);
     };
 }
-
 function updateArrows(wrapper, eventElements, timeElements, externalTimeElements) {
     // Ensure wrapper exists in DOM
     if (!document.contains(wrapper.node())) return;
