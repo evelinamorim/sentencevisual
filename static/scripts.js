@@ -336,16 +336,18 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
                 .style("pointer-events", "none")
                 .style("z-index", 1);
         }
+        svg.append("path")
+    .attr("fill", "none")
+    .attr("stroke", "red")
+    .attr("stroke-width", 2)
+    .attr("d", "M 10,10 Q 100,50 200,10");
 
         const wrapperRect = wrapper.node().getBoundingClientRect();
-        console.log("Wrapper dimensions:", wrapperRect.width, wrapperRect.height);
 
         // Update SVG dimensions
         svg
             .attr("width", wrapperRect.width)
             .attr("height", wrapperRect.height);
-
-        console.log("2",wrapper.select("svg.arrows").node());
 
         // Create paths data for event-time pairs
         const connections = [];
@@ -355,15 +357,6 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
 
             const eventRect = eventElement.getBoundingClientRect();
             const timeRect = timeElement.getBoundingClientRect();
-
-             console.log("Event Rect:", eventRect);
-             console.log("Time Rect:", timeRect);
-             console.log("Wrapper Rect:", wrapperRect);
-
-             console.log("Start X:", eventRect.left - wrapperRect.left + eventRect.width);
-            console.log("Start Y:", eventRect.top - wrapperRect.top + eventRect.height / 2);
-            console.log("End X:", timeRect.left - wrapperRect.left);
-            console.log("End Y:", timeRect.top - wrapperRect.top + timeRect.height / 2);
 
             connections.push({
                 x1: eventRect.left - wrapperRect.left + eventRect.width,
@@ -395,9 +388,6 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
 
         // Bind data to paths
         const paths = svg.selectAll("path").data(connections);
-        console.log("3:",wrapper.select("svg.arrows").node());
-
-
         // Enter new paths
         paths.enter()
             .append("path")
@@ -409,7 +399,6 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
 
         // Remove old paths
         paths.exit().remove();
-        console.log("4:",wrapper.select("svg.arrows").node());
 
     }
 
@@ -424,7 +413,6 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
 
     // Initial creation
     createArrows();
-    console.log("5:",wrapper.select("svg.arrows").node());
 
     // Handle window resize
     const handleResize = () => {
