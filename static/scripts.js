@@ -124,8 +124,9 @@ function renderSentence(sentence, index) {
 
     // Initial render after a short delay
     setTimeout(() => {
-        const cleanup = initializeArrows(wrapper, eventElements, timeElements, sentence.times);
-        cleanupFunctions.set(index, cleanup);
+        //const cleanup =
+        initializeArrows(wrapper, eventElements, timeElements, sentence.times);
+        //cleanupFunctions.set(index, cleanup);
     }, 100);
 }
 
@@ -397,7 +398,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
     createArrows();
 
     // Handle window resize
-    const handleResize = () => {
+   /* const handleResize = () => {
         requestAnimationFrame(createArrows);
     };
 
@@ -407,7 +408,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
     return () => {
         window.removeEventListener('resize', handleResize);
         wrapper.select("svg.arrows").remove();
-    };
+    };*/
 }
 
 // Debounce helper function
