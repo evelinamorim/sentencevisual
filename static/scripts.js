@@ -373,7 +373,8 @@ function updateArrows(wrapper, eventElements, timeElements, externalTimeElements
             endY: endRect.top - wrapperRect.top + endRect.height / 2,
             eventId: eventNode.getAttribute("data-id"),
             timeId: timeId,
-            relType: eventNode.getAttribute("data-rel-type")
+            relType: eventNode.getAttribute("data-rel-type"),
+            pathType: 'event-time'
         };
 
         return data;
@@ -394,9 +395,11 @@ function updateArrows(wrapper, eventElements, timeElements, externalTimeElements
         console.log("Time 2: ", arg2Element, " ", arg2Element);
         console.log("------");
 
-
         const textRect = textElement.getBoundingClientRect();
         const arg2Rect = arg2Element.getBoundingClientRect();
+
+         // Add offset to prevent overlap
+        const offset = 5;
 
         return {
             startX: textRect.left - wrapperRect.left + textRect.width,
@@ -405,41 +408,58 @@ function updateArrows(wrapper, eventElements, timeElements, externalTimeElements
             endY: arg2Rect.top - wrapperRect.top + arg2Rect.height / 2,
             eventId: textId,
             timeId: arg2,
-            relType: externalTimeElement.rel_type
+            relType: externalTimeElement.rel_type,
+            pathType: 'time-time'
         };
     }).filter(Boolean);
 
     const pathData = [...eventTimePathData, ...externalTimePathData];
-    //const pathData = [...eventTimePathData];
-    // Select all existing paths and bind data
-    const paths = svg.selectAll("path.arrow-path")
-        .data(pathData, d => `${d.eventId}-${d.timeId}`);
+    // Create separate selections for different path types
+    const eventTimePaths = svg.selectAll("path.event-time-path")
+        .data(eventTimePathData, d => `${d.eventId}-${d.timeId}`);
 
-    // Remove old paths
-    paths.exit().remove();
+    const timeTimePaths = svg.selectAll("path.time-time-path")
+        .data(externalTimePathData, d => `${d.eventId}-${d.timeId}`);
 
-    // Add new paths
-    const newPaths = paths.enter()
+    // Handle event-time paths
+    eventTimePaths.exit().remove();
+
+    const newEventTimePaths = eventTimePaths.enter()
         .append("path")
-        .attr("class", "arrow-path")
+        .attr("class", "arrow-path event-time-path")
         .attr("fill", "none")
         .attr("stroke", "black")
         .attr("stroke-width", 1.5);
 
-    // Update all paths (both new and existing)
-    paths.merge(newPaths)
-        .attr("data-event-id", d => d.eventId)
-        .attr("data-time-id", d => d.timeId)
-        .attr("data-rel-type", d => d.relType)
-        .attr("d", d => {
-            const midX = (d.startX + d.endX) / 2;
-            const midY = (d.startY + d.endY) / 2;
-            const distance = Math.sqrt((d.endX - d.startX) ** 2 + (d.endY - d.startY) ** 2);
-            const curveHeight = Math.min(distance * 0.5, 100);
-            const controlY = midY - curveHeight;
-            return `M ${d.startX},${d.startY} Q ${midX},${controlY} ${d.endX},${d.endY}`;
-        });
+    // Handle time-time paths
+    timeTimePaths.exit().remove();
 
+    const newTimeTimePaths = timeTimePaths.enter()
+        .append("path")
+        .attr("class", "arrow-path time-time-path")
+        .attr("fill", "none")
+        .attr("stroke", "blue") // Different color for time-time paths
+        .attr("stroke-width", 1.5);
+
+    // Update function for paths
+    function updatePath(selection) {
+        selection
+            .attr("data-event-id", d => d.eventId)
+            .attr("data-time-id", d => d.timeId)
+            .attr("data-rel-type", d => d.relType)
+            .attr("d", d => {
+                const midX = (d.startX + d.endX) / 2;
+                const midY = (d.startY + d.endY) / 2;
+                const distance = Math.sqrt((d.endX - d.startX) ** 2 + (d.endY - d.startY) ** 2);
+                const curveHeight = Math.min(distance * 0.5, 100);
+                const controlY = midY - curveHeight;
+                return `M ${d.startX},${d.startY} Q ${midX},${controlY} ${d.endX},${d.endY}`;
+            });
+    }
+
+    // Update all paths
+    eventTimePaths.merge(newEventTimePaths).call(updatePath);
+    timeTimePaths.merge(newTimeTimePaths).call(updatePath);
      // Tooltip handling
     svg.append("rect")
         .attr("width", wrapperRect.width)
