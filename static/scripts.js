@@ -127,7 +127,7 @@ function renderSentence(sentence, index) {
         //const cleanup =
         initializeArrows(wrapper, eventElements, timeElements, sentence.times);
         //cleanupFunctions.set(index, cleanup);
-    }, 100);
+    }, 200);
 }
 
 // Helper function to wait for rendering
