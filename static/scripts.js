@@ -347,6 +347,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
         //svg.selectAll("path").remove();
 
         // Create paths for event-time connections
+        const connections = []
         eventElements.forEach((eventElement, i) => {
             const timeElement = timeElements[i];
             if (!eventElement || !timeElement) return;
@@ -354,16 +355,13 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
             const eventRect = eventElement.getBoundingClientRect();
             const timeRect = timeElement.getBoundingClientRect();
 
-            svg.append("path")
-                .attr("fill", "none")
-                .attr("stroke", "black")
-                .attr("stroke-width", 1.5)
-                .attr("d", createPath(
-                    eventRect.left - wrapperRect.left + eventRect.width,
-                    eventRect.top - wrapperRect.top + eventRect.height / 2,
-                    timeRect.left - wrapperRect.left,
-                    timeRect.top - wrapperRect.top + timeRect.height / 2
-                ));
+            connections.push({
+                x1: eventRect.left - wrapperRect.left + eventRect.width,
+                y1: eventRect.top - wrapperRect.top + eventRect.height / 2,
+                x2: timeRect.left - wrapperRect.left,
+                y2: timeRect.top - wrapperRect.top + timeRect.height / 2,
+                color: "black"
+            });
         });
 
         // Add paths for external time connections
@@ -376,17 +374,29 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
             const textRect = textElement.getBoundingClientRect();
             const arg2Rect = arg2Element.getBoundingClientRect();
 
-            svg.append("path")
-                .attr("fill", "none")
-                .attr("stroke", "blue")
-                .attr("stroke-width", 1.5)
-                .attr("d", createPath(
-                    textRect.left - wrapperRect.left + textRect.width,
-                    textRect.top - wrapperRect.top + textRect.height / 2,
-                    arg2Rect.left - wrapperRect.left,
-                    arg2Rect.top - wrapperRect.top + arg2Rect.height / 2
-                ));
+            connections.push({
+                x1: textRect.left - wrapperRect.left + textRect.width,
+                y1: textRect.top - wrapperRect.top + textRect.height / 2,
+                x2: arg2Rect.left - wrapperRect.left,
+                y2: arg2Rect.top - wrapperRect.top + arg2Rect.height / 2,
+                color: "blue"
+            });
         });
+
+           // Bind data to paths
+        const paths = svg.selectAll("path").data(connections);
+
+        // Enter new paths
+        paths.enter()
+            .append("path")
+            .attr("fill", "none")
+            .attr("stroke-width", 1.5)
+            .merge(paths) // Update existing paths
+            .attr("stroke", d => d.color)
+            .attr("d", d => createPath(d.x1, d.y1, d.x2, d.y2));
+
+        // Remove old paths
+        paths.exit().remove();
     }
 
     function createPath(startX, startY, endX, endY) {
