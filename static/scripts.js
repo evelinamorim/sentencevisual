@@ -124,8 +124,9 @@ function renderSentence(sentence, index) {
 
     // Initial render after a short delay
     setTimeout(() => {
-        const cleanup = initializeArrows(wrapper, eventElements, timeElements, sentence.times);
-        cleanupFunctions.set(index, cleanup);
+        //const cleanup =
+        initializeArrows(wrapper, eventElements, timeElements, sentence.times);
+        //cleanupFunctions.set(index, cleanup);
     }, 100);
 }
 
@@ -412,12 +413,12 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
     //    requestAnimationFrame(createArrows);
     //};
 
-    window.addEventListener('resize', handleResize);
+    //window.addEventListener('resize', handleResize);
 
     // Return cleanup function
-    return () => {
-        window.removeEventListener('resize', handleResize);
-    };
+    //return () => {
+    //    window.removeEventListener('resize', handleResize);
+    //};
 }
 
 
