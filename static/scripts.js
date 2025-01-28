@@ -247,9 +247,9 @@ function categorizeElements(sentenceText, fragments) {
                    span.attr("data-rel-type", fragment.event.rel_type);
                }
 
-               span.attr("data-id",fragment.event_id);
+               span.attr("data-id",fragment.event.event_id);
                span.attr("arg2",fragment.event.arg2);
-               console.log("Event: ", fragment.text, " ", fragment.event_id);
+               console.log("Event: ", fragment.text, " ", fragment.event.event_id);
 
                eventFragments.push(fragment.event);
 
