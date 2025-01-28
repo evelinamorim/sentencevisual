@@ -381,7 +381,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
         });
 
         // Bind data to paths
-        const paths = svg.selectAll("path").data(connections);
+        /*const paths = svg.selectAll("path").data(connections);
 
         // Enter new paths
         paths.enter()
@@ -393,7 +393,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
             .attr("d", d => createPath(d.x1, d.y1, d.x2, d.y2));
 
         // Remove old paths
-        paths.exit().remove();
+        paths.exit().remove();*/
     }
 
     function createPath(startX, startY, endX, endY) {
