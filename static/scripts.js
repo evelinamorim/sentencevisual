@@ -338,6 +338,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
         }
 
         const wrapperRect = wrapper.node().getBoundingClientRect();
+        console.log("Wrapper dimensions:", wrapperRect.width, wrapperRect.height);
 
         // Update SVG dimensions
         svg
@@ -355,12 +356,21 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
             const eventRect = eventElement.getBoundingClientRect();
             const timeRect = timeElement.getBoundingClientRect();
 
+             console.log("Event Rect:", eventRect);
+             console.log("Time Rect:", timeRect);
+             console.log("Wrapper Rect:", wrapperRect);
+
+             console.log("Start X:", eventRect.left - wrapperRect.left + eventRect.width);
+            console.log("Start Y:", eventRect.top - wrapperRect.top + eventRect.height / 2);
+            console.log("End X:", timeRect.left - wrapperRect.left);
+            console.log("End Y:", timeRect.top - wrapperRect.top + timeRect.height / 2);
+
             connections.push({
                 x1: eventRect.left - wrapperRect.left + eventRect.width,
                 y1: eventRect.top - wrapperRect.top + eventRect.height / 2,
                 x2: timeRect.left - wrapperRect.left,
                 y2: timeRect.top - wrapperRect.top + timeRect.height / 2,
-                color: "black"
+                color: "red"
             });
         });
 
@@ -392,7 +402,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
         paths.enter()
             .append("path")
             .attr("fill", "none")
-            .attr("stroke-width", 1.5)
+            .attr("stroke-width", 3)
             .merge(paths) // Update existing paths
             .attr("stroke", d => d.color)
             .attr("d", d => createPath(d.x1, d.y1, d.x2, d.y2));
