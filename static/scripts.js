@@ -323,9 +323,6 @@ function categorizeElements(sentenceText, fragments) {
 function initializeArrows(wrapper, eventElements, timeElements, externalTimeElements) {
     function createArrows() {
         let svg = wrapper.select("svg.arrows");
-        console.log("1",wrapper.select("svg.arrows").node());
-
-
         // Check if the SVG exists; if not, create it
         if (svg.empty()) {
             svg = wrapper.append("svg")
