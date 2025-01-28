@@ -409,8 +409,8 @@ function updateArrows(wrapper, eventElements, timeElements, externalTimeElements
         };
     }).filter(Boolean);
 
-    //const pathData = [...eventTimePathData, ...externalTimePathData];
-    const pathData = [...eventTimePathData];
+    const pathData = [...eventTimePathData, ...externalTimePathData];
+    //const pathData = [...eventTimePathData];
     // Select all existing paths and bind data
     const paths = svg.selectAll("path.arrow-path")
         .data(pathData, d => `${d.eventId}-${d.timeId}`);
