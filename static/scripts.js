@@ -416,7 +416,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
             .on("mouseout", function() {
                 tooltip.style("display", "none");
             });
-    }
+
 
     function createPath(startX, startY, endX, endY) {
         const midX = (startX + endX) / 2;
