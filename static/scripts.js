@@ -389,6 +389,12 @@ function updateArrows(wrapper, eventElements, timeElements, externalTimeElements
 
         if (!textElement || !arg2Element) return null;
 
+        console.log("RELATION TIME TIME");
+        console.log("Time 1: ", textId, " ", textElement);
+        console.log("Time 2: ", arg2Element, " ", arg2Element);
+        console.log("------");
+
+
         const textRect = textElement.getBoundingClientRect();
         const arg2Rect = arg2Element.getBoundingClientRect();
 
