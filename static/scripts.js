@@ -373,10 +373,10 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
         const mouse = d3.pointer(event, this);
         const paths = sharedSVG.selectAll("path.arrow-path");
         let foundPath = false;
-        console.log("handleMouseMove")
+
         paths.each(function() {
             const path = d3.select(this);
-
+            console.log("handleMouseMove")
             if (isPointNearPath(this, mouse[0], mouse[1])) {
                 const relType = path.attr("data-rel-type");
                 tooltip
