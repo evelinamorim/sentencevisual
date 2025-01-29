@@ -300,8 +300,8 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
                 sharedSVG.append("path")
                     .attr("class", "arrow-path")
                     .attr("fill", "none")
-                    .attr("stroke", "black")
-                    .attr("stroke-width", 1.5)
+                    .attr("stroke", "red")
+                    .attr("stroke-width", 3)
                     .attr("data-rel-type", d3.select(eventElement).attr("data-rel-type"))
                     .attr("d", createPath(
                         eventRect.left - wrapperRect.left + eventRect.width,
@@ -325,7 +325,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
                     .attr("class", "arrow-path")
                     .attr("fill", "none")
                     .attr("stroke", "blue")
-                    .attr("stroke-width", 1.5)
+                    .attr("stroke-width", 3)
                     .attr("data-rel-type", ext.rel_type)
                     .attr("d", createPath(
                         textRect.left - wrapperRect.left + textRect.width,
