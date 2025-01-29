@@ -354,8 +354,8 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
             }
 
             // Add the mouse event handling rect at the end
+            console.log("Add the mouse event handling rect at the end", svg, svg.empty());
             if (svg && !svg.empty()) {
-                console.log("Add the mouse event handling rect at the end");
                 svg.append("rect")
                     .attr("width", wrapperRect.width)
                     .attr("height", wrapperRect.height)
