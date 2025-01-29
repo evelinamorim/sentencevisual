@@ -269,6 +269,8 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
 
     function createArrows() {
         try {
+             console.log(wrapper.selectAll("svg.arrows"));
+             console.log(sharedSVG);
             // Remove old SVG if it exists
             if (sharedSVG) {
                 sharedSVG.selectAll(".arrow-path, rect").remove();
