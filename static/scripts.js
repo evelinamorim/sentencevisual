@@ -290,6 +290,14 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
                 .attr("width", wrapperRect.width)
                 .attr("height", wrapperRect.height);
 
+            svg.append("rect")
+              .attr("width", "100%")
+               .attr("height", "100%")
+               .attr("fill", "rgba(255,0,0,0.1)")  // Semi-transparent red
+               .style("pointer-events", "all")
+             .on("mousemove", () => console.log("mousemove on rect"))
+            .on("click", () => console.log("click on rect"));
+
             // Create paths data
             eventElements.forEach((eventElement, i) => {
                 const timeElement = timeElements[i];
@@ -355,13 +363,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
             // Add the mouse event handling rect at the end
             if (svg && !svg.empty()) {
                 // Add a test rect to verify events
-    svg.append("rect")
-        .attr("width", "100%")
-        .attr("height", "100%")
-        .attr("fill", "rgba(255,0,0,0.1)")  // Semi-transparent red
-        .style("pointer-events", "all")
-        .on("mousemove", () => console.log("mousemove on rect"))
-        .on("click", () => console.log("click on rect"));
+
                 /*const rect = svg.append("rect")
                     .attr("width", wrapperRect.width)
                     .attr("height", wrapperRect.height)
