@@ -363,7 +363,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
                     .on("mousemove", handleMouseMove)
                     .on("mouseout", handleMouseOut);
 
-                console.log("Event Listeners on rect:", svg.select("rect").node());
+                console.log("Event Listeners on rect:", getEventListeners(svg.select("rect").node()));
             }
 
         } catch (error) {
