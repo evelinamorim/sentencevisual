@@ -374,8 +374,8 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
                       })
                     .on("mouseout", handleMouseOut);*/
                 console.log("Wrapper dimensions:", wrapperRect.width, wrapperRect.height);
-                console.log("Rect node:", rect.node());
-                console.log("Rect getBBox:", rect.node().getBBox());
+                //console.log("Rect node:", rect.node());
+                //console.log("Rect getBBox:", rect.node().getBBox());
 
             }
 
