@@ -57,10 +57,7 @@ function visualizeJSON(fileName) {
 function renderSentences(sentences) {
     setupVisualization();
     sentences.forEach((sentence, index) => renderSentence(sentence, index));
-                // Remove old SVG if it exists
-            if (sharedSVG) {
-                sharedSVG.selectAll(".arrow-path, rect").remove();
-            }
+
 
 }
 
@@ -276,6 +273,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
     function createArrows() {
         try {
 
+
             // Create new SVG and store it in the outer scope
             /*svg = wrapper.append("svg")
                 .attr("class", "arrows")
@@ -450,12 +448,18 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
 
     // Handle window resize with debounce
     const handleResize = debounce(() => {
+                                // Remove old SVG if it exists
+            if (sharedSVG) {
+                sharedSVG.selectAll(".arrow-path, rect").remove();
+            }
         requestAnimationFrame(createArrows);
     }, 100);
 
     window.addEventListener('resize', handleResize);
 
     function cleanup() {
+    console.log("Cleanup function")
+
         window.removeEventListener('resize', handleResize);
         if (sharedSVG && !sharedSVG.empty()) {
             sharedSVG.remove();
