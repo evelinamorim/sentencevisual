@@ -370,6 +370,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
     }
 
     function handleMouseMove(event) {
+        console.log("handleMouseMove");
         if (!svg || svg.empty() || !tooltip) return;
 
         const mouse = d3.pointer(event, this);
@@ -378,6 +379,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
 
         paths.each(function() {
             const path = d3.select(this);
+
             if (isPointNearPath(this, mouse[0], mouse[1])) {
                 const relType = path.attr("data-rel-type");
                 tooltip
