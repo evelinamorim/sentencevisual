@@ -354,16 +354,16 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
             }
 
             // Add the mouse event handling rect at the end
-
             if (svg && !svg.empty()) {
-                console.log("Add the mouse event handling rect at the end");
-                svg.append("rect")
+                const rect = svg.append("rect")
                     .attr("width", wrapperRect.width)
                     .attr("height", wrapperRect.height)
                     .attr("fill", "none")
                     .style("pointer-events", "all")
                     .on("mousemove", handleMouseMove)
                     .on("mouseout", handleMouseOut);
+
+                console.log(rect.node());
             }
 
         } catch (error) {
