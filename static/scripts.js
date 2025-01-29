@@ -355,6 +355,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
 
             // Add the mouse event handling rect at the end
             if (svg && !svg.empty()) {
+                console.log("Add the mouse event handling rect at the end");
                 svg.append("rect")
                     .attr("width", wrapperRect.width)
                     .attr("height", wrapperRect.height)
@@ -370,7 +371,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
     }
 
     function handleMouseMove(event) {
-        console.log("handleMouseMove");
+
         if (!svg || svg.empty() || !tooltip) return;
 
         const mouse = d3.pointer(event, this);
