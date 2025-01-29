@@ -59,6 +59,7 @@ function renderSentences(sentences) {
     sentences.forEach((sentence, index) => renderSentence(sentence, index));
 }
 
+let sharedSVG;
 function setupVisualization() {
     const wrapper = d3.select("#visualization-wrapper");
     const container = d3.select("#visualization").html("");
@@ -72,19 +73,18 @@ function setupVisualization() {
         .style("position", "relative")
         .style("z-index", "2");
 
-    const svg = wrapper
-    .insert("svg", ":first-child")
-    .attr("class", "arrows")
-    .style("pointer-events", "all")
-    .style("position", "absolute")
-    .style("top", 0)
-    .style("left", 0)
-    .style("width", "100%")
-    .style("height", "100%")
-    .style("z-index", "10")
-    .style("background", "rgba(0,0,0,0.01)");
+    sharedSVG = wrapper
+        .append("svg")
+        .attr("class", "arrows")
+        .style("position", "absolute")
+        .style("top", 0)
+        .style("left", 0)
+        .style("width", "100%")
+        .style("height", "100%")
+        .style("pointer-events", "all")
+        .style("z-index", "10");
 
-    svg.append("defs")
+    sharedSVG.append("defs")
         .append("marker")
         .attr("id", "arrowhead")
         .attr("viewBox", "0 -5 10 10")
@@ -271,8 +271,8 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
     function createArrows() {
         try {
             // Remove old SVG if it exists
-            if (svg) {
-                svg.remove();
+            if (sharedSVG) {
+                sharedSVG.selectAll(".arrow-path, rect").remove();
             }
 
             // Create new SVG and store it in the outer scope
@@ -299,7 +299,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
                 const eventRect = eventElement.getBoundingClientRect();
                 const timeRect = timeElement.getBoundingClientRect();
 
-                svg.append("path")
+                sharedSVG.append("path")
                     .attr("class", "arrow-path")
                     .attr("fill", "none")
                     .attr("stroke", "black")
@@ -323,7 +323,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
                 const textRect = textElement.getBoundingClientRect();
                 const arg2Rect = arg2Element.getBoundingClientRect();
 
-                svg.append("path")
+                sharedSVG.append("path")
                     .attr("class", "arrow-path")
                     .attr("fill", "none")
                     .attr("stroke", "blue")
@@ -353,19 +353,14 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
                     .style("z-index", "1000");
             }
 
-            // Add the mouse event handling rect at the end
-            if (svg && !svg.empty()) {
-                // Add a test rect to verify events
-                const rect = svg.append("rect")
-                    .attr("width", wrapperRect.width)
-                    .attr("height", wrapperRect.height)
-                    .attr("fill", "transparent")
-                    .style("pointer-events", "all")
-                    .on("mousemove", handleMouseMove)
-                    .on("mouseout", handleMouseOut);
-
-
-            }
+            const wrapperRect = wrapper.node().getBoundingClientRect();
+            sharedSVG.append("rect")
+                .attr("width", wrapperRect.width)
+                .attr("height", wrapperRect.height)
+                .attr("fill", "transparent")
+                .style("pointer-events", "all")
+                .on("mousemove", handleMouseMove)
+                .on("mouseout", handleMouseOut);
 
         } catch (error) {
             console.error("Error in createArrows:", error);
@@ -375,10 +370,10 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
     function handleMouseMove(event) {
         console.log("handleMouseMove")
 
-        if (!svg || svg.empty() || !tooltip) return;
+        if (!sharedSVG || sharedSVG.empty() || !tooltip) return;
 
         const mouse = d3.pointer(event, this);
-        const paths = svg.selectAll("path.arrow-path");
+        const paths = sharedSVG.selectAll("path.arrow-path");
         let foundPath = false;
 
         paths.each(function() {
@@ -461,8 +456,8 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
 
     function cleanup() {
         window.removeEventListener('resize', handleResize);
-        if (svg && !svg.empty()) {
-            svg.remove();
+        if (sharedSVG && !sharedSVG.empty()) {
+            sharedSVG.remove();
         }
         if (tooltip && !tooltip.empty()) {
             tooltip.remove();
