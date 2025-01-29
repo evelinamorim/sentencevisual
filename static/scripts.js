@@ -121,7 +121,6 @@ function renderSentence(sentence, index) {
     const { eventElements, timeElements } = categorizeElements(sentenceText, fragments);
 
     // Wait for DOM to be fully rendered before initializing arrows
-    // TODO: coletar eventElements, and timeElements para renderizar tudo de uma vez
     requestAnimationFrame(() => {
         const cleanup = initializeArrows(wrapper, eventElements, timeElements, sentence.times);
         if (typeof cleanupFunctions !== 'undefined') {
@@ -367,14 +366,14 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
     }
 
     function handleMouseMove(event) {
-        console.log("handleMouseMove")
+
 
         if (!sharedSVG || sharedSVG.empty() || !tooltip) return;
 
         const mouse = d3.pointer(event, this);
         const paths = sharedSVG.selectAll("path.arrow-path");
         let foundPath = false;
-
+        console.log("handleMouseMove")
         paths.each(function() {
             const path = d3.select(this);
 
