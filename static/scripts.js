@@ -353,7 +353,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
                     .style("z-index", "1000");
             }
 
-            const wrapperRect = wrapper.node().getBoundingClientRect();
+
             sharedSVG.append("rect")
                 .attr("width", wrapperRect.width)
                 .attr("height", wrapperRect.height)
