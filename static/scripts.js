@@ -376,7 +376,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
 
         paths.each(function() {
             const path = d3.select(this);
-            console.log("handleMouseMove")
+            console.log(isPointNearPath(this, mouse[0], mouse[1]))
             if (isPointNearPath(this, mouse[0], mouse[1])) {
                 const relType = path.attr("data-rel-type");
                 tooltip
