@@ -39,7 +39,7 @@ body {
 .node text {
     font: 12px sans-serif;
     fill: #fff;
-    pointer-events: none; /* Prevents text from interfering with drag */
+    pointer-events: all; /* Prevents text from interfering with drag */
 }
 .link {
     fill: none;

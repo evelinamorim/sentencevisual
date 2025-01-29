@@ -360,6 +360,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
                     .attr("height", wrapperRect.height)
                     .attr("fill", "none")
                     .style("pointer-events", "all")
+                    .on("click", () => console.log("click!"))  // Add this line
                     .on("mousemove", (event) => {
                             console.log("Raw event:", event);
                             const mouse = d3.pointer(event);
