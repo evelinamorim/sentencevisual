@@ -362,7 +362,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
                     .attr("fill", "transparent")
                     .style("pointer-events", "all")
                     .on("mousemove", handleMouseMove)
-                    .on("mouseout", handleMouseOut);*/
+                    .on("mouseout", handleMouseOut);
 
 
             }
