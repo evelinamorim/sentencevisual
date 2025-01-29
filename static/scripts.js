@@ -84,16 +84,6 @@ function setupVisualization() {
     .style("z-index", "10")
     .style("background", "rgba(0,0,0,0.01)");
 
-        // Add a test rect to verify events
-    svg.append("rect")
-        .attr("width", "100%")
-        .attr("height", "100%")
-        .attr("fill", "rgba(255,0,0,0.1)")  // Semi-transparent red
-        .style("pointer-events", "all")
-        .on("mousemove", () => console.log("mousemove on rect"))
-        .on("click", () => console.log("click on rect"));
-
-
     svg.append("defs")
         .append("marker")
         .attr("id", "arrowhead")
@@ -364,7 +354,15 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
 
             // Add the mouse event handling rect at the end
             if (svg && !svg.empty()) {
-                const rect = svg.append("rect")
+                // Add a test rect to verify events
+    svg.append("rect")
+        .attr("width", "100%")
+        .attr("height", "100%")
+        .attr("fill", "rgba(255,0,0,0.1)")  // Semi-transparent red
+        .style("pointer-events", "all")
+        .on("mousemove", () => console.log("mousemove on rect"))
+        .on("click", () => console.log("click on rect"));
+                /*const rect = svg.append("rect")
                     .attr("width", wrapperRect.width)
                     .attr("height", wrapperRect.height)
                     .attr("fill", "none")
@@ -374,7 +372,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
                             const mouse = d3.pointer(event);
                             console.log("Mouse position:", mouse);
                       })
-                    .on("mouseout", handleMouseOut);
+                    .on("mouseout", handleMouseOut);*/
                 console.log("Wrapper dimensions:", wrapperRect.width, wrapperRect.height);
                 console.log("Rect node:", rect.node());
                 console.log("Rect getBBox:", rect.node().getBBox());
