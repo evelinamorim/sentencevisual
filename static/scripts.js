@@ -57,6 +57,11 @@ function visualizeJSON(fileName) {
 function renderSentences(sentences) {
     setupVisualization();
     sentences.forEach((sentence, index) => renderSentence(sentence, index));
+                // Remove old SVG if it exists
+            if (sharedSVG) {
+                sharedSVG.selectAll(".arrow-path, rect").remove();
+            }
+
 }
 
 let sharedSVG;
@@ -119,6 +124,7 @@ function renderSentence(sentence, index) {
     const { eventElements, timeElements } = categorizeElements(sentenceText, fragments);
 
     // Wait for DOM to be fully rendered before initializing arrows
+    // TODO: coletar eventElements, and timeElements para renderizar tudo de uma vez
     requestAnimationFrame(() => {
         const cleanup = initializeArrows(wrapper, eventElements, timeElements, sentence.times);
         if (typeof cleanupFunctions !== 'undefined') {
@@ -269,12 +275,6 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
 
     function createArrows() {
         try {
-             console.log(wrapper.selectAll("svg.arrows"));
-             console.log(sharedSVG);
-            // Remove old SVG if it exists
-            //if (sharedSVG) {
-            //    sharedSVG.selectAll(".arrow-path, rect").remove();
-            //}
 
             // Create new SVG and store it in the outer scope
             /*svg = wrapper.append("svg")
