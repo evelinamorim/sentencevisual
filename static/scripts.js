@@ -281,7 +281,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
                 .style("position", "absolute")
                 .style("top", 0)
                 .style("left", 0)
-                .style("pointer-events", "none")
+                .style("pointer-events", "all")
                 .style("z-index", 1);
 
             const wrapperRect = wrapper.node().getBoundingClientRect();
@@ -674,26 +674,6 @@ function drawArrows(wrapper, eventElements, timeElements) {
                 .attr("data-rel-type", eventNode.getAttribute("data-rel-type"));
         }
     });
-}
-
-// Helper function to check if point is near path
-function isPointNearPath(pathElement, x, y, tolerance = 10) {
-    const path = pathElement;
-    const pathLength = path.getTotalLength();
-
-    for (let i = 0; i < pathLength; i += 5) {
-        const point = path.getPointAtLength(i);
-        const distance = Math.sqrt(
-            Math.pow(point.x - x, 2) +
-            Math.pow(point.y - y, 2)
-        );
-
-        if (distance < tolerance) {
-            return true;
-        }
-    }
-
-    return false;
 }
 
 
