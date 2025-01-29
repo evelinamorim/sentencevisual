@@ -285,12 +285,12 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
                 .style("z-index", 1);
 
             const wrapperRect = wrapper.node().getBoundingClientRect();
+            wrapper.on("mousemove", () => console.log("mousemove on rect"));
 
             // Set SVG dimensions
             svg
                 .attr("width", wrapperRect.width)
-                .attr("height", wrapperRect.height)
-                .on("mousemove", () => console.log("mousemove on svg"));
+                .attr("height", wrapperRect.height);
 
             // Create paths data
             eventElements.forEach((eventElement, i) => {
