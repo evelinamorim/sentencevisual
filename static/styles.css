@@ -178,9 +178,6 @@ body {
 }
 
 .arrow-path {
-  pointer-events: visibleStroke; /* Makes only the stroke interactive */
-  /* Optional: Add styles for visibility */
-  stroke-linecap: round;
-  stroke-linejoin: round;
+    pointer-events: none; /* Let the rect handle events */
 }
 

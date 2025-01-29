@@ -264,7 +264,6 @@ function categorizeElements(sentenceText, fragments) {
 
 
 function initializeArrows(wrapper, eventElements, timeElements, externalTimeElements) {
-    let svg;
     let tooltip;
 
 
@@ -276,13 +275,13 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
             }
 
             // Create new SVG and store it in the outer scope
-            svg = wrapper.append("svg")
+            /*svg = wrapper.append("svg")
                 .attr("class", "arrows")
                 .style("position", "absolute")
                 .style("top", 0)
                 .style("left", 0)
                 .style("pointer-events", "all")
-                .style("z-index", 1);
+                .style("z-index", 1);*/
 
             const wrapperRect = wrapper.node().getBoundingClientRect();
 
