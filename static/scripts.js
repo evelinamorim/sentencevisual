@@ -84,6 +84,15 @@ function setupVisualization() {
     .style("z-index", "10")
     .style("background", "rgba(0,0,0,0.01)");
 
+        // Add a test rect to verify events
+    svg.append("rect")
+        .attr("width", "100%")
+        .attr("height", "100%")
+        .attr("fill", "rgba(255,0,0,0.1)")  // Semi-transparent red
+        .style("pointer-events", "all")
+        .on("mousemove", () => console.log("mousemove on rect"))
+        .on("click", () => console.log("click on rect"));
+
 
     svg.append("defs")
         .append("marker")
@@ -360,7 +369,6 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
                     .attr("height", wrapperRect.height)
                     .attr("fill", "none")
                     .style("pointer-events", "all")
-                    .on("click", () => console.log("click!"))  // Add this line
                     .on("mousemove", (event) => {
                             console.log("Raw event:", event);
                             const mouse = d3.pointer(event);
