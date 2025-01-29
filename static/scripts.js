@@ -288,7 +288,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
             const wrapperRect = wrapper.node().getBoundingClientRect();
 
             // Set SVG dimensions
-            svg
+            sharedSVG
                 .attr("width", wrapperRect.width)
                 .attr("height", wrapperRect.height);
 
