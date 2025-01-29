@@ -102,7 +102,6 @@ body {
    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
    font-size: 12px;
    font-weight: 500;
-   pointer-events: none;
 }
 
 .relation-label rect {
@@ -130,23 +129,10 @@ body {
     left: 0 !important;
     width: 100% !important;
     height: 100% !important;
-    pointer-events: none;
+    pointer-events: all;
     z-index: 1;
 }
 
-.hover-box {
-  display: none; /* Hide the hover box by default */
-  position: absolute; /* Position the hover box absolutely */
-  background-color: white; /* Set the background color */
-  border: 1px solid #ccc; /* Add a border */
-  padding: 8px; /* Add some padding */
-  border-radius: 4px; /* Add some rounded corners */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle drop shadow */
-  z-index: 100; /* Make sure the hover box is on top */
-  pointer-events: none; /* Prevent the hover box from interfering with mouse events */
-  font-size: 12px; /* Set the font size */
-  color: #333; /* Set the text color */
-}
 
 /* Style for the attribute card container */
 .attribute-card {
