@@ -267,6 +267,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
     let svg;
     let tooltip;
 
+
     function createArrows() {
         try {
             // Remove old SVG if it exists
@@ -288,15 +289,8 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
             // Set SVG dimensions
             svg
                 .attr("width", wrapperRect.width)
-                .attr("height", wrapperRect.height);
-
-            svg.append("rect")
-              .attr("width", "100%")
-               .attr("height", "100%")
-               .attr("fill", "rgba(255,0,0,0.1)")  // Semi-transparent red
-               .style("pointer-events", "all")
-             .on("mousemove", () => console.log("mousemove on rect"))
-            .on("click", () => console.log("click on rect"));
+                .attr("height", wrapperRect.height)
+                .on("mousemove", () => console.log("mousemove on svg"));
 
             // Create paths data
             eventElements.forEach((eventElement, i) => {
@@ -363,6 +357,15 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
             // Add the mouse event handling rect at the end
             if (svg && !svg.empty()) {
                 // Add a test rect to verify events
+
+            /*svg.append("rect")
+              .attr("width", "100%")
+               .attr("height", "100%")
+               .attr("fill", "rgba(255,0,0,0.1)")  // Semi-transparent red
+               .style("pointer-events", "all")
+             .on("mousemove", () => console.log("mousemove on rect"))
+            .on("click", () => console.log("click on rect"));*/
+
 
                 /*const rect = svg.append("rect")
                     .attr("width", wrapperRect.width)
