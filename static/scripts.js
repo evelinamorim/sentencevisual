@@ -362,8 +362,6 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
                     .style("pointer-events", "all")
                     .on("mousemove", handleMouseMove)
                     .on("mouseout", handleMouseOut);
-
-                console.log("Event Listeners on rect:", getEventListeners(svg.select("rect").node()));
             }
 
         } catch (error) {
@@ -372,6 +370,7 @@ function initializeArrows(wrapper, eventElements, timeElements, externalTimeElem
     }
 
     function handleMouseMove(event) {
+        console.log("handleMouseMove")
 
         if (!svg || svg.empty() || !tooltip) return;
 
