@@ -120,13 +120,6 @@ function renderSentence(sentence, index) {
     const fragments = createFragments(sentence.text_sent, sentence);
     const { eventElements, timeElements } = categorizeElements(sentenceText, fragments);
 
-    // Wait for DOM to be fully rendered before initializing arrows
-    requestAnimationFrame(() => {
-        const cleanup = initializeArrows(wrapper, eventElements, timeElements, sentence.times);
-        if (typeof cleanupFunctions !== 'undefined') {
-            cleanupFunctions.set(index, cleanup);
-        }
-    });
 }
 
 
