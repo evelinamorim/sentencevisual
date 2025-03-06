@@ -40,12 +40,9 @@ function visualizeJSON(fileName) {
             return response.json();
         })
         .then(data => {
-            //console.log('JSON data fetched:', data); // Debugging log
-            d3.select("#visualization").html("");   // Clear existing visualization
 
-            //treeData = convertToTree(data);   // Convert JSON to tree
-            //console.log('Tree data:', treeData);    // Debugging log
-            // renderD3Tree(treeData);                  // Render with D3.js
+            const wrapper = d3.select("#visualization-wrapper");
+            wrapper.selectAll("*").remove();
             renderSentences(data.sentences);
 
         })
@@ -56,53 +53,373 @@ function visualizeJSON(fileName) {
 // Render sentences with events and time expressions
 function renderSentences(sentences) {
     setupVisualization();
-    sentences.forEach((sentence, index) => renderSentence(sentence, index));
+    console.log(sentences)
+    const results = sentences.map((sentence, index) => renderSentenceTimeline(sentence, index));
 
+    const allFragments = results.map(r => r.fragments);
+    const allLinkedTimes = results.map(r => r.linkedTimes);
+
+    const cleanup = renderTimeline(allFragments, allLinkedTimes);
 
 }
 
 let sharedSVG;
 function setupVisualization() {
     const wrapper = d3.select("#visualization-wrapper");
-    const container = d3.select("#visualization").html("");
-
     wrapper.style("height", "auto");
-    wrapper.selectAll("svg.arrows").remove();
+    wrapper.style("position", "relative");
+    wrapper.style("margin","20px")
 
-    const sentencesContainer = container
-        .append("div")
-        .attr("class", "sentences-container")
+    const container = d3.select("#visualization")
+        .html("")
         .style("position", "relative")
         .style("z-index", "2");
 
-    sharedSVG = wrapper
-        .append("svg")
+    wrapper.selectAll("svg.arrows").remove();
+
+    sharedSVG = wrapper.append("svg")
         .attr("class", "arrows")
         .style("position", "absolute")
-        .style("top", 0)
-        .style("left", 0)
+        .style("top", "0")
+        .style("left", "0")
         .style("width", "100%")
         .style("height", "100%")
-        .style("pointer-events", "all")
-        .style("z-index", "10");
+        .style("pointer-events", "none")
+        .style("z-index", "3");
 
+    // Add arrow marker definition
     sharedSVG.append("defs")
         .append("marker")
         .attr("id", "arrowhead")
         .attr("viewBox", "0 -5 10 10")
-        .attr("refX", 8)
-        .attr("refY", 0)
-        .attr("markerWidth", 8)
-        .attr("markerHeight", 8)
+        .attr("refX", "8")
+        .attr("refY", "0")
+        .attr("markerWidth", "8")
+        .attr("markerHeight", "8")
         .attr("orient", "auto")
         .append("path")
         .attr("d", "M0,-5L10,0L0,5")
         .attr("fill", "black");
+
 }
 
 const cleanupFunctions = new Map();
 
-function renderSentence(sentence, index) {
+function renderTimeline(allFragments, allLinkedTimes) {
+
+
+    const wrapper = d3.select("#visualization-wrapper");
+
+    const timelineContainer = wrapper.append("div")
+        .style("display", "flex")
+        .style("flex-direction", "column")
+        .style("align-items", "center")
+        .style("gap", "20px")
+        .style("margin", "20px");
+
+    const eventsContainer = wrapper.append("div")
+        .style("position", "absolute")
+        .style("left", "0")
+        .style("top", "0")
+        .style("width", "100%")
+        .style("height", "100%")
+        .style("pointer-events", "none");
+
+    const timeBoxes = [];
+    // Render yellow boxes
+    allFragments.forEach(fragments => {
+        fragments.forEach(fragment => {
+            if (fragment.type === "yellow-box") {
+                const timeBox = timelineContainer.append("span")
+                    .attr("id", fragment.time.id)
+                    .text(fragment.text)
+                    .classed("yellow-box", true)
+                    .style("background-color", "#ffff00")
+                    .style("padding", "12px 24px")
+                    .style("border-radius", "10px")
+                    .style("font-size", "20px")
+                    .style("white-space", "nowrap")
+                    .style("margin", "20px") // Fixed position from left
+                    .style("display", "inline-block")
+                    .style("text-align","center");
+
+                timeBoxes.push({
+                    id: fragment.time.id,
+                    element: timeBox
+                });
+            }
+        });
+    });
+
+    const eventBoxes = []
+    allFragments.forEach(fragments => {
+        fragments.forEach(fragment => {
+            if (fragment.type == "blue-box") {
+                const eventBox = eventsContainer.append("div")
+                    .attr("id", `event-${fragment.event.id}`)
+                    .style("width", "50px")
+                    .style("height", "50px")
+                    .style("background-color", "#b3d9ff")
+                    .style("border-radius", "50%")
+                    .style("display", "flex")
+                    .style("align-items", "center")
+                    .style("justify-content", "center")
+                    .style("font-size", "14px")
+                    .style("box-shadow", "0 2px 4px rgba(0,0,0,0.1)")
+                    .style("border", "2px solid #99ccff")
+                    .style("position", "absolute")
+                    .style("left", function(){
+                        const wrapperWidth = wrapper.node().getBoundingClientRect().width;
+                        return (wrapperWidth / 2 - 200) + "px";
+                    }) // Fixed position from left
+                    .style("top", function() {
+                        // Find the connected time box and align with it
+                        if (fragment.event.arg2) {
+                            const connectedTime = timeBoxes.find(t => t.id === fragment.event.arg2);
+                            if (connectedTime) {
+                                const timeRect = connectedTime.element.node().getBoundingClientRect();
+                                const wrapperRect = wrapper.node().getBoundingClientRect();
+                                return (timeRect.top - wrapperRect.top + timeRect.height/2 - 25) + "px";
+                            }
+                        }
+                        return "20px"; // Default position
+                    })
+                    .text(fragment.event.text || "");
+                eventBoxes.push({
+                    element: eventBox,
+                    fragment: fragment
+                });
+            }
+        });
+    });
+
+
+
+    function getConnectionPoints(rect1, rect2) {
+        // Determine if connection should be vertical or horizontal
+        const verticalDistance = Math.abs(rect2.top - rect1.top);
+        const horizontalDistance = Math.abs(rect2.left - rect1.left);
+        const isVertical = verticalDistance > horizontalDistance;
+
+        let startX, startY, endX, endY;
+
+        if (isVertical) {
+            // Connect from top or bottom
+            startX = rect1.left + rect1.width / 2;
+            endX = rect2.left + rect2.width / 2;
+
+            if (rect2.top > rect1.top) {
+                // Connect bottom to top
+                startY = rect1.top + rect1.height;
+                endY = rect2.top;
+            } else {
+                // Connect top to bottom
+                startY = rect1.top;
+                endY = rect2.top + rect2.height;
+            }
+        } else {
+            // Connect from sides
+            startY = rect1.top + rect1.height / 2;
+            endY = rect2.top + rect2.height / 2;
+
+            if (rect2.left > rect1.left) {
+                // Connect right to left
+                startX = rect1.left + rect1.width;
+                endX = rect2.left;
+            } else {
+                // Connect left to right
+                startX = rect1.left;
+                endX = rect2.left + rect2.width;
+            }
+        }
+
+        return { startX, startY, endX, endY, isVertical };
+    }
+
+    function createArrows() {
+        try {
+            const wrapperRect = wrapper.node().getBoundingClientRect();
+
+            // Set SVG dimensions
+            sharedSVG
+                .attr("width", wrapperRect.width)
+                .attr("height", wrapperRect.height);
+
+
+            allLinkedTimes.flat().forEach(ext => {
+                const textElement = document.querySelector(`[id="${ext.id}"]`);
+                const arg2Element = document.querySelector(`[id="${ext.arg2}"]`);
+
+                if (!textElement || !arg2Element) return;
+
+                drawConnection(textElement, arg2Element, ext.rel_type, wrapperRect,"time");
+            });
+
+            // Draw event-based connections
+            allFragments.flat().forEach(fragment => {
+                if (fragment.type === "blue-box" && fragment.event && fragment.event.arg2) {
+                    const eventElement = document.querySelector(`[id="event-${fragment.event.id}"]`);
+                    const timeElement = document.querySelector(`[id="${fragment.event.arg2}"]`);
+
+                    if (!eventElement || !timeElement) return;
+
+                    drawConnection(eventElement, timeElement, fragment.event.rel_type, wrapperRect,"event");
+                }
+            });
+
+        } catch (error) {
+            console.error("Error in createArrows:", error);
+        }
+    }
+
+    function drawConnection(element1, element2, relType, wrapperRect, connectionType) {
+        const rect1 = element1.getBoundingClientRect();
+        const rect2 = element2.getBoundingClientRect();
+
+        const trimmedRelType = relType.includes('_')
+            ? relType.split('_')[1]
+            : relType;
+
+        const { startX, startY, endX, endY, isVertical } = getConnectionPoints(
+            {
+                top: rect1.top - wrapperRect.top,
+                left: rect1.left - wrapperRect.left,
+                width: rect1.width,
+                height: rect1.height
+            },
+            {
+                top: rect2.top - wrapperRect.top,
+                left: rect2.left - wrapperRect.left,
+                width: rect2.width,
+                height: rect2.height
+            }
+        );
+
+        const pathGroup = sharedSVG.append("g");
+        // TODO: alternative is to name the path as the joining names of the elements it connects
+        const pathId = `connection-path-${Math.random().toString(36).substr(2, 9)}`;
+
+        // Create path
+        if (connectionType == "time"){
+            pathGroup.append("path")
+                .attr("id", pathId)
+                .attr("class", "arrow-path")
+                .attr("fill", "none")
+                .attr("stroke", "DimGray")
+                .attr("stroke-width", 3)
+                .attr("data-rel-type", relType)
+                .attr("d", createPath(startX, startY, endX, endY, isVertical));
+        } else{
+            pathGroup.append("path")
+                .attr("id", pathId)
+                .attr("class", "arrow-path")
+                .attr("fill", "none")
+                .attr("stroke", "DimGray")
+                .attr("stroke-width", 3)
+                .attr("stroke-dasharray", "5,5")
+                .attr("data-rel-type", relType)
+                .attr("d", createCurvedPath(startX, startY, endX, endY, isVertical));
+        }
+
+        const textElement = pathGroup.append("text")
+            .append("textPath")
+            .attr("xlink:href", `#${pathId}`)
+            .attr("startOffset", "50%")
+            .style("text-anchor", "middle")
+            .attr("fill", "black")
+            .attr("font-size", "12px")
+            .text(trimmedRelType);
+    }
+
+    function createCurvedPath(startX, startY, endX, endY) {
+        // Calculate control point (adjust offset for curvature)
+        const cpX = (startX + endX) / 2;
+        const cpY = (startY + endY) / 2 - 50; // Adjust -50 for curvature strength
+
+        return `M ${startX},${startY} Q ${cpX},${cpY} ${endX},${endY}`;
+    }
+
+    function createPath(startX, startY, endX, endY, isVertical) {
+        const distance = isVertical
+            ? Math.abs(endY - startY)
+            : Math.abs(endX - startX);
+
+        const curveOffset = Math.min(distance * 0.2, 20);
+
+        if (isVertical) {
+            const midY = (startY + endY) / 2;
+            return `M ${startX},${startY} 
+                    C ${startX},${startY + curveOffset} 
+                      ${endX},${endY - curveOffset} 
+                      ${endX},${endY}`;
+        } else {
+            const midX = (startX + endX) / 2;
+            return `M ${startX},${startY} 
+                    C ${startX + curveOffset},${startY} 
+                      ${endX - curveOffset},${endY} 
+                      ${endX},${endY}`;
+        }
+    }
+
+    createArrows();
+    const handleResize = debounce(() => {
+        sharedSVG.selectAll("*").remove();
+        // Update event positions
+        eventBoxes.forEach(eb => {
+            const wrapperWidth = wrapper.node().getBoundingClientRect().width;
+
+            eb.element
+                .style("left", () => {
+                    return (wrapperWidth / 2 - 200) + "px";
+                })
+                .style("top", function() {
+                    if (eb.fragment.event.arg2) {
+                        const connectedTime = timeBoxes.find(t => t.id === eb.fragment.event.arg2);
+                        if (connectedTime) {
+                            const timeRect = connectedTime.element.node().getBoundingClientRect();
+                            const wrapperRect = wrapper.node().getBoundingClientRect();
+                            return (timeRect.top - wrapperRect.top + timeRect.height/2 - 25) + "px";
+                        }
+                    }
+                    return "20px";
+                });
+        });
+
+        requestAnimationFrame(createArrows);
+    }, 100);
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+        window.removeEventListener('resize', handleResize);
+
+    };
+}
+
+function renderSentenceTimeline(sentence, index) {
+    const wrapper = d3.select("#visualization-wrapper");
+    const container = d3.select(".sentences-container");
+
+    const sentenceContainer = container
+        .append("div")
+        .attr("class", "sentence")
+        .style("position", "relative")
+        .style("z-index", "2");
+
+    const sentenceText = sentenceContainer
+        .append("div")
+        .style("position", "relative")
+        .style("z-index", "2");
+
+    const fragments = createFragments(sentence.text, sentence);
+    //const { eventElements, timeElements } = categorizeElements(sentenceText, fragments);
+    return {
+        fragments: fragments,
+        linkedTimes: sentence.linked_times
+    };
+}
+
+function renderSentenceMode(sentence, index) {
     const wrapper = d3.select("#visualization-wrapper");
     const container = d3.select(".sentences-container");
 
@@ -120,19 +437,21 @@ function renderSentence(sentence, index) {
     const fragments = createFragments(sentence.text_sent, sentence);
     const { eventElements, timeElements } = categorizeElements(sentenceText, fragments);
 
+
 }
 
 
 function createFragments(text, sentence) {
+
     let fragments = [];
     let highlights = [
-        { text: sentence.text_time.replace(",", "").trim(),
-          type: "yellow-box" ,
-          TemporalFunction: sentence.TemporalFunction,
-          TimeType: sentence.Time_Type,
-          TimeId: sentence.time_id},
+        ...sentence.times.map( time => ({
+                text:time.text,
+                type: "yellow-box",
+                time: time
+        })) ,
         ...sentence.events.map(event => ({
-            text: event.text_event,
+            text: event.text,
             type: "blue-box",
             event: event
         }))
@@ -152,9 +471,7 @@ function createFragments(text, sentence) {
         fragments.push({ text: highlight.text,
                          type: highlight.type,
                          event: highlight.event,
-                         TemporalFunction: highlight.TemporalFunction,
-                         TimeType: highlight.TimeType,
-                         TimeId: highlight.TimeId
+                         time: highlight.time
          });
         lastIndex = highlight.index + highlight.text.length;
     });
@@ -202,7 +519,7 @@ function createAttributeCard(container, title, attributes, backgroundColor) {
 
 function categorizeElements(sentenceText, fragments) {
     // Create all spans first
-    const spans = fragments.map(fragment => {
+    /*const spans = fragments.map(fragment => {
         const span = sentenceText.append("span")
             .text(fragment.text);
 
@@ -213,7 +530,7 @@ function categorizeElements(sentenceText, fragments) {
         }
 
         return span;
-    });
+    });*/
 
     // Then collect and configure special elements
     const eventElements = [];
@@ -221,7 +538,7 @@ function categorizeElements(sentenceText, fragments) {
     const eventFragments = [];
     const timeFragments = [];
 
-    spans.forEach((span, i) => {
+    /*spans.forEach((span, i) => {
         const fragment = fragments[i];
         if (fragment.type === "blue-box") {
             span.attr("data-rel-type", fragment.event?.rel_type || '')
@@ -240,7 +557,7 @@ function categorizeElements(sentenceText, fragments) {
             timeFragments.push(timeFragment);
             timeElements.push(span.node());
         }
-    });
+    });*/
 
     // Create cards container with explicit positioning
     const cardsContainer = d3.select(sentenceText.node().parentNode)
@@ -251,8 +568,8 @@ function categorizeElements(sentenceText, fragments) {
         .style("position", "relative");
 
     // Create cards
-    eventFragments.forEach(e => createAttributeCard(cardsContainer, "Event's Atributes", e, "#A7C7E7"));
-    timeFragments.forEach(t => createAttributeCard(cardsContainer, "Time's Atributes", t, "rgba(255, 255, 0, 0.2)"));
+    // eventFragments.forEach(e => createAttributeCard(cardsContainer, "Event's Atributes", e, "#A7C7E7"));
+    //timeFragments.forEach(t => createAttributeCard(cardsContainer, "Time's Atributes", t, "rgba(255, 255, 0, 0.2)"));
 
     return { eventElements, timeElements };
 }

@@ -1,13 +1,52 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    margin: 0;
     background-color: #dedcdc;
     color: #404040;
 }
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
+
+h1 {
+    text-align: center;
+    padding: 20px 0;
+    margin: 0;
+    background-color: #fff;
 }
+
+.container {
+    display: flex;
+    flex-grow: 1;
+}
+
+.instructions-column {
+    width: 250px;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+    height: calc(100vh - 60px); /* Adjust for header height */
+    position: sticky;
+    top: 60px;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    margin-top: -60px; /* Compensate for header height */
+    padding-top: 80px; /* Add space for header */
+}
+
+.instruction-section h2 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.instruction-section {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
 .upload-section {
     margin-bottom: 20px;
     padding: 20px;
@@ -24,8 +63,10 @@ body {
 
 #visualization-wrapper {
     position: relative;
+    margin: 20px 0;
     margin-top: 20px;
     min-height: 100px;
+    align:center;
 }
 
 .node {
