@@ -434,9 +434,29 @@ function renderSentenceTimeline(sentence, index) {
         .style("background", "#f8f8f8");
 
     // Add sentence text to left column
-    textContainer.text(sentence.text);
+    //textContainer.text(sentence.text);
 
     const fragments = createFragments(sentence.text, sentence);
+
+    fragments.forEach(fragment => {
+        if (fragment.type === "yellow-box") {
+            textContainer.append("span")
+                .style("background-color", "#ffff00") // Yellow highlight
+                .style("padding", "2px")
+                .style("border-radius", "3px")
+                .text(fragment.time.text);
+
+        } else if (fragment.type === "blue-box") {
+            textContainer.append("span")
+                .style("background-color", "#b3d9ff") // Blue highlight
+                .style("padding", "2px")
+                .style("border-radius", "3px")
+                .text(fragment.event.text);
+        } else {
+            textContainer.append("span")
+                .text(fragment.text); // Regular text
+        }
+    });
     return {
         fragments: fragments,
         linkedTimes: sentence.linked_times
