@@ -1,81 +1,52 @@
 {
     "sentences": [
         {
-            "text_sent": "Arraiolos, \u00c9vora, 21 dez 2020",
-            "events": [],
+            "text": "Um homem com cerca de 40 anos morreu hoje e outros dois sofreram ferimentos graves na sequ\u00eancia do despiste de um autom\u00f3vel perto de Vimieiro, no concelho de Arraiolos (\u00c9vora) disseram fontes da Prote\u00e7\u00e3o Civil e da GNR.",
+            "id": "S4",
+            "events": [
+                {
+                    "text": "morreu",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T2",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T3"
+                }
+            ],
             "times": [
                 {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
+                    "text": "hoje",
+                    "offset": 159,
+                    "id": "T3",
                     "Time_Type": "Date",
                     "AnnotatorNotes": [
                         "value=2020-12-21 anchorTime=Publication-Time"
                     ]
                 }
             ],
-            "text_time": "21 dez 2020",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "Um homem com cerca de 40 anos morreu hoje e outros dois sofreram ferimentos graves na sequ\u00eancia do despiste de um autom\u00f3vel perto de Vimieiro, no concelho de Arraiolos (\u00c9vora) disseram fontes da Prote\u00e7\u00e3o Civil e da GNR.",
-            "events": [
+            "linked_times": [
                 {
-                    "text_event": "morreu",
+                    "text": "19:19",
+                    "Time_Type": "Time",
+                    "id": "T5",
                     "rel_type": "TLINK_isIncluded",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Tense": "Past",
-                    "Aspect": "Perfective",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "\u00e0s 19:19.",
-                    "rel_type": "TLINK_isIncluded",
-                    "Time_Type": "Time"
+                    "arg2": "T3",
+                    "sent_id": "S12"
                 },
                 {
-                    "text_time2": "21 dez 2020",
+                    "text": "21 dez 2020",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T1",
                     "rel_type": "TLINK_identity",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
+                    "arg2": "T3",
+                    "sent_id": "S0"
                 }
-            ],
-            "text_time": "hoje",
-            "Time_Type": "Date",
-            "AnnotatorNotes": [
-                "value=2020-12-21 anchorTime=Publication-Time"
             ]
-        },
-        {
-            "text_sent": "O alerta, de acordo com o CDOS, foi dado \u00e0s 19:19.",
-            "events": [
-                {
-                    "text_event": "dado",
-                    "rel_type": "TLINK_simultaneous",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Tense": "Past",
-                    "Aspect": "Perfective",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_isIncluded",
-                    "Time_Type": "Date",
-                    "AnnotatorNotes": [
-                        "value=2020-12-21 anchorTime=Publication-Time"
-                    ]
-                }
-            ],
-            "text_time": "\u00e0s 19:19 .",
-            "Time_Type": "Time"
         }
     ]
 }

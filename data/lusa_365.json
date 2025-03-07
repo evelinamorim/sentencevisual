@@ -1,127 +1,117 @@
 {
     "sentences": [
         {
-            "text_sent": "Lisboa, 12 dez 2020",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "12 dez 2020",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "A Esta\u00e7\u00e3o de Tratamento de Res\u00edduos S\u00f3lidos (ETRS) da Meia Serra, na Madeira, vai desencadear uma a\u00e7\u00e3o de desinfe\u00e7\u00e3o dos espa\u00e7os, ap\u00f3s um trabalhador ter testado positivo para covid-19, indicou hoje a empresa respons\u00e1vel pela gest\u00e3o.",
+            "text": "A Esta\u00e7\u00e3o de Tratamento de Res\u00edduos S\u00f3lidos (ETRS) da Meia Serra, na Madeira, vai desencadear uma a\u00e7\u00e3o de desinfe\u00e7\u00e3o dos espa\u00e7os, ap\u00f3s um trabalhador ter testado positivo para covid-19, indicou hoje a empresa respons\u00e1vel pela gest\u00e3o.",
+            "id": "S3",
             "events": [
                 {
-                    "text_event": "indicou",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "indicou",
                     "Class": "Reporting",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "id": "T2",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T3"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "hoje,",
-                    "rel_type": "TLINK_identity",
+                    "text": "hoje",
+                    "offset": 319,
+                    "id": "T3",
                     "Time_Type": "Date"
-                },
+                }
+            ],
+            "linked_times": [
                 {
-                    "text_time2": "12 dez 2020",
-                    "rel_type": "TLINK_identity",
+                    "text": "hoje",
                     "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
-                }
-            ],
-            "text_time": "hoje",
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "Conforme previsto no plano de conting\u00eancia interno, ser\u00e3o realizados trabalhos de desinfe\u00e7\u00e3o dos espa\u00e7os da referida esta\u00e7\u00e3o, pelo que o hor\u00e1rio de rece\u00e7\u00e3o de res\u00edduos na ETRS, hoje, dia 16 de dezembro de 2020, ser\u00e1 limitado at\u00e9 \u00e0s 16:00 \", refere a empresa p\u00fablica \u00c1guas e Res\u00edduos da Madeira (ARM), em comunicado.",
-            "events": [
-                {
-                    "text_event": "realizados",
-                    "rel_type": "TLINK_isIncluded",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Tense": "Future",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "dia 16 de dezembro de 2020,",
-                    "rel_type": "TLINK_after",
-                    "Time_Type": "Date"
-                },
-                {
-                    "text_time2": "hoje",
+                    "id": "T4",
                     "rel_type": "TLINK_identity",
-                    "Time_Type": "Date"
+                    "arg2": "T3",
+                    "sent_id": "S5"
+                },
+                {
+                    "text": "12 dez 2020",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T1",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T3",
+                    "sent_id": "S0"
                 }
-            ],
-            "text_time": "hoje ,",
-            "Time_Type": "Date"
+            ]
         },
         {
-            "text_sent": "Conforme previsto no plano de conting\u00eancia interno, ser\u00e3o realizados trabalhos de desinfe\u00e7\u00e3o dos espa\u00e7os da referida esta\u00e7\u00e3o, pelo que o hor\u00e1rio de rece\u00e7\u00e3o de res\u00edduos na ETRS, hoje, dia 16 de dezembro de 2020, ser\u00e1 limitado at\u00e9 \u00e0s 16:00 \", refere a empresa p\u00fablica \u00c1guas e Res\u00edduos da Madeira (ARM), em comunicado.",
+            "text": "Conforme previsto no plano de conting\u00eancia interno, ser\u00e3o realizados trabalhos de desinfe\u00e7\u00e3o dos espa\u00e7os da referida esta\u00e7\u00e3o, pelo que o hor\u00e1rio de rece\u00e7\u00e3o de res\u00edduos na ETRS, hoje, dia 16 de dezembro de 2020, ser\u00e1 limitado at\u00e9 \u00e0s 16:00 \", refere a empresa p\u00fablica \u00c1guas e Res\u00edduos da Madeira (ARM), em comunicado.",
+            "id": "S5",
             "events": [
                 {
-                    "text_event": "limitado",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "limitado",
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Future",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "Mood": "Future",
+                    "id": "T7",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T5"
+                },
+                {
+                    "text": "limitado",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Future",
+                    "Polarity": "Pos",
+                    "Mood": "Future",
+                    "id": "T7",
+                    "rel_type": "TLINK_endedBy",
+                    "arg2": "T6"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "hoje,",
-                    "rel_type": "TLINK_after",
+                    "text": "hoje",
+                    "offset": 537,
+                    "id": "T4",
                     "Time_Type": "Date"
                 },
                 {
-                    "text_time2": "16:00 \"",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "dia 16 de dezembro de 2020",
+                    "offset": 543,
+                    "id": "T5",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text": "16:00 \"",
+                    "offset": 592,
+                    "id": "T6",
                     "Time_Type": "Time"
                 }
             ],
-            "text_time": "dia 16 de dezembro de 2020 ,",
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "Conforme previsto no plano de conting\u00eancia interno, ser\u00e3o realizados trabalhos de desinfe\u00e7\u00e3o dos espa\u00e7os da referida esta\u00e7\u00e3o, pelo que o hor\u00e1rio de rece\u00e7\u00e3o de res\u00edduos na ETRS, hoje, dia 16 de dezembro de 2020, ser\u00e1 limitado at\u00e9 \u00e0s 16:00 \", refere a empresa p\u00fablica \u00c1guas e Res\u00edduos da Madeira (ARM), em comunicado.",
-            "events": [
+            "linked_times": [
                 {
-                    "text_event": "limitado",
-                    "rel_type": "TLINK_endedBy",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Tense": "Future",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
+                    "text": "dia 16 de dezembro de 2020",
+                    "Time_Type": "Date",
+                    "id": "T5",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T4",
+                    "sent_id": "S5"
+                },
                 {
-                    "text_time2": "dia 16 de dezembro de 2020,",
+                    "text": "16:00 \"",
+                    "Time_Type": "Time",
+                    "id": "T6",
                     "rel_type": "TLINK_isIncluded",
-                    "Time_Type": "Date"
+                    "arg2": "T5",
+                    "sent_id": "S5"
                 }
-            ],
-            "text_time": "16:00 \"",
-            "Time_Type": "Time"
+            ]
         }
     ]
 }

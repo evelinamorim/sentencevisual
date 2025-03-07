@@ -1,43 +1,41 @@
 {
     "sentences": [
         {
-            "text_sent": "Aveiro, 17 dez 2020",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "17 dez 2020",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "A Pol\u00edcia Judici\u00e1ria (PJ) de Aveiro deteve um homem, de 47 anos, \u00a0 suspeito de agredir e violar a m\u00e3e, de 75 anos, na casa onde habitavam, no concelho de Ovar, informou hoje aquele \u00f3rg\u00e3o de pol\u00edcia criminal.",
+            "text": "A Pol\u00edcia Judici\u00e1ria (PJ) de Aveiro deteve um homem, de 47 anos, \u00a0 suspeito de agredir e violar a m\u00e3e, de 75 anos, na casa onde habitavam, no concelho de Ovar, informou hoje aquele \u00f3rg\u00e3o de pol\u00edcia criminal.",
+            "id": "S3",
             "events": [
                 {
-                    "text_event": "informou",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "informou",
                     "Class": "Reporting",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "id": "T27",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T32"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "17 dez 2020",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
+                    "text": "hoje",
+                    "offset": 268,
+                    "id": "T32",
+                    "Time_Type": "Date"
                 }
             ],
-            "text_time": "hoje",
-            "Time_Type": "Date"
+            "linked_times": [
+                {
+                    "text": "17 dez 2020",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T33",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T32",
+                    "sent_id": "S0"
+                }
+            ]
         }
     ]
 }

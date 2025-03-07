@@ -1,125 +1,65 @@
 {
     "sentences": [
         {
-            "text_sent": "Reda\u00e7\u00e3o, 19 out 2020",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "19 out 2020",
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "A Pol\u00edcia Judici\u00e1ria confirmou hoje \u00e0 Lusa que deteve, no Barreiro (Set\u00fabal), um homem suspeito de ter baleado a ex - companheira na tarde de domingo na localidade de Muge, concelho de Salvaterra de Magos (Santar\u00e9m).",
+            "text": "Fontes citadas pela imprensa regional afirmam que o casal, residente no Barreiro e separado h\u00e1 uns meses, estaria a passar o fim de semana na casa do pai do suspeito, juntamente com a filha da v\u00edtima, uma menina de 5 anos, entretanto entregue aos cuidados do pai biol\u00f3gico.",
+            "id": "S6",
             "events": [
                 {
-                    "text_event": "confirmou",
-                    "rel_type": "TLINK_isIncluded",
-                    "Class": "Reporting",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Tense": "Past",
-                    "Aspect": "Perfective",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "19 out 2020",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date"
-                },
-                {
-                    "text_time2": "na tarde de domingo",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Time"
-                }
-            ],
-            "text_time": "hoje",
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "A Pol\u00edcia Judici\u00e1ria confirmou hoje \u00e0 Lusa que deteve, no Barreiro (Set\u00fabal), um homem suspeito de ter baleado a ex - companheira na tarde de domingo na localidade de Muge, concelho de Salvaterra de Magos (Santar\u00e9m).",
-            "events": [
-                {
-                    "text_event": "baleado",
-                    "rel_type": "TLINK_isIncluded",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Aspect": "Perfective",
-                    "VForm": "Infinitive"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "uns meses,",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Duration"
-                },
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "na tarde de domingo",
-            "Time_Type": "Time"
-        },
-        {
-            "text_sent": "Fontes citadas pela imprensa regional afirmam que o casal, residente no Barreiro e separado h\u00e1 uns meses, estaria a passar o fim de semana na casa do pai do suspeito, juntamente com a filha da v\u00edtima, uma menina de 5 anos, entretanto entregue aos cuidados do pai biol\u00f3gico.",
-            "events": [
-                {
-                    "text_event": "separado",
-                    "rel_type": "TLINK_simultaneous",
+                    "text": "separado",
                     "Class": "State",
                     "Event_Type": "State",
                     "Pos": "Verb",
-                    "VForm": "Participle"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "na tarde de domingo",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Time"
+                    "VForm": "Participle",
+                    "id": "T15",
+                    "rel_type": "TLINK_begunBy",
+                    "arg2": "T23"
                 },
                 {
-                    "text_time2": "o fim de semana",
-                    "rel_type": "TLINK_after",
-                    "Time_Type": "Duration"
-                }
-            ],
-            "text_time": "uns meses ,",
-            "Time_Type": "Duration"
-        },
-        {
-            "text_sent": "Fontes citadas pela imprensa regional afirmam que o casal, residente no Barreiro e separado h\u00e1 uns meses, estaria a passar o fim de semana na casa do pai do suspeito, juntamente com a filha da v\u00edtima, uma menina de 5 anos, entretanto entregue aos cuidados do pai biol\u00f3gico.",
-            "events": [
-                {
-                    "text_event": "passar",
-                    "rel_type": "TLINK_simultaneous",
-                    "Class": "State",
-                    "Event_Type": "State",
+                    "text": "passar",
+                    "Event_Type": "Transition",
                     "Pos": "Verb",
-                    "Aspect": "Imperfective_Progressive",
+                    "Aspect": "Perfective_Progressive",
                     "Polarity": "Pos",
-                    "Tense": "Imperfect"
+                    "Tense": "Past",
+                    "Mood": "Conditional",
+                    "Class": "Occurrence",
+                    "id": "T9",
+                    "rel_type": "TLINK_simultaneous",
+                    "arg2": "T24"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "uns meses,",
-                    "rel_type": "TLINK_after",
-                    "Time_Type": "Duration"
+                    "text": "h\u00e1 uns meses",
+                    "offset": 677,
+                    "id": "T23",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text": "o fim de semana",
+                    "offset": 708,
+                    "id": "T24",
+                    "Time_Type": "Date"
                 }
             ],
-            "text_time": "o fim de semana",
-            "Time_Type": "Duration"
+            "linked_times": [
+                {
+                    "text": "domingo",
+                    "Time_Type": "Date",
+                    "id": "T25",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T23",
+                    "sent_id": "S2"
+                },
+                {
+                    "text": "o fim de semana",
+                    "Time_Type": "Date",
+                    "id": "T24",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T23",
+                    "sent_id": "S6"
+                }
+            ]
         }
     ]
 }

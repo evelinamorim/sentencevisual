@@ -1,149 +1,159 @@
 {
     "sentences": [
         {
-            "text_sent": "Reda\u00e7\u00e3o, 26 nov 2020",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "26 nov 2020",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "Em comunicado, a PJ adiantou que o detido, de 53 anos, se encontrava em fuga desde o ver\u00e3o 2020, \u201c ap\u00f3s decis\u00e3o judicial que o condenou ao cumprimento de uma pena de pris\u00e3o de v\u00e1rios anos, por pertencer a uma rede de distribui\u00e7\u00e3o de hero\u00edna \u201d.",
+            "text": "A Pol\u00edcia Judici\u00e1ria (PJ) informou hoje ter detido numa povoa\u00e7\u00e3o do interior algarvio um homem procurado pelas autoridades alem\u00e3s por tr\u00e1fico de droga e que estava em fuga desde o ver\u00e3o.",
+            "id": "S6",
             "events": [
                 {
-                    "text_event": "em fuga",
-                    "rel_type": "TLINK_begunBy",
-                    "Class": "State",
-                    "Event_Type": "State",
-                    "Polarity": "Pos",
-                    "Aspect": "Imperfective",
-                    "Pos": "Verb",
-                    "Tense": "Imperfect"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "o ver\u00e3o.",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date"
-                },
-                {
-                    "text_time2": "agora",
-                    "rel_type": "TLINK_after",
-                    "Time_Type": "Time"
-                }
-            ],
-            "text_time": "o ver\u00e3o 2020 ,",
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "O detido vai agora ser presente ao Tribunal da Rela\u00e7\u00e3o em \u00c9vora, que ir\u00e1 apreciar a sua extradi\u00e7\u00e3o para o pa\u00eds requerente.",
-            "events": [
-                {
-                    "text_event": "contou",
-                    "rel_type": "TLINK_identity",
-                    "Class": "Occurrence",
-                    "Event_Type": "Process",
-                    "Pos": "Verb",
-                    "Tense": "Past",
-                    "Aspect": "Perfective",
-                    "Polarity": "Pos"
-                },
-                {
-                    "text_event": "detido",
-                    "rel_type": "TLINK_after",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Aspect": "Perfective",
-                    "VForm": "Infinitive",
-                    "Polarity": "Pos"
-                },
-                {
-                    "text_event": "vai ser presente ao Tribunal da Rela\u00e7\u00e3o",
-                    "rel_type": "TLINK_simultaneous",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Tense": "Future",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "o ver\u00e3o 2020,",
-                    "rel_type": "TLINK_after",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "agora",
-            "Time_Type": "Time"
-        },
-        {
-            "text_sent": "A Pol\u00edcia Judici\u00e1ria (PJ) informou hoje ter detido numa povoa\u00e7\u00e3o do interior algarvio um homem procurado pelas autoridades alem\u00e3s por tr\u00e1fico de droga e que estava em fuga desde o ver\u00e3o.",
-            "events": [
-                {
-                    "text_event": "informou",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "informou",
                     "Class": "Reporting",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "26 nov 2020",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
+                    "Polarity": "Pos",
+                    "id": "T23",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T29"
                 },
                 {
-                    "text_time2": "o ver\u00e3o.",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "hoje",
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "A Pol\u00edcia Judici\u00e1ria (PJ) informou hoje ter detido numa povoa\u00e7\u00e3o do interior algarvio um homem procurado pelas autoridades alem\u00e3s por tr\u00e1fico de droga e que estava em fuga desde o ver\u00e3o.",
-            "events": [
-                {
-                    "text_event": "em fuga",
-                    "rel_type": "TLINK_begunBy",
+                    "text": "em fuga",
                     "Class": "State",
                     "Event_Type": "State",
-                    "Pos": "Verb",
+                    "Pos": "Preposition",
                     "Polarity": "Pos",
                     "Tense": "Imperfect",
-                    "Aspect": "Imperfective"
+                    "Aspect": "Imperfective",
+                    "id": "T14",
+                    "rel_type": "TLINK_begunBy",
+                    "arg2": "T30"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_before",
+                    "text": "hoje",
+                    "offset": 132,
+                    "id": "T29",
                     "Time_Type": "Date"
                 },
                 {
-                    "text_time2": "o ver\u00e3o 2020,",
-                    "rel_type": "TLINK_identity",
+                    "text": "o ver\u00e3o",
+                    "offset": 275,
+                    "id": "T30",
                     "Time_Type": "Date"
                 }
             ],
-            "text_time": "o ver\u00e3o .",
-            "Time_Type": "Date"
+            "linked_times": [
+                {
+                    "text": "26 nov 2020",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T28",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T29",
+                    "sent_id": "S0"
+                },
+                {
+                    "text": "o ver\u00e3o",
+                    "Time_Type": "Date",
+                    "id": "T30",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T29",
+                    "sent_id": "S6"
+                },
+                {
+                    "text": "o ver\u00e3o 2020",
+                    "Time_Type": "Date",
+                    "id": "T31",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T30",
+                    "sent_id": "S8"
+                }
+            ]
+        },
+        {
+            "text": "Em comunicado, a PJ adiantou que o detido, de 53 anos, se encontrava em fuga desde o ver\u00e3o 2020, \u201c ap\u00f3s decis\u00e3o judicial que o condenou ao cumprimento de uma pena de pris\u00e3o de v\u00e1rios anos, por pertencer a uma rede de distribui\u00e7\u00e3o de hero\u00edna \u201d.",
+            "id": "S8",
+            "events": [
+                {
+                    "text": "fuga",
+                    "Class": "State",
+                    "Event_Type": "State",
+                    "Pos": "Preposition",
+                    "Polarity": "Pos",
+                    "id": "T24",
+                    "rel_type": "TLINK_begunBy",
+                    "arg2": "T31"
+                },
+                {
+                    "text": "pena de pris\u00e3o",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos",
+                    "id": "T17",
+                    "rel_type": "TLINK_simultaneous",
+                    "arg2": "T32"
+                }
+            ],
+            "times": [
+                {
+                    "text": "o ver\u00e3o 2020",
+                    "offset": 367,
+                    "id": "T31",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text": "v\u00e1rios anos",
+                    "offset": 459,
+                    "id": "T32",
+                    "Time_Type": "Duration"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "v\u00e1rios anos",
+                    "Time_Type": "Duration",
+                    "id": "T32",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T31",
+                    "sent_id": "S8"
+                },
+                {
+                    "text": "agora",
+                    "Time_Type": "Time",
+                    "id": "T21",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T32",
+                    "sent_id": "S12"
+                }
+            ]
+        },
+        {
+            "text": "O detido vai agora ser presente ao Tribunal da Rela\u00e7\u00e3o em \u00c9vora, que ir\u00e1 apreciar a sua extradi\u00e7\u00e3o para o pa\u00eds requerente.",
+            "id": "S12",
+            "events": [
+                {
+                    "text": "vai ser presente ao Tribunal da Rela\u00e7\u00e3o",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Future",
+                    "Polarity": "Pos",
+                    "id": "T11",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T21"
+                }
+            ],
+            "times": [
+                {
+                    "text": "agora",
+                    "offset": 723,
+                    "id": "T21",
+                    "Time_Type": "Time"
+                }
+            ],
+            "linked_times": []
         }
     ]
 }

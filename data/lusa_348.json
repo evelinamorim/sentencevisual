@@ -1,72 +1,76 @@
 {
     "sentences": [
         {
-            "text_sent": "Pa\u00e7os de Ferreira, Porto, 09 out 2020",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "09 out 2020",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "Um homem de 24 anos com antecedentes criminais foi constitu\u00eddo arguido por suspeita de ser o autor de um atropelamento com fuga em Meixomil, no concelho de Pa\u00e7os de Ferreira, revelou hoje a Guarda.",
+            "text": "Um homem de 24 anos com antecedentes criminais foi constitu\u00eddo arguido por suspeita de ser o autor de um atropelamento com fuga em Meixomil, no concelho de Pa\u00e7os de Ferreira, revelou hoje a Guarda.",
+            "id": "S3",
             "events": [
                 {
-                    "text_event": "revelou",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "revelou",
                     "Class": "Reporting",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "id": "T1",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T31"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "09 out 2020",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
-                },
-                {
-                    "text_time2": "na quinta-feira",
-                    "rel_type": "TLINK_before",
+                    "text": "hoje",
+                    "offset": 308,
+                    "id": "T31",
                     "Time_Type": "Date"
                 }
             ],
-            "text_time": "hoje",
-            "Time_Type": "Date"
+            "linked_times": [
+                {
+                    "text": "09 out 2020",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T30",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T31",
+                    "sent_id": "S0"
+                },
+                {
+                    "text": "na quinta-feira",
+                    "Time_Type": "Date",
+                    "id": "T32",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T31",
+                    "sent_id": "S5"
+                }
+            ]
         },
         {
-            "text_sent": "Numa a\u00e7\u00e3o levada a cabo na quinta-feira pelo Posto Territorial de Pa\u00e7os de Ferreira, a GNR identificou um homem de 24 anos pelo crime de omiss\u00e3o de aux\u00edlio naquele concelho do distrito do Porto, indica aquela for\u00e7a policial em comunicado.",
+            "text": "Numa a\u00e7\u00e3o levada a cabo na quinta-feira pelo Posto Territorial de Pa\u00e7os de Ferreira, a GNR identificou um homem de 24 anos pelo crime de omiss\u00e3o de aux\u00edlio naquele concelho do distrito do Porto, indica aquela for\u00e7a policial em comunicado.",
+            "id": "S5",
             "events": [
                 {
-                    "text_event": "levada",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "levada a cabo",
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Aspect": "Perfective",
+                    "Polarity": "Pos",
                     "VForm": "Participle",
-                    "Polarity": "Pos"
+                    "id": "T33",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T32"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_before",
+                    "text": "na quinta-feira",
+                    "offset": 347,
+                    "id": "T32",
                     "Time_Type": "Date"
                 }
             ],
-            "text_time": "na quinta - feira",
-            "Time_Type": "Date"
+            "linked_times": []
         }
     ]
 }

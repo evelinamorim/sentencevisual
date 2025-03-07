@@ -1,140 +1,200 @@
 {
     "sentences": [
         {
-            "text_sent": "Montemor-o - Velho, Coimbra, 06 dez 2020",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Time"
-                },
-                {
-                    "text_time2": "h\u00e1 quase quatro anos",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Duration"
-                }
-            ],
-            "text_time": "06 dez 2020",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "A Pol\u00edcia Judici\u00e1ria (PJ) deteve um homem de 34 anos pela presum\u00edvel pr\u00e1tica de um crime de homic\u00eddio qualificado, ocorrido h\u00e1 quase quatro anos em Montemor-o - Velho, no distrito de Coimbra, informou hoje aquele \u00f3rg\u00e3o de pol\u00edcia criminal.",
+            "text": "A Pol\u00edcia Judici\u00e1ria (PJ) deteve um homem de 34 anos pela presum\u00edvel pr\u00e1tica de um crime de homic\u00eddio qualificado, ocorrido h\u00e1 quase quatro anos em Montemor-o - Velho, no distrito de Coimbra, informou hoje aquele \u00f3rg\u00e3o de pol\u00edcia criminal.",
+            "id": "S3",
             "events": [
                 {
-                    "text_event": "ocorrido",
-                    "rel_type": "TLINK_simultaneous",
+                    "text": "ocorrido",
                     "Class": "Occurrence",
-                    "Event_Type": "Process",
+                    "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Aspect": "Perfective",
                     "VForm": "Participle",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "06 dez 2020",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
+                    "Polarity": "Pos",
+                    "id": "T7",
+                    "rel_type": "TLINK_simultaneous",
+                    "arg2": "T47"
                 },
                 {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_after",
-                    "Time_Type": "Time"
-                }
-            ],
-            "text_time": "h\u00e1 quase quatro anos",
-            "Time_Type": "Duration"
-        },
-        {
-            "text_sent": "A Pol\u00edcia Judici\u00e1ria (PJ) deteve um homem de 34 anos pela presum\u00edvel pr\u00e1tica de um crime de homic\u00eddio qualificado, ocorrido h\u00e1 quase quatro anos em Montemor-o - Velho, no distrito de Coimbra, informou hoje aquele \u00f3rg\u00e3o de pol\u00edcia criminal.",
-            "events": [
-                {
-                    "text_event": "informou",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "informou",
                     "Class": "Reporting",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "id": "T9",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T41"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "10 de mar\u00e7o de 2017,",
-                    "rel_type": "TLINK_before",
+                    "text": "h\u00e1 quase quatro anos",
+                    "offset": 234,
+                    "id": "T47",
                     "Time_Type": "Date"
                 },
                 {
-                    "text_time2": "06 dez 2020",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
-                },
-                {
-                    "text_time2": "h\u00e1 quase quatro anos",
-                    "rel_type": "TLINK_after",
-                    "Time_Type": "Duration"
+                    "text": "hoje",
+                    "offset": 309,
+                    "id": "T41",
+                    "Time_Type": "Time"
                 }
             ],
-            "text_time": "hoje",
-            "Time_Type": "Time"
+            "linked_times": [
+                {
+                    "text": "06 dez 2020",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T46",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T47",
+                    "sent_id": "S0"
+                },
+                {
+                    "text": "hoje",
+                    "Time_Type": "Time",
+                    "id": "T41",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T47",
+                    "sent_id": "S3"
+                },
+                {
+                    "text": "10 de mar\u00e7o de 2017",
+                    "Time_Type": "Date",
+                    "id": "T44",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T41",
+                    "sent_id": "S5"
+                }
+            ]
         },
         {
-            "text_sent": "Em comunicado, a PJ esclarece que o crime ocorreu em 10 de mar\u00e7o de 2017, na localidade de Tent\u00fagal, na sequ\u00eancia de \u201c um conflito relacionado com um neg\u00f3cio falhado \u201d.",
+            "text": "Em comunicado, a PJ esclarece que o crime ocorreu em 10 de mar\u00e7o de 2017, na localidade de Tent\u00fagal, na sequ\u00eancia de \u201c um conflito relacionado com um neg\u00f3cio falhado \u201d.",
+            "id": "S5",
             "events": [
                 {
-                    "text_event": "ocorreu",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "ocorreu",
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "id": "T2",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T44"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "a madrugada,",
-                    "rel_type": "TLINK_after",
-                    "Time_Type": "Time"
-                },
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Time"
+                    "text": "10 de mar\u00e7o de 2017",
+                    "offset": 401,
+                    "id": "T44",
+                    "Time_Type": "Date"
                 }
             ],
-            "text_time": "10 de mar\u00e7o de 2017 ,",
-            "Time_Type": "Date"
+            "linked_times": [
+                {
+                    "text": "a madrugada",
+                    "Time_Type": "Time",
+                    "id": "T45",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T44",
+                    "sent_id": "S7"
+                }
+            ]
         },
         {
-            "text_sent": "De acordo com os investigadores, o detido ter\u00e1 surpreendido a v\u00edtima de 46 anos em sua casa durante a madrugada, e, com um objeto contundente, \u201c desferiu-lhe v\u00e1rios golpes na zona da cabe\u00e7a que lhe provocaram a morte \u201d.",
+            "text": "De acordo com os investigadores, o detido ter\u00e1 surpreendido a v\u00edtima de 46 anos em sua casa durante a madrugada, e, com um objeto contundente, \u201c desferiu-lhe v\u00e1rios golpes na zona da cabe\u00e7a que lhe provocaram a morte \u201d.",
+            "id": "S7",
             "events": [
                 {
-                    "text_event": "surpreendido",
-                    "rel_type": "TLINK_during",
+                    "text": "surpreendido",
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Tense": "Future",
                     "Polarity": "Pos",
-                    "Pos": "Verb"
+                    "Pos": "Verb",
+                    "id": "T3",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T45"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "10 de mar\u00e7o de 2017,",
-                    "rel_type": "TLINK_after",
-                    "Time_Type": "Date"
+                    "text": "a madrugada",
+                    "offset": 615,
+                    "id": "T45",
+                    "Time_Type": "Time"
                 }
             ],
-            "text_time": "a madrugada ,",
-            "Time_Type": "Time"
+            "linked_times": [
+                {
+                    "text": "recentemente",
+                    "Time_Type": "Date",
+                    "id": "T48",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T45",
+                    "sent_id": "S11"
+                }
+            ]
+        },
+        {
+            "text": "A PJ refere ainda que a investiga\u00e7\u00e3o realizada conheceu, recentemente, desenvolvimentos relevantes que conduziram agora \u00e0 identifica\u00e7\u00e3o, localiza\u00e7\u00e3o e deten\u00e7\u00e3o do suspeito.",
+            "id": "S11",
+            "events": [
+                {
+                    "text": "conheceu",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T34",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T48"
+                },
+                {
+                    "text": "conduziram",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T5",
+                    "rel_type": "TLINK_simultaneous",
+                    "arg2": "T49"
+                }
+            ],
+            "times": [
+                {
+                    "text": "recentemente",
+                    "offset": 964,
+                    "id": "T48",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text": "agora",
+                    "offset": 1021,
+                    "id": "T49",
+                    "Time_Type": "Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "agora",
+                    "Time_Type": "Time",
+                    "id": "T49",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T48",
+                    "sent_id": "S11"
+                }
+            ]
         }
     ]
 }

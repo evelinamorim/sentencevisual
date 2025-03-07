@@ -1,128 +1,136 @@
 {
     "sentences": [
         {
-            "text_sent": "Luanda, 02 dez 2020",
-            "events": [],
+            "text": "Segundo o porta - voz do SIC local, Sebasti\u00e3o Vika, o acusado ter\u00e1 cometido o crime e fugiu, tendo sido localizado durante uma opera\u00e7\u00e3o realizada no fim - de - semana.",
+            "id": "S4",
+            "events": [
+                {
+                    "text": "realizada",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Aspect": "Perfective",
+                    "VForm": "Participle",
+                    "Polarity": "Pos",
+                    "id": "T22",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T37"
+                }
+            ],
             "times": [
                 {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
+                    "text": "no fim - de - semana",
+                    "offset": 470,
+                    "id": "T37",
                     "Time_Type": "Date"
                 }
             ],
-            "text_time": "02 dez 2020",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T36",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T37",
+                    "sent_id": "S2"
+                },
+                {
+                    "text": "No m\u00eas passado",
+                    "Time_Type": "Date",
+                    "id": "T43",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T37",
+                    "sent_id": "S8"
+                }
+            ]
         },
         {
-            "text_sent": "Um homem de 18 anos foi detido pelas autoridades angolanas por violar uma sobrinha, de quatro anos, no Lubango, capital da prov\u00edncia angolana da Hu\u00edla, anunciou hoje o Servi\u00e7o de Investiga\u00e7\u00e3o Criminal (SIC).",
+            "text": "No m\u00eas passado, a pol\u00edcia registou 16 casos de viola\u00e7\u00e3o sexual de crian\u00e7as, sem mortes e com igual n\u00famero de detidos.",
+            "id": "S8",
             "events": [
                 {
-                    "text_event": "anunciou",
-                    "rel_type": "TLINK_isIncluded",
-                    "Class": "Reporting",
+                    "text": "registou",
                     "Event_Type": "Transition",
-                    "Pos": "Verb",
                     "Tense": "Past",
+                    "Polarity": "Pos",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
+                    "Class": "Occurrence",
+                    "Pos": "Verb",
+                    "id": "T29",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T43"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "02 dez 2020",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
-                },
-                {
-                    "text_time2": "no fim - de - semana.",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Duration"
+                    "text": "No m\u00eas passado",
+                    "offset": 882,
+                    "id": "T43",
+                    "Time_Type": "Date"
                 }
             ],
-            "text_time": "hoje",
-            "Time_Type": "Date"
+            "linked_times": [
+                {
+                    "text": "nos \u00faltimos anos",
+                    "Time_Type": "Date",
+                    "id": "T41",
+                    "rel_type": "TLINK_includes",
+                    "arg2": "T43",
+                    "sent_id": "S10"
+                }
+            ]
         },
         {
-            "text_sent": "O abuso sexual de menores em Angola tem crescido significativamente nos \u00faltimos anos, de acordo com um estudo lan\u00e7ado em agosto em Luanda, por uma psic\u00f3loga angolana, concluindo que a maioria das agress\u00f5es acontecem em ambiente familiar.",
+            "text": "O abuso sexual de menores em Angola tem crescido significativamente nos \u00faltimos anos, de acordo com um estudo lan\u00e7ado em agosto em Luanda, por uma psic\u00f3loga angolana, concluindo que a maioria das agress\u00f5es acontecem em ambiente familiar.",
+            "id": "S10",
             "events": [
                 {
-                    "text_event": "crescido",
-                    "rel_type": "TLINK_simultaneous",
-                    "Class": "State",
-                    "Event_Type": "State",
+                    "text": "crescido",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Present",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "no fim - de - semana.",
-                    "rel_type": "TLINK_includes",
-                    "Time_Type": "Duration"
+                    "Polarity": "Pos",
+                    "id": "T10",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T41"
                 },
                 {
-                    "text_time2": "agosto",
-                    "rel_type": "TLINK_isIncluded",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "nos \u00faltimos anos ,",
-            "Time_Type": "Duration"
-        },
-        {
-            "text_sent": "O abuso sexual de menores em Angola tem crescido significativamente nos \u00faltimos anos, de acordo com um estudo lan\u00e7ado em agosto em Luanda, por uma psic\u00f3loga angolana, concluindo que a maioria das agress\u00f5es acontecem em ambiente familiar.",
-            "events": [
-                {
-                    "text_event": "lan\u00e7ado",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "lan\u00e7ado",
                     "Class": "Occurrence",
                     "Pos": "Verb",
                     "Aspect": "Perfective",
                     "VForm": "Participle",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "nos \u00faltimos anos,",
+                    "Polarity": "Pos",
+                    "id": "T11",
                     "rel_type": "TLINK_isIncluded",
-                    "Time_Type": "Duration"
-                }
-            ],
-            "text_time": "agosto",
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "Segundo o porta - voz do SIC local, Sebasti\u00e3o Vika, o acusado ter\u00e1 cometido o crime e fugiu, tendo sido localizado durante uma opera\u00e7\u00e3o realizada no fim - de - semana.",
-            "events": [
-                {
-                    "text_event": "realizada",
-                    "rel_type": "TLINK_simultaneous",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Aspect": "Perfective",
-                    "VForm": "Participle",
-                    "Polarity": "Pos"
+                    "arg2": "T38"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_before",
+                    "text": "nos \u00faltimos anos",
+                    "offset": 1068,
+                    "id": "T41",
                     "Time_Type": "Date"
                 },
                 {
-                    "text_time2": "nos \u00faltimos anos,",
-                    "rel_type": "TLINK_includes",
-                    "Time_Type": "Duration"
+                    "text": "agosto",
+                    "offset": 1121,
+                    "id": "T38",
+                    "Time_Type": "Date"
                 }
             ],
-            "text_time": "no fim - de - semana .",
-            "Time_Type": "Duration"
+            "linked_times": [
+                {
+                    "text": "agosto",
+                    "Time_Type": "Date",
+                    "id": "T38",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T41",
+                    "sent_id": "S10"
+                }
+            ]
         }
     ]
 }

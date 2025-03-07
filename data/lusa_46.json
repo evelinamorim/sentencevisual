@@ -1,43 +1,41 @@
 {
     "sentences": [
         {
-            "text_sent": "Moura, Beja, 03 dez 2020",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "\u00e0s 11:59.",
-                    "rel_type": "TLINK_isIncluded",
-                    "Time_Type": "Time"
-                }
-            ],
-            "text_time": "03 dez 2020",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "A rixa, de acordo com o CDOS, ocorreu no Monte das Sesmarias, tendo o alerta sido dado \u00e0s 11:59.",
+            "text": "A rixa, de acordo com o CDOS, ocorreu no Monte das Sesmarias, tendo o alerta sido dado \u00e0s 11:59.",
+            "id": "S5",
             "events": [
                 {
-                    "text_event": "dado",
-                    "rel_type": "TLINK_simultaneous",
+                    "text": "dado",
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Aspect": "Perfective",
+                    "Polarity": "Pos",
                     "VForm": "Gerundive",
-                    "Polarity": "Pos"
+                    "id": "T2",
+                    "rel_type": "TLINK_simultaneous",
+                    "arg2": "T3"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "03 dez 2020",
-                    "rel_type": "TLINK_isIncluded",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
+                    "text": "11:59",
+                    "offset": 495,
+                    "id": "T3",
+                    "Time_Type": "Time"
                 }
             ],
-            "text_time": "\u00e0s 11:59 .",
-            "Time_Type": "Time"
+            "linked_times": [
+                {
+                    "text": "03 dez 2020",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T1",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T3",
+                    "sent_id": "S0"
+                }
+            ]
         }
     ]
 }

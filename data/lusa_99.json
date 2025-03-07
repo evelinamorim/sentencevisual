@@ -1,211 +1,195 @@
 {
     "sentences": [
         {
-            "text_sent": "Aveiro, 11 dez 2020",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "na quarta-feira",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date",
-                    "AnnotatorNotes": [
-                        "value=2020-12-09 anchorTime=Publication_Time"
-                    ]
-                }
-            ],
-            "text_time": "11 dez 2020",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "O homem de 51 anos detido na quarta-feira pela PSP de Aveiro por suspeita de tr\u00e1fico de droga vai aguardar o desenrolar do processo em pris\u00e3o preventiva, informou hoje fonte policial.",
+            "text": "O homem de 51 anos detido na quarta-feira pela PSP de Aveiro por suspeita de tr\u00e1fico de droga vai aguardar o desenrolar do processo em pris\u00e3o preventiva, informou hoje fonte policial.",
+            "id": "S4",
             "events": [
                 {
-                    "text_event": "detido",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "detido",
                     "Class": "Occurrence",
-                    "Tense": "Past",
                     "Polarity": "Pos",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Aspect": "Perfective",
-                    "VForm": "Participle"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_after",
-                    "TemporalFunction": "Publication_Time",
-                    "Time_Type": "Date",
-                    "AnnotatorNotes": [
-                        "value=2020-12-11"
-                    ]
+                    "VForm": "Participle",
+                    "id": "T20",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T12"
                 },
                 {
-                    "text_time2": "11 dez 2020",
-                    "rel_type": "TLINK_before",
-                    "TemporalFunction": "Publication_Time"
-                }
-            ],
-            "text_time": "na quarta - feira",
-            "Time_Type": "Date",
-            "AnnotatorNotes": [
-                "value=2020-12-09 anchorTime=Publication_Time"
-            ]
-        },
-        {
-            "text_sent": "O homem de 51 anos detido na quarta-feira pela PSP de Aveiro por suspeita de tr\u00e1fico de droga vai aguardar o desenrolar do processo em pris\u00e3o preventiva, informou hoje fonte policial.",
-            "events": [
-                {
-                    "text_event": "informou",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "informou",
                     "Class": "Reporting",
                     "Tense": "Past",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "id": "T27",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T13"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "na quarta-feira",
-                    "rel_type": "TLINK_after",
+                    "text": "na quarta-feira",
+                    "offset": 136,
+                    "id": "T12",
                     "Time_Type": "Date",
                     "AnnotatorNotes": [
                         "value=2020-12-09 anchorTime=Publication_Time"
                     ]
                 },
                 {
-                    "text_time2": "quinta-feira",
+                    "text": "hoje",
+                    "offset": 273,
+                    "id": "T13",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T13",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T12",
+                    "sent_id": "S4"
+                },
+                {
+                    "text": "11 dez 2020",
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T9",
                     "rel_type": "TLINK_before",
+                    "arg2": "T12",
+                    "sent_id": "S0"
+                },
+                {
+                    "text": "na quinta-feira",
+                    "Time_Type": "Date",
+                    "AnnotatorNotes": [
+                        "value=2020-12-10 anchorTime=Publication_Time"
+                    ],
+                    "id": "T14",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T13",
+                    "sent_id": "S6"
+                }
+            ]
+        },
+        {
+            "text": "Segundo uma nota da PSP, o suspeito foi presente na quinta-feira a um primeiro interrogat\u00f3rio judicial, tendo-lhe sido aplicada a medida de coa\u00e7\u00e3o mais gravosa.",
+            "id": "S6",
+            "events": [
+                {
+                    "text": "foi presente a um primeiro interrogat\u00f3rio judicial",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "Class": "Occurrence",
+                    "id": "T26",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T14"
+                }
+            ],
+            "times": [
+                {
+                    "text": "na quinta-feira",
+                    "offset": 343,
+                    "id": "T14",
                     "Time_Type": "Date",
                     "AnnotatorNotes": [
                         "value=2020-12-10 anchorTime=Publication_Time"
                     ]
                 }
             ],
-            "text_time": "hoje",
-            "TemporalFunction": "Publication_Time",
-            "Time_Type": "Date",
-            "AnnotatorNotes": [
-                "value=2020-12-11"
+            "linked_times": [
+                {
+                    "text": "tr\u00eas vezes este ano",
+                    "Time_Type": "Set",
+                    "AnnotatorNotes": [
+                        "value=\"P1Y\" freq=\"3X\"/>"
+                    ],
+                    "id": "T15",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T14",
+                    "sent_id": "S12"
+                }
             ]
         },
         {
-            "text_sent": "O homem, pescador, que foi detido tr\u00eas vezes este ano pelo mesmo tipo de crime, estava sob a medida de coa\u00e7\u00e3o de apresenta\u00e7\u00f5es bissemanais, na Esquadra Policial da \u00e1rea da sua resid\u00eancia.",
+            "text": "O homem, pescador, que foi detido tr\u00eas vezes este ano pelo mesmo tipo de crime, estava sob a medida de coa\u00e7\u00e3o de apresenta\u00e7\u00f5es bissemanais, na Esquadra Policial da \u00e1rea da sua resid\u00eancia.",
+            "id": "S12",
             "events": [
                 {
-                    "text_event": "detido",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "detido",
                     "Class": "Occurrence",
                     "Tense": "Past",
                     "Polarity": "Pos",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Aspect": "Perfective",
-                    "VForm": "Participle"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "quinta-feira",
-                    "rel_type": "TLINK_includes",
-                    "Time_Type": "Date",
-                    "AnnotatorNotes": [
-                        "value=2020-12-10 anchorTime=Publication_Time"
-                    ]
+                    "VForm": "Participle",
+                    "id": "T54",
+                    "rel_type": "TLINK_during",
+                    "arg2": "T15"
                 },
                 {
-                    "text_time2": "bissemanais,",
-                    "rel_type": "TLINK_isIncluded",
-                    "Time_Type": "Set",
-                    "AnnotatorNotes": [
-                        "value=\"P1W\" freq=\"2X\""
-                    ]
-                }
-            ],
-            "text_time": "tr\u00eas vezes este ano",
-            "Time_Type": "Set",
-            "AnnotatorNotes": [
-                "value=\"P3Y\"quant=\"ESTE\""
-            ]
-        },
-        {
-            "text_sent": "O homem, pescador, que foi detido tr\u00eas vezes este ano pelo mesmo tipo de crime, estava sob a medida de coa\u00e7\u00e3o de apresenta\u00e7\u00f5es bissemanais, na Esquadra Policial da \u00e1rea da sua resid\u00eancia.",
-            "events": [
-                {
-                    "text_event": "estava",
-                    "rel_type": "TLINK_simultaneous",
+                    "text": "estava",
                     "Class": "State",
                     "Event_Type": "State",
                     "Pos": "Verb",
-                    "Tense": "Past",
+                    "Tense": "Imperfect",
                     "Aspect": "Imperfective",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "id": "T41",
+                    "rel_type": "TLINK_simultaneous",
+                    "arg2": "T37"
                 },
                 {
-                    "text_event": "apresenta\u00e7\u00f5es",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "apresenta\u00e7\u00f5es",
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Noun",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "id": "T33",
+                    "rel_type": "TLINK_during",
+                    "arg2": "T37"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "tr\u00eas vezes este ano",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "tr\u00eas vezes este ano",
+                    "offset": 832,
+                    "id": "T15",
                     "Time_Type": "Set",
                     "AnnotatorNotes": [
-                        "value=\"P3Y\"quant=\"ESTE\""
-                    ]
-                }
-            ],
-            "text_time": "bissemanais ,",
-            "Time_Type": "Set",
-            "AnnotatorNotes": [
-                "value=\"P1W\" freq=\"2X\""
-            ]
-        },
-        {
-            "text_sent": "Segundo uma nota da PSP, o suspeito foi presente na quinta-feira a um primeiro interrogat\u00f3rio judicial, tendo-lhe sido aplicada a medida de coa\u00e7\u00e3o mais gravosa.",
-            "events": [
-                {
-                    "text_event": "foi presente primeiro interrogat\u00f3rio judicial,",
-                    "rel_type": "TLINK_isIncluded",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Tense": "Past",
-                    "Aspect": "Perfective",
-                    "Polarity": "Pos",
-                    "Class": "Occurrence"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_before",
-                    "TemporalFunction": "Publication_Time",
-                    "Time_Type": "Date",
-                    "AnnotatorNotes": [
-                        "value=2020-12-11"
+                        "value=\"P1Y\" freq=\"3X\"/>"
                     ]
                 },
                 {
-                    "text_time2": "tr\u00eas vezes este ano",
-                    "rel_type": "TLINK_includes",
+                    "text": "bissemanais",
+                    "offset": 925,
+                    "id": "T37",
                     "Time_Type": "Set",
                     "AnnotatorNotes": [
-                        "value=\"P3Y\"quant=\"ESTE\""
+                        "value=\"P1W\" freq=\"2X\"/>"
                     ]
                 }
             ],
-            "text_time": "quinta - feira",
-            "Time_Type": "Date",
-            "AnnotatorNotes": [
-                "value=2020-12-10 anchorTime=Publication_Time"
+            "linked_times": [
+                {
+                    "text": "bissemanais",
+                    "Time_Type": "Set",
+                    "AnnotatorNotes": [
+                        "value=\"P1W\" freq=\"2X\"/>"
+                    ],
+                    "id": "T37",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T15",
+                    "sent_id": "S12"
+                }
             ]
         }
     ]

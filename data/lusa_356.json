@@ -1,72 +1,76 @@
 {
     "sentences": [
         {
-            "text_sent": "\u00cdlhavo, Aveiro, 05 jan 2021",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "05 jan 2021",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "A GNR deteve um homem de 34 anos suspeito de v\u00e1rios furtos em resid\u00eancias no concelho de \u00cdlhavo, distrito de Aveiro, \u00a0 informou hoje aquela for\u00e7a militar.",
+            "text": "A GNR deteve um homem de 34 anos suspeito de v\u00e1rios furtos em resid\u00eancias no concelho de \u00cdlhavo, distrito de Aveiro, \u00a0 informou hoje aquela for\u00e7a militar.",
+            "id": "S3",
             "events": [
                 {
-                    "text_event": "informou",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "informou",
                     "Class": "Reporting",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "id": "T1",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T30"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "05 jan 2021",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
-                },
-                {
-                    "text_time2": "na segunda-feira,",
-                    "rel_type": "TLINK_before",
+                    "text": "hoje",
+                    "offset": 216,
+                    "id": "T30",
                     "Time_Type": "Date"
                 }
             ],
-            "text_time": "hoje",
-            "Time_Type": "Date"
+            "linked_times": [
+                {
+                    "text": "05 jan 2021",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T29",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T30",
+                    "sent_id": "S0"
+                },
+                {
+                    "text": "na segunda-feira",
+                    "Time_Type": "Date",
+                    "id": "T31",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T30",
+                    "sent_id": "S5"
+                }
+            ]
         },
         {
-            "text_sent": "Em comunicado, a GNR esclarece que o indiv\u00edduo foi detido na segunda-feira, quando se encontrava a assaltar uma casa na Gafanha da Nazar\u00e9, naquele concelho.",
+            "text": "Em comunicado, a GNR esclarece que o indiv\u00edduo foi detido na segunda-feira, quando se encontrava a assaltar uma casa na Gafanha da Nazar\u00e9, naquele concelho.",
+            "id": "S5",
             "events": [
                 {
-                    "text_event": "detido",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "detido",
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "id": "T7",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T31"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_before",
+                    "text": "na segunda-feira",
+                    "offset": 301,
+                    "id": "T31",
                     "Time_Type": "Date"
                 }
             ],
-            "text_time": "na segunda - feira ,",
-            "Time_Type": "Date"
+            "linked_times": []
         }
     ]
 }

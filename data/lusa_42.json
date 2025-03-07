@@ -1,57 +1,41 @@
 {
     "sentences": [
         {
-            "text_sent": "Covilh\u00e3, Castelo Branco, 30 outubro",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "na quinta-feira,",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "30 outubro",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "2020",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "na quinta-feira,",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "2020",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "Em comunicado enviado \u00e0 ag\u00eancia Lusa, o Comando Territorial de Castelo Branco informou que a deten\u00e7\u00e3o do homem, de 44 anos, foi feita na quinta-feira, atrav\u00e9s do Posto Territorial do Tortosendo e dando cumprimento a um mandado de deten\u00e7\u00e3o.",
+            "text": "Em comunicado enviado \u00e0 ag\u00eancia Lusa, o Comando Territorial de Castelo Branco informou que a deten\u00e7\u00e3o do homem, de 44 anos, foi feita na quinta-feira, atrav\u00e9s do Posto Territorial do Tortosendo e dando cumprimento a um mandado de deten\u00e7\u00e3o.",
+            "id": "S6",
             "events": [
                 {
-                    "text_event": "feita",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "feita",
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "id": "T2",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T3"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "30 outubro 2020",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
+                    "text": "na quinta-feira",
+                    "offset": 471,
+                    "id": "T3",
+                    "Time_Type": "Date"
                 }
             ],
-            "text_time": "na quinta - feira ,",
-            "Time_Type": "Date"
+            "linked_times": [
+                {
+                    "text": "30 outubro 2020",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T1",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T3",
+                    "sent_id": "S0"
+                }
+            ]
         }
     ]
 }

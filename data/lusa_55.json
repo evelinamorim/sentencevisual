@@ -1,182 +1,165 @@
 {
     "sentences": [
         {
-            "text_sent": "Pristina, 05 nov 2020",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
-                    "AnnotatorNotes": [
-                        "value=2020-11-05 anchorTime=Publication_Time"
-                    ],
-                    "Time_Type": "Date"
-                },
-                {
-                    "text_time2": "nos anos 1990,",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Duration",
-                    "AnnotatorNotes": [
-                        "value=os anos 1990"
-                    ]
-                }
-            ],
-            "text_time": "05 nov 2020",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "O Presidente do Kosovo, Hashim Thaci, l\u00edder guerrilheiro durante a guerra pela independ\u00eancia em rela\u00e7\u00e3o \u00e0 S\u00e9rvia, nos anos 1990, demitiu-se hoje para enfrentar acusa\u00e7\u00f5es de crimes de guerra e contra a humanidade num tribunal especial em Haia.",
+            "text": "O Presidente do Kosovo, Hashim Thaci, l\u00edder guerrilheiro durante a guerra pela independ\u00eancia em rela\u00e7\u00e3o \u00e0 S\u00e9rvia, nos anos 1990, demitiu-se hoje para enfrentar acusa\u00e7\u00f5es de crimes de guerra e contra a humanidade num tribunal especial em Haia.",
+            "id": "S3",
             "events": [
                 {
-                    "text_event": "l\u00edder",
+                    "text": "l\u00edder",
+                    "Class": "State",
+                    "Event_Type": "State",
+                    "Polarity": "Pos",
+                    "Pos": "Noun",
+                    "id": "T9",
                     "rel_type": "TLINK_during",
-                    "Class": "State",
-                    "Event_Type": "Process",
-                    "Polarity": "Pos",
-                    "Pos": "Noun"
+                    "arg2": "T8"
                 },
                 {
-                    "text_event": "l\u00edder",
-                    "rel_type": "TLINK_simultaneous",
-                    "Class": "State",
-                    "Event_Type": "Process",
-                    "Polarity": "Pos",
-                    "Pos": "Noun"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_after",
-                    "AnnotatorNotes": [
-                        "value=2020-11-05 anchorTime=Publication_Time"
-                    ],
-                    "Time_Type": "Date"
-                },
-                {
-                    "text_time2": "05 nov 2020",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
-                }
-            ],
-            "text_time": "nos anos 1990 ,",
-            "Time_Type": "Duration",
-            "AnnotatorNotes": [
-                "value=os anos 1990"
-            ]
-        },
-        {
-            "text_sent": "O Presidente do Kosovo, Hashim Thaci, l\u00edder guerrilheiro durante a guerra pela independ\u00eancia em rela\u00e7\u00e3o \u00e0 S\u00e9rvia, nos anos 1990, demitiu-se hoje para enfrentar acusa\u00e7\u00f5es de crimes de guerra e contra a humanidade num tribunal especial em Haia.",
-            "events": [
-                {
-                    "text_event": "demitiu-se",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "demitiu-se",
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "id": "T1",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T2"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "05 nov 2020",
-                    "rel_type": "TLINK_identity",
+                    "text": "nos anos 1990",
+                    "offset": 226,
+                    "id": "T8",
                     "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
-                },
-                {
-                    "text_time2": "nos anos 1990,",
-                    "rel_type": "TLINK_after",
-                    "Time_Type": "Duration",
                     "AnnotatorNotes": [
                         "value=os anos 1990"
                     ]
                 },
                 {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date",
-                    "AnnotatorNotes": [
-                        "value=2020-11-05 anchorTime=Publication_Time"
-                    ]
-                }
-            ],
-            "text_time": "hoje",
-            "AnnotatorNotes": [
-                "value=2020-11-05 anchorTime=Publication_Time"
-            ],
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "Thaci anunciou a sua ren\u00fancia ao cargo numa confer\u00eancia de imprensa realizada hoje em Pristina, capital de Kosovo.",
-            "events": [
-                {
-                    "text_event": "realizada",
-                    "rel_type": "TLINK_isIncluded",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Aspect": "Perfective",
-                    "VForm": "Participle",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date",
-                    "AnnotatorNotes": [
-                        "value=2020-11-05 anchorTime=Publication"
-                    ]
-                },
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
+                    "text": "hoje",
+                    "offset": 252,
+                    "id": "T2",
                     "AnnotatorNotes": [
                         "value=2020-11-05 anchorTime=Publication_Time"
                     ],
                     "Time_Type": "Date"
                 }
             ],
-            "text_time": "hoje",
-            "Time_Type": "Date",
-            "AnnotatorNotes": [
-                "value=2020-11-05 anchorTime=Publication_Time"
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "AnnotatorNotes": [
+                        "value=2020-11-05 anchorTime=Publication_Time"
+                    ],
+                    "Time_Type": "Date",
+                    "id": "T2",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T8",
+                    "sent_id": "S3"
+                },
+                {
+                    "text": "05 nov 2020",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T3",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T8",
+                    "sent_id": "S0"
+                },
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "AnnotatorNotes": [
+                        "value=2020-11-05 anchorTime=Publication_Time"
+                    ],
+                    "id": "T5",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T2",
+                    "sent_id": "S4"
+                },
+                {
+                    "text": "05 nov 2020",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T3",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T2",
+                    "sent_id": "S0"
+                }
             ]
         },
         {
-            "text_sent": "\u201c N\u00e3o vou comparecer em tribunal como Presidente e, [ por isso ] renuncio hoje para proteger a integridade do Estado \u201d, disse Thaci aos jornalistas.",
+            "text": "Thaci anunciou a sua ren\u00fancia ao cargo numa confer\u00eancia de imprensa realizada hoje em Pristina, capital de Kosovo.",
+            "id": "S4",
             "events": [
                 {
-                    "text_event": "renuncio",
-                    "rel_type": "TLINK_isIncluded",
-                    "Class": "Reporting",
+                    "text": "realizada",
+                    "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
-                    "Tense": "Present",
-                    "Polarity": "Pos"
+                    "Aspect": "Perfective",
+                    "VForm": "Participle",
+                    "Polarity": "Pos",
+                    "id": "T4",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T5"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
+                    "text": "hoje",
+                    "offset": 433,
+                    "id": "T5",
                     "Time_Type": "Date",
                     "AnnotatorNotes": [
                         "value=2020-11-05 anchorTime=Publication_Time"
                     ]
                 }
             ],
-            "text_time": "hoje",
-            "Time_Type": "Date",
-            "AnnotatorNotes": [
-                "value=2020-11-05 anchorTime=Publication"
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "AnnotatorNotes": [
+                        "value=2020-11-05 anchorTime=Publication"
+                    ],
+                    "id": "T7",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T5",
+                    "sent_id": "S6"
+                }
             ]
+        },
+        {
+            "text": "\u201c N\u00e3o vou comparecer em tribunal como Presidente e, [ por isso ] renuncio hoje para proteger a integridade do Estado \u201d, disse Thaci aos jornalistas.",
+            "id": "S6",
+            "events": [
+                {
+                    "text": "renuncio",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Present",
+                    "Polarity": "Pos",
+                    "id": "T6",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T7"
+                }
+            ],
+            "times": [
+                {
+                    "text": "hoje",
+                    "offset": 541,
+                    "id": "T7",
+                    "Time_Type": "Date",
+                    "AnnotatorNotes": [
+                        "value=2020-11-05 anchorTime=Publication"
+                    ]
+                }
+            ],
+            "linked_times": []
         }
     ]
 }

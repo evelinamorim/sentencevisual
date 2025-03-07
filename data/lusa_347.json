@@ -1,101 +1,85 @@
 {
     "sentences": [
         {
-            "text_sent": "Atenas, 13 dez 2020",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "13 dez 2020",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "No s\u00e1bado, as tendas onde vivem ficaram inundadas por causa de fortes chuvadas.",
+            "text": "Quatro elementos das for\u00e7as de seguran\u00e7a gregas foram acusados de ter agredido requerentes de asilo perto do campo de Kara Tepe, na ilha de Lesbos, afirmaram hoje fontes policiais \u00e0 ag\u00eancia France Presse.",
+            "id": "S5",
             "events": [
                 {
-                    "text_event": "inundadas",
-                    "rel_type": "TLINK_isIncluded",
-                    "Class": "State",
-                    "Event_Type": "State",
-                    "Pos": "Adjective",
-                    "Tense": "Past",
-                    "Aspect": "Perfective",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "Na sexta-feira,",
-                    "rel_type": "TLINK_after",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "No s\u00e1bado ,",
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "Na sexta-feira, a pol\u00edcia grega anunciou a abertura de um inqu\u00e9rito ao sucedido.",
-            "events": [
-                {
-                    "text_event": "anunciou",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "afirmaram",
                     "Class": "Reporting",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date"
-                },
-                {
-                    "text_time2": "No s\u00e1bado,",
-                    "rel_type": "TLINK_after",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "Na sexta - feira ,",
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "Quatro elementos das for\u00e7as de seguran\u00e7a gregas foram acusados de ter agredido requerentes de asilo perto do campo de Kara Tepe, na ilha de Lesbos, afirmaram hoje fontes policiais \u00e0 ag\u00eancia France Presse.",
-            "events": [
-                {
-                    "text_event": "afirmaram",
+                    "Polarity": "Pos",
+                    "id": "T1",
                     "rel_type": "TLINK_isIncluded",
-                    "Class": "Reporting",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Tense": "Past",
-                    "Aspect": "Perfective",
-                    "Polarity": "Pos"
+                    "arg2": "T32"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "13 dez 2020",
-                    "rel_type": "TLINK_identity",
+                    "text": "hoje",
+                    "offset": 277,
+                    "id": "T32",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "13 dez 2020",
                     "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T22",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T32",
+                    "sent_id": "S0"
                 },
                 {
-                    "text_time2": "Na sexta-feira,",
+                    "text": "no s\u00e1bado",
+                    "Time_Type": "Date",
+                    "id": "T36",
                     "rel_type": "TLINK_before",
+                    "arg2": "T32",
+                    "sent_id": "S7"
+                }
+            ]
+        },
+        {
+            "text": "Os tr\u00eas guardas de fronteira e um pol\u00edcia foram acusados de agress\u00f5es, tortura e delitos racistas no s\u00e1bado depois de uma investiga\u00e7\u00e3o interna da pol\u00edcia e ficaram em liberdade \u00e0 espera de julgamento.",
+            "id": "S7",
+            "events": [
+                {
+                    "text": "acusados",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T11",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T36"
+                }
+            ],
+            "times": [
+                {
+                    "text": "no s\u00e1bado",
+                    "offset": 422,
+                    "id": "T36",
                     "Time_Type": "Date"
                 }
             ],
-            "text_time": "hoje",
-            "Time_Type": "Date"
+            "linked_times": [
+                {
+                    "text": "Na sexta-feira",
+                    "Time_Type": "Date",
+                    "id": "T33",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T36",
+                    "sent_id": "S11"
+                }
+            ]
         }
     ]
 }

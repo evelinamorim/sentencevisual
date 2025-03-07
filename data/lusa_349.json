@@ -1,42 +1,40 @@
 {
     "sentences": [
         {
-            "text_sent": "Covilh\u00e3, Castelo Branco, 12 out 2020",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "v\u00e1rios anos.",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Duration"
-                }
-            ],
-            "text_time": "12 out 2020",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "Em comunicado enviado \u00e0 ag\u00eancia Lusa, o Departamento de Investiga\u00e7\u00e3o Criminal da Guarda explica que os crimes ter\u00e3o sido praticados de forma \" reiterada \" e ao longo de v\u00e1rios anos.",
+            "text": "Em comunicado enviado \u00e0 ag\u00eancia Lusa, o Departamento de Investiga\u00e7\u00e3o Criminal da Guarda explica que os crimes ter\u00e3o sido praticados de forma \" reiterada \" e ao longo de v\u00e1rios anos.",
+            "id": "S5",
             "events": [
                 {
-                    "text_event": "praticados",
-                    "rel_type": "TLINK_simultaneous",
+                    "text": "praticados",
                     "Class": "Occurrence",
                     "Event_Type": "Process",
                     "Pos": "Verb",
                     "Polarity": "Pos",
-                    "Tense": "Future"
+                    "Tense": "Future",
+                    "id": "T4",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T25"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "12 out 2020",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
+                    "text": "v\u00e1rios anos",
+                    "offset": 536,
+                    "id": "T25",
+                    "Time_Type": "Date"
                 }
             ],
-            "text_time": "v\u00e1rios anos .",
-            "Time_Type": "Duration"
+            "linked_times": [
+                {
+                    "text": "12 out 2020",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T24",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T25",
+                    "sent_id": "S0"
+                }
+            ]
         }
     ]
 }

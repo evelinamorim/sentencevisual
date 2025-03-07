@@ -1,99 +1,81 @@
 {
     "sentences": [
         {
-            "text_sent": "Vila Verde, Braga, 27 out 2020",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "27 out 2020",
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "Em comunicado, a GNR refere que o suspeito, \u201c ao longo de 24 anos de relacionamento, coagia psicologicamente a sua mulher de 49 anos, atrav\u00e9s de amea\u00e7as e controlo excessivo \u201d.",
+            "text": "O Tribunal de Braga aplicou pulseira eletr\u00f3nica a um homem de 55 anos, de Vila Verde, suspeito de viol\u00eancia dom\u00e9stica, sendo a v\u00edtima a mulher, anunciou hoje a GNR.",
+            "id": "S7",
             "events": [
                 {
-                    "text_event": "relacionamento,",
-                    "rel_type": "TLINK_simultaneous",
-                    "Class": "Occurrence",
-                    "Event_Type": "Process",
-                    "Pos": "Noun",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "24 anos",
-            "Time_Type": "Duration"
-        },
-        {
-            "text_sent": "Na segunda-feira, a GNR deu cumprimento a um mandado de deten\u00e7\u00e3o.",
-            "events": [
-                {
-                    "text_event": "deu cumprimento a",
-                    "rel_type": "TLINK_isIncluded",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Tense": "Past",
-                    "Aspect": "Perfective",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "Na segunda - feira ,",
-            "Time_Type": "Date",
-            "Class": "Occurrence"
-        },
-        {
-            "text_sent": "O Tribunal de Braga aplicou pulseira eletr\u00f3nica a um homem de 55 anos, de Vila Verde, suspeito de viol\u00eancia dom\u00e9stica, sendo a v\u00edtima a mulher, anunciou hoje a GNR.",
-            "events": [
-                {
-                    "text_event": "anunciou",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "anunciou",
                     "Class": "Reporting",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "id": "T2",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T28"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "Na segunda-feira,",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date",
-                    "Class": "Occurrence"
-                },
-                {
-                    "text_time2": "27 out 2020",
-                    "rel_type": "TLINK_identity",
+                    "text": "hoje",
+                    "offset": 266,
+                    "id": "T28",
                     "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "Na segunda-feira",
+                    "Time_Type": "Date",
+                    "id": "T30",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T28",
+                    "sent_id": "S13"
                 },
                 {
-                    "text_time2": "24 anos",
+                    "text": "27 out 2020",
+                    "Time_Type": "Date",
+                    "id": "T27",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T28",
+                    "sent_id": "S0"
+                },
+                {
+                    "text": "24 anos",
+                    "Time_Type": "Duration",
+                    "id": "T29",
                     "rel_type": "TLINK_before",
+                    "arg2": "T28",
+                    "sent_id": "S9"
+                }
+            ]
+        },
+        {
+            "text": "Em comunicado, a GNR refere que o suspeito, \u201c ao longo de 24 anos de relacionamento, coagia psicologicamente a sua mulher de 49 anos, atrav\u00e9s de amea\u00e7as e controlo excessivo \u201d.",
+            "id": "S9",
+            "events": [
+                {
+                    "text": "relacionamento",
+                    "Class": "Occurrence",
+                    "Event_Type": "Process",
+                    "Pos": "Noun",
+                    "Polarity": "Pos",
+                    "id": "T16",
+                    "rel_type": "TLINK_simultaneous",
+                    "arg2": "T29"
+                }
+            ],
+            "times": [
+                {
+                    "text": "24 anos",
+                    "offset": 335,
+                    "id": "T29",
                     "Time_Type": "Duration"
                 }
             ],
-            "text_time": "hoje",
-            "Time_Type": "Date"
+            "linked_times": []
         }
     ]
 }

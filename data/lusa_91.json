@@ -1,72 +1,76 @@
 {
     "sentences": [
         {
-            "text_sent": "Montemor-o - Velho, Coimbra, 13 nov 2021",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "hoje,",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "13 nov 2021",
-            "TemporalFunction": "Publication_Time",
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "Um homem de 44 anos foi detido hoje, em Montemor-o - Velho, na sequ\u00eancia de dois mandados de busca por suspeitas de tr\u00e1fico de drogas, anunciou a GNR.",
+            "text": "Um homem de 44 anos foi detido hoje, em Montemor-o - Velho, na sequ\u00eancia de dois mandados de busca por suspeitas de tr\u00e1fico de drogas, anunciou a GNR.",
+            "id": "S3",
             "events": [
                 {
-                    "text_event": "detido",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "detido",
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "id": "T1",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T26"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "h\u00e1 cerca de um m\u00eas,",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Duration"
-                },
-                {
-                    "text_time2": "13 nov 2021",
-                    "rel_type": "TLINK_identity",
-                    "TemporalFunction": "Publication_Time",
+                    "text": "hoje",
+                    "offset": 148,
+                    "id": "T26",
                     "Time_Type": "Date"
                 }
             ],
-            "text_time": "hoje ,",
-            "Time_Type": "Date"
+            "linked_times": [
+                {
+                    "text": "h\u00e1 cerca de um m\u00eas",
+                    "Time_Type": "Date",
+                    "id": "T27",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T26",
+                    "sent_id": "S6"
+                },
+                {
+                    "text": "13 nov 2021",
+                    "TemporalFunction": "Publication_Time",
+                    "Time_Type": "Date",
+                    "id": "T25",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T26",
+                    "sent_id": "S0"
+                }
+            ]
         },
         {
-            "text_sent": "\u201c No \u00e2mbito de um processo de investiga\u00e7\u00e3o por tr\u00e1fico de estupefacientes, que decorria h\u00e1 cerca de um m\u00eas, foi dado cumprimento a dois mandados de busca, uma domicili\u00e1ria e outra em ve\u00edculo \u201d, adianta.",
+            "text": "\u201c No \u00e2mbito de um processo de investiga\u00e7\u00e3o por tr\u00e1fico de estupefacientes, que decorria h\u00e1 cerca de um m\u00eas, foi dado cumprimento a dois mandados de busca, uma domicili\u00e1ria e outra em ve\u00edculo \u201d, adianta.",
+            "id": "S6",
             "events": [
                 {
-                    "text_event": "decorria",
-                    "rel_type": "TLINK_simultaneous",
+                    "text": "decorria",
                     "Class": "State",
                     "Event_Type": "State",
                     "Pos": "Verb",
                     "Tense": "Imperfect",
                     "Aspect": "Imperfective",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "id": "T6",
+                    "rel_type": "TLINK_begunBy",
+                    "arg2": "T27"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "hoje,",
-                    "rel_type": "TLINK_before",
+                    "text": "h\u00e1 cerca de um m\u00eas",
+                    "offset": 569,
+                    "id": "T27",
                     "Time_Type": "Date"
                 }
             ],
-            "text_time": "h\u00e1 cerca de um m\u00eas ,",
-            "Time_Type": "Duration"
+            "linked_times": []
         }
     ]
 }

@@ -1,77 +1,63 @@
 {
     "sentences": [
         {
-            "text_sent": "Cidade do M\u00e9xico, 16 out 2020",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "na quinta-feira",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date",
-                    "AnnotatorNotes": [
-                        "value=2020-10-15 anchorTime=Publication_Time"
-                    ]
-                }
-            ],
-            "text_time": "16 out 2020",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "O ex - ministro da Defesa do M\u00e9xico, o general Salvador Cienfuegos, foi detido em Los Angeles, nos Estados Unidos, adiantou na quinta-feira o respons\u00e1vel pela diplomacia mexicana.",
+            "text": "Ebrard disse que o ex - governante foi detido no aeroporto internacional de Los Angeles, mas n\u00e3o adiantou quais os motivos, referindo apenas que o c\u00f4nsul do M\u00e9xico naquela cidade lhe daria mais detalhes \" nas pr\u00f3ximas horas \" e que Cienfuegos tinha o direito de receber apoio consular.",
+            "id": "S7",
             "events": [
                 {
-                    "text_event": "adiantou",
-                    "rel_type": "TLINK_isIncluded",
-                    "Class": "Reporting",
+                    "text": "daria",
+                    "Class": "Occurrence",
                     "Tense": "Past",
                     "Polarity": "Pos",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
-                    "Aspect": "Perfective"
+                    "Aspect": "Perfective",
+                    "Mood": "Conditional",
+                    "id": "T40",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T23"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "16 out 2020",
-                    "rel_type": "TLINK_before",
-                    "TemporalFunction": "Publication_Time"
-                },
-                {
-                    "text_time2": "nas pr\u00f3ximas horas \"",
-                    "rel_type": "TLINK_after"
+                    "text": "nas pr\u00f3ximas horas \"",
+                    "offset": 725,
+                    "id": "T23",
+                    "Time_Type": "Time"
                 }
             ],
-            "text_time": "na quinta - feira",
-            "Time_Type": "Date",
-            "AnnotatorNotes": [
-                "value=2020-10-15 anchorTime=Publication_Time"
-            ]
-        },
-        {
-            "text_sent": "Ebrard disse que o ex - governante foi detido no aeroporto internacional de Los Angeles, mas n\u00e3o adiantou quais os motivos, referindo apenas que o c\u00f4nsul do M\u00e9xico naquela cidade lhe daria mais detalhes \" nas pr\u00f3ximas horas \" e que Cienfuegos tinha o direito de receber apoio consular.",
-            "events": [
+            "linked_times": [
                 {
-                    "text_event": "daria",
-                    "rel_type": "TLINK_simultaneous",
-                    "Class": "State",
-                    "Tense": "Imperfect",
-                    "Polarity": "Pos",
-                    "Event_Type": "State",
-                    "Pos": "Verb",
-                    "Aspect": "Imperfective"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "na quinta-feira",
-                    "rel_type": "TLINK_after",
+                    "text": "na quinta-feira",
                     "Time_Type": "Date",
                     "AnnotatorNotes": [
                         "value=2020-10-15 anchorTime=Publication_Time"
-                    ]
+                    ],
+                    "id": "T20",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T23",
+                    "sent_id": "S2"
+                },
+                {
+                    "text": "na quinta-feira",
+                    "Time_Type": "Date",
+                    "AnnotatorNotes": [
+                        "value=2020-10-15 anchorTime=Publication_Time"
+                    ],
+                    "id": "T20",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T23",
+                    "sent_id": "S2"
+                },
+                {
+                    "text": "2018",
+                    "Time_Type": "Date",
+                    "id": "T22",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T23",
+                    "sent_id": "S6"
                 }
-            ],
-            "text_time": "nas pr\u00f3ximas horas \""
+            ]
         }
     ]
 }

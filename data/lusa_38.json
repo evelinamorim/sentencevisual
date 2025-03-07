@@ -1,101 +1,145 @@
 {
     "sentences": [
         {
-            "text_sent": "Porto, 16 nov 2020",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "no domingo \u00e0 noite,",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Time"
-                }
-            ],
-            "text_time": "16 nov 2020",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "Um homem, com cerca de 30 anos, morreu no domingo \u00e0 noite, em Cete, no concelho de Paredes, ap\u00f3s ter sido atacado com uma arma branca, disse \u00e0 Lusa fonte da GNR.",
+            "text": "Um homem, com cerca de 30 anos, morreu no domingo \u00e0 noite, em Cete, no concelho de Paredes, ap\u00f3s ter sido atacado com uma arma branca, disse \u00e0 Lusa fonte da GNR.",
+            "id": "S4",
             "events": [
                 {
-                    "text_event": "morreu",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "morreu",
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "pelas 22:00 de domingo,",
-                    "rel_type": "TLINK_isIncluded",
-                    "Time_Type": "Time"
-                },
-                {
-                    "text_time2": "16 nov 2020",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
-                }
-            ],
-            "text_time": "no domingo \u00e0 noite ,",
-            "Time_Type": "Time"
-        },
-        {
-            "text_sent": "Segundo a mesma fonte, o suspeito do \" hom\u00edcidio \", que aconteceu pelas 22:00 de domingo, estava pelas 00:30 de hoje \" em fuga \", estando a GNR \" a desenvolver dilig\u00eancias para encontrar o suspeito \", que \u00e9 tamb\u00e9m um homem com cerca de 30 anos.",
-            "events": [
-                {
-                    "text_event": "aconteceu",
-                    "rel_type": "TLINK_simultaneous",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Tense": "Past",
-                    "Aspect": "Perfective",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "no domingo \u00e0 noite,",
-                    "rel_type": "TLINK_isIncluded",
-                    "Time_Type": "Time"
-                },
-                {
-                    "text_time2": "pelas 00:30 de hoje",
-                    "rel_type": "TLINK_after",
-                    "Time_Type": "Time"
-                }
-            ],
-            "text_time": "pelas 22:00 de domingo ,",
-            "Time_Type": "Time"
-        },
-        {
-            "text_sent": "Segundo a mesma fonte, o suspeito do \" hom\u00edcidio \", que aconteceu pelas 22:00 de domingo, estava pelas 00:30 de hoje \" em fuga \", estando a GNR \" a desenvolver dilig\u00eancias para encontrar o suspeito \", que \u00e9 tamb\u00e9m um homem com cerca de 30 anos.",
-            "events": [
-                {
-                    "text_event": "em fuga \"",
-                    "rel_type": "TLINK_simultaneous",
                     "Polarity": "Pos",
+                    "id": "T2",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T4"
+                }
+            ],
+            "times": [
+                {
+                    "text": "no domingo",
+                    "offset": 118,
+                    "id": "T4",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text": "noite",
+                    "offset": 131,
+                    "id": "T21",
+                    "Time_Type": "Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "16 nov 2020",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T1",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T4",
+                    "sent_id": "S0"
+                },
+                {
+                    "text": "noite",
+                    "Time_Type": "Time",
+                    "id": "T21",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T4",
+                    "sent_id": "S4"
+                },
+                {
+                    "text": "pelas 22:00",
+                    "Time_Type": "Time",
+                    "id": "T6",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T21",
+                    "sent_id": "S6"
+                }
+            ]
+        },
+        {
+            "text": "Segundo a mesma fonte, o suspeito do \" hom\u00edcidio \", que aconteceu pelas 22:00 de domingo, estava pelas 00:30 de hoje \" em fuga \", estando a GNR \" a desenvolver dilig\u00eancias para encontrar o suspeito \", que \u00e9 tamb\u00e9m um homem com cerca de 30 anos.",
+            "id": "S6",
+            "events": [
+                {
+                    "text": "aconteceu",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
                     "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T5",
+                    "rel_type": "TLINK_simultaneous",
+                    "arg2": "T6"
+                },
+                {
+                    "text": "em fuga \"",
+                    "Polarity": "Pos",
+                    "Pos": "Preposition",
                     "Aspect": "Imperfective",
                     "Class": "State",
                     "Event_Type": "State",
-                    "Tense": "Imperfect"
+                    "Tense": "Imperfect",
+                    "id": "T14",
+                    "rel_type": "TLINK_simultaneous",
+                    "arg2": "T8"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "pelas 22:00 de domingo,",
-                    "rel_type": "TLINK_after",
+                    "text": "pelas 22:00",
+                    "offset": 305,
+                    "id": "T6",
                     "Time_Type": "Time"
+                },
+                {
+                    "text": "domingo",
+                    "offset": 320,
+                    "id": "T23",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text": "pelas 00:30",
+                    "offset": 336,
+                    "id": "T8",
+                    "Time_Type": "Time"
+                },
+                {
+                    "text": "hoje",
+                    "offset": 351,
+                    "id": "T25",
+                    "Time_Type": "Date"
                 }
             ],
-            "text_time": "pelas 00:30 de hoje",
-            "Time_Type": "Time"
+            "linked_times": [
+                {
+                    "text": "domingo",
+                    "Time_Type": "Date",
+                    "id": "T23",
+                    "rel_type": "TLINK_includes",
+                    "arg2": "T6",
+                    "sent_id": "S6"
+                },
+                {
+                    "text": "pelas 00:30",
+                    "Time_Type": "Time",
+                    "id": "T8",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T23",
+                    "sent_id": "S6"
+                },
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T25",
+                    "rel_type": "TLINK_includes",
+                    "arg2": "T8",
+                    "sent_id": "S6"
+                }
+            ]
         }
     ]
 }

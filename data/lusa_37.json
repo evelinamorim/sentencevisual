@@ -1,72 +1,76 @@
 {
     "sentences": [
         {
-            "text_sent": "Almada, Set\u00fabal, 15 nov 2020",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "15 nov 2020",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "A GNR anunciou hoje que terminou uma festa que reunia cerca de 30 pessoas em desrespeito das normas referentes ao combate \u00e0 covid-19, tendo ainda identificado uma mulher de 40 anos, no concelho de Almada (Set\u00fabal).",
+            "text": "A GNR anunciou hoje que terminou uma festa que reunia cerca de 30 pessoas em desrespeito das normas referentes ao combate \u00e0 covid-19, tendo ainda identificado uma mulher de 40 anos, no concelho de Almada (Set\u00fabal).",
+            "id": "S4",
             "events": [
                 {
-                    "text_event": "anunciou",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "anunciou",
                     "Class": "Reporting",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "id": "T26",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T3"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "15 nov 2020",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
-                },
-                {
-                    "text_time2": "no s\u00e1bado",
-                    "rel_type": "TLINK_before",
+                    "text": "hoje",
+                    "offset": 117,
+                    "id": "T3",
                     "Time_Type": "Date"
                 }
             ],
-            "text_time": "hoje",
-            "Time_Type": "Date"
+            "linked_times": [
+                {
+                    "text": "15 nov 2020",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T1",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T3",
+                    "sent_id": "S0"
+                },
+                {
+                    "text": "no s\u00e1bado",
+                    "Time_Type": "Date",
+                    "id": "T52",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T3",
+                    "sent_id": "S6"
+                }
+            ]
         },
         {
-            "text_sent": "O Comando Territorial de Set\u00fabal da GNR explica, em comunicado, que cessou no s\u00e1bado uma festa no Monte da Caparica, concelho de Almada, na sequ\u00eancia de uma den\u00fancia que dava conta de um evento no interior de uma habita\u00e7\u00e3o.",
+            "text": "O Comando Territorial de Set\u00fabal da GNR explica, em comunicado, que cessou no s\u00e1bado uma festa no Monte da Caparica, concelho de Almada, na sequ\u00eancia de uma den\u00fancia que dava conta de um evento no interior de uma habita\u00e7\u00e3o.",
+            "id": "S6",
             "events": [
                 {
-                    "text_event": "cessou",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "cessou",
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "id": "T9",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T52"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_before",
+                    "text": "no s\u00e1bado",
+                    "offset": 392,
+                    "id": "T52",
                     "Time_Type": "Date"
                 }
             ],
-            "text_time": "no s\u00e1bado",
-            "Time_Type": "Date"
+            "linked_times": []
         }
     ]
 }
