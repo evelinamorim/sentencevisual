@@ -53,7 +53,7 @@ function visualizeJSON(fileName) {
 // Render sentences with events and time expressions
 function renderSentences(sentences) {
     setupVisualization();
-    console.log(sentences)
+
     const results = sentences.map((sentence, index) => renderSentenceTimeline(sentence, index));
 
     const allFragments = results.map(r => r.fragments);
@@ -66,18 +66,35 @@ function renderSentences(sentences) {
 let sharedSVG;
 function setupVisualization() {
     const wrapper = d3.select("#visualization-wrapper");
-    wrapper.style("height", "auto");
-    wrapper.style("position", "relative");
-    wrapper.style("margin","20px")
+    wrapper
+        .style("position", "relative")  // Change from "relative" to "fixed"
+        .style("left", "auto")          // Anchor to left edge
+        .style("top", "auto")           // Anchor to top (adjust if needed)
+        .style("margin", "0")     // Keep your margin
+        .style("z-index", "10")   // Ensure it stays above other content
+        .style("width", "100%")  // Set explicit width (adjust as needed)
+        .style("height", "auto")  // Ensure vertical containment
+        .style("display","flex")
+        .style("flex-direction","row")
+        .style("padding","10px")
+        .style("overflow", "visible");  // Make it scrollable
 
-    const container = d3.select("#visualization")
-        .html("")
-        .style("position", "relative")
-        .style("z-index", "2");
 
     wrapper.selectAll("svg.arrows").remove();
 
-    sharedSVG = wrapper.append("svg")
+    wrapper.append("div")
+        .attr("class", "sentences-column")
+        .style("width", "40%")
+        .style("overflow-y", "auto");
+
+    // Create timeline column (right side)
+    const timelineColumn = wrapper.append("div")
+        .attr("class", "timeline-column")
+        .style("width", "60%")
+        .style("position", "relative")
+        .style("overflow","hidden");
+
+    sharedSVG = timelineColumn.append("svg")
         .attr("class", "arrows")
         .style("position", "absolute")
         .style("top", "0")
@@ -99,7 +116,8 @@ function setupVisualization() {
         .attr("orient", "auto")
         .append("path")
         .attr("d", "M0,-5L10,0L0,5")
-        .attr("fill", "black");
+        .attr("fill", "black")
+        .style("outline", "1px solid red"); ;
 
 }
 
@@ -109,21 +127,22 @@ function renderTimeline(allFragments, allLinkedTimes) {
 
 
     const wrapper = d3.select("#visualization-wrapper");
+    const timelineColumn = d3.select(".timeline-column");
 
-    const timelineContainer = wrapper.append("div")
-        .style("display", "flex")
-        .style("flex-direction", "column")
-        .style("align-items", "center")
-        .style("gap", "20px")
-        .style("margin", "20px");
-
-    const eventsContainer = wrapper.append("div")
+    const eventsContainer = timelineColumn.append("div")
         .style("position", "absolute")
+        .style("z-index","2")
         .style("left", "0")
         .style("top", "0")
         .style("width", "100%")
         .style("height", "100%")
         .style("pointer-events", "none");
+
+    const timelineContainer = timelineColumn.append("div")
+        .style("display", "flex")
+        .style("flex-direction", "column")
+        .style("align-items", "center");
+
 
     const timeBoxes = [];
     // Render yellow boxes
@@ -152,6 +171,7 @@ function renderTimeline(allFragments, allLinkedTimes) {
     });
 
     const eventBoxes = []
+    const timelineColumnRect = timelineColumn.node().getBoundingClientRect();
     allFragments.forEach(fragments => {
         fragments.forEach(fragment => {
             if (fragment.type == "blue-box") {
@@ -169,8 +189,8 @@ function renderTimeline(allFragments, allLinkedTimes) {
                     .style("border", "2px solid #99ccff")
                     .style("position", "absolute")
                     .style("left", function(){
-                        const wrapperWidth = wrapper.node().getBoundingClientRect().width;
-                        return (wrapperWidth / 2 - 200) + "px";
+                        const timelineWidth = timelineColumn.node().getBoundingClientRect().width;
+                        return (timelineWidth / 2 - 200) + "px";
                     }) // Fixed position from left
                     .style("top", function() {
                         // Find the connected time box and align with it
@@ -179,7 +199,7 @@ function renderTimeline(allFragments, allLinkedTimes) {
                             if (connectedTime) {
                                 const timeRect = connectedTime.element.node().getBoundingClientRect();
                                 const wrapperRect = wrapper.node().getBoundingClientRect();
-                                return (timeRect.top - wrapperRect.top + timeRect.height/2 - 25) + "px";
+                                return (timeRect.top - timelineColumnRect.top + timeRect.height/2 - 25) + "px";
                             }
                         }
                         return "20px"; // Default position
@@ -238,12 +258,13 @@ function renderTimeline(allFragments, allLinkedTimes) {
 
     function createArrows() {
         try {
-            const wrapperRect = wrapper.node().getBoundingClientRect();
+            //const wrapperRect = wrapper.node().getBoundingClientRect();
+            const timelineColumnRect = timelineColumn.node().getBoundingClientRect();
 
             // Set SVG dimensions
             sharedSVG
-                .attr("width", wrapperRect.width)
-                .attr("height", wrapperRect.height);
+                .attr("width", timelineColumnRect.width)
+                .attr("height", timelineColumnRect.height);
 
 
             allLinkedTimes.flat().forEach(ext => {
@@ -252,7 +273,7 @@ function renderTimeline(allFragments, allLinkedTimes) {
 
                 if (!textElement || !arg2Element) return;
 
-                drawConnection(textElement, arg2Element, ext.rel_type, wrapperRect,"time");
+                drawConnection(textElement, arg2Element, ext.rel_type, timelineColumnRect,"time");
             });
 
             // Draw event-based connections
@@ -263,7 +284,7 @@ function renderTimeline(allFragments, allLinkedTimes) {
 
                     if (!eventElement || !timeElement) return;
 
-                    drawConnection(eventElement, timeElement, fragment.event.rel_type, wrapperRect,"event");
+                    drawConnection(eventElement, timeElement, fragment.event.rel_type, timelineColumnRect,"event");
                 }
             });
 
@@ -276,20 +297,22 @@ function renderTimeline(allFragments, allLinkedTimes) {
         const rect1 = element1.getBoundingClientRect();
         const rect2 = element2.getBoundingClientRect();
 
+        const timelineColumnRect = timelineColumn.node().getBoundingClientRect();
+
         const trimmedRelType = relType.includes('_')
             ? relType.split('_')[1]
             : relType;
 
         const { startX, startY, endX, endY, isVertical } = getConnectionPoints(
             {
-                top: rect1.top - wrapperRect.top,
-                left: rect1.left - wrapperRect.left,
+                top: rect1.top - timelineColumnRect.top,
+                left: rect1.left - timelineColumnRect.left,
                 width: rect1.width,
                 height: rect1.height
             },
             {
-                top: rect2.top - wrapperRect.top,
-                left: rect2.left - wrapperRect.left,
+                top: rect2.top - timelineColumnRect.top,
+                left: rect2.left - timelineColumnRect.left,
                 width: rect2.width,
                 height: rect2.height
             }
@@ -364,21 +387,22 @@ function renderTimeline(allFragments, allLinkedTimes) {
     createArrows();
     const handleResize = debounce(() => {
         sharedSVG.selectAll("*").remove();
+
         // Update event positions
         eventBoxes.forEach(eb => {
-            const wrapperWidth = wrapper.node().getBoundingClientRect().width;
+            const timelineColumnRectCurrent = timelineColumn.node().getBoundingClientRect();
 
             eb.element
                 .style("left", () => {
-                    return (wrapperWidth / 2 - 200) + "px";
+                    const timelineWidth = timelineColumn.node().getBoundingClientRect().width;
+                    return (timelineWidth / 2 - 200) + "px";
                 })
                 .style("top", function() {
                     if (eb.fragment.event.arg2) {
                         const connectedTime = timeBoxes.find(t => t.id === eb.fragment.event.arg2);
                         if (connectedTime) {
                             const timeRect = connectedTime.element.node().getBoundingClientRect();
-                            const wrapperRect = wrapper.node().getBoundingClientRect();
-                            return (timeRect.top - wrapperRect.top + timeRect.height/2 - 25) + "px";
+                            return (timeRect.top - timelineColumnRectCurrent.top + timeRect.height/2 - 25) + "px";
                         }
                     }
                     return "20px";
@@ -400,19 +424,19 @@ function renderSentenceTimeline(sentence, index) {
     const wrapper = d3.select("#visualization-wrapper");
     const container = d3.select(".sentences-container");
 
-    const sentenceContainer = container
+    // Get the sentences column (left)
+    const textContainer = d3.select(".sentences-column")
         .append("div")
-        .attr("class", "sentence")
-        .style("position", "relative")
-        .style("z-index", "2");
+        .attr("class", "sentence-text")
+        .attr("data-sentence-index", index)
+        .style("margin-bottom", "10px")
+        .style("padding", "15px")
+        .style("background", "#f8f8f8");
 
-    const sentenceText = sentenceContainer
-        .append("div")
-        .style("position", "relative")
-        .style("z-index", "2");
+    // Add sentence text to left column
+    textContainer.text(sentence.text);
 
     const fragments = createFragments(sentence.text, sentence);
-    //const { eventElements, timeElements } = categorizeElements(sentenceText, fragments);
     return {
         fragments: fragments,
         linkedTimes: sentence.linked_times

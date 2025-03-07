@@ -6,25 +6,39 @@
     <title>JSON Visualizer</title>
     <!-- D3.js for visualization -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
-    <link rel="stylesheet" href="/jsonvisual/static/styles.css">
-
+    <!--<link rel="stylesheet" href="/jsonvisual/static/styles.css">-->
+    <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Sentence Annotation Visualizer</h1>
-        <div class="upload-section">
-            <select id="fileSelect" onchange="visualizeJSON(this.value)">
-                <option value="">Select a file</option>    
-            </select>
-        </div>
-         <div id="visualization-wrapper">
-            <div id="visualization"></div>
+<h1>Sentence Annotation Visualizer</h1>
 
-            <div id="tooltip" class="tooltip"></div>
-         </div>
+<div class="container">
+    <!-- Left Column -->
+    <div class="instructions-column">
+        <div class="instruction-section">
+            <h2>Instructions</h2>
+            <p> Each time expression is shown inside a yellow box and their order is the same that they appear in the text, the first is shown first, etc. </p>
+            Select a file and click on the time expression or event to display its sentence and respective attributes
+        </div>
     </div>
 
-        <script src="/jsonvisual/static/scripts.js"></script>
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="upload-section">
+            <select id="fileSelect" onchange="visualizeJSON(this.value)">
+                <option value="">Select a file</option>
+            </select>
+        </div>
+        <div id="visualization-wrapper">
+            <div id="visualization"></div>
+            <div id="tooltip" class="tooltip"></div>
+        </div>
+    </div>
+</div>
+
+
+        <!--<script src="/jsonvisual/static/scripts.js"></script>-->
+    <script src="static/scripts.js"></script>
 </body>
 </html>
 
