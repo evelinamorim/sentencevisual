@@ -9,6 +9,12 @@ function populateFileDropdown() {
             // Clear existing options (if any)
             fileSelect.innerHTML = '<option value="">Select a file</option>';
 
+            files.sort((a, b) => {
+                const numA = parseInt(a.match(/\d+/)[0], 10);
+                const numB = parseInt(b.match(/\d+/)[0], 10);
+                return numA - numB;
+            });
+
             // Populate with files from the server
             files.forEach(file => {
                 const option = document.createElement('option');
@@ -190,7 +196,7 @@ function renderTimeline(allFragments, allLinkedTimes) {
                     .style("position", "absolute")
                     .style("left", function(){
                         const timelineWidth = timelineColumn.node().getBoundingClientRect().width;
-                        return (timelineWidth / 2 - 200) + "px";
+                        return (timelineWidth / 2 - 290) + "px";
                     }) // Fixed position from left
                     .style("top", function() {
                         // Find the connected time box and align with it
