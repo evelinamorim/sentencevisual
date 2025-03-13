@@ -441,10 +441,12 @@ function renderSentenceTimeline(sentence, index) {
 
     // Add sentence text to left column
     //textContainer.text(sentence.text);
+    const addedEventIds = new Set();
 
     const fragments = createFragments(sentence.text, sentence);
-
+    console.log(sentence.text);
     fragments.forEach(fragment => {
+
         if (fragment.type === "yellow-box") {
             textContainer.append("span")
                 .style("background-color", "#ffff00") // Yellow highlight
@@ -453,11 +455,15 @@ function renderSentenceTimeline(sentence, index) {
                 .text(fragment.time.text);
 
         } else if (fragment.type === "blue-box") {
-            textContainer.append("span")
-                .style("background-color", "#b3d9ff") // Blue highlight
-                .style("padding", "2px")
-                .style("border-radius", "3px")
-                .text(fragment.event.text);
+            if (!addedEventIds.has(fragment.event.id)) {
+                addedEventIds.add(fragment.event.id); // Mark as added
+
+                textContainer.append("span")
+                    .style("background-color", "#b3d9ff") // Blue highlight
+                    .style("padding", "2px")
+                    .style("border-radius", "3px")
+                    .text(fragment.event.text);
+            }
         } else {
             textContainer.append("span")
                 .text(fragment.text); // Regular text
@@ -467,27 +473,6 @@ function renderSentenceTimeline(sentence, index) {
         fragments: fragments,
         linkedTimes: sentence.linked_times
     };
-}
-
-function renderSentenceMode(sentence, index) {
-    const wrapper = d3.select("#visualization-wrapper");
-    const container = d3.select(".sentences-container");
-
-    const sentenceContainer = container
-        .append("div")
-        .attr("class", "sentence")
-        .style("position", "relative")
-        .style("z-index", "2");
-
-    const sentenceText = sentenceContainer
-        .append("div")
-        .style("position", "relative")
-        .style("z-index", "2");
-
-    const fragments = createFragments(sentence.text_sent, sentence);
-    const { eventElements, timeElements } = categorizeElements(sentenceText, fragments);
-
-
 }
 
 
