@@ -56,19 +56,6 @@ function visualizeJSON(fileName) {
 
 }
 
-// Render sentences with events and time expressions
-function renderSentences(sentences) {
-    setupVisualization();
-
-    const results = sentences.map((sentence, index) => renderSentenceTimeline(sentence, index));
-
-    const allFragments = results.map(r => r.fragments);
-    const allLinkedTimes = results.map(r => r.linkedTimes);
-
-    const cleanup = renderTimeline(allFragments, allLinkedTimes);
-
-}
-
 let sharedSVG;
 function setupVisualization() {
     const wrapper = d3.select("#visualization-wrapper");
@@ -127,7 +114,68 @@ function setupVisualization() {
 
 }
 
-const cleanupFunctions = new Map();
+
+// Render sentences with events and time expressions
+function renderSentences(sentences) {
+    setupVisualization();
+
+    const results = sentences.map((sentence, index) => renderSentenceTimeline(sentence, index));
+
+    const allFragments = results.map(r => r.fragments);
+    const allLinkedTimes = results.map(r => r.linkedTimes);
+
+    const cleanup = renderTimeline(allFragments, allLinkedTimes);
+
+}
+
+function renderSentenceTimeline(sentence, index) {
+    const wrapper = d3.select("#visualization-wrapper");
+    const container = d3.select(".sentences-container");
+
+    // Get the sentences column (left)
+    const textContainer = d3.select(".sentences-column")
+        .append("div")
+        .attr("class", "sentence-text")
+        .attr("data-sentence-index", index)
+        .style("margin-bottom", "10px")
+        .style("padding", "15px")
+        .style("background", "#f8f8f8");
+
+    // Add sentence text to left column
+    //textContainer.text(sentence.text);
+    const addedEventIds = new Set();
+
+    const fragments = createFragments(sentence.text, sentence);
+    console.log(sentence.text);
+    fragments.forEach(fragment => {
+
+        if (fragment.type === "yellow-box") {
+            textContainer.append("span")
+                .style("background-color", "#ffff00") // Yellow highlight
+                .style("padding", "2px")
+                .style("border-radius", "3px")
+                .text(fragment.time.text);
+
+        } else if (fragment.type === "blue-box") {
+            if (!addedEventIds.has(fragment.event.id)) {
+                addedEventIds.add(fragment.event.id); // Mark as added
+
+                textContainer.append("span")
+                    .style("background-color", "#b3d9ff") // Blue highlight
+                    .style("padding", "2px")
+                    .style("border-radius", "3px")
+                    .text(fragment.event.text);
+            }
+        } else {
+            textContainer.append("span")
+                .text(fragment.text); // Regular text
+        }
+    });
+    return {
+        fragments: fragments,
+        linkedTimes: sentence.linked_times
+    };
+}
 
 function renderTimeline(allFragments, allLinkedTimes) {
 
@@ -176,11 +224,15 @@ function renderTimeline(allFragments, allLinkedTimes) {
         });
     });
 
+    const addedEventIds = new Set();
     const eventBoxes = []
     const timelineColumnRect = timelineColumn.node().getBoundingClientRect();
     allFragments.forEach(fragments => {
         fragments.forEach(fragment => {
-            if (fragment.type == "blue-box") {
+            if (fragment.type == "blue-box" && !addedEventIds.has(fragment.event.id)) {
+
+                addedEventIds.add(fragment.event.id);
+
                 const eventBox = eventsContainer.append("div")
                     .attr("id", `event-${fragment.event.id}`)
                     .style("width", "50px")
@@ -426,56 +478,6 @@ function renderTimeline(allFragments, allLinkedTimes) {
     };
 }
 
-function renderSentenceTimeline(sentence, index) {
-    const wrapper = d3.select("#visualization-wrapper");
-    const container = d3.select(".sentences-container");
-
-    // Get the sentences column (left)
-    const textContainer = d3.select(".sentences-column")
-        .append("div")
-        .attr("class", "sentence-text")
-        .attr("data-sentence-index", index)
-        .style("margin-bottom", "10px")
-        .style("padding", "15px")
-        .style("background", "#f8f8f8");
-
-    // Add sentence text to left column
-    //textContainer.text(sentence.text);
-    const addedEventIds = new Set();
-
-    const fragments = createFragments(sentence.text, sentence);
-    console.log(sentence.text);
-    fragments.forEach(fragment => {
-
-        if (fragment.type === "yellow-box") {
-            textContainer.append("span")
-                .style("background-color", "#ffff00") // Yellow highlight
-                .style("padding", "2px")
-                .style("border-radius", "3px")
-                .text(fragment.time.text);
-
-        } else if (fragment.type === "blue-box") {
-            if (!addedEventIds.has(fragment.event.id)) {
-                addedEventIds.add(fragment.event.id); // Mark as added
-
-                textContainer.append("span")
-                    .style("background-color", "#b3d9ff") // Blue highlight
-                    .style("padding", "2px")
-                    .style("border-radius", "3px")
-                    .text(fragment.event.text);
-            }
-        } else {
-            textContainer.append("span")
-                .text(fragment.text); // Regular text
-        }
-    });
-    return {
-        fragments: fragments,
-        linkedTimes: sentence.linked_times
-    };
-}
-
-
 function createFragments(text, sentence) {
 
     let fragments = [];
@@ -516,313 +518,6 @@ function createFragments(text, sentence) {
     }
 
     return fragments;
-}
-
-
-function createAttributeCard(container, title, attributes, backgroundColor) {
-    const card = container.append("div")
-        .attr("class", "attribute-card")
-        .style("background-color", backgroundColor); // Keep dynamic background color here
-
-    // Add title
-    card.append("div")
-        .attr("class", "attribute-card-title")
-        .text(title);
-
-    // Add attributes
-    const attributeList = card.append("table")
-        .attr("class", "attribute-card-list");
-
-    Object.entries(attributes).forEach(([key, value]) => {
-        if (key === "rel_type") return;
-        const row = attributeList.append("tr");
-        // Term
-        row.append("td")
-            .attr("class", "attribute-card-term")
-            .text(`${key}:`);
-
-        // Definition
-        row.append("dd")
-            .attr("class", "attribute-card-definition")
-            .text(value);
-    });
-
-    return card;
-}
-
-
-
-function categorizeElements(sentenceText, fragments) {
-    // Create all spans first
-    /*const spans = fragments.map(fragment => {
-        const span = sentenceText.append("span")
-            .text(fragment.text);
-
-        if (fragment.type !== 'normal') {
-            span.attr("class", fragment.type)
-                .style("position", "relative")
-                .style("display", "inline-block"); // Ensure stable layout
-        }
-
-        return span;
-    });*/
-
-    // Then collect and configure special elements
-    const eventElements = [];
-    const timeElements = [];
-    const eventFragments = [];
-    const timeFragments = [];
-
-    /*spans.forEach((span, i) => {
-        const fragment = fragments[i];
-        if (fragment.type === "blue-box") {
-            span.attr("data-rel-type", fragment.event?.rel_type || '')
-                .attr("data-id", fragment.event?.event_id || '')
-                .attr("arg2", fragment.event?.arg2 || '');
-
-            eventFragments.push(fragment.event);
-            eventElements.push(span.node());
-        } else if (fragment.type === "yellow-box") {
-            const timeFragment = {
-                TemporalFunction: fragment.TemporalFunction,
-                TimeType: fragment.TimeType
-            };
-
-            span.attr("data-id", fragment.TimeId);
-            timeFragments.push(timeFragment);
-            timeElements.push(span.node());
-        }
-    });*/
-
-    // Create cards container with explicit positioning
-    const cardsContainer = d3.select(sentenceText.node().parentNode)
-        .append("div")
-        .style("display", "flex")
-        .style("margin-top", "20px")
-        .style("gap", "16px")
-        .style("position", "relative");
-
-    // Create cards
-    // eventFragments.forEach(e => createAttributeCard(cardsContainer, "Event's Atributes", e, "#A7C7E7"));
-    //timeFragments.forEach(t => createAttributeCard(cardsContainer, "Time's Atributes", t, "rgba(255, 255, 0, 0.2)"));
-
-    return { eventElements, timeElements };
-}
-
-
-function initializeArrows(wrapper, eventElements, timeElements, externalTimeElements) {
-    let tooltip;
-
-
-    function createArrows() {
-        try {
-
-
-            // Create new SVG and store it in the outer scope
-            /*svg = wrapper.append("svg")
-                .attr("class", "arrows")
-                .style("position", "absolute")
-                .style("top", 0)
-                .style("left", 0)
-                .style("pointer-events", "all")
-                .style("z-index", 1);*/
-
-            const wrapperRect = wrapper.node().getBoundingClientRect();
-
-            // Set SVG dimensions
-            sharedSVG
-                .attr("width", wrapperRect.width)
-                .attr("height", wrapperRect.height);
-
-            // Create paths data
-            eventElements.forEach((eventElement, i) => {
-                const timeElement = timeElements[i];
-                if (!eventElement || !timeElement) return;
-
-                const eventRect = eventElement.getBoundingClientRect();
-                const timeRect = timeElement.getBoundingClientRect();
-
-                sharedSVG.append("path")
-                    .attr("class", "arrow-path")
-                    .attr("fill", "none")
-                    .attr("stroke", "red")
-                    .attr("stroke-width", 3)
-                    .attr("data-rel-type", d3.select(eventElement).attr("data-rel-type"))
-                    .attr("d", createPath(
-                        eventRect.left - wrapperRect.left + eventRect.width,
-                        eventRect.top - wrapperRect.top + eventRect.height / 2,
-                        timeRect.left - wrapperRect.left,
-                        timeRect.top - wrapperRect.top + timeRect.height / 2
-                    ));
-            });
-
-            // Add external time paths
-            externalTimeElements.forEach(ext => {
-                const textElement = document.querySelector(`[data-id="${ext.time_id}"]`);
-                const arg2Element = document.querySelector(`[data-id="${ext.arg2}"]`);
-
-                if (!textElement || !arg2Element) return;
-
-                const textRect = textElement.getBoundingClientRect();
-                const arg2Rect = arg2Element.getBoundingClientRect();
-
-                sharedSVG.append("path")
-                    .attr("class", "arrow-path")
-                    .attr("fill", "none")
-                    .attr("stroke", "blue")
-                    .attr("stroke-width", 3)
-                    .attr("data-rel-type", ext.rel_type)
-                    .attr("d", createPath(
-                        textRect.left - wrapperRect.left + textRect.width,
-                        textRect.top - wrapperRect.top + textRect.height / 2,
-                        arg2Rect.left - wrapperRect.left,
-                        arg2Rect.top - wrapperRect.top + arg2Rect.height / 2
-                    ));
-            });
-
-            // Create tooltip if it doesn't exist
-            tooltip = d3.select("#tooltip");
-            if (tooltip.empty()) {
-                tooltip = d3.select("body")
-                    .append("div")
-                    .attr("id", "tooltip")
-                    .style("position", "absolute")
-                    .style("display", "none")
-                    .style("background", "white")
-                    .style("padding", "5px")
-                    .style("border", "1px solid #ccc")
-                    .style("border-radius", "4px")
-                    .style("pointer-events", "none")
-                    .style("z-index", "1000");
-            }
-
-
-            sharedSVG.append("rect")
-                .attr("width", wrapperRect.width)
-                .attr("height", wrapperRect.height)
-                .attr("fill", "transparent")
-                .style("pointer-events", "all")
-                .on("mousemove", handleMouseMove)
-                .on("mouseout", handleMouseOut);
-
-        } catch (error) {
-            console.error("Error in createArrows:", error);
-        }
-    }
-
-    function handleMouseMove(event) {
-
-
-        if (!sharedSVG || sharedSVG.empty() || !tooltip) return;
-
-        const mouse = d3.pointer(event, this);
-        const paths = sharedSVG.selectAll("path.arrow-path");
-        let foundPath = false;
-
-        paths.each(function() {
-            const path = d3.select(this);
-            console.log(isPointNearPath(this, mouse[0], mouse[1]))
-            if (isPointNearPath(this, mouse[0], mouse[1])) {
-                const relType = path.attr("data-rel-type");
-                tooltip
-                    .html(relType)
-                    .style("display", "block")
-                    .style("left", (event.pageX + 10) + "px")
-                    .style("top", (event.pageY + 10) + "px");
-                foundPath = true;
-            }
-        });
-
-        if (!foundPath) {
-            tooltip.style("display", "none");
-        }
-    }
-
-    function handleMouseOut() {
-        if (tooltip) {
-            tooltip.style("display", "none");
-        }
-    }
-
-    function isPointNearPath(pathNode, x, y, threshold = 5) {
-        if (!pathNode) return false;
-
-        const pathLength = pathNode.getTotalLength();
-        let start = 0;
-        let end = pathLength;
-        let closest = Infinity;
-
-        while (start <= end) {
-            const mid = (start + end) / 2;
-            const point = pathNode.getPointAtLength(mid);
-            const distance = Math.sqrt(
-                Math.pow(point.x - x, 2) + Math.pow(point.y - y, 2)
-            );
-            closest = Math.min(closest, distance);
-
-            if (closest <= threshold) {
-                return true;
-            }
-
-            const nextPoint = pathNode.getPointAtLength(mid + 1);
-            const direction = (nextPoint.x - point.x) * (y - point.y) -
-                            (nextPoint.y - point.y) * (x - point.x);
-
-            if (direction > 0) {
-                end = mid - 1;
-            } else {
-                start = mid + 1;
-            }
-        }
-
-        return closest <= threshold;
-    }
-
-    function createPath(startX, startY, endX, endY) {
-        const midX = (startX + endX) / 2;
-        const midY = (startY + endY) / 2;
-        const distance = Math.sqrt((endX - startX) ** 2 + (endY - startY) ** 2);
-        const curveHeight = Math.min(distance * 0.5, 100);
-        const controlY = midY - curveHeight;
-        return `M ${startX},${startY} Q ${midX},${controlY} ${endX},${endY}`;
-    }
-
-    // Initial creation
-    createArrows();
-
-    // Handle window resize with debounce
-    const handleResize = debounce(() => {
-                                // Remove old SVG if it exists
-            if (sharedSVG) {
-                sharedSVG.selectAll(".arrow-path, rect").remove();
-            }
-        requestAnimationFrame(createArrows);
-    }, 100);
-
-    window.addEventListener('resize', handleResize);
-
-    function cleanup() {
-    console.log("Cleanup function")
-
-        window.removeEventListener('resize', handleResize);
-        if (sharedSVG && !sharedSVG.empty()) {
-            sharedSVG.remove();
-        }
-        if (tooltip && !tooltip.empty()) {
-            tooltip.remove();
-        }
-    }
-
-    return cleanup;
-}
-
-// Debounce helper function
-function debounce(func, wait) {
-    let timeout;
-    return function(...args) {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(this, args), wait);
-    };
 }
 
 
