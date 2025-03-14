@@ -150,8 +150,16 @@ function renderSentenceTimeline(sentence, index) {
     fragments.forEach(fragment => {
 
         if (fragment.type === "yellow-box") {
+
+            if (fragment.time.Time_Type == "Duration" ||
+                fragment.time.Time_Type == "Set"){
+                backColor = "#ff8800";
+            } else {
+                backColor = "#ffff00";
+            }
+
             textContainer.append("span")
-                .style("background-color", "#ffff00") // Yellow highlight
+                .style("background-color", backColor) // Yellow highlight
                 .style("padding", "2px")
                 .style("border-radius", "3px")
                 .text(fragment.time.text);
@@ -215,13 +223,18 @@ function renderTimeline(allFragments, allLinkedTimes) {
     allFragments.forEach(fragments => {
         fragments.forEach(fragment => {
             if (fragment.type === "yellow-box") {
+                if (fragment.time.Time_Type == "Duration" ||
+                    fragment.time.Time_Type == "Set"){
+                    backColor = "#ff8800";
+                } else {
+                    backColor = "#ffff00";
+                }
 
-                console.log(fragment.time);
                 const timeBox = timelineContainer.append("span")
                     .attr("id", fragment.time.id)
                     .text(fragment.text)
                     .classed("yellow-box", true)
-                    .style("background-color", "#ffff00")
+                    .style("background-color", backColor)
                     .style("padding", "12px 24px")
                     .style("border-radius", "10px")
                     .style("font-size", "20px")
