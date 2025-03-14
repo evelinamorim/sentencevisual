@@ -146,7 +146,7 @@ function renderSentenceTimeline(sentence, index) {
     const addedEventIds = new Set();
 
     const fragments = createFragments(sentence.text, sentence);
-    console.log(sentence.text);
+    //console.log(sentence.text);
     fragments.forEach(fragment => {
 
         if (fragment.type === "yellow-box") {
@@ -192,6 +192,18 @@ function renderTimeline(allFragments, allLinkedTimes) {
         .style("height", "100%")
         .style("pointer-events", "none");
 
+    const tooltip = d3.select("body").append("div")
+        .attr("class", "event-tooltip")
+        .style("position", "absolute")
+        .style("visibility", "hidden")
+        .style("background-color", "white")
+        .style("border", "1px solid #ddd")
+        .style("border-radius", "5px")
+        .style("padding", "10px")
+        .style("box-shadow", "0 2px 5px rgba(0,0,0,0.2)")
+        .style("font-size", "14px")
+        .style("z-index", "1000");
+
     const timelineContainer = timelineColumn.append("div")
         .style("display", "flex")
         .style("flex-direction", "column")
@@ -203,6 +215,8 @@ function renderTimeline(allFragments, allLinkedTimes) {
     allFragments.forEach(fragments => {
         fragments.forEach(fragment => {
             if (fragment.type === "yellow-box") {
+
+                console.log(fragment.time);
                 const timeBox = timelineContainer.append("span")
                     .attr("id", fragment.time.id)
                     .text(fragment.text)
@@ -262,7 +276,44 @@ function renderTimeline(allFragments, allLinkedTimes) {
                         }
                         return "20px"; // Default position
                     })
+                    .style("pointer-events", "auto")
                     .text(fragment.event.text || "");
+
+                eventBox
+                    .on("mouseover", function() {
+                        // Show tooltip with event attributes
+                        const event = fragment.event;
+                        let tooltipContent = "";
+
+                        // List of fields to display (excluding arg2, id, and rel_type)
+                        const displayFields = [
+                            "Aspect", "Class", "Event_Type", "Polarity",
+                            "Pos", "Tense"
+                        ];
+
+                        // Build tooltip content
+                        displayFields.forEach(field => {
+                            if (event[field]) {
+                                tooltipContent += `<strong>${field}:</strong> ${event[field]}<br>`;
+                            }
+                        });
+
+                        tooltip
+                            .style("visibility", "visible")
+                            .html(tooltipContent);
+
+                        // Position tooltip near the event box
+                        const rect = this.getBoundingClientRect();
+                        tooltip
+                            .style("left", (rect.right + 10) + "px")
+                            .style("top", (rect.top) + "px");
+                    })
+                    .on("mouseout", function() {
+                        // Hide tooltip
+                        tooltip.style("visibility", "hidden");
+                    });
+
+
                 eventBoxes.push({
                     element: eventBox,
                     fragment: fragment
