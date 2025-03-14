@@ -1,0 +1,74 @@
+{
+    "sentences": [
+        {
+            "text": "A Pol\u00edcia Judici\u00e1ria informou em comunicado que a deten\u00e7\u00e3o aconteceu no s\u00e1bado, fora de flagrante delito, pela Unidade de Investiga\u00e7\u00e3o Criminal da Assomada, no concelho de Santa Catarina de Santiago, em cumprimento de um mandado do Minist\u00e9rio P\u00fablico.",
+            "id": "S4",
+            "events": [
+                {
+                    "text": "aconteceu",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "Tense": "Past",
+                    "id": "T3",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T33"
+                }
+            ],
+            "times": [
+                {
+                    "text": "no s\u00e1bado",
+                    "offset": 406,
+                    "id": "T33",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T32",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T33",
+                    "sent_id": "S2"
+                },
+                {
+                    "text": "no passado dia 25 de novembro",
+                    "Time_Type": "Date",
+                    "id": "T34",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T33",
+                    "sent_id": "S8"
+                }
+            ]
+        },
+        {
+            "text": "O homem \u00e9 acusado de, no passado dia 25 de novembro, ap\u00f3s um desentendimento num estabelecimento comercial do pai da v\u00edtima, ter-lhe desferido dois golpes de faca, na regi\u00e3o da cabe\u00e7a e na regi\u00e3o lombar, antes de se p\u00f4r em fuga.",
+            "id": "S8",
+            "events": [
+                {
+                    "text": "desferido",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "VForm": "Infinitive",
+                    "Polarity": "Pos",
+                    "id": "T8",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T34"
+                }
+            ],
+            "times": [
+                {
+                    "text": "no passado dia 25 de novembro",
+                    "offset": 792,
+                    "id": "T34",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": []
+        }
+    ]
+}

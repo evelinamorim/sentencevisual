@@ -1,3 +1,76 @@
 {
-    "sentences": []
+    "sentences": [
+        {
+            "text": "A Pol\u00edcia Judici\u00e1ria (PJ) deteve um homem de 45 anos em Vila Nova de Gaia, no distrito do Porto, por suspeita de crimes de pornografia de menores por via inform\u00e1tica, ocorridos desde julho de 2019, foi hoje anunciado.",
+            "id": "S2",
+            "events": [
+                {
+                    "text": "ocorridos",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Aspect": "Perfective",
+                    "VForm": "Participle",
+                    "Polarity": "Pos",
+                    "id": "T2",
+                    "rel_type": "TLINK_begunBy",
+                    "arg2": "T3"
+                },
+                {
+                    "text": "anunciado.",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T5",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T4"
+                }
+            ],
+            "times": [
+                {
+                    "text": "julho de 2019",
+                    "offset": 288,
+                    "id": "T3",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text": "hoje",
+                    "offset": 307,
+                    "id": "T4",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T4",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T3",
+                    "sent_id": "S2"
+                },
+                {
+                    "text": "04 nov 2020",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T1",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T3",
+                    "sent_id": "S0"
+                },
+                {
+                    "text": "04 nov 2020",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T1",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T4",
+                    "sent_id": "S0"
+                }
+            ]
+        }
+    ]
 }
