@@ -1,3 +1,76 @@
 {
-    "sentences": []
+    "sentences": [
+        {
+            "text": "Um homem de 57 anos ficou hoje ferido com gravidade na sequ\u00eancia de um acidente durante uma ca\u00e7ada, junto a aldeia de Peredo de Bemposta, no concelho de Mogadouro, disse \u00e0 Lusa fonte dos bombeiros.",
+            "id": "S2",
+            "events": [
+                {
+                    "text": "ferido",
+                    "Class": "State",
+                    "Event_Type": "State",
+                    "Pos": "Adjective",
+                    "Polarity": "Pos",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "id": "T4",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T2"
+                }
+            ],
+            "times": [
+                {
+                    "text": "hoje",
+                    "offset": 149,
+                    "id": "T2",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "08 dez 2020",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T1",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T2",
+                    "sent_id": "S0"
+                },
+                {
+                    "text": "cerca do meio - dia",
+                    "Time_Type": "Time",
+                    "id": "T3",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T2",
+                    "sent_id": "S10"
+                }
+            ]
+        },
+        {
+            "text": "O alerta foi dado por populares cerca do meio - dia.",
+            "id": "S10",
+            "events": [
+                {
+                    "text": "dado",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T28",
+                    "rel_type": "TLINK_simultaneous",
+                    "arg2": "T3"
+                }
+            ],
+            "times": [
+                {
+                    "text": "cerca do meio - dia",
+                    "offset": 1036,
+                    "id": "T3",
+                    "Time_Type": "Time"
+                }
+            ],
+            "linked_times": []
+        }
+    ]
 }
