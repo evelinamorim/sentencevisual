@@ -53,9 +53,7 @@ All the fields presented in the above draft are mandatory, namely:
 the sentence) ,`events` (it is a list of events, each with an unique id and text), `times`(it is a list of times 
 expressions, each with an unique id and text) and `ref_times` ((it is a list of times , each with an unique id and text)). 
 
-## Sentence mode
 
-![Description of Image](doc/lusa_example.png)
+![Description of Image](doc/lusa_example_1.png)
 
 
-## Timeline mode
