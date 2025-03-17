@@ -254,6 +254,7 @@ function renderTimeline(allFragments, allLinkedTimes) {
     const addedEventIds = new Set();
     const eventBoxes = []
     const timelineColumnRect = timelineColumn.node().getBoundingClientRect();
+    const timeExpressionEventCount = new Map();
     allFragments.forEach(fragments => {
         fragments.forEach(fragment => {
             if (fragment.type == "blue-box" && !addedEventIds.has(fragment.event.id)) {
@@ -265,6 +266,18 @@ function renderTimeline(allFragments, allLinkedTimes) {
                     borderValue = "2px dashed #3366cc";
                 } else{
                     borderValue = "2px solid #99ccff";
+                }
+
+                const timeExpressionId = fragment.event.arg2;
+
+                // Track how many events are connected to this time expression
+                if (timeExpressionId) {
+                    if (!timeExpressionEventCount.has(timeExpressionId)) {
+                        timeExpressionEventCount.set(timeExpressionId, 0);
+                    }
+                    // Increment the count for this time expression
+                    const currentCount = timeExpressionEventCount.get(timeExpressionId);
+                    timeExpressionEventCount.set(timeExpressionId, currentCount + 1);
                 }
 
                 const eventBox = eventsContainer.append("div")
@@ -282,6 +295,13 @@ function renderTimeline(allFragments, allLinkedTimes) {
                     .style("position", "absolute")
                     .style("left", function(){
                         const timelineWidth = timelineColumn.node().getBoundingClientRect().width;
+
+                        // If this event is connected to a time expression, add an offset based on position
+                        if (timeExpressionId) {
+                            const eventPosition = timeExpressionEventCount.get(timeExpressionId) - 1; // 0-based index
+                            return (timelineWidth / 2 - 290) + "px";
+                        }
+
                         return (timelineWidth / 2 - 290) + "px";
                     }) // Fixed position from left
                     .style("top", function() {
@@ -290,11 +310,16 @@ function renderTimeline(allFragments, allLinkedTimes) {
                             const connectedTime = timeBoxes.find(t => t.id === fragment.event.arg2);
                             if (connectedTime) {
                                 const timeRect = connectedTime.element.node().getBoundingClientRect();
-                                const wrapperRect = wrapper.node().getBoundingClientRect();
-                                return (timeRect.top - timelineColumnRect.top + timeRect.height/2 - 25) + "px";
+                                const eventPosition = timeExpressionEventCount.get(timeExpressionId) - 1; // 0-based index
+
+                                // Add a small vertical offset (10px) for each subsequent event
+                                const verticalOffset = eventPosition * 60;
+
+                                return (timeRect.top - timelineColumnRect.top + timeRect.height/2 - 25 + verticalOffset) + "px";
                             }
+
                         }
-                        return "20px"; // Default position
+                        return "20px";
                     })
                     .style("pointer-events", "auto")
                     .text(fragment.event.text || "");
