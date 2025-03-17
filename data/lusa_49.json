@@ -1,110 +1,79 @@
 {
     "sentences": [
         {
-            "text_sent": "Gouveia, Guarda, 30 dez 2020",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date",
-                    "AnnotatorNotes": [
-                        "value=2020-12-30 anchorTime=Publication-Time"
-                    ]
-                }
-            ],
-            "text_time": "30 dez 2020",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "Um homem de 86 anos morreu hoje em consequ\u00eancia de um inc\u00eandio numa habita\u00e7\u00e3o em Vila Nova de Tazem, Gouveia, disse \u00e0 ag\u00eancia Lusa fonte da Prote\u00e7\u00e3o Civil.",
+            "text": "De acordo com fonte do Comando Distrital de Opera\u00e7\u00f5es de Socorro (CDOS) da Guarda, o alerta para a ocorr\u00eancia \u00a0 foi dado pelas 12:35.",
+            "id": "S4",
             "events": [
                 {
-                    "text_event": "morreu",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "dado",
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "id": "T7",
+                    "rel_type": "TLINK_simultaneous",
+                    "arg2": "T4"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "pelas 12:35.",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "pelas 12:35",
+                    "offset": 377,
+                    "id": "T4",
                     "Time_Type": "Time"
-                },
-                {
-                    "text_time2": "30 dez 2020",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
                 }
             ],
-            "text_time": "hoje",
-            "Time_Type": "Date",
-            "AnnotatorNotes": [
-                "value=2020-12-30 anchorTime=Publication-Time"
+            "linked_times": [
+                {
+                    "text": "pelas 15:00",
+                    "Time_Type": "Time",
+                    "id": "T5",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T4",
+                    "sent_id": "S6"
+                },
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "AnnotatorNotes": [
+                        "value=2020-12-30 anchorTime=Publication-Time"
+                    ],
+                    "id": "T3",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T4",
+                    "sent_id": "S2"
+                }
             ]
         },
         {
-            "text_sent": "De acordo com fonte do Comando Distrital de Opera\u00e7\u00f5es de Socorro (CDOS) da Guarda, o alerta para a ocorr\u00eancia \u00a0 foi dado pelas 12:35.",
+            "text": "O corpo da v\u00edtima foi transportado, pelas 15:00, pelos bombeiros, para o Instituto de Medicina Legal da Guarda, para ser autopsiado.",
+            "id": "S6",
             "events": [
                 {
-                    "text_event": "dado",
-                    "rel_type": "TLINK_simultaneous",
+                    "text": "transportado",
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "pelas 15:00,",
-                    "rel_type": "TLINK_after",
-                    "Time_Type": "Time"
-                },
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_isIncluded",
-                    "Time_Type": "Date",
-                    "AnnotatorNotes": [
-                        "value=2020-12-30 anchorTime=Publication-Time"
-                    ]
-                }
-            ],
-            "text_time": "pelas 12:35 .",
-            "Time_Type": "Time"
-        },
-        {
-            "text_sent": "O corpo da v\u00edtima foi transportado, pelas 15:00, pelos bombeiros, para o Instituto de Medicina Legal da Guarda, para ser autopsiado.",
-            "events": [
-                {
-                    "text_event": "transportado,",
+                    "Polarity": "Pos",
+                    "Movement": "Motion_Literal",
+                    "id": "T6",
                     "rel_type": "TLINK_simultaneous",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Tense": "Past",
-                    "Aspect": "Perfective",
-                    "Polarity": "Pos"
+                    "arg2": "T5"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "pelas 12:35.",
-                    "rel_type": "TLINK_after",
+                    "text": "pelas 15:00",
+                    "offset": 426,
+                    "id": "T5",
                     "Time_Type": "Time"
                 }
             ],
-            "text_time": "pelas 15:00 ,",
-            "Time_Type": "Time"
+            "linked_times": []
         }
     ]
 }

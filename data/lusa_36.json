@@ -1,12 +1,12 @@
 {
     "sentences": [
         {
-            "text": "A GNR deteve um homem de 34 anos suspeito de v\u00e1rios furtos em resid\u00eancias no concelho de \u00cdlhavo, distrito de Aveiro, \u00a0 informou hoje aquela for\u00e7a militar.",
-            "id": "S3",
+            "text": "Um grupo de cerca de 30 pessoas apedrejou hoje a PSP no bairro Casal de Mira, na Amadora, no distrito de Lisboa, depois de um motociclista ter sido intercetado por estar a conduzir sem capacete, revelou a pol\u00edcia.",
+            "id": "S4",
             "events": [
                 {
-                    "text": "informou",
-                    "Class": "Reporting",
+                    "text": "apedrejou",
+                    "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
@@ -20,14 +20,14 @@
             "times": [
                 {
                     "text": "hoje",
-                    "offset": 216,
+                    "offset": 153,
                     "id": "T30",
                     "Time_Type": "Date"
                 }
             ],
             "linked_times": [
                 {
-                    "text": "05 jan 2021",
+                    "text": "11 nov 2020",
                     "Time_Type": "Date",
                     "TemporalFunction": "Publication_Time",
                     "id": "T29",
@@ -36,38 +36,38 @@
                     "sent_id": "S0"
                 },
                 {
-                    "text": "na segunda-feira",
-                    "Time_Type": "Date",
+                    "text": "pelas 14:49",
+                    "Time_Type": "Time",
                     "id": "T31",
-                    "rel_type": "TLINK_before",
+                    "rel_type": "TLINK_isIncluded",
                     "arg2": "T30",
-                    "sent_id": "S5"
+                    "sent_id": "S6"
                 }
             ]
         },
         {
-            "text": "Em comunicado, a GNR esclarece que o indiv\u00edduo foi detido na segunda-feira, quando se encontrava a assaltar uma casa na Gafanha da Nazar\u00e9, naquele concelho.",
-            "id": "S5",
+            "text": "Em resposta \u00e0 ag\u00eancia Lusa, o Comando Metropolitano de Lisboa (Cometlis) adiantou que, pelas 14:49, os elementos policiais \u201c visualizaram um motociclista sem capacete \u201d e que, ap\u00f3s ter sido abordado, a situa\u00e7\u00e3o descambou.",
+            "id": "S6",
             "events": [
                 {
-                    "text": "detido",
-                    "Class": "Occurrence",
+                    "text": "visualizaram",
+                    "Class": "Perception",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
                     "Polarity": "Pos",
-                    "id": "T7",
-                    "rel_type": "TLINK_isIncluded",
+                    "id": "T6",
+                    "rel_type": "TLINK_simultaneous",
                     "arg2": "T31"
                 }
             ],
             "times": [
                 {
-                    "text": "na segunda-feira",
-                    "offset": 301,
+                    "text": "pelas 14:49",
+                    "offset": 412,
                     "id": "T31",
-                    "Time_Type": "Date"
+                    "Time_Type": "Time"
                 }
             ],
             "linked_times": []

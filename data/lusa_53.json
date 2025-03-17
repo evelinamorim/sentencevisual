@@ -1,48 +1,43 @@
 {
     "sentences": [
         {
-            "text_sent": "Reda\u00e7\u00e3o, 19 out 2020",
-            "events": [],
+            "text": "A Pol\u00edcia Judici\u00e1ria (PJ) deteve na Grande Lisboa \u201c um dos elementos centrais \u201d de uma rede criminosa transnacional associada \u00e0 presum\u00edvel pr\u00e1tica de crimes de branqueamento e burla inform\u00e1tica transnacional, informou hoje a Diretoria do Norte daquela autoridade.",
+            "id": "S4",
+            "events": [
+                {
+                    "text": "informou",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T2",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T3"
+                }
+            ],
             "times": [
                 {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
+                    "text": "hoje",
+                    "offset": 328,
+                    "id": "T3",
                     "Time_Type": "Date",
                     "AnnotatorNotes": [
                         "value=2020-10-19 anchorTime=Publication Time"
                     ]
                 }
             ],
-            "text_time": "19 out 2020",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "A Pol\u00edcia Judici\u00e1ria (PJ) deteve na Grande Lisboa \u201c um dos elementos centrais \u201d de uma rede criminosa transnacional associada \u00e0 presum\u00edvel pr\u00e1tica de crimes de branqueamento e burla inform\u00e1tica transnacional, informou hoje a Diretoria do Norte daquela autoridade.",
-            "events": [
+            "linked_times": [
                 {
-                    "text_event": "informou",
-                    "rel_type": "TLINK_isIncluded",
-                    "Class": "Reporting",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Tense": "Past",
-                    "Aspect": "Perfective",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "19 out 2020",
-                    "rel_type": "TLINK_identity",
+                    "text": "19 out 2020",
                     "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T1",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T3",
+                    "sent_id": "S0"
                 }
-            ],
-            "text_time": "hoje",
-            "Time_Type": "Date",
-            "AnnotatorNotes": [
-                "value=2020-10-19 anchorTime=Publication Time"
             ]
         }
     ]

@@ -1,159 +1,170 @@
 {
     "sentences": [
         {
-            "text_sent": "Seixal, Set\u00fabal, 03 nov 2020   DYBS (AFE)",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "03 nov 2020",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "A Pol\u00edcia Judici\u00e1ria informou hoje que ficou em pris\u00e3o preventiva o homem suspeito de ter desferido \u201c mais de 20 facadas \u201d \u00e0 m\u00e3e, causando-lhe a morte, numa resid\u00eancia do Seixal, no distrito de Set\u00fabal.",
+            "text": "Em comunicado, a for\u00e7a policial adiantou que o homem de 23 anos foi hoje presente a primeiro interrogat\u00f3rio judicial por \u201c fortes ind\u00edcios da pr\u00e1tica do crime de homic\u00eddio qualificado, na forma consumada \u201d, tendo sido decretada a medida de coa\u00e7\u00e3o mais gravosa.",
+            "id": "S4",
             "events": [
                 {
-                    "text_event": "informou",
-                    "rel_type": "TLINK_isIncluded",
-                    "Class": "Reporting",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Tense": "Past",
-                    "Aspect": "Perfective",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "03 nov 2020",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
-                },
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "hoje",
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "Em comunicado, a for\u00e7a policial adiantou que o homem de 23 anos foi hoje presente a primeiro interrogat\u00f3rio judicial por \u201c fortes ind\u00edcios da pr\u00e1tica do crime de homic\u00eddio qualificado, na forma consumada \u201d, tendo sido decretada a medida de coa\u00e7\u00e3o mais gravosa.",
-            "events": [
-                {
-                    "text_event": "foi presente a primeiro interrogat\u00f3rio judicial",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "foi presente a primeiro interrogat\u00f3rio judicial",
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "id": "T21",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T44"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
+                    "text": "hoje",
+                    "offset": 389,
+                    "id": "T44",
                     "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T43",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T44",
+                    "sent_id": "S2"
                 },
                 {
-                    "text_time2": "no final da tarde de segunda-feira",
+                    "text": "no final da tarde",
+                    "Time_Type": "Time",
+                    "id": "T45",
                     "rel_type": "TLINK_before",
+                    "arg2": "T44",
+                    "sent_id": "S6"
+                }
+            ]
+        },
+        {
+            "text": "Segundo a nota, o crime foi cometido no final da tarde de segunda-feira \u201c na sequ\u00eancia de mais uma discuss\u00e3o \u201d entre ambos.",
+            "id": "S6",
+            "events": [
+                {
+                    "text": "cometido",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T26",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T45"
+                }
+            ],
+            "times": [
+                {
+                    "text": "no final da tarde",
+                    "offset": 617,
+                    "id": "T45",
+                    "Time_Type": "Time"
+                },
+                {
+                    "text": "segunda-feira",
+                    "offset": 638,
+                    "id": "T53",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "segunda-feira",
+                    "Time_Type": "Date",
+                    "id": "T53",
+                    "rel_type": "TLINK_includes",
+                    "arg2": "T45",
+                    "sent_id": "S6"
+                },
+                {
+                    "text": "algumas horas",
+                    "Time_Type": "Time",
+                    "id": "T49",
+                    "rel_type": "TLINK_includes",
+                    "arg2": "T53",
+                    "sent_id": "S10"
+                }
+            ]
+        },
+        {
+            "text": "J\u00e1 o homem, ap\u00f3s ter cometido o homic\u00eddio, \u201c fechou-se no quarto, trocou de roupa e fugiu pela janela \u201d, mas foi \u201c localizado algumas horas depois \u201d, indicou a pol\u00edcia.",
+            "id": "S10",
+            "events": [
+                {
+                    "text": "localizado",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T37",
+                    "rel_type": "TLINK_simultaneous",
+                    "arg2": "T49"
+                }
+            ],
+            "times": [
+                {
+                    "text": "algumas horas",
+                    "offset": 920,
+                    "id": "T49",
                     "Time_Type": "Time"
                 }
             ],
-            "text_time": "hoje",
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "Segundo a nota, o crime foi cometido no final da tarde de segunda-feira \u201c na sequ\u00eancia de mais uma discuss\u00e3o \u201d entre ambos.",
-            "events": [
+            "linked_times": [
                 {
-                    "text_event": "cometido",
-                    "rel_type": "TLINK_isIncluded",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Tense": "Past",
-                    "Aspect": "Perfective",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date"
-                },
-                {
-                    "text_time2": "na segunda-feira,",
+                    "text": "na segunda-feira",
+                    "Time_Type": "Date",
+                    "id": "T46",
                     "rel_type": "TLINK_includes",
-                    "Time_Type": "Date"
+                    "arg2": "T49",
+                    "sent_id": "S12"
                 }
-            ],
-            "text_time": "no final da tarde de segunda - feira",
-            "Time_Type": "Time"
+            ]
         },
         {
-            "text_sent": "De acordo com informa\u00e7\u00f5es prestadas pelo Comando Geral da GNR na segunda-feira, \u00a0 a mulher, de 53 anos, \u201c foi encontrada na cozinha da sua resid\u00eancia, pelo marido, com perfura\u00e7\u00f5es no t\u00f3rax e no pesco\u00e7o \u201d.",
+            "text": "De acordo com informa\u00e7\u00f5es prestadas pelo Comando Geral da GNR na segunda-feira, \u00a0 a mulher, de 53 anos, \u201c foi encontrada na cozinha da sua resid\u00eancia, pelo marido, com perfura\u00e7\u00f5es no t\u00f3rax e no pesco\u00e7o \u201d.",
+            "id": "S12",
             "events": [
                 {
-                    "text_event": "prestadas",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "prestadas",
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Aspect": "Perfective",
                     "VForm": "Participle",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "id": "T38",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T46"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "pelas 20:00 de segunda-feira.",
-                    "rel_type": "TLINK_isIncluded",
-                    "Time_Type": "Time"
-                },
-                {
-                    "text_time2": "no final da tarde de segunda-feira",
-                    "rel_type": "TLINK_includes",
-                    "Time_Type": "Time"
-                }
-            ],
-            "text_time": "na segunda - feira ,",
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "O alerta foi dado pelas 20:00 de segunda-feira.",
-            "events": [
-                {
-                    "text_event": "dado",
-                    "rel_type": "TLINK_simultaneous",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Tense": "Past",
-                    "Aspect": "Perfective",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "na segunda-feira,",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "na segunda-feira",
+                    "offset": 1024,
+                    "id": "T46",
                     "Time_Type": "Date"
                 }
             ],
-            "text_time": "pelas 20:00 de segunda - feira .",
-            "Time_Type": "Time"
+            "linked_times": [
+                {
+                    "text": "pelas 20:00",
+                    "Time_Type": "Time",
+                    "id": "T47",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T46",
+                    "sent_id": "S14"
+                }
+            ]
         }
     ]
 }

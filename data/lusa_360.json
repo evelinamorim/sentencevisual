@@ -1,128 +1,181 @@
 {
     "sentences": [
         {
-            "text_sent": "Bruxelas, 27 out 2020   IG // FPA",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "no domingo,",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "27 out 2020",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "Em janeiro, depois de ter negado constantemente ser o pai biol\u00f3gico de Delfine, o antigo rei fez um teste de ADN, reconheceu-a como filha e declarou que n\u00e3o voltaria a contestar a paternidade, oficialmente decretada por um tribunal de Bruxelas em 01 de outubro.",
+            "text": "O antigo rei dos Belgas Alberto II e a mulher, Paola, reuniram-se com a filha do ex - monarca, cuja paternidade foi recentemente reconhecida ap\u00f3s uma longa batalha judicial, segundo um comunicado do pal\u00e1cio.",
+            "id": "S3",
             "events": [
                 {
-                    "text_event": "negado",
-                    "rel_type": "TLINK_isIncluded",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Polarity": "Pos",
-                    "VForm": "Infinitive"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "no domingo,",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date"
-                },
-                {
-                    "text_time2": "01 de outubro.",
-                    "rel_type": "TLINK_after",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "janeiro ,",
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "Em janeiro, depois de ter negado constantemente ser o pai biol\u00f3gico de Delfine, o antigo rei fez um teste de ADN, reconheceu-a como filha e declarou que n\u00e3o voltaria a contestar a paternidade, oficialmente decretada por um tribunal de Bruxelas em 01 de outubro.",
-            "events": [
-                {
-                    "text_event": "decretada",
-                    "rel_type": "TLINK_isIncluded",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "VForm": "Participle",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "julho de 2013,",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date"
-                },
-                {
-                    "text_time2": "janeiro,",
-                    "rel_type": "TLINK_after",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "01 de outubro .",
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "Alberto II abdicou do t\u00edtulo de rei dos Belgas em julho de 2013, tendo-lhe sucedido o seu filho Filipe.",
-            "events": [
-                {
-                    "text_event": "abdicou",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "reconhecida",
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "id": "T13",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T45"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "01 de outubro.",
-                    "rel_type": "TLINK_before",
+                    "text": "recentemente",
+                    "offset": 218,
+                    "id": "T45",
                     "Time_Type": "Date"
                 }
             ],
-            "text_time": "julho de 2013 ,",
-            "Time_Type": "Date"
+            "linked_times": [
+                {
+                    "text": "27 out 2020",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T40",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T45",
+                    "sent_id": "S0"
+                },
+                {
+                    "text": "no domingo",
+                    "Time_Type": "Date",
+                    "id": "T41",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T45",
+                    "sent_id": "S4"
+                }
+            ]
         },
         {
-            "text_sent": "Oficialmente designada como princesa Delfine, a filha de Alberto II j\u00e1 se tinha encontrado com o seu meio - irm\u00e3o Filipe, atual rei dos Belgas, e no domingo, segundo o comunicado, reuniu-se com o pai, o que o pal\u00e1cio considera \u201c os primeiros passos de uma via de reconcilia\u00e7\u00e3o \u201d.",
+            "text": "Oficialmente designada como princesa Delfine, a filha de Alberto II j\u00e1 se tinha encontrado com o seu meio - irm\u00e3o Filipe, atual rei dos Belgas, e no domingo, segundo o comunicado, reuniu-se com o pai, o que o pal\u00e1cio considera \u201c os primeiros passos de uma via de reconcilia\u00e7\u00e3o \u201d.",
+            "id": "S4",
             "events": [
                 {
-                    "text_event": "encontrado",
+                    "text": "reuniu",
+                    "Class": "Occurrence",
+                    "Event_Type": "Process",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T6",
                     "rel_type": "TLINK_isIncluded",
+                    "arg2": "T41"
+                }
+            ],
+            "times": [
+                {
+                    "text": "no domingo",
+                    "offset": 454,
+                    "id": "T41",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "outubro",
+                    "Time_Type": "Date",
+                    "id": "T26",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T41",
+                    "sent_id": "S7"
+                }
+            ]
+        },
+        {
+            "text": "Em janeiro, depois de ter negado constantemente ser o pai biol\u00f3gico de Delfine, o antigo rei fez um teste de ADN, reconheceu-a como filha e declarou que n\u00e3o voltaria a contestar a paternidade, oficialmente decretada por um tribunal de Bruxelas em 01 de outubro.",
+            "id": "S9",
+            "events": [
+                {
+                    "text": "fez",
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
-                    "Tense": "Imperfect",
-                    "Aspect": "Imperfective",
-                    "Polarity": "Pos"
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T32",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T42"
+                },
+                {
+                    "text": "decretada",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "VForm": "Participle",
+                    "Polarity": "Pos",
+                    "Aspect": "Perfective",
+                    "id": "T37",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T43"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "janeiro,",
-                    "rel_type": "TLINK_before",
+                    "text": "janeiro",
+                    "offset": 815,
+                    "id": "T42",
                     "Time_Type": "Date"
                 },
                 {
-                    "text_time2": "27 out 2020",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
+                    "text": "01 de outubro",
+                    "offset": 1059,
+                    "id": "T43",
+                    "Time_Type": "Date"
                 }
             ],
-            "text_time": "no domingo ,",
-            "Time_Type": "Date"
+            "linked_times": [
+                {
+                    "text": "outubro",
+                    "Time_Type": "Date",
+                    "id": "T26",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T42",
+                    "sent_id": "S7"
+                },
+                {
+                    "text": "01 de outubro",
+                    "Time_Type": "Date",
+                    "id": "T43",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T42",
+                    "sent_id": "S9"
+                },
+                {
+                    "text": "julho de 2013",
+                    "Time_Type": "Date",
+                    "id": "T44",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T43",
+                    "sent_id": "S10"
+                }
+            ]
+        },
+        {
+            "text": "Alberto II abdicou do t\u00edtulo de rei dos Belgas em julho de 2013, tendo-lhe sucedido o seu filho Filipe.",
+            "id": "S10",
+            "events": [
+                {
+                    "text": "abdicou",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T38",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T44"
+                }
+            ],
+            "times": [
+                {
+                    "text": "julho de 2013",
+                    "offset": 1124,
+                    "id": "T44",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": []
         }
     ]
 }

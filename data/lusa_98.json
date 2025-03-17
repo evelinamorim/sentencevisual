@@ -1,43 +1,76 @@
 {
     "sentences": [
         {
-            "text_sent": "\u00c9vora, 27 nov 2020",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "27 nov 2020",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "A Pol\u00edcia Judici\u00e1ria (PJ) deteve um homem, de 50 anos, suspeito de ter abusado sexualmente de uma filha, presentemente com 18 anos, no distrito de \u00c9vora, foi hoje anunciado.",
+            "text": "A Pol\u00edcia Judici\u00e1ria (PJ) deteve um homem, de 50 anos, suspeito de ter abusado sexualmente de uma filha, presentemente com 18 anos, no distrito de \u00c9vora, foi hoje anunciado.",
+            "id": "S5",
             "events": [
                 {
-                    "text_event": "anunciado.",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "anunciado",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
                     "Polarity": "Pos",
-                    "Class": "Occurrence"
+                    "Class": "Occurrence",
+                    "id": "T27",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T31"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "27 nov 2020",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
+                    "text": "hoje",
+                    "offset": 260,
+                    "id": "T31",
+                    "Time_Type": "Date"
                 }
             ],
-            "text_time": "hoje",
-            "Time_Type": "Date"
+            "linked_times": [
+                {
+                    "text": "27 nov 2020",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T30",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T31",
+                    "sent_id": "S0"
+                },
+                {
+                    "text": "finais de 2019",
+                    "Time_Type": "Date",
+                    "id": "T32",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T31",
+                    "sent_id": "S9"
+                }
+            ]
+        },
+        {
+            "text": "Segundo a PJ, os \" factos criminosos \" ocorreram no distrito de \u00c9vora, \" existindo claros ind\u00edcios \" de que as \" pr\u00e1ticas sexuais abusivas \" come\u00e7aram em finais de 2019, tendo o presum\u00edvel agressor \" constrangido f\u00edsica e psicologicamente a v\u00edtima \" a suportar a \" atividade delituosa \" quando esta colocou alguma resist\u00eancia aos abusos, dirigindo-lhe, em momento posterior, \" amea\u00e7as graves que a levaram a tentar o suic\u00eddio \".",
+            "id": "S9",
+            "events": [
+                {
+                    "text": "come\u00e7aram",
+                    "Class": "Aspectual",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T10",
+                    "rel_type": "TLINK_begunBy",
+                    "arg2": "T32"
+                }
+            ],
+            "times": [
+                {
+                    "text": "finais de 2019",
+                    "offset": 538,
+                    "id": "T32",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": []
         }
     ]
 }

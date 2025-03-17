@@ -1,98 +1,99 @@
 {
     "sentences": [
         {
-            "text_sent": "Kampala, 03 nov 2020",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "o pr\u00f3ximo ano.",
-                    "rel_type": "TLINK_after",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "03 nov 2020",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "A deten\u00e7\u00e3o de Bobi Wine surge depois de ter sido nomeado candidato \u00e0s presidenciais de 2021, nas quais vai enfrentar o atual Presidente, Yoweri Museveni, que est\u00e1 no cargo desde 1986, e que os cr\u00edticos dizem que depende cada vez mais das for\u00e7as de seguran\u00e7a para se manter no poder.",
+            "text": "De acordo com a NBS Television, Bobi Wine, cujo nome verdadeiro \u00e9 Kyagulanyi Ssentamu, foi arrastado do carro pela pol\u00edcia pouco tempo depois de ser oficialmente nomeado como candidato \u00e0s elei\u00e7\u00f5es presidenciais agendadas para o pr\u00f3ximo ano.",
+            "id": "S4",
             "events": [
                 {
-                    "text_event": "presidenciais",
-                    "rel_type": "TLINK_isIncluded",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
-                    "Pos": "Noun",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "o pr\u00f3ximo ano.",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date"
-                },
-                {
-                    "text_time2": "1986,",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "2021 ,",
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "A deten\u00e7\u00e3o de Bobi Wine surge depois de ter sido nomeado candidato \u00e0s presidenciais de 2021, nas quais vai enfrentar o atual Presidente, Yoweri Museveni, que est\u00e1 no cargo desde 1986, e que os cr\u00edticos dizem que depende cada vez mais das for\u00e7as de seguran\u00e7a para se manter no poder.",
-            "events": [
-                {
-                    "text_event": "no cargo",
-                    "rel_type": "TLINK_begunBy",
-                    "Class": "State",
-                    "Event_Type": "State",
-                    "Tense": "Present",
-                    "Polarity": "Pos",
-                    "Pos": "Noun"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "2021,",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "1986 ,",
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "De acordo com a NBS Television, Bobi Wine, cujo nome verdadeiro \u00e9 Kyagulanyi Ssentamu, foi arrastado do carro pela pol\u00edcia pouco tempo depois de ser oficialmente nomeado como candidato \u00e0s elei\u00e7\u00f5es presidenciais agendadas para o pr\u00f3ximo ano.",
-            "events": [
-                {
-                    "text_event": "agendadas",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "agendadas",
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Aspect": "Perfective",
                     "VForm": "Participle",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "id": "T32",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T36"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "03 nov 2020",
-                    "rel_type": "TLINK_after",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
-                },
-                {
-                    "text_time2": "2021,",
-                    "rel_type": "TLINK_identity",
+                    "text": "o pr\u00f3ximo ano",
+                    "offset": 545,
+                    "id": "T36",
                     "Time_Type": "Date"
                 }
             ],
-            "text_time": "o pr\u00f3ximo ano .",
-            "Time_Type": "Date"
+            "linked_times": [
+                {
+                    "text": "2021",
+                    "Time_Type": "Date",
+                    "id": "T44",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T36",
+                    "sent_id": "S10"
+                },
+                {
+                    "text": "do pr\u00f3ximo ano",
+                    "Time_Type": "Date",
+                    "id": "T46",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T36",
+                    "sent_id": "S2"
+                }
+            ]
+        },
+        {
+            "text": "A deten\u00e7\u00e3o de Bobi Wine surge depois de ter sido nomeado candidato \u00e0s presidenciais de 2021, nas quais vai enfrentar o atual Presidente, Yoweri Museveni, que est\u00e1 no cargo desde 1986, e que os cr\u00edticos dizem que depende cada vez mais das for\u00e7as de seguran\u00e7a para se manter no poder.",
+            "id": "S10",
+            "events": [
+                {
+                    "text": "presidenciais",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos",
+                    "id": "T27",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T44"
+                },
+                {
+                    "text": "no cargo",
+                    "Class": "State",
+                    "Event_Type": "State",
+                    "Pos": "Preposition",
+                    "Tense": "Present",
+                    "Polarity": "Pos",
+                    "id": "T26",
+                    "rel_type": "TLINK_begunBy",
+                    "arg2": "T43"
+                }
+            ],
+            "times": [
+                {
+                    "text": "2021",
+                    "offset": 1034,
+                    "id": "T44",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text": "1986",
+                    "offset": 1125,
+                    "id": "T43",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "1986",
+                    "Time_Type": "Date",
+                    "id": "T43",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T44",
+                    "sent_id": "S10"
+                }
+            ]
         }
     ]
 }

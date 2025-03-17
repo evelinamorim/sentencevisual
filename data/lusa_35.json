@@ -1,0 +1,109 @@
+{
+    "sentences": [
+        {
+            "text": "A Guarda Nacional Republicana (GNR) deteve um homem, de 24 anos, por tr\u00e1fico de droga, no concelho de Sines, distrito de Set\u00fabal, tendo apreendido perto de duas mil doses de estupefacientes, divulgou hoje aquela for\u00e7a de seguran\u00e7a.",
+            "id": "S3",
+            "events": [
+                {
+                    "text": "divulgou",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T1",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T32"
+                }
+            ],
+            "times": [
+                {
+                    "text": "hoje",
+                    "offset": 298,
+                    "id": "T32",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "30 out 2020",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T31",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T32",
+                    "sent_id": "S0"
+                },
+                {
+                    "text": "na quinta-feira",
+                    "Time_Type": "Date",
+                    "id": "T33",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T32",
+                    "sent_id": "S5"
+                }
+            ]
+        },
+        {
+            "text": "Em comunicado, o Comando Territorial de Set\u00fabal da GNR explica que o indiv\u00edduo foi detido, na quinta-feira, no decorrer de uma opera\u00e7\u00e3o de preven\u00e7\u00e3o criminal, levada a cabo pelos militares do N\u00facleo de Investiga\u00e7\u00e3o Criminal (NIC) de Santiago do Cac\u00e9m.",
+            "id": "S5",
+            "events": [
+                {
+                    "text": "detido",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T7",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T33"
+                }
+            ],
+            "times": [
+                {
+                    "text": "na quinta-feira",
+                    "offset": 421,
+                    "id": "T33",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "esta sexta-feira",
+                    "id": "T34",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T33",
+                    "sent_id": "S12"
+                }
+            ]
+        },
+        {
+            "text": "O suspeito foi detido e ser\u00e1 presente a primeiro interrogat\u00f3rio judicial, esta sexta-feira, no Tribunal Judicial de Set\u00fabal, para aplica\u00e7\u00e3o de medidas de coa\u00e7\u00e3o.",
+            "id": "S12",
+            "events": [
+                {
+                    "text": "ser\u00e1 presente a primeiro interrogat\u00f3rio judicial",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Future",
+                    "Polarity": "Pos",
+                    "id": "T26",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T34"
+                }
+            ],
+            "times": [
+                {
+                    "text": "esta sexta-feira",
+                    "offset": 1054,
+                    "id": "T34"
+                }
+            ],
+            "linked_times": []
+        }
+    ]
+}

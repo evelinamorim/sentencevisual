@@ -1,48 +1,43 @@
 {
     "sentences": [
         {
-            "text_sent": "Lisboa, 23 nov 2020   CC // SB   Homem detido por pornografia com menores de 14 anos",
-            "events": [],
+            "text": "Um homem de 48 anos foi detido na regi\u00e3o da grande Lisboa por suspeitas de pornografia na internet com v\u00edtimas com menos de 14 anos, divulgou hoje a Policia Judici\u00e1ria.",
+            "id": "S2",
+            "events": [
+                {
+                    "text": "divulgou",
+                    "Class": "Reporting",
+                    "Tense": "Past",
+                    "Polarity": "Pos",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Aspect": "Perfective",
+                    "id": "T18",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T12"
+                }
+            ],
             "times": [
                 {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
+                    "text": "hoje",
+                    "offset": 223,
+                    "id": "T12",
                     "Time_Type": "Date",
                     "AnnotatorNotes": [
                         "value=2020-11-23"
                     ]
                 }
             ],
-            "text_time": "nov 2020",
-            "TemporalFunction": "Publication_Time",
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "Um homem de 48 anos foi detido na regi\u00e3o da grande Lisboa por suspeitas de pornografia na internet com v\u00edtimas com menos de 14 anos, divulgou hoje a Policia Judici\u00e1ria.",
-            "events": [
+            "linked_times": [
                 {
-                    "text_event": "divulgou",
-                    "rel_type": "TLINK_isIncluded",
-                    "Class": "Reporting",
-                    "Tense": "Past",
-                    "Polarity": "Pos",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Aspect": "Perfective"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "nov 2020",
-                    "rel_type": "TLINK_identity",
+                    "text": "nov 2020",
                     "TemporalFunction": "Publication_Time",
-                    "Time_Type": "Date"
+                    "Time_Type": "Date",
+                    "id": "T8",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T12",
+                    "sent_id": "S0"
                 }
-            ],
-            "text_time": "hoje",
-            "Time_Type": "Date",
-            "AnnotatorNotes": [
-                "value=2020-11-23"
             ]
         }
     ]

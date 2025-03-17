@@ -1,119 +1,46 @@
 {
     "sentences": [
         {
-            "text_sent": "Atenas, 12 out 2020",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "12 out 2020",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "O Tribunal Penal de Atenas rejeitou hoje todas as circunst\u00e2ncias suscet\u00edveis de atenuar as penas de pris\u00e3o a que foram condenados os dirigentes neonazis \u00a0 do partido Aurora Dourada, disse fonte judicial \u00e0 France - Presse.",
+            "text": "O l\u00edder do Aurora Dourada, Nikos \u00a0 Michaloliakos, e seis altos quadros do partido est\u00e3o sujeitos a penas que podem ir at\u00e9 aos 15 anos de pris\u00e3o.",
+            "id": "S6",
             "events": [
                 {
-                    "text_event": "rejeitou",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "pris\u00e3o",
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Tense": "Past",
-                    "Aspect": "Perfective",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "12 out 2020",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
-                },
-                {
-                    "text_time2": "na semana passada",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "hoje",
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "Os membros da dire\u00e7\u00e3o do partido neonazi grego foram considerados culpados na semana passada de participa\u00e7\u00e3o em organiza\u00e7\u00e3o criminosa.",
-            "events": [
-                {
-                    "text_event": "considerados",
-                    "rel_type": "TLINK_isIncluded",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Tense": "Past",
-                    "Aspect": "Perfective",
+                    "Pos": "Noun",
                     "Polarity": "Pos",
-                    "VForm": "Participle"
+                    "id": "T11",
+                    "rel_type": "TLINK_simultaneous",
+                    "arg2": "T21"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "hoje",
+                    "text": "aos 15 anos",
+                    "offset": 583,
+                    "id": "T21",
+                    "Time_Type": "Duration"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T22",
                     "rel_type": "TLINK_before",
-                    "Time_Type": "Date"
+                    "arg2": "T21",
+                    "sent_id": "S7"
                 },
                 {
-                    "text_time2": "hoje",
+                    "text": "na semana passada",
+                    "Time_Type": "Date",
+                    "id": "T20",
                     "rel_type": "TLINK_after",
-                    "Time_Type": "Date"
+                    "arg2": "T21",
+                    "sent_id": "S4"
                 }
-            ],
-            "text_time": "na semana passada",
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "O l\u00edder do Aurora Dourada, Nikos \u00a0 Michaloliakos, e seis altos quadros do partido est\u00e3o sujeitos a penas que podem ir at\u00e9 aos 15 anos de pris\u00e3o.",
-            "events": [
-                {
-                    "text_event": "ir",
-                    "rel_type": "TLINK_endedBy",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Tense": "Present",
-                    "Modality": "Poder",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [],
-            "text_time": "aos 15 anos",
-            "Time_Type": "Duration"
-        },
-        {
-            "text_sent": "Centenas de manifestantes antifascistas aguardam \u00a0 hoje frente ao Pal\u00e1cio da Justi\u00e7a de Atenas",
-            "events": [
-                {
-                    "text_event": "aguardam",
-                    "rel_type": "TLINK_isIncluded",
-                    "Class": "Occurrence",
-                    "Event_Type": "Process",
-                    "Pos": "Verb",
-                    "Tense": "Present",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "na semana passada",
-                    "rel_type": "TLINK_after",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "hoje",
-            "Time_Type": "Date"
+            ]
         }
     ]
 }

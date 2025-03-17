@@ -1,72 +1,76 @@
 {
     "sentences": [
         {
-            "text_sent": "Mogadouro, Bragan\u00e7a, 08 dez 2020",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "08 dez 2020",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "Um homem de 57 anos ficou hoje ferido com gravidade na sequ\u00eancia de um acidente durante uma ca\u00e7ada, junto a aldeia de Peredo de Bemposta, no concelho de Mogadouro, disse \u00e0 Lusa fonte dos bombeiros.",
+            "text": "Um homem de 57 anos ficou hoje ferido com gravidade na sequ\u00eancia de um acidente durante uma ca\u00e7ada, junto a aldeia de Peredo de Bemposta, no concelho de Mogadouro, disse \u00e0 Lusa fonte dos bombeiros.",
+            "id": "S2",
             "events": [
                 {
-                    "text_event": "ferido",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "ferido",
                     "Class": "State",
                     "Event_Type": "State",
                     "Pos": "Adjective",
                     "Polarity": "Pos",
                     "Tense": "Past",
-                    "Aspect": "Perfective"
+                    "Aspect": "Perfective",
+                    "id": "T4",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T2"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "08 dez 2020",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
-                },
-                {
-                    "text_time2": "cerca do meio - dia.",
-                    "rel_type": "TLINK_isIncluded",
-                    "Time_Type": "Time"
+                    "text": "hoje",
+                    "offset": 149,
+                    "id": "T2",
+                    "Time_Type": "Date"
                 }
             ],
-            "text_time": "hoje",
-            "Time_Type": "Date"
+            "linked_times": [
+                {
+                    "text": "08 dez 2020",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T1",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T2",
+                    "sent_id": "S0"
+                },
+                {
+                    "text": "cerca do meio - dia",
+                    "Time_Type": "Time",
+                    "id": "T3",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T2",
+                    "sent_id": "S10"
+                }
+            ]
         },
         {
-            "text_sent": "O alerta foi dado por populares cerca do meio - dia.",
+            "text": "O alerta foi dado por populares cerca do meio - dia.",
+            "id": "S10",
             "events": [
                 {
-                    "text_event": "dado",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "dado",
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "id": "T28",
+                    "rel_type": "TLINK_simultaneous",
+                    "arg2": "T3"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_isIncluded",
-                    "Time_Type": "Date"
+                    "text": "cerca do meio - dia",
+                    "offset": 1036,
+                    "id": "T3",
+                    "Time_Type": "Time"
                 }
             ],
-            "text_time": "cerca do meio - dia .",
-            "Time_Type": "Time"
+            "linked_times": []
         }
     ]
 }

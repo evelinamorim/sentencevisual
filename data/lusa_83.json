@@ -1,128 +1,84 @@
 {
     "sentences": [
         {
-            "text_sent": "Espinho, Aveiro, 23 dez 2020",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "23 dez 2020",
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "No mesmo dia, o detido foi presente a primeiro interrogat\u00f3rio judicial, \u00a0 no Departamento de Investiga\u00e7\u00e3o e A\u00e7\u00e3o Penal de Espinho, tendo-lhe sido aplicada \u00a0 a medida de coa\u00e7\u00e3o de Termo de Identidade e Resid\u00eancia.",
+            "text": "A PSP deteve em flagrante delito um homem de 42 anos que estava a tentar roubar uma viatura pelo m\u00e9todo de \" carjacking \" \u00a0 em Espinho, no distrito de Aveiro, informou hoje aquela for\u00e7a policial.",
+            "id": "S4",
             "events": [
                 {
-                    "text_event": "foi presente a primeiro interrogat\u00f3rio judicial,",
-                    "rel_type": "TLINK_isIncluded",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Polarity": "Pos",
-                    "Tense": "Past",
-                    "Aspect": "Perfective"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "na ter\u00e7a-feira,",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "No mesmo dia ,",
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "A PSP deteve em flagrante delito um homem de 42 anos que estava a tentar roubar uma viatura pelo m\u00e9todo de \" carjacking \" \u00a0 em Espinho, no distrito de Aveiro, informou hoje aquela for\u00e7a policial.",
-            "events": [
-                {
-                    "text_event": "informou",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "informou",
                     "Class": "Reporting",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "id": "T26",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T29"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "23 dez 2020",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date"
-                },
-                {
-                    "text_time2": "na ter\u00e7a-feira,",
-                    "rel_type": "TLINK_before",
+                    "text": "hoje",
+                    "offset": 264,
+                    "id": "T29",
                     "Time_Type": "Date"
                 }
             ],
-            "text_time": "hoje",
-            "Time_Type": "Date"
+            "linked_times": [
+                {
+                    "text": "23 dez 2020",
+                    "Time_Type": "Date",
+                    "id": "T10",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T29",
+                    "sent_id": "S0"
+                },
+                {
+                    "text": "na ter\u00e7a-feira",
+                    "Time_Type": "Date",
+                    "id": "T30",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T29",
+                    "sent_id": "S6"
+                }
+            ]
         },
         {
-            "text_sent": "Em comunicado, a PSP esclarece que o crime ocorreu na ter\u00e7a-feira, pelas 10:45.",
+            "text": "No mesmo dia, o detido foi presente a primeiro interrogat\u00f3rio judicial, \u00a0 no Departamento de Investiga\u00e7\u00e3o e A\u00e7\u00e3o Penal de Espinho, tendo-lhe sido aplicada \u00a0 a medida de coa\u00e7\u00e3o de Termo de Identidade e Resid\u00eancia.",
+            "id": "S11",
             "events": [
                 {
-                    "text_event": "ocorreu",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "foi presente a primeiro interrogat\u00f3rio judicial",
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
+                    "Polarity": "Pos",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
+                    "id": "T12",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T32"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_before",
+                    "text": "No mesmo dia",
+                    "offset": 870,
+                    "id": "T32",
                     "Time_Type": "Date"
-                },
+                }
+            ],
+            "linked_times": [
                 {
-                    "text_time2": "pelas 10:45.",
-                    "rel_type": "TLINK_isIncluded",
-                    "Time_Type": "Time"
-                },
-                {
-                    "text_time2": "No mesmo dia,",
+                    "text": "na ter\u00e7a-feira",
+                    "Time_Type": "Date",
+                    "id": "T30",
                     "rel_type": "TLINK_identity",
-                    "Time_Type": "Date"
+                    "arg2": "T32",
+                    "sent_id": "S6"
                 }
-            ],
-            "text_time": "na ter\u00e7a - feira ,",
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "Em comunicado, a PSP esclarece que o crime ocorreu na ter\u00e7a-feira, pelas 10:45.",
-            "events": [
-                {
-                    "text_event": "ocorreu",
-                    "rel_type": "TLINK_simultaneous",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Tense": "Past",
-                    "Aspect": "Perfective",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "na ter\u00e7a-feira,",
-                    "rel_type": "TLINK_isIncluded",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "pelas 10:45 .",
-            "Time_Type": "Time"
+            ]
         }
     ]
 }

@@ -1,96 +1,57 @@
 {
     "sentences": [
         {
-            "text_sent": "Valpa\u00e7os, Vila Real, 16 dez 2020",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date",
-                    "AnnotatorNotes": [
-                        "value=2020-12-16"
-                    ]
-                }
-            ],
-            "text_time": "16 dez 2020",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "Um empres\u00e1rio da constru\u00e7\u00e3o civil foi detido pela suspeita de ter efetuado um disparo contra um outro homem na via p\u00fablica, em Valpa\u00e7os, anunciou hoje a Pol\u00edcia Judici\u00e1ria (PJ).",
+            "text": "Os factos, segundo aquela pol\u00edcia, ocorreram na segunda-feira, na via p\u00fablica, quando o \u201c arguido efetuou um disparo com uma arma de fogo curta que atingiu a v\u00edtima no rosto \u201d, um homem com 46 anos.",
+            "id": "S6",
             "events": [
                 {
-                    "text_event": "anunciou",
-                    "rel_type": "TLINK_isIncluded",
-                    "Class": "Reporting",
+                    "text": "ocorreram",
+                    "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "id": "T13",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T21"
+                },
+                {
+                    "text": "efetuou",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T14",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T21"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "na segunda-feira,",
-                    "rel_type": "TLINK_before",
+                    "text": "na segunda-feira",
+                    "offset": 553,
+                    "id": "T21",
                     "Time_Type": "Date",
                     "AnnotatorNotes": [
                         "value=2020-12-14 anchorTime=Publication_Time"
                     ]
-                },
-                {
-                    "text_time2": "16 dez 2020",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
                 }
             ],
-            "text_time": "hoje",
-            "Time_Type": "Date",
-            "AnnotatorNotes": [
-                "value=2020-12-16"
-            ]
-        },
-        {
-            "text_sent": "Os factos, segundo aquela pol\u00edcia, ocorreram na segunda-feira, na via p\u00fablica, quando o \u201c arguido efetuou um disparo com uma arma de fogo curta que atingiu a v\u00edtima no rosto \u201d, um homem com 46 anos.",
-            "events": [
+            "linked_times": [
                 {
-                    "text_event": "ocorreram",
-                    "rel_type": "TLINK_isIncluded",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Tense": "Past",
-                    "Aspect": "Perfective",
-                    "Polarity": "Pos"
-                },
-                {
-                    "text_event": "efetuou",
-                    "rel_type": "TLINK_isIncluded",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Tense": "Past",
-                    "Aspect": "Perfective",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_before",
+                    "text": "hoje",
                     "Time_Type": "Date",
                     "AnnotatorNotes": [
                         "value=2020-12-16"
-                    ]
+                    ],
+                    "id": "T20",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T21",
+                    "sent_id": "S2"
                 }
-            ],
-            "text_time": "na segunda - feira ,",
-            "Time_Type": "Date",
-            "AnnotatorNotes": [
-                "value=2020-12-14 anchorTime=Publication_Time"
             ]
         }
     ]

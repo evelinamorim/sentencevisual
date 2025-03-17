@@ -1,69 +1,90 @@
 {
     "sentences": [
         {
-            "text_sent": "Arouca, Aveiro, 21 dez 2020",
-            "events": [],
+            "text": "A Pol\u00edcia Judici\u00e1ria (PJ) deteve um homem, de 54 anos, suspeito de tentar matar a \u00a0 mulher, em Arouca, distrito de Aveiro, informou hoje aquele \u00f3rg\u00e3o de pol\u00edcia criminal.",
+            "id": "S4",
+            "events": [
+                {
+                    "text": "informou",
+                    "Class": "Reporting",
+                    "Tense": "Past",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T26",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T15"
+                }
+            ],
             "times": [
                 {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
+                    "text": "hoje",
+                    "offset": 234,
+                    "id": "T15",
                     "Time_Type": "Date"
                 }
             ],
-            "text_time": "dez 2020",
-            "TemporalFunction": "Publication_Time"
+            "linked_times": [
+                {
+                    "text": "dez 2020",
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T13",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T15",
+                    "sent_id": "S0"
+                },
+                {
+                    "text": "no domingo",
+                    "Time_Type": "Date",
+                    "id": "T9",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T15",
+                    "sent_id": "S8"
+                }
+            ]
         },
         {
-            "text_sent": "De acordo com os investigadores, os factos ocorreram no domingo \u00e0 tarde, na morada de fam\u00edlia do casal, em Arouca, num contexto de viol\u00eancia dom\u00e9stica e no decurso de um processo de separa\u00e7\u00e3o.",
+            "text": "De acordo com os investigadores, os factos ocorreram no domingo \u00e0 tarde, na morada de fam\u00edlia do casal, em Arouca, num contexto de viol\u00eancia dom\u00e9stica e no decurso de um processo de separa\u00e7\u00e3o.",
+            "id": "S8",
             "events": [
                 {
-                    "text_event": "ocorreram",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "ocorreram",
                     "Class": "Occurrence",
                     "Tense": "Past",
                     "Polarity": "Pos",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
-                    "Aspect": "Perfective"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "no domingo \u00e0 tarde ,",
-            "Time_Type": "Time"
-        },
-        {
-            "text_sent": "A Pol\u00edcia Judici\u00e1ria (PJ) deteve um homem, de 54 anos, suspeito de tentar matar a \u00a0 mulher, em Arouca, distrito de Aveiro, informou hoje aquele \u00f3rg\u00e3o de pol\u00edcia criminal.",
-            "events": [
-                {
-                    "text_event": "informou",
+                    "Aspect": "Perfective",
+                    "id": "T43",
                     "rel_type": "TLINK_isIncluded",
-                    "Class": "Reporting",
-                    "Tense": "Past",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Aspect": "Perfective"
+                    "arg2": "T9"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "dez 2020",
-                    "rel_type": "TLINK_identity",
-                    "TemporalFunction": "Publication_Time"
+                    "text": "no domingo",
+                    "offset": 490,
+                    "id": "T9",
+                    "Time_Type": "Date"
                 },
                 {
-                    "text_time2": "no domingo \u00e0 tarde,",
-                    "rel_type": "TLINK_before",
+                    "text": "tarde",
+                    "offset": 503,
+                    "id": "T11",
                     "Time_Type": "Time"
                 }
             ],
-            "text_time": "hoje",
-            "Time_Type": "Date"
+            "linked_times": [
+                {
+                    "text": "tarde",
+                    "Time_Type": "Time",
+                    "id": "T11",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T9",
+                    "sent_id": "S8"
+                }
+            ]
         }
     ]
 }

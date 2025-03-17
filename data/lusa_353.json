@@ -1,71 +1,66 @@
 {
     "sentences": [
         {
-            "text_sent": "Vila Nova de Foz C\u00f4a, Guarda, 21 nov 2020",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "21 nov 2020",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "O Tribunal de Foz C\u00f4a, no distrito de Guarda, decretou hoje pris\u00e3o preventiva para um homem de 71 anos acusado de viol\u00eancia dom\u00e9stica, ap\u00f3s ter sido detido pelas autoridades em flagrante delito na sexta-feira, indicou fonte da GNR.",
+            "text": "O Tribunal de Foz C\u00f4a, no distrito de Guarda, decretou hoje pris\u00e3o preventiva para um homem de 71 anos acusado de viol\u00eancia dom\u00e9stica, ap\u00f3s ter sido detido pelas autoridades em flagrante delito na sexta-feira, indicou fonte da GNR.",
+            "id": "S4",
             "events": [
                 {
-                    "text_event": "decretou",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "decretou",
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "na sexta-feira,",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date"
+                    "Polarity": "Pos",
+                    "id": "T3",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T21"
                 },
                 {
-                    "text_time2": "21 nov 2020",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
-                }
-            ],
-            "text_time": "hoje",
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "O Tribunal de Foz C\u00f4a, no distrito de Guarda, decretou hoje pris\u00e3o preventiva para um homem de 71 anos acusado de viol\u00eancia dom\u00e9stica, ap\u00f3s ter sido detido pelas autoridades em flagrante delito na sexta-feira, indicou fonte da GNR.",
-            "events": [
-                {
-                    "text_event": "detido",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "detido",
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Aspect": "Perfective",
-                    "VForm": "Infinitive"
+                    "VForm": "Infinitive",
+                    "id": "T11",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T22"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_before",
+                    "text": "hoje",
+                    "offset": 174,
+                    "id": "T21",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text": "na sexta-feira",
+                    "offset": 313,
+                    "id": "T22",
                     "Time_Type": "Date"
                 }
             ],
-            "text_time": "na sexta - feira ,",
-            "Time_Type": "Date"
+            "linked_times": [
+                {
+                    "text": "na sexta-feira",
+                    "Time_Type": "Date",
+                    "id": "T22",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T21",
+                    "sent_id": "S4"
+                },
+                {
+                    "text": "21 nov 2020",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T20",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T21",
+                    "sent_id": "S0"
+                }
+            ]
         }
     ]
 }

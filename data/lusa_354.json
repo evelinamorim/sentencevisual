@@ -1,145 +1,165 @@
 {
     "sentences": [
         {
-            "text_sent": "Leiria, 02 dez 2020",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "02 dez 2020",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "Um homem de 28 anos, indiciado da pr\u00e1tica do crime de viol\u00eancia dom\u00e9stica agravada, vai aguardar julgamento em pris\u00e3o preventiva, anunciou hoje o Minist\u00e9rio P\u00fablico (MP) de Leiria.",
+            "text": "Um homem de 28 anos, indiciado da pr\u00e1tica do crime de viol\u00eancia dom\u00e9stica agravada, vai aguardar julgamento em pris\u00e3o preventiva, anunciou hoje o Minist\u00e9rio P\u00fablico (MP) de Leiria.",
+            "id": "S3",
             "events": [
                 {
-                    "text_event": "anunciou",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "anunciou",
                     "Class": "Reporting",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "id": "T1",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T38"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "02 dez 2020",
-                    "rel_type": "TLINK_identity",
+                    "text": "hoje",
+                    "offset": 224,
+                    "id": "T38",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "02 dez 2020",
                     "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T37",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T38",
+                    "sent_id": "S0"
                 },
                 {
-                    "text_time2": "2016",
+                    "text": "2016",
+                    "Time_Type": "Date",
+                    "id": "T43",
                     "rel_type": "TLINK_before",
-                    "Time_Type": "Date"
+                    "arg2": "T38",
+                    "sent_id": "S5"
                 }
-            ],
-            "text_time": "hoje",
-            "Time_Type": "Date"
+            ]
         },
         {
-            "text_sent": "De acordo com informa\u00e7\u00e3o disponibilizada no portal da Procuradoria da Rep\u00fablica da Comarca de Leiria, o tribunal considerou \u201c encontrar-se fortemente indiciado que o arguido, entre 2016 e 2019, durante um relacionamento que manteve com a v\u00edtima, a agrediu f\u00edsica, verbal e psicologicamente, inclusive na presen\u00e7a do filho menor de ambos \u201d.",
+            "text": "De acordo com informa\u00e7\u00e3o disponibilizada no portal da Procuradoria da Rep\u00fablica da Comarca de Leiria, o tribunal considerou \u201c encontrar-se fortemente indiciado que o arguido, entre 2016 e 2019, durante um relacionamento que manteve com a v\u00edtima, a agrediu f\u00edsica, verbal e psicologicamente, inclusive na presen\u00e7a do filho menor de ambos \u201d.",
+            "id": "S5",
             "events": [
                 {
-                    "text_event": "relacionamento",
-                    "rel_type": "TLINK_begunBy",
-                    "Class": "Occurrence",
-                    "Event_Type": "Process",
-                    "Pos": "Noun",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "2016",
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "De acordo com informa\u00e7\u00e3o disponibilizada no portal da Procuradoria da Rep\u00fablica da Comarca de Leiria, o tribunal considerou \u201c encontrar-se fortemente indiciado que o arguido, entre 2016 e 2019, durante um relacionamento que manteve com a v\u00edtima, a agrediu f\u00edsica, verbal e psicologicamente, inclusive na presen\u00e7a do filho menor de ambos \u201d.",
-            "events": [
-                {
-                    "text_event": "relacionamento",
-                    "rel_type": "TLINK_endedBy",
-                    "Class": "Occurrence",
-                    "Event_Type": "Process",
-                    "Pos": "Noun",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "julho de 2019,",
-                    "rel_type": "TLINK_isIncluded",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "2019 ,",
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "Segundo o MP, \u201c j\u00e1 depois de a v\u00edtima ter terminado a rela\u00e7\u00e3o de ambos em julho de 2019, o arguido, n\u00e3o aceitando a separa\u00e7\u00e3o, proferiu insultos e amea\u00e7as de morte contra a mesma, molestou-a fisicamente e perseguiu-a de forma sistem\u00e1tica at\u00e9 ao dia 17 de novembro \u201d \u00faltimo.",
-            "events": [
-                {
-                    "text_event": "terminado",
-                    "rel_type": "TLINK_isIncluded",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Aspect": "Perfective",
-                    "VForm": "Infinitive",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "2019,",
-                    "rel_type": "TLINK_isIncluded",
-                    "Time_Type": "Date"
-                },
-                {
-                    "text_time2": "ao dia 17 de novembro \u201d \u00faltimo.",
-                    "rel_type": "TLINK_after",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "julho de 2019 ,",
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "Segundo o MP, \u201c j\u00e1 depois de a v\u00edtima ter terminado a rela\u00e7\u00e3o de ambos em julho de 2019, o arguido, n\u00e3o aceitando a separa\u00e7\u00e3o, proferiu insultos e amea\u00e7as de morte contra a mesma, molestou-a fisicamente e perseguiu-a de forma sistem\u00e1tica at\u00e9 ao dia 17 de novembro \u201d \u00faltimo.",
-            "events": [
-                {
-                    "text_event": "perseguiu -",
-                    "rel_type": "TLINK_endedBy",
+                    "text": "agrediu",
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "id": "T21",
+                    "rel_type": "TLINK_begunBy",
+                    "arg2": "T43"
+                },
+                {
+                    "text": "agrediu",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T21",
+                    "rel_type": "TLINK_endedBy",
+                    "arg2": "T39"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "julho de 2019,",
-                    "rel_type": "TLINK_after",
+                    "text": "2016",
+                    "offset": 446,
+                    "id": "T43",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text": "2019",
+                    "offset": 453,
+                    "id": "T39",
                     "Time_Type": "Date"
                 }
             ],
-            "text_time": "ao dia 17 de novembro \u201d \u00faltimo .",
-            "Time_Type": "Date"
+            "linked_times": [
+                {
+                    "text": "2019",
+                    "Time_Type": "Date",
+                    "id": "T39",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T43",
+                    "sent_id": "S5"
+                },
+                {
+                    "text": "julho de 2019",
+                    "Time_Type": "Date",
+                    "id": "T51",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T39",
+                    "sent_id": "S7"
+                }
+            ]
+        },
+        {
+            "text": "Segundo o MP, \u201c j\u00e1 depois de a v\u00edtima ter terminado a rela\u00e7\u00e3o de ambos em julho de 2019, o arguido, n\u00e3o aceitando a separa\u00e7\u00e3o, proferiu insultos e amea\u00e7as de morte contra a mesma, molestou-a fisicamente e perseguiu-a de forma sistem\u00e1tica at\u00e9 ao dia 17 de novembro \u201d \u00faltimo.",
+            "id": "S7",
+            "events": [
+                {
+                    "text": "terminado",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Aspect": "Perfective",
+                    "VForm": "Infinitive",
+                    "Polarity": "Pos",
+                    "id": "T23",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T51"
+                },
+                {
+                    "text": "perseguiu",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T29",
+                    "rel_type": "TLINK_endedBy",
+                    "arg2": "T42"
+                }
+            ],
+            "times": [
+                {
+                    "text": "julho de 2019",
+                    "offset": 677,
+                    "id": "T51",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text": "ao dia 17 de novembro \u201d \u00faltimo",
+                    "offset": 845,
+                    "id": "T42",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "ao dia 17 de novembro \u201d \u00faltimo",
+                    "Time_Type": "Date",
+                    "id": "T42",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T51",
+                    "sent_id": "S7"
+                }
+            ]
         }
     ]
 }

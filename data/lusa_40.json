@@ -1,72 +1,76 @@
 {
     "sentences": [
         {
-            "text_sent": "Odemira, Beja, 11 out 2020",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "11 out 2020",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "Um homem de 68 anos morreu hoje na sequ\u00eancia do despiste do ciclomotor que conduzia, num caminho de terra batida perto de Vale Tijoso, no concelho de Odemira (Beja), revelaram a Prote\u00e7\u00e3o Civil e a GNR.",
+            "text": "Um homem de 68 anos morreu hoje na sequ\u00eancia do despiste do ciclomotor que conduzia, num caminho de terra batida perto de Vale Tijoso, no concelho de Odemira (Beja), revelaram a Prote\u00e7\u00e3o Civil e a GNR.",
+            "id": "S4",
             "events": [
                 {
-                    "text_event": "morreu",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "morreu",
                     "Tense": "Past",
                     "Aspect": "Perfective",
                     "Pos": "Verb",
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "id": "T1",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T13"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "11 out 2020",
-                    "rel_type": "TLINK_identity",
+                    "text": "hoje",
+                    "offset": 136,
+                    "id": "T13",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "11 out 2020",
                     "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T6",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T13",
+                    "sent_id": "S0"
                 },
                 {
-                    "text_time2": "19:08",
+                    "text": "19:08",
+                    "Time_Type": "Time",
+                    "id": "T4",
                     "rel_type": "TLINK_isIncluded",
+                    "arg2": "T13",
+                    "sent_id": "S6"
+                }
+            ]
+        },
+        {
+            "text": "O Comando Distrital de Opera\u00e7\u00f5es de Socorro (CDOS) de Beja disse \u00e0 ag\u00eancia Lusa que os bombeiros receberam \u00e0s 19:08 o alerta para o acidente, ocorrido na zona do \u201c monte de Vale Tijoso \u201d, num caminho entre S\u00e3o Teot\u00f3nio, sede de freguesia, e Relva Grande.",
+            "id": "S6",
+            "events": [
+                {
+                    "text": "receberam",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T9",
+                    "rel_type": "TLINK_simultaneous",
+                    "arg2": "T4"
+                }
+            ],
+            "times": [
+                {
+                    "text": "19:08",
+                    "offset": 421,
+                    "id": "T4",
                     "Time_Type": "Time"
                 }
             ],
-            "text_time": "hoje",
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "O Comando Distrital de Opera\u00e7\u00f5es de Socorro (CDOS) de Beja disse \u00e0 ag\u00eancia Lusa que os bombeiros receberam \u00e0s 19:08 o alerta para o acidente, ocorrido na zona do \u201c monte de Vale Tijoso \u201d, num caminho entre S\u00e3o Teot\u00f3nio, sede de freguesia, e Relva Grande.",
-            "events": [
-                {
-                    "text_event": "receberam",
-                    "rel_type": "TLINK_simultaneous",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Tense": "Past",
-                    "Aspect": "Perfective",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_isIncluded",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "19:08",
-            "Time_Type": "Time"
+            "linked_times": []
         }
     ]
 }

@@ -25,6 +25,7 @@ def index():
 @app.route('/get-files', methods=['GET'])
 def get_files():
     # Directory containing the JSON files
+    print("--> get_files")
     directory = os.path.join(os.getcwd(), 'data')
     
     # Get a list of files ending with .json

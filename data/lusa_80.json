@@ -1,86 +1,84 @@
 {
     "sentences": [
         {
-            "text_sent": "Pa\u00e7os de Ferreira, Porto, 21 dez 2020",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date",
-                    "AnnotatorNotes": [
-                        "value=2020-12-21"
-                    ]
-                }
-            ],
-            "text_time": "21 dez 2020",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "O suspeito foi detido e vai ser presente hoje a primeiro interrogat\u00f3rio no Tribunal de Instru\u00e7\u00e3o Criminal de Penafiel, para aplica\u00e7\u00e3o das medidas de coa\u00e7\u00e3o.",
+            "text": "Um homem de 44 anos foi detido em Pa\u00e7os de Ferreira por viol\u00eancia f\u00edsica e amea\u00e7as de morte \u00e0 ex - companheira de 40 anos, informou hoje fonte da GNR.",
+            "id": "S4",
             "events": [
                 {
-                    "text_event": "vai ser presente a primeiro interrogat\u00f3rio",
-                    "rel_type": "TLINK_isIncluded",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Tense": "Future",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date",
-                    "AnnotatorNotes": [
-                        "value=2020-12-21"
-                    ]
-                }
-            ],
-            "text_time": "hoje",
-            "Time_Type": "Date",
-            "AnnotatorNotes": [
-                "value=2020-12-21"
-            ]
-        },
-        {
-            "text_sent": "Um homem de 44 anos foi detido em Pa\u00e7os de Ferreira por viol\u00eancia f\u00edsica e amea\u00e7as de morte \u00e0 ex - companheira de 40 anos, informou hoje fonte da GNR.",
-            "events": [
-                {
-                    "text_event": "informou",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "informou",
                     "Class": "Reporting",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "id": "T4",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T21"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "21 dez 2020",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
-                },
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
+                    "text": "hoje",
+                    "offset": 249,
+                    "id": "T21",
                     "Time_Type": "Date",
                     "AnnotatorNotes": [
                         "value=2020-12-21"
                     ]
                 }
             ],
-            "text_time": "hoje",
-            "Time_Type": "Date",
-            "AnnotatorNotes": [
-                "value=2020-12-21"
+            "linked_times": [
+                {
+                    "text": "21 dez 2020",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T45",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T21",
+                    "sent_id": "S0"
+                },
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "AnnotatorNotes": [
+                        "value=2020-12-21"
+                    ],
+                    "id": "T22",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T21",
+                    "sent_id": "S8"
+                }
             ]
+        },
+        {
+            "text": "O suspeito foi detido e vai ser presente hoje a primeiro interrogat\u00f3rio no Tribunal de Instru\u00e7\u00e3o Criminal de Penafiel, para aplica\u00e7\u00e3o das medidas de coa\u00e7\u00e3o.",
+            "id": "S8",
+            "events": [
+                {
+                    "text": "ser presente a primeiro interrogat\u00f3rio",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Future",
+                    "Polarity": "Pos",
+                    "id": "T14",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T22"
+                }
+            ],
+            "times": [
+                {
+                    "text": "hoje",
+                    "offset": 540,
+                    "id": "T22",
+                    "Time_Type": "Date",
+                    "AnnotatorNotes": [
+                        "value=2020-12-21"
+                    ]
+                }
+            ],
+            "linked_times": []
         }
     ]
 }

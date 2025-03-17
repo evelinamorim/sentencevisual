@@ -1,83 +1,76 @@
 {
     "sentences": [
         {
-            "text_sent": "Porto, 04 nov 2020",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "julho de 2019,",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Duration"
-                },
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "04 nov 2020",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "A Pol\u00edcia Judici\u00e1ria (PJ) deteve um homem de 45 anos em Vila Nova de Gaia, no distrito do Porto, por suspeita de crimes de pornografia de menores por via inform\u00e1tica, ocorridos desde julho de 2019, foi hoje anunciado.",
+            "text": "A Pol\u00edcia Judici\u00e1ria (PJ) deteve um homem de 45 anos em Vila Nova de Gaia, no distrito do Porto, por suspeita de crimes de pornografia de menores por via inform\u00e1tica, ocorridos desde julho de 2019, foi hoje anunciado.",
+            "id": "S2",
             "events": [
                 {
-                    "text_event": "ocorridos",
-                    "rel_type": "TLINK_begunBy",
+                    "text": "ocorridos",
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Aspect": "Perfective",
                     "VForm": "Participle",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_after",
-                    "Time_Type": "Date"
+                    "Polarity": "Pos",
+                    "id": "T2",
+                    "rel_type": "TLINK_begunBy",
+                    "arg2": "T3"
                 },
                 {
-                    "text_time2": "04 nov 2020",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
-                }
-            ],
-            "text_time": "julho de 2019 ,",
-            "Time_Type": "Duration"
-        },
-        {
-            "text_sent": "A Pol\u00edcia Judici\u00e1ria (PJ) deteve um homem de 45 anos em Vila Nova de Gaia, no distrito do Porto, por suspeita de crimes de pornografia de menores por via inform\u00e1tica, ocorridos desde julho de 2019, foi hoje anunciado.",
-            "events": [
-                {
-                    "text_event": "anunciado.",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "anunciado.",
                     "Class": "Reporting",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "id": "T5",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T4"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "julho de 2019,",
-                    "rel_type": "TLINK_after",
-                    "Time_Type": "Duration"
+                    "text": "julho de 2019",
+                    "offset": 288,
+                    "id": "T3",
+                    "Time_Type": "Date"
                 },
                 {
-                    "text_time2": "04 nov 2020",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
+                    "text": "hoje",
+                    "offset": 307,
+                    "id": "T4",
+                    "Time_Type": "Date"
                 }
             ],
-            "text_time": "hoje",
-            "Time_Type": "Date"
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T4",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T3",
+                    "sent_id": "S2"
+                },
+                {
+                    "text": "04 nov 2020",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T1",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T3",
+                    "sent_id": "S0"
+                },
+                {
+                    "text": "04 nov 2020",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T1",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T4",
+                    "sent_id": "S0"
+                }
+            ]
         }
     ]
 }

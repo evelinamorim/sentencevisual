@@ -1,70 +1,223 @@
 {
     "sentences": [
         {
-            "text_sent": "Jacarta, 26 nov 2020",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "na quarta-feira \u00e0 noite,",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Time"
-                }
-            ],
-            "text_time": "26 nov 2020",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "As autoridades indon\u00e9sias anunciaram, na quarta-feira \u00e0 noite, a deten\u00e7\u00e3o do Ministro dos Assuntos Mar\u00edtimos e das Pescas, Edhy Prabowo, por suspeita de corrup\u00e7\u00e3o.",
+            "text": "As autoridades indon\u00e9sias anunciaram, na quarta-feira \u00e0 noite, a deten\u00e7\u00e3o do Ministro dos Assuntos Mar\u00edtimos e das Pescas, Edhy Prabowo, por suspeita de corrup\u00e7\u00e3o.",
+            "id": "S4",
             "events": [
                 {
-                    "text_event": "anunciaram,",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "anunciaram",
                     "Class": "Reporting",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
+                    "Polarity": "Pos",
+                    "id": "T27",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T30"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "na quarta-feira,",
-                    "rel_type": "TLINK_includes",
+                    "text": "na quarta-feira",
+                    "offset": 157,
+                    "id": "T30",
                     "Time_Type": "Date"
                 },
                 {
-                    "text_time2": "26 nov 2020",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
+                    "text": "noite",
+                    "offset": 175,
+                    "id": "T39",
+                    "Time_Type": "Time"
                 }
             ],
-            "text_time": "na quarta - feira \u00e0 noite ,",
-            "Time_Type": "Time"
+            "linked_times": [
+                {
+                    "text": "26 nov 2020",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T29",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T30",
+                    "sent_id": "S0"
+                },
+                {
+                    "text": "noite",
+                    "Time_Type": "Time",
+                    "id": "T39",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T30",
+                    "sent_id": "S4"
+                },
+                {
+                    "text": "na quarta-feira",
+                    "Time_Type": "Date",
+                    "id": "T31",
+                    "rel_type": "TLINK_includes",
+                    "arg2": "T39",
+                    "sent_id": "S7"
+                }
+            ]
         },
         {
-            "text_sent": "O ministro foi detido \u00e0 chegada ao Aeroporto Internacional de Jacarta na quarta-feira, ap\u00f3s uma visita de trabalho aos Estados Unidos.",
+            "text": "O ministro foi detido \u00e0 chegada ao Aeroporto Internacional de Jacarta na quarta-feira, ap\u00f3s uma visita de trabalho aos Estados Unidos.",
+            "id": "S7",
             "events": [
                 {
-                    "text_event": "chegada",
-                    "rel_type": "TLINK_isIncluded",
+                    "text": "detido",
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
-                    "Pos": "Noun",
-                    "Polarity": "Pos"
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Polarity": "Pos",
+                    "Aspect": "Perfective",
+                    "id": "T1",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T31"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "na quarta-feira \u00e0 noite,",
-                    "rel_type": "TLINK_includes",
-                    "Time_Type": "Time"
+                    "text": "na quarta-feira",
+                    "offset": 587,
+                    "id": "T31",
+                    "Time_Type": "Date"
                 }
             ],
-            "text_time": "na quarta - feira ,",
-            "Time_Type": "Date"
+            "linked_times": [
+                {
+                    "text": "mais de 20 dias",
+                    "Time_Type": "Duration",
+                    "id": "T33",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T31",
+                    "sent_id": "S11"
+                }
+            ]
+        },
+        {
+            "text": "Os suspeitos podem passar mais de 20 dias em pris\u00e3o preventiva para prestarem declara\u00e7\u00f5es antes de serem acusados formalmente.",
+            "id": "S11",
+            "events": [
+                {
+                    "text": "passar",
+                    "Class": "State",
+                    "Event_Type": "State",
+                    "Pos": "Verb",
+                    "Polarity": "Pos",
+                    "Tense": "Present",
+                    "Modality": "Poder",
+                    "id": "T5",
+                    "rel_type": "TLINK_simultaneous",
+                    "arg2": "T33"
+                }
+            ],
+            "times": [
+                {
+                    "text": "mais de 20 dias",
+                    "offset": 776,
+                    "id": "T33",
+                    "Time_Type": "Duration"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "setembro do ano passado",
+                    "Time_Type": "Date",
+                    "id": "T36",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T33",
+                    "sent_id": "S15"
+                }
+            ]
+        },
+        {
+            "text": "Em setembro do ano passado, o ent\u00e3o ministro dos Desportos Im\u00e3 Nahrawi demitiu-se, na sequ\u00eancia de uma investiga\u00e7\u00e3o por ter alegadamente recebido subornos.",
+            "id": "S15",
+            "events": [
+                {
+                    "text": "demitiu",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T9",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T36"
+                }
+            ],
+            "times": [
+                {
+                    "text": "setembro do ano passado",
+                    "offset": 962,
+                    "id": "T36",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "abril de 2019",
+                    "Time_Type": "Date",
+                    "id": "T37",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T36",
+                    "sent_id": "S17"
+                }
+            ]
+        },
+        {
+            "text": "Em abril de 2019, o antigo ministro dos Assuntos Sociais Idrus Marham foi condenado a tr\u00eas anos de pris\u00e3o por v\u00e1rios delitos de corrup\u00e7\u00e3o.",
+            "id": "S17",
+            "events": [
+                {
+                    "text": "condenado",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T12",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T37"
+                },
+                {
+                    "text": "pris\u00e3o",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos",
+                    "id": "T25",
+                    "rel_type": "TLINK_simultaneous",
+                    "arg2": "T38"
+                }
+            ],
+            "times": [
+                {
+                    "text": "abril de 2019",
+                    "offset": 1118,
+                    "id": "T37",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text": "tr\u00eas anos",
+                    "offset": 1201,
+                    "id": "T38",
+                    "Time_Type": "Duration"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "tr\u00eas anos",
+                    "Time_Type": "Duration",
+                    "id": "T38",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T37",
+                    "sent_id": "S17"
+                }
+            ]
         }
     ]
 }

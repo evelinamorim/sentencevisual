@@ -9,6 +9,12 @@ function populateFileDropdown() {
             // Clear existing options (if any)
             fileSelect.innerHTML = '<option value="">Select a file</option>';
 
+            files.sort((a, b) => {
+                const numA = parseInt(a.match(/\d+/)[0], 10);
+                const numB = parseInt(b.match(/\d+/)[0], 10);
+                return numA - numB;
+            });
+
             // Populate with files from the server
             files.forEach(file => {
                 const option = document.createElement('option');
@@ -40,12 +46,9 @@ function visualizeJSON(fileName) {
             return response.json();
         })
         .then(data => {
-            //console.log('JSON data fetched:', data); // Debugging log
-            d3.select("#visualization").html("");   // Clear existing visualization
 
-            //treeData = convertToTree(data);   // Convert JSON to tree
-            //console.log('Tree data:', treeData);    // Debugging log
-            // renderD3Tree(treeData);                  // Render with D3.js
+            const wrapper = d3.select("#visualization-wrapper");
+            wrapper.selectAll("*").remove();
             renderSentences(data.sentences);
 
         })
@@ -53,93 +56,586 @@ function visualizeJSON(fileName) {
 
 }
 
-// Render sentences with events and time expressions
-function renderSentences(sentences) {
-    setupVisualization();
-    sentences.forEach((sentence, index) => renderSentence(sentence, index));
-
-
-}
-
 let sharedSVG;
 function setupVisualization() {
     const wrapper = d3.select("#visualization-wrapper");
-    const container = d3.select("#visualization").html("");
+    wrapper
+        .style("position", "relative")  // Change from "relative" to "fixed"
+        .style("left", "auto")          // Anchor to left edge
+        .style("top", "auto")           // Anchor to top (adjust if needed)
+        .style("margin", "0")     // Keep your margin
+        .style("z-index", "10")   // Ensure it stays above other content
+        .style("width", "100%")  // Set explicit width (adjust as needed)
+        .style("height", "auto")  // Ensure vertical containment
+        .style("display","flex")
+        .style("flex-direction","row")
+        .style("padding","10px")
+        .style("overflow", "visible");  // Make it scrollable
 
-    wrapper.style("height", "auto");
+
     wrapper.selectAll("svg.arrows").remove();
 
-    const sentencesContainer = container
-        .append("div")
-        .attr("class", "sentences-container")
-        .style("position", "relative")
-        .style("z-index", "2");
+    wrapper.append("div")
+        .attr("class", "sentences-column")
+        .style("width", "40%")
+        .style("overflow-y", "auto");
 
-    sharedSVG = wrapper
-        .append("svg")
+    // Create timeline column (right side)
+    const timelineColumn = wrapper.append("div")
+        .attr("class", "timeline-column")
+        .style("width", "60%")
+        .style("position", "relative")
+        .style("overflow","hidden");
+
+    sharedSVG = timelineColumn.append("svg")
         .attr("class", "arrows")
         .style("position", "absolute")
-        .style("top", 0)
-        .style("left", 0)
+        .style("top", "0")
+        .style("left", "0")
         .style("width", "100%")
         .style("height", "100%")
-        .style("pointer-events", "all")
-        .style("z-index", "10");
+        .style("pointer-events", "none")
+        .style("z-index", "3");
 
+    // Add arrow marker definition
     sharedSVG.append("defs")
         .append("marker")
         .attr("id", "arrowhead")
         .attr("viewBox", "0 -5 10 10")
-        .attr("refX", 8)
-        .attr("refY", 0)
-        .attr("markerWidth", 8)
-        .attr("markerHeight", 8)
+        .attr("refX", "8")
+        .attr("refY", "0")
+        .attr("markerWidth", "8")
+        .attr("markerHeight", "8")
         .attr("orient", "auto")
         .append("path")
         .attr("d", "M0,-5L10,0L0,5")
-        .attr("fill", "black");
+        .attr("fill", "black")
+        .style("outline", "1px solid red"); ;
+
 }
 
-const cleanupFunctions = new Map();
 
-function renderSentence(sentence, index) {
+// Render sentences with events and time expressions
+function renderSentences(sentences) {
+    setupVisualization();
+
+    const results = sentences.map((sentence, index) => renderSentenceTimeline(sentence, index));
+
+    const allFragments = results.map(r => r.fragments);
+    const allLinkedTimes = results.map(r => r.linkedTimes);
+
+    const cleanup = renderTimeline(allFragments, allLinkedTimes);
+
+}
+
+function renderSentenceTimeline(sentence, index) {
     const wrapper = d3.select("#visualization-wrapper");
     const container = d3.select(".sentences-container");
 
-    const sentenceContainer = container
+    // Get the sentences column (left)
+    const textContainer = d3.select(".sentences-column")
         .append("div")
-        .attr("class", "sentence")
-        .style("position", "relative")
-        .style("z-index", "2");
+        .attr("class", "sentence-text")
+        .attr("data-sentence-index", index)
+        .style("margin-bottom", "10px")
+        .style("padding", "15px")
+        .style("background", "#f8f8f8");
 
-    const sentenceText = sentenceContainer
-        .append("div")
-        .style("position", "relative")
-        .style("z-index", "2");
+    // Add sentence text to left column
+    //textContainer.text(sentence.text);
+    const addedEventIds = new Set();
 
-    const fragments = createFragments(sentence.text_sent, sentence);
-    const { eventElements, timeElements } = categorizeElements(sentenceText, fragments);
+    const fragments = createFragments(sentence.text, sentence);
+    //console.log(sentence.text);
+    fragments.forEach(fragment => {
 
-    // Wait for DOM to be fully rendered before initializing arrows
-    requestAnimationFrame(() => {
-        const cleanup = initializeArrows(wrapper, eventElements, timeElements, sentence.times);
-        if (typeof cleanupFunctions !== 'undefined') {
-            cleanupFunctions.set(index, cleanup);
+        if (fragment.type === "yellow-box") {
+
+            if (fragment.time.Time_Type == "Duration" ||
+                fragment.time.Time_Type == "Set"){
+                backColor = "#ff8800";
+            } else {
+                backColor = "#ffff00";
+            }
+
+            textContainer.append("span")
+                .style("background-color", backColor) // Yellow highlight
+                .style("padding", "2px")
+                .style("border-radius", "3px")
+                .text(fragment.time.text);
+
+        } else if (fragment.type === "blue-box") {
+            if (!addedEventIds.has(fragment.event.id)) {
+                addedEventIds.add(fragment.event.id); // Mark as added
+
+                textContainer.append("span")
+                    .style("background-color", "#b3d9ff") // Blue highlight
+                    .style("padding", "2px")
+                    .style("border-radius", "3px")
+                    .text(fragment.event.text);
+            }
+        } else {
+            textContainer.append("span")
+                .text(fragment.text); // Regular text
         }
     });
+    return {
+        fragments: fragments,
+        linkedTimes: sentence.linked_times
+    };
 }
 
+function renderTimeline(allFragments, allLinkedTimes) {
+
+
+    const wrapper = d3.select("#visualization-wrapper");
+    const timelineColumn = d3.select(".timeline-column");
+
+    let currentlyHighlightedSentence = null;
+
+    const eventsContainer = timelineColumn.append("div")
+        .style("position", "absolute")
+        .style("z-index","2")
+        .style("left", "0")
+        .style("top", "0")
+        .style("width", "100%")
+        .style("height", "100%")
+        .style("pointer-events", "none");
+
+    const tooltip = d3.select("body").append("div")
+        .attr("class", "event-tooltip")
+        .style("position", "absolute")
+        .style("visibility", "hidden")
+        .style("background-color", "white")
+        .style("border", "1px solid #ddd")
+        .style("border-radius", "5px")
+        .style("padding", "10px")
+        .style("box-shadow", "0 2px 5px rgba(0,0,0,0.2)")
+        .style("font-size", "14px")
+        .style("z-index", "1000");
+
+    const timelineContainer = timelineColumn.append("div")
+        .style("display", "flex")
+        .style("flex-direction", "column")
+        .style("align-items", "center");
+
+
+    const timeBoxes = [];
+
+    // Function to find which sentence contains a given time expression
+    function findSentenceContainingTime(timeId) {
+        let sentenceElement = null;
+
+        allFragments.forEach((fragments, index) => {
+            fragments.forEach(fragment => {
+                if (fragment.type === "yellow-box" && fragment.time && fragment.time.id === timeId) {
+                    sentenceElement = d3.select(`.sentence-text[data-sentence-index="${index}"]`);
+                }
+            });
+        });
+
+        return sentenceElement;
+    }
+
+    // Function to toggle sentence highlight
+    function toggleSentenceHighlight(timeId) {
+        const sentenceToHighlight = findSentenceContainingTime(timeId);
+
+        if (!sentenceToHighlight) return;
+
+        // If there's already a highlighted sentence and it's different from the one being clicked
+        if (currentlyHighlightedSentence &&
+            currentlyHighlightedSentence.node() !== sentenceToHighlight.node()) {
+            // Reset the previous one
+            currentlyHighlightedSentence.style("background", "#f8f8f8");
+        }
+
+        // Toggle the clicked sentence
+        if (currentlyHighlightedSentence &&
+            currentlyHighlightedSentence.node() === sentenceToHighlight.node()) {
+            // It's already highlighted, so turn it off
+            sentenceToHighlight.style("background", "#f8f8f8");
+            currentlyHighlightedSentence = null;
+        } else {
+            // Highlight the new sentence
+            sentenceToHighlight.style("background", "#B2FEAB");
+            currentlyHighlightedSentence = sentenceToHighlight;
+        }
+    }
+
+    // Render yellow boxes
+    allFragments.forEach(fragments => {
+        fragments.forEach(fragment => {
+            if (fragment.type === "yellow-box") {
+                if (fragment.time.Time_Type == "Duration" ||
+                    fragment.time.Time_Type == "Set"){
+                    backColor = "#ff8800";
+                } else {
+                    backColor = "#ffff00";
+                }
+
+                const timeBox = timelineContainer.append("span")
+                    .attr("id", fragment.time.id)
+                    .text(fragment.text)
+                    .classed("yellow-box", true)
+                    .style("background-color", backColor)
+                    .style("padding", "12px 24px")
+                    .style("border-radius", "10px")
+                    .style("font-size", "20px")
+                    .style("white-space", "nowrap")
+                    .style("margin", "30px 30px") // Fixed position from left
+                    .style("display", "inline-block")
+                    .style("text-align","center")
+                    .style("cursor", "pointer") // Add pointer cursor to indicate clickability
+                    .on("click", function() {
+                        // Toggle sentence highlight when time expression is clicked
+                        toggleSentenceHighlight(fragment.time.id);
+                    });
+
+                timeBoxes.push({
+                    id: fragment.time.id,
+                    element: timeBox
+                });
+            }
+        });
+    });
+
+    const addedEventIds = new Set();
+    const eventBoxes = []
+    const timelineColumnRect = timelineColumn.node().getBoundingClientRect();
+    const timeExpressionEventCount = new Map();
+    allFragments.forEach(fragments => {
+        fragments.forEach(fragment => {
+            if (fragment.type == "blue-box" && !addedEventIds.has(fragment.event.id)) {
+
+                addedEventIds.add(fragment.event.id);
+
+
+                if (fragment.event.Class == "I_Action" || fragment.event.Class == "I_State"){
+                    borderValue = "2px dashed #3366cc";
+                } else{
+                    borderValue = "2px solid #99ccff";
+                }
+
+                const timeExpressionId = fragment.event.arg2;
+
+                // Track how many events are connected to this time expression
+                if (timeExpressionId) {
+                    if (!timeExpressionEventCount.has(timeExpressionId)) {
+                        timeExpressionEventCount.set(timeExpressionId, 0);
+                    }
+                    // Increment the count for this time expression
+                    const currentCount = timeExpressionEventCount.get(timeExpressionId);
+                    timeExpressionEventCount.set(timeExpressionId, currentCount + 1);
+                }
+
+                const eventBox = eventsContainer.append("div")
+                    .attr("id", `event-${fragment.event.id}`)
+                    .style("width", "50px")
+                    .style("height", "50px")
+                    .style("background-color", "#b3d9ff")
+                    .style("border-radius", "50%")
+                    .style("display", "flex")
+                    .style("align-items", "center")
+                    .style("justify-content", "center")
+                    .style("font-size", "14px")
+                    .style("box-shadow", "0 2px 4px rgba(0,0,0,0.1)")
+                    .style("border", borderValue)
+                    .style("position", "absolute")
+                    .style("left", function(){
+                        const timelineWidth = timelineColumn.node().getBoundingClientRect().width;
+
+                        // If this event is connected to a time expression, add an offset based on position
+                        if (timeExpressionId) {
+                            const eventPosition = timeExpressionEventCount.get(timeExpressionId) - 1; // 0-based index
+                            return (timelineWidth / 2 - 290) + "px";
+                        }
+
+                        return (timelineWidth / 2 - 290) + "px";
+                    }) // Fixed position from left
+                    .style("top", function() {
+                        // Find the connected time box and align with it
+                        if (fragment.event.arg2) {
+                            const connectedTime = timeBoxes.find(t => t.id === fragment.event.arg2);
+                            if (connectedTime) {
+                                const timeRect = connectedTime.element.node().getBoundingClientRect();
+                                const eventPosition = timeExpressionEventCount.get(timeExpressionId) - 1; // 0-based index
+
+                                // Add a small vertical offset (10px) for each subsequent event
+                                const verticalOffset = eventPosition * 60;
+
+                                return (timeRect.top - timelineColumnRect.top + timeRect.height/2 - 25 + verticalOffset) + "px";
+                            }
+
+                        }
+                        return "20px";
+                    })
+                    .style("pointer-events", "auto")
+                    .text(fragment.event.text || "");
+
+                eventBox
+                    .on("mouseover", function() {
+                        // Show tooltip with event attributes
+                        const event = fragment.event;
+                        let tooltipContent = "";
+
+                        // List of fields to display (excluding arg2, id, and rel_type)
+                        const displayFields = [
+                            "Aspect", "Class", "Event_Type", "Polarity",
+                            "Pos", "Tense"
+                        ];
+
+                        // Build tooltip content
+                        displayFields.forEach(field => {
+                            if (event[field]) {
+                                tooltipContent += `<strong>${field}:</strong> ${event[field]}<br>`;
+                            }
+                        });
+
+                        tooltip
+                            .style("visibility", "visible")
+                            .html(tooltipContent);
+
+                        // Position tooltip near the event box
+                        const rect = this.getBoundingClientRect();
+                        tooltip
+                            .style("left", (rect.right + 10) + "px")
+                            .style("top", (rect.top) + "px");
+                    })
+                    .on("mouseout", function() {
+                        // Hide tooltip
+                        tooltip.style("visibility", "hidden");
+                    });
+
+
+                eventBoxes.push({
+                    element: eventBox,
+                    fragment: fragment
+                });
+            }
+        });
+    });
+
+
+
+    function getConnectionPoints(rect1, rect2) {
+        // Determine if connection should be vertical or horizontal
+        const verticalDistance = Math.abs(rect2.top - rect1.top);
+        const horizontalDistance = Math.abs(rect2.left - rect1.left);
+        // if the box is too wide, then the vertical and horizontal distance is too close
+        // the 30 is just an heuristic to try to fix that
+        const isVertical = verticalDistance + 30 > horizontalDistance;
+
+        let startX, startY, endX, endY;
+
+        if (isVertical) {
+            // Connect from top or bottom
+            startX = rect1.left + rect1.width / 2;
+            endX = rect2.left + rect2.width / 2;
+
+            if (rect2.top > rect1.top) {
+                // Connect bottom to top
+                startY = rect1.top + rect1.height;
+                endY = rect2.top;
+            } else {
+                // Connect top to bottom
+                startY = rect1.top;
+                endY = rect2.top + rect2.height;
+            }
+        } else {
+            // Connect from sides
+            startY = rect1.top + rect1.height / 2;
+            endY = rect2.top + rect2.height / 2;
+
+            if (rect2.left > rect1.left) {
+                // Connect right to left
+                startX = rect1.left + rect1.width;
+                endX = rect2.left;
+            } else {
+                // Connect left to right
+                startX = rect1.left;
+                endX = rect2.left + rect2.width;
+            }
+        }
+
+        return { startX, startY, endX, endY, isVertical };
+    }
+
+    function createArrows() {
+        try {
+            //const wrapperRect = wrapper.node().getBoundingClientRect();
+            const timelineColumnRect = timelineColumn.node().getBoundingClientRect();
+
+            // Set SVG dimensions
+            sharedSVG
+                .attr("width", timelineColumnRect.width)
+                .attr("height", timelineColumnRect.height);
+
+
+            allLinkedTimes.flat().forEach(ext => {
+                const textElement = document.querySelector(`[id="${ext.id}"]`);
+                const arg2Element = document.querySelector(`[id="${ext.arg2}"]`);
+
+                if (!textElement || !arg2Element) return;
+
+                drawConnection(textElement, arg2Element, ext.rel_type, timelineColumnRect,"time");
+            });
+
+            // Draw event-based connections
+            allFragments.flat().forEach(fragment => {
+                if (fragment.type === "blue-box" && fragment.event && fragment.event.arg2) {
+                    const eventElement = document.querySelector(`[id="event-${fragment.event.id}"]`);
+                    const timeElement = document.querySelector(`[id="${fragment.event.arg2}"]`);
+
+                    if (!eventElement || !timeElement) return;
+
+                    drawConnection(eventElement, timeElement, fragment.event.rel_type, timelineColumnRect,"event");
+                }
+            });
+
+        } catch (error) {
+            console.error("Error in createArrows:", error);
+        }
+    }
+
+    function drawConnection(element1, element2, relType, wrapperRect, connectionType) {
+        const rect1 = element1.getBoundingClientRect();
+        const rect2 = element2.getBoundingClientRect();
+
+        const timelineColumnRect = timelineColumn.node().getBoundingClientRect();
+
+        const trimmedRelType = relType.includes('_')
+            ? relType.split('_')[1]
+            : relType;
+
+        const { startX, startY, endX, endY, isVertical } = getConnectionPoints(
+            {
+                top: rect1.top - timelineColumnRect.top,
+                left: rect1.left - timelineColumnRect.left,
+                width: rect1.width,
+                height: rect1.height
+            },
+            {
+                top: rect2.top - timelineColumnRect.top,
+                left: rect2.left - timelineColumnRect.left,
+                width: rect2.width,
+                height: rect2.height
+            }
+        );
+
+        const pathGroup = sharedSVG.append("g");
+        // alternative is to name the path as the joining names of the elements it connects
+        const pathId = `connection-path-${Math.random().toString(36).substr(2, 9)}`;
+
+        // Create path
+        if (connectionType == "time"){
+            pathGroup.append("path")
+                .attr("id", pathId)
+                .attr("class", "arrow-path")
+                .attr("fill", "none")
+                .attr("stroke", "DimGray")
+                .attr("stroke-width", 3)
+                .attr("data-rel-type", relType)
+                .attr("d", createPath(startX, startY, endX, endY, isVertical));
+        } else{
+            pathGroup.append("path")
+                .attr("id", pathId)
+                .attr("class", "arrow-path")
+                .attr("fill", "none")
+                .attr("stroke", "DimGray")
+                .attr("stroke-width", 3)
+                .attr("stroke-dasharray", "5,5")
+                .attr("data-rel-type", relType)
+                .attr("d", createCurvedPath(startX, startY, endX, endY, isVertical));
+        }
+
+        const textElement = pathGroup.append("text")
+            .append("textPath")
+            .attr("xlink:href", `#${pathId}`)
+            .attr("startOffset", "50%")
+            .style("text-anchor", "middle")
+            .attr("fill", "black")
+            .attr("font-size", "12px")
+            .text(trimmedRelType);
+    }
+
+    function createCurvedPath(startX, startY, endX, endY) {
+        // Calculate control point (adjust offset for curvature)
+        const cpX = (startX + endX) / 2;
+        const cpY = (startY + endY) / 2 - 50; // Adjust -50 for curvature strength
+
+        return `M ${startX},${startY} Q ${cpX},${cpY} ${endX},${endY}`;
+    }
+
+    function createPath(startX, startY, endX, endY, isVertical) {
+        const distance = isVertical
+            ? Math.abs(endY - startY)
+            : Math.abs(endX - startX);
+
+        const curveOffset = Math.min(distance * 0.2, 20);
+
+        if (isVertical) {
+            const midY = (startY + endY) / 2;
+            return `M ${startX},${startY} 
+                    C ${startX},${startY + curveOffset} 
+                      ${endX},${endY - curveOffset} 
+                      ${endX},${endY}`;
+        } else {
+            const midX = (startX + endX) / 2;
+            return `M ${startX},${startY} 
+                    C ${startX + curveOffset},${startY} 
+                      ${endX - curveOffset},${endY} 
+                      ${endX},${endY}`;
+        }
+    }
+
+    createArrows();
+    const handleResize = debounce(() => {
+        sharedSVG.selectAll("*").remove();
+
+        // Update event positions
+        eventBoxes.forEach(eb => {
+            const timelineColumnRectCurrent = timelineColumn.node().getBoundingClientRect();
+
+            eb.element
+                .style("left", () => {
+                    const timelineWidth = timelineColumn.node().getBoundingClientRect().width;
+                    return (timelineWidth / 2 - 200) + "px";
+                })
+                .style("top", function() {
+                    if (eb.fragment.event.arg2) {
+                        const connectedTime = timeBoxes.find(t => t.id === eb.fragment.event.arg2);
+                        if (connectedTime) {
+                            const timeRect = connectedTime.element.node().getBoundingClientRect();
+                            return (timeRect.top - timelineColumnRectCurrent.top + timeRect.height/2 - 25) + "px";
+                        }
+                    }
+                    return "20px";
+                });
+        });
+
+        requestAnimationFrame(createArrows);
+    }, 100);
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+        window.removeEventListener('resize', handleResize);
+
+    };
+}
 
 function createFragments(text, sentence) {
+
     let fragments = [];
     let highlights = [
-        { text: sentence.text_time.replace(",", "").trim(),
-          type: "yellow-box" ,
-          TemporalFunction: sentence.TemporalFunction,
-          TimeType: sentence.Time_Type,
-          TimeId: sentence.time_id},
+        ...sentence.times.map( time => ({
+                text:time.text,
+                type: "yellow-box",
+                time: time
+        })) ,
         ...sentence.events.map(event => ({
-            text: event.text_event,
+            text: event.text,
             type: "blue-box",
             event: event
         }))
@@ -159,9 +655,7 @@ function createFragments(text, sentence) {
         fragments.push({ text: highlight.text,
                          type: highlight.type,
                          event: highlight.event,
-                         TemporalFunction: highlight.TemporalFunction,
-                         TimeType: highlight.TimeType,
-                         TimeId: highlight.TimeId
+                         time: highlight.time
          });
         lastIndex = highlight.index + highlight.text.length;
     });
@@ -173,305 +667,6 @@ function createFragments(text, sentence) {
     return fragments;
 }
 
-
-function createAttributeCard(container, title, attributes, backgroundColor) {
-    const card = container.append("div")
-        .attr("class", "attribute-card")
-        .style("background-color", backgroundColor); // Keep dynamic background color here
-
-    // Add title
-    card.append("div")
-        .attr("class", "attribute-card-title")
-        .text(title);
-
-    // Add attributes
-    const attributeList = card.append("table")
-        .attr("class", "attribute-card-list");
-
-    Object.entries(attributes).forEach(([key, value]) => {
-        if (key === "rel_type") return;
-        const row = attributeList.append("tr");
-        // Term
-        row.append("td")
-            .attr("class", "attribute-card-term")
-            .text(`${key}:`);
-
-        // Definition
-        row.append("dd")
-            .attr("class", "attribute-card-definition")
-            .text(value);
-    });
-
-    return card;
-}
-
-
-
-function categorizeElements(sentenceText, fragments) {
-    // Create all spans first
-    const spans = fragments.map(fragment => {
-        const span = sentenceText.append("span")
-            .text(fragment.text);
-
-        if (fragment.type !== 'normal') {
-            span.attr("class", fragment.type)
-                .style("position", "relative")
-                .style("display", "inline-block"); // Ensure stable layout
-        }
-
-        return span;
-    });
-
-    // Then collect and configure special elements
-    const eventElements = [];
-    const timeElements = [];
-    const eventFragments = [];
-    const timeFragments = [];
-
-    spans.forEach((span, i) => {
-        const fragment = fragments[i];
-        if (fragment.type === "blue-box") {
-            span.attr("data-rel-type", fragment.event?.rel_type || '')
-                .attr("data-id", fragment.event?.event_id || '')
-                .attr("arg2", fragment.event?.arg2 || '');
-
-            eventFragments.push(fragment.event);
-            eventElements.push(span.node());
-        } else if (fragment.type === "yellow-box") {
-            const timeFragment = {
-                TemporalFunction: fragment.TemporalFunction,
-                TimeType: fragment.TimeType
-            };
-
-            span.attr("data-id", fragment.TimeId);
-            timeFragments.push(timeFragment);
-            timeElements.push(span.node());
-        }
-    });
-
-    // Create cards container with explicit positioning
-    const cardsContainer = d3.select(sentenceText.node().parentNode)
-        .append("div")
-        .style("display", "flex")
-        .style("margin-top", "20px")
-        .style("gap", "16px")
-        .style("position", "relative");
-
-    // Create cards
-    eventFragments.forEach(e => createAttributeCard(cardsContainer, "Event's Atributes", e, "#A7C7E7"));
-    timeFragments.forEach(t => createAttributeCard(cardsContainer, "Time's Atributes", t, "rgba(255, 255, 0, 0.2)"));
-
-    return { eventElements, timeElements };
-}
-
-
-function initializeArrows(wrapper, eventElements, timeElements, externalTimeElements) {
-    let tooltip;
-
-
-    function createArrows() {
-        try {
-
-
-            // Create new SVG and store it in the outer scope
-            /*svg = wrapper.append("svg")
-                .attr("class", "arrows")
-                .style("position", "absolute")
-                .style("top", 0)
-                .style("left", 0)
-                .style("pointer-events", "all")
-                .style("z-index", 1);*/
-
-            const wrapperRect = wrapper.node().getBoundingClientRect();
-
-            // Set SVG dimensions
-            sharedSVG
-                .attr("width", wrapperRect.width)
-                .attr("height", wrapperRect.height);
-
-            // Create paths data
-            eventElements.forEach((eventElement, i) => {
-                const timeElement = timeElements[i];
-                if (!eventElement || !timeElement) return;
-
-                const eventRect = eventElement.getBoundingClientRect();
-                const timeRect = timeElement.getBoundingClientRect();
-
-                sharedSVG.append("path")
-                    .attr("class", "arrow-path")
-                    .attr("fill", "none")
-                    .attr("stroke", "red")
-                    .attr("stroke-width", 3)
-                    .attr("data-rel-type", d3.select(eventElement).attr("data-rel-type"))
-                    .attr("d", createPath(
-                        eventRect.left - wrapperRect.left + eventRect.width,
-                        eventRect.top - wrapperRect.top + eventRect.height / 2,
-                        timeRect.left - wrapperRect.left,
-                        timeRect.top - wrapperRect.top + timeRect.height / 2
-                    ));
-            });
-
-            // Add external time paths
-            externalTimeElements.forEach(ext => {
-                const textElement = document.querySelector(`[data-id="${ext.time_id}"]`);
-                const arg2Element = document.querySelector(`[data-id="${ext.arg2}"]`);
-
-                if (!textElement || !arg2Element) return;
-
-                const textRect = textElement.getBoundingClientRect();
-                const arg2Rect = arg2Element.getBoundingClientRect();
-
-                sharedSVG.append("path")
-                    .attr("class", "arrow-path")
-                    .attr("fill", "none")
-                    .attr("stroke", "blue")
-                    .attr("stroke-width", 3)
-                    .attr("data-rel-type", ext.rel_type)
-                    .attr("d", createPath(
-                        textRect.left - wrapperRect.left + textRect.width,
-                        textRect.top - wrapperRect.top + textRect.height / 2,
-                        arg2Rect.left - wrapperRect.left,
-                        arg2Rect.top - wrapperRect.top + arg2Rect.height / 2
-                    ));
-            });
-
-            // Create tooltip if it doesn't exist
-            tooltip = d3.select("#tooltip");
-            if (tooltip.empty()) {
-                tooltip = d3.select("body")
-                    .append("div")
-                    .attr("id", "tooltip")
-                    .style("position", "absolute")
-                    .style("display", "none")
-                    .style("background", "white")
-                    .style("padding", "5px")
-                    .style("border", "1px solid #ccc")
-                    .style("border-radius", "4px")
-                    .style("pointer-events", "none")
-                    .style("z-index", "1000");
-            }
-
-
-            sharedSVG.append("rect")
-                .attr("width", wrapperRect.width)
-                .attr("height", wrapperRect.height)
-                .attr("fill", "transparent")
-                .style("pointer-events", "all")
-                .on("mousemove", handleMouseMove)
-                .on("mouseout", handleMouseOut);
-
-        } catch (error) {
-            console.error("Error in createArrows:", error);
-        }
-    }
-
-    function handleMouseMove(event) {
-
-
-        if (!sharedSVG || sharedSVG.empty() || !tooltip) return;
-
-        const mouse = d3.pointer(event, this);
-        const paths = sharedSVG.selectAll("path.arrow-path");
-        let foundPath = false;
-
-        paths.each(function() {
-            const path = d3.select(this);
-            console.log(isPointNearPath(this, mouse[0], mouse[1]))
-            if (isPointNearPath(this, mouse[0], mouse[1])) {
-                const relType = path.attr("data-rel-type");
-                tooltip
-                    .html(relType)
-                    .style("display", "block")
-                    .style("left", (event.pageX + 10) + "px")
-                    .style("top", (event.pageY + 10) + "px");
-                foundPath = true;
-            }
-        });
-
-        if (!foundPath) {
-            tooltip.style("display", "none");
-        }
-    }
-
-    function handleMouseOut() {
-        if (tooltip) {
-            tooltip.style("display", "none");
-        }
-    }
-
-    function isPointNearPath(pathNode, x, y, threshold = 5) {
-        if (!pathNode) return false;
-
-        const pathLength = pathNode.getTotalLength();
-        let start = 0;
-        let end = pathLength;
-        let closest = Infinity;
-
-        while (start <= end) {
-            const mid = (start + end) / 2;
-            const point = pathNode.getPointAtLength(mid);
-            const distance = Math.sqrt(
-                Math.pow(point.x - x, 2) + Math.pow(point.y - y, 2)
-            );
-            closest = Math.min(closest, distance);
-
-            if (closest <= threshold) {
-                return true;
-            }
-
-            const nextPoint = pathNode.getPointAtLength(mid + 1);
-            const direction = (nextPoint.x - point.x) * (y - point.y) -
-                            (nextPoint.y - point.y) * (x - point.x);
-
-            if (direction > 0) {
-                end = mid - 1;
-            } else {
-                start = mid + 1;
-            }
-        }
-
-        return closest <= threshold;
-    }
-
-    function createPath(startX, startY, endX, endY) {
-        const midX = (startX + endX) / 2;
-        const midY = (startY + endY) / 2;
-        const distance = Math.sqrt((endX - startX) ** 2 + (endY - startY) ** 2);
-        const curveHeight = Math.min(distance * 0.5, 100);
-        const controlY = midY - curveHeight;
-        return `M ${startX},${startY} Q ${midX},${controlY} ${endX},${endY}`;
-    }
-
-    // Initial creation
-    createArrows();
-
-    // Handle window resize with debounce
-    const handleResize = debounce(() => {
-                                // Remove old SVG if it exists
-            if (sharedSVG) {
-                sharedSVG.selectAll(".arrow-path, rect").remove();
-            }
-        requestAnimationFrame(createArrows);
-    }, 100);
-
-    window.addEventListener('resize', handleResize);
-
-    function cleanup() {
-    console.log("Cleanup function")
-
-        window.removeEventListener('resize', handleResize);
-        if (sharedSVG && !sharedSVG.empty()) {
-            sharedSVG.remove();
-        }
-        if (tooltip && !tooltip.empty()) {
-            tooltip.remove();
-        }
-    }
-
-    return cleanup;
-}
-
-// Debounce helper function
 function debounce(func, wait) {
     let timeout;
     return function(...args) {
@@ -479,5 +674,4 @@ function debounce(func, wait) {
         timeout = setTimeout(() => func.apply(this, args), wait);
     };
 }
-
 

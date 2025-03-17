@@ -1,129 +1,101 @@
 {
     "sentences": [
         {
-            "text_sent": "Maputo, 26 out 2020",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_identity",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "26 out 2020",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "O juiz j\u00e1 tinha sido expulso da atividade em 2019 pelo Conselho Superior de \u00a0 Magistratura Judicial (CSMJ) na sequ\u00eancia de um processo disciplinar que lhe foi aberto por causa deste caso.",
+            "text": "Os arguidos devem devolver o dinheiro que retiraram do Dep\u00f3sito Obrigat\u00f3rio do tribunal, refere a senten\u00e7a, datada de quarta-feira e \u00a0 citada hoje pela RM.",
+            "id": "S6",
             "events": [
                 {
-                    "text_event": "expulso",
-                    "rel_type": "TLINK_isIncluded",
-                    "Class": "State",
-                    "Event_Type": "State",
+                    "text": "datada",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
                     "Pos": "Verb",
-                    "Tense": "Imperfect",
-                    "Aspect": "Imperfective",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "2019",
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "Um juiz e uma escriv\u00e3 foram condenados a tr\u00eas anos de pris\u00e3o convertidos em trabalho social pelo desvio de 400 mil meticais (4.632 euros) na prov\u00edncia de Inhambane, sul de Mo\u00e7ambique, noticia hoje a emissora p\u00fablica R\u00e1dio Mo\u00e7ambique (RM).",
-            "events": [
-                {
-                    "text_event": "noticia",
+                    "VForm": "Participle",
+                    "Polarity": "Pos",
+                    "Aspect": "Perfective",
+                    "id": "T20",
                     "rel_type": "TLINK_isIncluded",
+                    "arg2": "T23"
+                },
+                {
+                    "text": "citada",
                     "Class": "Reporting",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
-                    "Tense": "Present",
-                    "Polarity": "Pos"
+                    "VForm": "Participle",
+                    "Polarity": "Pos",
+                    "Aspect": "Perfective",
+                    "id": "T16",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T24"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "26 out 2020",
-                    "rel_type": "TLINK_identity",
+                    "text": "quarta-feira",
+                    "offset": 612,
+                    "id": "T23",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text": "hoje",
+                    "offset": 634,
+                    "id": "T24",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
                     "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
+                    "id": "T22",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T23",
+                    "sent_id": "S2"
                 },
                 {
-                    "text_time2": "quarta-feira",
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T24",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T23",
+                    "sent_id": "S6"
+                },
+                {
+                    "text": "2019",
+                    "Time_Type": "Date",
+                    "id": "T25",
                     "rel_type": "TLINK_before",
-                    "Time_Type": "Date"
+                    "arg2": "T24",
+                    "sent_id": "S8"
                 }
-            ],
-            "text_time": "hoje",
-            "Time_Type": "Date"
+            ]
         },
         {
-            "text_sent": "Os arguidos devem devolver o dinheiro que retiraram do Dep\u00f3sito Obrigat\u00f3rio do tribunal, refere a senten\u00e7a, datada de quarta-feira e \u00a0 citada hoje pela RM.",
+            "text": "O juiz j\u00e1 tinha sido expulso da atividade em 2019 pelo Conselho Superior de \u00a0 Magistratura Judicial (CSMJ) na sequ\u00eancia de um processo disciplinar que lhe foi aberto por causa deste caso.",
+            "id": "S8",
             "events": [
                 {
-                    "text_event": "datada",
-                    "rel_type": "TLINK_isIncluded",
-                    "Class": "Reporting",
+                    "text": "expulso",
+                    "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
-                    "VForm": "Participle",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
                     "Polarity": "Pos",
-                    "Aspect": "Perfective"
+                    "id": "T14",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T25"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date"
-                },
-                {
-                    "text_time2": "hoje",
-                    "rel_type": "TLINK_after",
+                    "text": "2019",
+                    "offset": 693,
+                    "id": "T25",
                     "Time_Type": "Date"
                 }
             ],
-            "text_time": "quarta - feira",
-            "Time_Type": "Date"
-        },
-        {
-            "text_sent": "Os arguidos devem devolver o dinheiro que retiraram do Dep\u00f3sito Obrigat\u00f3rio do tribunal, refere a senten\u00e7a, datada de quarta-feira e \u00a0 citada hoje pela RM.",
-            "events": [
-                {
-                    "text_event": "citada",
-                    "rel_type": "TLINK_isIncluded",
-                    "Class": "Reporting",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "VForm": "Participle",
-                    "Polarity": "Pos",
-                    "Aspect": "Perfective"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "quarta-feira",
-                    "rel_type": "TLINK_after",
-                    "Time_Type": "Date"
-                },
-                {
-                    "text_time2": "2019",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "hoje",
-            "Time_Type": "Date"
+            "linked_times": []
         }
     ]
 }

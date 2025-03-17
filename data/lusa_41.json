@@ -1,72 +1,76 @@
 {
     "sentences": [
         {
-            "text_sent": "Covilh\u00e3, Castelo Branco, 16 out 2020",
-            "events": [],
-            "times": [
-                {
-                    "text_time2": "na quinta-feira,",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "16 out 2020",
-            "Time_Type": "Date",
-            "TemporalFunction": "Publication_Time"
-        },
-        {
-            "text_sent": "A GNR acrescenta que, \" nos \u00faltimos meses, o suspeito intensificou o comportamento violento, devido ao consumo abusivo de \u00e1lcool, tendo sido dado cumprimento a um mandado de deten\u00e7\u00e3o \".",
+            "text": "Em comunicado enviado \u00e0 ag\u00eancia Lusa, o Comando Territorial de Castelo Branco explica que a deten\u00e7\u00e3o foi realizada na quinta-feira, atrav\u00e9s dos Postos Territoriais do Tortosendo e de Caria.",
+            "id": "S4",
             "events": [
                 {
-                    "text_event": "intensificou",
-                    "rel_type": "TLINK_simultaneous",
+                    "text": "realizada",
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "Polarity": "Pos"
-                }
-            ],
-            "times": [
-                {
-                    "text_time2": "na quinta-feira,",
-                    "rel_type": "TLINK_before",
-                    "Time_Type": "Date"
-                }
-            ],
-            "text_time": "nos \u00faltimos meses ,",
-            "Time_Type": "Duration"
-        },
-        {
-            "text_sent": "Em comunicado enviado \u00e0 ag\u00eancia Lusa, o Comando Territorial de Castelo Branco explica que a deten\u00e7\u00e3o foi realizada na quinta-feira, atrav\u00e9s dos Postos Territoriais do Tortosendo e de Caria.",
-            "events": [
-                {
-                    "text_event": "realizada",
+                    "Polarity": "Pos",
+                    "id": "T2",
                     "rel_type": "TLINK_isIncluded",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Tense": "Past",
-                    "Aspect": "Perfective",
-                    "Polarity": "Pos"
+                    "arg2": "T3"
                 }
             ],
             "times": [
                 {
-                    "text_time2": "16 out 2020",
-                    "rel_type": "TLINK_before",
+                    "text": "na quinta-feira",
+                    "offset": 402,
+                    "id": "T3",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "16 out 2020",
                     "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time"
+                    "TemporalFunction": "Publication_Time",
+                    "id": "T1",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T3",
+                    "sent_id": "S0"
                 },
                 {
-                    "text_time2": "nos \u00faltimos meses,",
+                    "text": "nos \u00faltimos meses",
+                    "Time_Type": "Duration",
+                    "id": "T4",
                     "rel_type": "TLINK_before",
+                    "arg2": "T3",
+                    "sent_id": "S8"
+                }
+            ]
+        },
+        {
+            "text": "A GNR acrescenta que, \" nos \u00faltimos meses, o suspeito intensificou o comportamento violento, devido ao consumo abusivo de \u00e1lcool, tendo sido dado cumprimento a um mandado de deten\u00e7\u00e3o \".",
+            "id": "S8",
+            "events": [
+                {
+                    "text": "intensificou",
+                    "Class": "Occurrence",
+                    "Event_Type": "Process",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T5",
+                    "rel_type": "TLINK_simultaneous",
+                    "arg2": "T4"
+                }
+            ],
+            "times": [
+                {
+                    "text": "nos \u00faltimos meses",
+                    "offset": 707,
+                    "id": "T4",
                     "Time_Type": "Duration"
                 }
             ],
-            "text_time": "na quinta - feira ,",
-            "Time_Type": "Date"
+            "linked_times": []
         }
     ]
 }
