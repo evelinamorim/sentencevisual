@@ -191,6 +191,8 @@ function renderTimeline(allFragments, allLinkedTimes) {
     const wrapper = d3.select("#visualization-wrapper");
     const timelineColumn = d3.select(".timeline-column");
 
+    let currentlyHighlightedSentence = null;
+
     const eventsContainer = timelineColumn.append("div")
         .style("position", "absolute")
         .style("z-index","2")
@@ -219,6 +221,48 @@ function renderTimeline(allFragments, allLinkedTimes) {
 
 
     const timeBoxes = [];
+
+    // Function to find which sentence contains a given time expression
+    function findSentenceContainingTime(timeId) {
+        let sentenceElement = null;
+
+        allFragments.forEach((fragments, index) => {
+            fragments.forEach(fragment => {
+                if (fragment.type === "yellow-box" && fragment.time && fragment.time.id === timeId) {
+                    sentenceElement = d3.select(`.sentence-text[data-sentence-index="${index}"]`);
+                }
+            });
+        });
+
+        return sentenceElement;
+    }
+
+    // Function to toggle sentence highlight
+    function toggleSentenceHighlight(timeId) {
+        const sentenceToHighlight = findSentenceContainingTime(timeId);
+
+        if (!sentenceToHighlight) return;
+
+        // If there's already a highlighted sentence and it's different from the one being clicked
+        if (currentlyHighlightedSentence &&
+            currentlyHighlightedSentence.node() !== sentenceToHighlight.node()) {
+            // Reset the previous one
+            currentlyHighlightedSentence.style("background", "#f8f8f8");
+        }
+
+        // Toggle the clicked sentence
+        if (currentlyHighlightedSentence &&
+            currentlyHighlightedSentence.node() === sentenceToHighlight.node()) {
+            // It's already highlighted, so turn it off
+            sentenceToHighlight.style("background", "#f8f8f8");
+            currentlyHighlightedSentence = null;
+        } else {
+            // Highlight the new sentence
+            sentenceToHighlight.style("background", "#B2FEAB");
+            currentlyHighlightedSentence = sentenceToHighlight;
+        }
+    }
+
     // Render yellow boxes
     allFragments.forEach(fragments => {
         fragments.forEach(fragment => {
@@ -241,7 +285,12 @@ function renderTimeline(allFragments, allLinkedTimes) {
                     .style("white-space", "nowrap")
                     .style("margin", "30px 30px") // Fixed position from left
                     .style("display", "inline-block")
-                    .style("text-align","center");
+                    .style("text-align","center")
+                    .style("cursor", "pointer") // Add pointer cursor to indicate clickability
+                    .on("click", function() {
+                        // Toggle sentence highlight when time expression is clicked
+                        toggleSentenceHighlight(fragment.time.id);
+                    });
 
                 timeBoxes.push({
                     id: fragment.time.id,
