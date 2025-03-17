@@ -239,7 +239,7 @@ function renderTimeline(allFragments, allLinkedTimes) {
                     .style("border-radius", "10px")
                     .style("font-size", "20px")
                     .style("white-space", "nowrap")
-                    .style("margin", "20px") // Fixed position from left
+                    .style("margin", "30px 30px") // Fixed position from left
                     .style("display", "inline-block")
                     .style("text-align","center");
 
@@ -260,6 +260,13 @@ function renderTimeline(allFragments, allLinkedTimes) {
 
                 addedEventIds.add(fragment.event.id);
 
+
+                if (fragment.event.Class == "I_Action" || fragment.event.Class == "I_State"){
+                    borderValue = "2px dashed #3366cc";
+                } else{
+                    borderValue = "2px solid #99ccff";
+                }
+
                 const eventBox = eventsContainer.append("div")
                     .attr("id", `event-${fragment.event.id}`)
                     .style("width", "50px")
@@ -271,7 +278,7 @@ function renderTimeline(allFragments, allLinkedTimes) {
                     .style("justify-content", "center")
                     .style("font-size", "14px")
                     .style("box-shadow", "0 2px 4px rgba(0,0,0,0.1)")
-                    .style("border", "2px solid #99ccff")
+                    .style("border", borderValue)
                     .style("position", "absolute")
                     .style("left", function(){
                         const timelineWidth = timelineColumn.node().getBoundingClientRect().width;
@@ -341,7 +348,9 @@ function renderTimeline(allFragments, allLinkedTimes) {
         // Determine if connection should be vertical or horizontal
         const verticalDistance = Math.abs(rect2.top - rect1.top);
         const horizontalDistance = Math.abs(rect2.left - rect1.left);
-        const isVertical = verticalDistance > horizontalDistance;
+        // if the box is too wide, then the vertical and horizontal distance is too close
+        // the 30 is just an heuristic to try to fix that
+        const isVertical = verticalDistance + 30 > horizontalDistance;
 
         let startX, startY, endX, endY;
 
@@ -441,7 +450,7 @@ function renderTimeline(allFragments, allLinkedTimes) {
         );
 
         const pathGroup = sharedSVG.append("g");
-        // TODO: alternative is to name the path as the joining names of the elements it connects
+        // alternative is to name the path as the joining names of the elements it connects
         const pathId = `connection-path-${Math.random().toString(36).substr(2, 9)}`;
 
         // Create path
