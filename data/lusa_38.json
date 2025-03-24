@@ -1,6 +1,38 @@
 {
     "sentences": [
         {
+            "text": "Porto, 16 nov 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "16 nov 2020",
+                    "offset": 7,
+                    "id": "T1",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "no domingo",
+                    "Time_Type": "Date",
+                    "id": "T4",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T1",
+                    "sent_id": "S4"
+                },
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T25",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T1",
+                    "sent_id": "S6"
+                }
+            ]
+        },
+        {
             "text": "Um homem, com cerca de 30 anos, morreu no domingo \u00e0 noite, em Cete, no concelho de Paredes, ap\u00f3s ter sido atacado com uma arma branca, disse \u00e0 Lusa fonte da GNR.",
             "id": "S4",
             "events": [
@@ -14,7 +46,7 @@
                     "Polarity": "Pos",
                     "id": "T2",
                     "rel_type": "TLINK_isIncluded",
-                    "arg2": "T4"
+                    "arg2": "T21"
                 }
             ],
             "times": [
@@ -33,21 +65,20 @@
             ],
             "linked_times": [
                 {
-                    "text": "16 nov 2020",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time",
-                    "id": "T1",
-                    "rel_type": "TLINK_before",
-                    "arg2": "T4",
-                    "sent_id": "S0"
-                },
-                {
                     "text": "noite",
                     "Time_Type": "Time",
                     "id": "T21",
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T4",
                     "sent_id": "S4"
+                },
+                {
+                    "text": "domingo",
+                    "Time_Type": "Date",
+                    "id": "T23",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T4",
+                    "sent_id": "S6"
                 },
                 {
                     "text": "pelas 22:00",
@@ -79,10 +110,9 @@
                     "text": "em fuga \"",
                     "Polarity": "Pos",
                     "Pos": "Preposition",
-                    "Aspect": "Imperfective",
                     "Class": "State",
                     "Event_Type": "State",
-                    "Tense": "Imperfect",
+                    "VForm": "Gerundive",
                     "id": "T14",
                     "rel_type": "TLINK_simultaneous",
                     "arg2": "T8"
@@ -124,9 +154,9 @@
                     "sent_id": "S6"
                 },
                 {
-                    "text": "pelas 00:30",
-                    "Time_Type": "Time",
-                    "id": "T8",
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T25",
                     "rel_type": "TLINK_after",
                     "arg2": "T23",
                     "sent_id": "S6"

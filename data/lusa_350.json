@@ -1,6 +1,30 @@
 {
     "sentences": [
         {
+            "text": "Porto, 15 out 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "15 out 2020",
+                    "offset": 7,
+                    "id": "T26",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T27",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T26",
+                    "sent_id": "S6"
+                }
+            ]
+        },
+        {
             "text": "Um homem de 20 anos suspeito de tr\u00e1fico de droga foi detido pela PSP no bairro da Pasteleira Nova, no Porto, tendo tamb\u00e9m sido apreendida hero\u00edna, coca\u00edna e uma arma de fogo, informou hoje aquela for\u00e7a policial.",
             "id": "S6",
             "events": [
@@ -27,21 +51,20 @@
             ],
             "linked_times": [
                 {
-                    "text": "15 out 2020",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time",
-                    "id": "T26",
-                    "rel_type": "TLINK_identity",
-                    "arg2": "T27",
-                    "sent_id": "S0"
-                },
-                {
                     "text": "na quarta-feira",
                     "Time_Type": "Date",
                     "id": "T28",
                     "rel_type": "TLINK_before",
                     "arg2": "T27",
                     "sent_id": "S8"
+                },
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T16",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T27",
+                    "sent_id": "S14"
                 }
             ]
         },
@@ -70,16 +93,33 @@
                     "Time_Type": "Date"
                 }
             ],
-            "linked_times": [
+            "linked_times": []
+        },
+        {
+            "text": "Segundo a PSP, o detido \u00e9 hoje presente \u00e0s Autoridades Judici\u00e1rias.",
+            "id": "S14",
+            "events": [
+                {
+                    "text": "\u00e9 presente \u00e0s Autoridades Judici\u00e1rias",
+                    "Class": "State",
+                    "Event_Type": "State",
+                    "Pos": "Adjective",
+                    "Tense": "Present",
+                    "Polarity": "Pos",
+                    "id": "T25",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T16"
+                }
+            ],
+            "times": [
                 {
                     "text": "hoje",
-                    "Time_Type": "Date",
+                    "offset": 1028,
                     "id": "T16",
-                    "rel_type": "TLINK_after",
-                    "arg2": "T28",
-                    "sent_id": "S14"
+                    "Time_Type": "Date"
                 }
-            ]
+            ],
+            "linked_times": []
         }
     ]
 }

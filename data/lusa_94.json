@@ -1,6 +1,33 @@
 {
     "sentences": [
         {
+            "text": "Lisboa, 23 nov 2020   CC // SB   Homem detido por pornografia com menores de 14 anos",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "nov 2020",
+                    "offset": 11,
+                    "id": "T8",
+                    "TemporalFunction": "Publication_Time",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "AnnotatorNotes": [
+                        "value=2020-11-23"
+                    ],
+                    "id": "T12",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T8",
+                    "sent_id": "S2"
+                }
+            ]
+        },
+        {
             "text": "Um homem de 48 anos foi detido na regi\u00e3o da grande Lisboa por suspeitas de pornografia na internet com v\u00edtimas com menos de 14 anos, divulgou hoje a Policia Judici\u00e1ria.",
             "id": "S2",
             "events": [
@@ -28,17 +55,7 @@
                     ]
                 }
             ],
-            "linked_times": [
-                {
-                    "text": "nov 2020",
-                    "TemporalFunction": "Publication_Time",
-                    "Time_Type": "Date",
-                    "id": "T8",
-                    "rel_type": "TLINK_identity",
-                    "arg2": "T12",
-                    "sent_id": "S0"
-                }
-            ]
+            "linked_times": []
         }
     ]
 }

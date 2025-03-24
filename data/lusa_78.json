@@ -1,6 +1,75 @@
 {
     "sentences": [
         {
+            "text": "Valpa\u00e7os, Vila Real, 16 dez 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "16 dez 2020",
+                    "offset": 21,
+                    "id": "T50",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "AnnotatorNotes": [
+                        "value=2020-12-16"
+                    ],
+                    "id": "T20",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T50",
+                    "sent_id": "S2"
+                }
+            ]
+        },
+        {
+            "text": "Um empres\u00e1rio da constru\u00e7\u00e3o civil foi detido pela suspeita de ter efetuado um disparo contra um outro homem na via p\u00fablica, em Valpa\u00e7os, anunciou hoje a Pol\u00edcia Judici\u00e1ria (PJ).",
+            "id": "S2",
+            "events": [
+                {
+                    "text": "anunciou",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T5",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T20"
+                }
+            ],
+            "times": [
+                {
+                    "text": "hoje",
+                    "offset": 261,
+                    "id": "T20",
+                    "Time_Type": "Date",
+                    "AnnotatorNotes": [
+                        "value=2020-12-16"
+                    ]
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "na segunda-feira",
+                    "Time_Type": "Date",
+                    "AnnotatorNotes": [
+                        "value=2020-12-14 anchorTime=Publication_Time"
+                    ],
+                    "id": "T21",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T20",
+                    "sent_id": "S6"
+                }
+            ]
+        },
+        {
             "text": "Os factos, segundo aquela pol\u00edcia, ocorreram na segunda-feira, na via p\u00fablica, quando o \u201c arguido efetuou um disparo com uma arma de fogo curta que atingiu a v\u00edtima no rosto \u201d, um homem com 46 anos.",
             "id": "S6",
             "events": [
@@ -40,19 +109,7 @@
                     ]
                 }
             ],
-            "linked_times": [
-                {
-                    "text": "hoje",
-                    "Time_Type": "Date",
-                    "AnnotatorNotes": [
-                        "value=2020-12-16"
-                    ],
-                    "id": "T20",
-                    "rel_type": "TLINK_before",
-                    "arg2": "T21",
-                    "sent_id": "S2"
-                }
-            ]
+            "linked_times": []
         }
     ]
 }

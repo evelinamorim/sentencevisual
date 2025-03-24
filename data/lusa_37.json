@@ -1,6 +1,30 @@
 {
     "sentences": [
         {
+            "text": "Almada, Set\u00fabal, 15 nov 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "15 nov 2020",
+                    "offset": 17,
+                    "id": "T1",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T3",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T1",
+                    "sent_id": "S4"
+                }
+            ]
+        },
+        {
             "text": "A GNR anunciou hoje que terminou uma festa que reunia cerca de 30 pessoas em desrespeito das normas referentes ao combate \u00e0 covid-19, tendo ainda identificado uma mulher de 40 anos, no concelho de Almada (Set\u00fabal).",
             "id": "S4",
             "events": [
@@ -26,15 +50,6 @@
                 }
             ],
             "linked_times": [
-                {
-                    "text": "15 nov 2020",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time",
-                    "id": "T1",
-                    "rel_type": "TLINK_identity",
-                    "arg2": "T3",
-                    "sent_id": "S0"
-                },
                 {
                     "text": "no s\u00e1bado",
                     "Time_Type": "Date",

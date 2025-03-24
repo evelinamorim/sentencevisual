@@ -1,6 +1,30 @@
 {
     "sentences": [
         {
+            "text": "Moura, Beja, 03 dez 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "03 dez 2020",
+                    "offset": 13,
+                    "id": "T1",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "11:59",
+                    "Time_Type": "Time",
+                    "id": "T3",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T1",
+                    "sent_id": "S5"
+                }
+            ]
+        },
+        {
             "text": "A rixa, de acordo com o CDOS, ocorreu no Monte das Sesmarias, tendo o alerta sido dado \u00e0s 11:59.",
             "id": "S5",
             "events": [
@@ -25,17 +49,7 @@
                     "Time_Type": "Time"
                 }
             ],
-            "linked_times": [
-                {
-                    "text": "03 dez 2020",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time",
-                    "id": "T1",
-                    "rel_type": "TLINK_isIncluded",
-                    "arg2": "T3",
-                    "sent_id": "S0"
-                }
-            ]
+            "linked_times": []
         }
     ]
 }

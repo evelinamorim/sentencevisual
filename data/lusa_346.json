@@ -1,6 +1,74 @@
 {
     "sentences": [
         {
+            "text": "Libreville, 29 dez 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "29 dez 2020",
+                    "offset": 12,
+                    "id": "T21",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T22",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T21",
+                    "sent_id": "S2"
+                }
+            ]
+        },
+        {
+            "text": "O parlamento do Gab\u00e3o aprovou hoje a revis\u00e3o da Constitui\u00e7\u00e3o que confia o poder aos presidentes da Assembleia Nacional e do Senado e ao ministro da Defesa em caso de impedimento tempor\u00e1rio ou definitivo do Presidente do pa\u00eds.",
+            "id": "S2",
+            "events": [
+                {
+                    "text": "aprovou",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T5",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T22"
+                }
+            ],
+            "times": [
+                {
+                    "text": "hoje",
+                    "offset": 152,
+                    "id": "T22",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "outubro de 2018",
+                    "Time_Type": "Date",
+                    "id": "T23",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T22",
+                    "sent_id": "S5"
+                },
+                {
+                    "text": "v\u00e1rios meses",
+                    "Time_Type": "Duration",
+                    "id": "T24",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T22",
+                    "sent_id": "S5"
+                }
+            ]
+        },
+        {
             "text": "Ap\u00f3s ter sofrido em outubro de 2018 um Acidente Vascular Cerebral, Ali Bongo Ondimba esteve v\u00e1rios meses em convalescen\u00e7a antes de retomar fun\u00e7\u00f5es, deixando o Gab\u00e3o num vazio jur\u00eddico.",
             "id": "S5",
             "events": [
@@ -51,14 +119,6 @@
                     "rel_type": "TLINK_after",
                     "arg2": "T23",
                     "sent_id": "S5"
-                },
-                {
-                    "text": "hoje",
-                    "Time_Type": "Date",
-                    "id": "T22",
-                    "rel_type": "TLINK_before",
-                    "arg2": "T23",
-                    "sent_id": "S2"
                 }
             ]
         }

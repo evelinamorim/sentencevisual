@@ -1,6 +1,38 @@
 {
     "sentences": [
         {
+            "text": "Lisboa, 21 dez 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "21 dez 2020",
+                    "offset": 8,
+                    "id": "T31",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "no dia 5 de novembro",
+                    "Time_Type": "Date",
+                    "id": "T30",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T31",
+                    "sent_id": "S3"
+                },
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T29",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T31",
+                    "sent_id": "S3"
+                }
+            ]
+        },
+        {
             "text": "A Pol\u00edcia Judici\u00e1ria (PJ) de Lisboa deteve um homem de 41 anos suspeito de assassinar uma mulher de 75 anos e de incendiar a casa da v\u00edtima, na sequ\u00eancia de um assalto no dia 5 de novembro, foi hoje anunciado.",
             "id": "S3",
             "events": [
@@ -43,15 +75,6 @@
             ],
             "linked_times": [
                 {
-                    "text": "21 dez 2020",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time",
-                    "id": "T31",
-                    "rel_type": "TLINK_before",
-                    "arg2": "T30",
-                    "sent_id": "S0"
-                },
-                {
                     "text": "hoje",
                     "Time_Type": "Date",
                     "id": "T29",
@@ -66,15 +89,6 @@
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T29",
                     "sent_id": "S9"
-                },
-                {
-                    "text": "21 dez 2020",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time",
-                    "id": "T31",
-                    "rel_type": "TLINK_identity",
-                    "arg2": "T29",
-                    "sent_id": "S0"
                 }
             ]
         },
@@ -84,11 +98,11 @@
             "events": [
                 {
                     "text": "indiciado",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
+                    "Class": "State",
+                    "Pos": "Adjective",
                     "Polarity": "Pos",
                     "Tense": "Present",
+                    "Event_Type": "State",
                     "id": "T18",
                     "rel_type": "TLINK_simultaneous",
                     "arg2": "T34"

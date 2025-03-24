@@ -1,6 +1,30 @@
 {
     "sentences": [
         {
+            "text": "Braga, 13 nov 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "13 nov 2020",
+                    "offset": 7,
+                    "id": "T35",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T36",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T35",
+                    "sent_id": "S7"
+                }
+            ]
+        },
+        {
             "text": "O Tribunal de Braga aplicou hoje pris\u00e3o preventiva aos dois homens detidos pela GNR pela alegada autoria de 16 furtos, 11 dos quais de m\u00e1quinas de venda de tabaco em estabelecimentos comerciais, anunciou hoje aquela for\u00e7a.",
             "id": "S7",
             "events": [
@@ -53,15 +77,6 @@
                     "sent_id": "S7"
                 },
                 {
-                    "text": "13 nov 2020",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time",
-                    "id": "T35",
-                    "rel_type": "TLINK_identity",
-                    "arg2": "T36",
-                    "sent_id": "S0"
-                },
-                {
                     "text": "na quinta-feira",
                     "Time_Type": "Date",
                     "id": "T38",
@@ -96,7 +111,7 @@
                     "Aspect": "Imperfective",
                     "Polarity": "Pos",
                     "id": "T18",
-                    "rel_type": "TLINK_begunBy",
+                    "rel_type": "TLINK_simultaneous",
                     "arg2": "T39"
                 }
             ],
@@ -111,15 +126,15 @@
                     "text": "h\u00e1 dois meses",
                     "offset": 543,
                     "id": "T39",
-                    "Time_Type": "Date"
+                    "Time_Type": "Duration"
                 }
             ],
             "linked_times": [
                 {
                     "text": "h\u00e1 dois meses",
-                    "Time_Type": "Date",
+                    "Time_Type": "Duration",
                     "id": "T39",
-                    "rel_type": "TLINK_before",
+                    "rel_type": "TLINK_includes",
                     "arg2": "T38",
                     "sent_id": "S11"
                 }

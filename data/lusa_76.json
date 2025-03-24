@@ -1,6 +1,38 @@
 {
     "sentences": [
         {
+            "text": "Montemor-o - Velho, Coimbra, 06 dez 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "06 dez 2020",
+                    "offset": 27,
+                    "id": "T46",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "h\u00e1 quase quatro anos",
+                    "Time_Type": "Duration",
+                    "id": "T47",
+                    "rel_type": "TLINK_includes",
+                    "arg2": "T46",
+                    "sent_id": "S3"
+                },
+                {
+                    "text": "hoje",
+                    "Time_Type": "Time",
+                    "id": "T41",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T46",
+                    "sent_id": "S3"
+                }
+            ]
+        },
+        {
             "text": "A Pol\u00edcia Judici\u00e1ria (PJ) deteve um homem de 34 anos pela presum\u00edvel pr\u00e1tica de um crime de homic\u00eddio qualificado, ocorrido h\u00e1 quase quatro anos em Montemor-o - Velho, no distrito de Coimbra, informou hoje aquele \u00f3rg\u00e3o de pol\u00edcia criminal.",
             "id": "S3",
             "events": [
@@ -13,7 +45,7 @@
                     "VForm": "Participle",
                     "Polarity": "Pos",
                     "id": "T7",
-                    "rel_type": "TLINK_simultaneous",
+                    "rel_type": "TLINK_isIncluded",
                     "arg2": "T47"
                 },
                 {
@@ -34,7 +66,7 @@
                     "text": "h\u00e1 quase quatro anos",
                     "offset": 234,
                     "id": "T47",
-                    "Time_Type": "Date"
+                    "Time_Type": "Duration"
                 },
                 {
                     "text": "hoje",
@@ -45,19 +77,10 @@
             ],
             "linked_times": [
                 {
-                    "text": "06 dez 2020",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time",
-                    "id": "T46",
-                    "rel_type": "TLINK_before",
-                    "arg2": "T47",
-                    "sent_id": "S0"
-                },
-                {
                     "text": "hoje",
                     "Time_Type": "Time",
                     "id": "T41",
-                    "rel_type": "TLINK_after",
+                    "rel_type": "TLINK_isIncluded",
                     "arg2": "T47",
                     "sent_id": "S3"
                 },
@@ -98,10 +121,18 @@
             ],
             "linked_times": [
                 {
+                    "text": "recentemente",
+                    "Time_Type": "Date",
+                    "id": "T48",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T44",
+                    "sent_id": "S11"
+                },
+                {
                     "text": "a madrugada",
                     "Time_Type": "Time",
                     "id": "T45",
-                    "rel_type": "TLINK_after",
+                    "rel_type": "TLINK_isIncluded",
                     "arg2": "T44",
                     "sent_id": "S7"
                 }
@@ -114,10 +145,11 @@
                 {
                     "text": "surpreendido",
                     "Class": "Occurrence",
-                    "Event_Type": "Transition",
                     "Tense": "Future",
                     "Polarity": "Pos",
                     "Pos": "Verb",
+                    "Mood": "Future",
+                    "Modality": "Poder",
                     "id": "T3",
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T45"
@@ -131,16 +163,7 @@
                     "Time_Type": "Time"
                 }
             ],
-            "linked_times": [
-                {
-                    "text": "recentemente",
-                    "Time_Type": "Date",
-                    "id": "T48",
-                    "rel_type": "TLINK_after",
-                    "arg2": "T45",
-                    "sent_id": "S11"
-                }
-            ]
+            "linked_times": []
         },
         {
             "text": "A PJ refere ainda que a investiga\u00e7\u00e3o realizada conheceu, recentemente, desenvolvimentos relevantes que conduziram agora \u00e0 identifica\u00e7\u00e3o, localiza\u00e7\u00e3o e deten\u00e7\u00e3o do suspeito.",

@@ -1,6 +1,29 @@
 {
     "sentences": [
         {
+            "text": "Vila Verde, Braga, 27 out 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "27 out 2020",
+                    "offset": 19,
+                    "id": "T27",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T28",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T27",
+                    "sent_id": "S7"
+                }
+            ]
+        },
+        {
             "text": "O Tribunal de Braga aplicou pulseira eletr\u00f3nica a um homem de 55 anos, de Vila Verde, suspeito de viol\u00eancia dom\u00e9stica, sendo a v\u00edtima a mulher, anunciou hoje a GNR.",
             "id": "S7",
             "events": [
@@ -35,18 +58,10 @@
                     "sent_id": "S13"
                 },
                 {
-                    "text": "27 out 2020",
-                    "Time_Type": "Date",
-                    "id": "T27",
-                    "rel_type": "TLINK_identity",
-                    "arg2": "T28",
-                    "sent_id": "S0"
-                },
-                {
                     "text": "24 anos",
                     "Time_Type": "Duration",
                     "id": "T29",
-                    "rel_type": "TLINK_before",
+                    "rel_type": "TLINK_includes",
                     "arg2": "T28",
                     "sent_id": "S9"
                 }
@@ -58,8 +73,8 @@
             "events": [
                 {
                     "text": "relacionamento",
-                    "Class": "Occurrence",
-                    "Event_Type": "Process",
+                    "Class": "I_State",
+                    "Event_Type": "State",
                     "Pos": "Noun",
                     "Polarity": "Pos",
                     "id": "T16",
@@ -73,6 +88,33 @@
                     "offset": 335,
                     "id": "T29",
                     "Time_Type": "Duration"
+                }
+            ],
+            "linked_times": []
+        },
+        {
+            "text": "Na segunda-feira, a GNR deu cumprimento a um mandado de deten\u00e7\u00e3o.",
+            "id": "S13",
+            "events": [
+                {
+                    "text": "deu cumprimento",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T18",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T30"
+                }
+            ],
+            "times": [
+                {
+                    "text": "Na segunda-feira",
+                    "offset": 542,
+                    "id": "T30",
+                    "Time_Type": "Date"
                 }
             ],
             "linked_times": []

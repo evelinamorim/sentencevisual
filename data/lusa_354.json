@@ -1,6 +1,30 @@
 {
     "sentences": [
         {
+            "text": "Leiria, 02 dez 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "02 dez 2020",
+                    "offset": 8,
+                    "id": "T37",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T38",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T37",
+                    "sent_id": "S3"
+                }
+            ]
+        },
+        {
             "text": "Um homem de 28 anos, indiciado da pr\u00e1tica do crime de viol\u00eancia dom\u00e9stica agravada, vai aguardar julgamento em pris\u00e3o preventiva, anunciou hoje o Minist\u00e9rio P\u00fablico (MP) de Leiria.",
             "id": "S3",
             "events": [
@@ -27,18 +51,17 @@
             ],
             "linked_times": [
                 {
-                    "text": "02 dez 2020",
+                    "text": "ao dia 17 de novembro \u201d \u00faltimo",
                     "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time",
-                    "id": "T37",
-                    "rel_type": "TLINK_identity",
+                    "id": "T42",
+                    "rel_type": "TLINK_before",
                     "arg2": "T38",
-                    "sent_id": "S0"
+                    "sent_id": "S7"
                 },
                 {
-                    "text": "2016",
+                    "text": "2019",
                     "Time_Type": "Date",
-                    "id": "T43",
+                    "id": "T39",
                     "rel_type": "TLINK_before",
                     "arg2": "T38",
                     "sent_id": "S5"
@@ -62,6 +85,18 @@
                     "arg2": "T43"
                 },
                 {
+                    "text": "indiciado",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Aspect": "Perfective",
+                    "VForm": "Participle",
+                    "Polarity": "Pos",
+                    "id": "T47",
+                    "rel_type": "TLINK_begunBy",
+                    "arg2": "T43"
+                },
+                {
                     "text": "agrediu",
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
@@ -70,6 +105,18 @@
                     "Aspect": "Perfective",
                     "Polarity": "Pos",
                     "id": "T21",
+                    "rel_type": "TLINK_endedBy",
+                    "arg2": "T39"
+                },
+                {
+                    "text": "indiciado",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Aspect": "Perfective",
+                    "VForm": "Participle",
+                    "Polarity": "Pos",
+                    "id": "T47",
                     "rel_type": "TLINK_endedBy",
                     "arg2": "T39"
                 }
@@ -150,16 +197,7 @@
                     "Time_Type": "Date"
                 }
             ],
-            "linked_times": [
-                {
-                    "text": "ao dia 17 de novembro \u201d \u00faltimo",
-                    "Time_Type": "Date",
-                    "id": "T42",
-                    "rel_type": "TLINK_after",
-                    "arg2": "T51",
-                    "sent_id": "S7"
-                }
-            ]
+            "linked_times": []
         }
     ]
 }

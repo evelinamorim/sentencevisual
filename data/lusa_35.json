@@ -1,6 +1,30 @@
 {
     "sentences": [
         {
+            "text": "Sines, Set\u00fabal, 30 out 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "30 out 2020",
+                    "offset": 16,
+                    "id": "T31",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T32",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T31",
+                    "sent_id": "S3"
+                }
+            ]
+        },
+        {
             "text": "A Guarda Nacional Republicana (GNR) deteve um homem, de 24 anos, por tr\u00e1fico de droga, no concelho de Sines, distrito de Set\u00fabal, tendo apreendido perto de duas mil doses de estupefacientes, divulgou hoje aquela for\u00e7a de seguran\u00e7a.",
             "id": "S3",
             "events": [
@@ -27,21 +51,19 @@
             ],
             "linked_times": [
                 {
-                    "text": "30 out 2020",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time",
-                    "id": "T31",
-                    "rel_type": "TLINK_identity",
-                    "arg2": "T32",
-                    "sent_id": "S0"
-                },
-                {
                     "text": "na quinta-feira",
                     "Time_Type": "Date",
                     "id": "T33",
                     "rel_type": "TLINK_before",
                     "arg2": "T32",
                     "sent_id": "S5"
+                },
+                {
+                    "text": "esta sexta-feira",
+                    "id": "T34",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T32",
+                    "sent_id": "S12"
                 }
             ]
         },
@@ -70,15 +92,7 @@
                     "Time_Type": "Date"
                 }
             ],
-            "linked_times": [
-                {
-                    "text": "esta sexta-feira",
-                    "id": "T34",
-                    "rel_type": "TLINK_after",
-                    "arg2": "T33",
-                    "sent_id": "S12"
-                }
-            ]
+            "linked_times": []
         },
         {
             "text": "O suspeito foi detido e ser\u00e1 presente a primeiro interrogat\u00f3rio judicial, esta sexta-feira, no Tribunal Judicial de Set\u00fabal, para aplica\u00e7\u00e3o de medidas de coa\u00e7\u00e3o.",

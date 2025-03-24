@@ -1,6 +1,33 @@
 {
     "sentences": [
         {
+            "text": "Porto, 17 nov 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "17 nov 2020",
+                    "offset": 7,
+                    "id": "T1",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "AnnotatorNotes": [
+                        "value=2020-11-17 anchorTime=Publication-Time"
+                    ],
+                    "id": "T3",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T1",
+                    "sent_id": "S3"
+                }
+            ]
+        },
+        {
             "text": "A Pol\u00edcia Judici\u00e1ria (PJ) deteve hoje o suspeito de matar um homem de 34 anos com uma arma branca no domingo, \u00e0 noite, em C\u00eate, no concelho de Paredes, distrito do Porto, disse uma fonte policial.",
             "id": "S3",
             "events": [
@@ -25,7 +52,7 @@
                     "Polarity": "Pos",
                     "id": "T4",
                     "rel_type": "TLINK_isIncluded",
-                    "arg2": "T5"
+                    "arg2": "T21"
                 }
             ],
             "times": [
@@ -42,40 +69,55 @@
                     "text": "no domingo",
                     "offset": 205,
                     "id": "T5",
-                    "Time_Type": "Time"
+                    "Time_Type": "Date"
                 },
                 {
-                    "text": "\u00e0 noite",
-                    "offset": 217,
+                    "text": "noite",
+                    "offset": 219,
                     "id": "T21",
                     "Time_Type": "Time"
                 }
             ],
             "linked_times": [
                 {
-                    "text": "17 nov 2020",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time",
-                    "id": "T1",
-                    "rel_type": "TLINK_identity",
-                    "arg2": "T3",
-                    "sent_id": "S0"
-                },
-                {
                     "text": "no domingo",
-                    "Time_Type": "Time",
+                    "Time_Type": "Date",
                     "id": "T5",
                     "rel_type": "TLINK_before",
                     "arg2": "T3",
                     "sent_id": "S3"
                 },
                 {
-                    "text": "\u00e0 noite",
+                    "text": "domingo",
+                    "Time_Type": "Date",
+                    "id": "T17",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T3",
+                    "sent_id": "S7"
+                },
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T29",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T3",
+                    "sent_id": "S9"
+                },
+                {
+                    "text": "noite",
                     "Time_Type": "Time",
                     "id": "T21",
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T5",
                     "sent_id": "S3"
+                },
+                {
+                    "text": "domingo",
+                    "Time_Type": "Date",
+                    "id": "T17",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T5",
+                    "sent_id": "S7"
                 },
                 {
                     "text": "pelas 22:00",
@@ -128,9 +170,9 @@
                     "sent_id": "S7"
                 },
                 {
-                    "text": "na manh\u00e3",
-                    "Time_Type": "Time",
-                    "id": "T10",
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T29",
                     "rel_type": "TLINK_after",
                     "arg2": "T17",
                     "sent_id": "S9"

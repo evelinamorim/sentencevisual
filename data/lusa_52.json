@@ -1,6 +1,33 @@
 {
     "sentences": [
         {
+            "text": "Braga, 15 out 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "15 out 2020",
+                    "offset": 7,
+                    "id": "T1",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "AnnotatorNotes": [
+                        "value=2020-10-15 anchorTime=Publication-Time"
+                    ],
+                    "id": "T3",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T1",
+                    "sent_id": "S5"
+                }
+            ]
+        },
+        {
             "text": "A Pol\u00edcia Judici\u00e1ria (PJ) de Braga deteve um homem de 46 anos suspeito da pr\u00e1tica de, pelo menos, cinco crimes de viola\u00e7\u00e3o em contexto familiar, anunciou hoje aquela for\u00e7a policial.",
             "id": "S5",
             "events": [
@@ -30,13 +57,20 @@
             ],
             "linked_times": [
                 {
-                    "text": "15 out 2020",
+                    "text": "junho de 2020",
                     "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time",
-                    "id": "T1",
-                    "rel_type": "TLINK_identity",
+                    "id": "T4",
+                    "rel_type": "TLINK_before",
                     "arg2": "T3",
-                    "sent_id": "S0"
+                    "sent_id": "S7"
+                },
+                {
+                    "text": "in\u00edcios de outubro",
+                    "Time_Type": "Date",
+                    "id": "T6",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T3",
+                    "sent_id": "S7"
                 }
             ]
         },
@@ -46,14 +80,14 @@
             "events": [
                 {
                     "text": "come\u00e7aram",
-                    "Class": "Occurrence",
+                    "Class": "Aspectual",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
                     "Polarity": "Pos",
                     "Event_Type": "Transition",
                     "id": "T5",
-                    "rel_type": "TLINK_isIncluded",
+                    "rel_type": "TLINK_begunBy",
                     "arg2": "T4"
                 },
                 {
@@ -88,7 +122,7 @@
                     "text": "in\u00edcios de outubro",
                     "Time_Type": "Date",
                     "id": "T6",
-                    "rel_type": "TLINK_endedBy",
+                    "rel_type": "TLINK_after",
                     "arg2": "T4",
                     "sent_id": "S7"
                 }

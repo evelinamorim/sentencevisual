@@ -1,6 +1,66 @@
 {
     "sentences": [
         {
+            "text": "Luanda, 02 dez 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "02 dez 2020",
+                    "offset": 8,
+                    "id": "T39",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T36",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T39",
+                    "sent_id": "S2"
+                }
+            ]
+        },
+        {
+            "text": "Um homem de 18 anos foi detido pelas autoridades angolanas por violar uma sobrinha, de quatro anos, no Lubango, capital da prov\u00edncia angolana da Hu\u00edla, anunciou hoje o Servi\u00e7o de Investiga\u00e7\u00e3o Criminal (SIC).",
+            "id": "S2",
+            "events": [
+                {
+                    "text": "anunciou",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T13",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T36"
+                }
+            ],
+            "times": [
+                {
+                    "text": "hoje",
+                    "offset": 279,
+                    "id": "T36",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "no fim - de - semana",
+                    "Time_Type": "Date",
+                    "id": "T37",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T36",
+                    "sent_id": "S4"
+                }
+            ]
+        },
+        {
             "text": "Segundo o porta - voz do SIC local, Sebasti\u00e3o Vika, o acusado ter\u00e1 cometido o crime e fugiu, tendo sido localizado durante uma opera\u00e7\u00e3o realizada no fim - de - semana.",
             "id": "S4",
             "events": [
@@ -26,14 +86,6 @@
                 }
             ],
             "linked_times": [
-                {
-                    "text": "hoje",
-                    "Time_Type": "Date",
-                    "id": "T36",
-                    "rel_type": "TLINK_before",
-                    "arg2": "T37",
-                    "sent_id": "S2"
-                },
                 {
                     "text": "No m\u00eas passado",
                     "Time_Type": "Date",
@@ -77,6 +129,14 @@
                     "rel_type": "TLINK_includes",
                     "arg2": "T43",
                     "sent_id": "S10"
+                },
+                {
+                    "text": "agosto",
+                    "Time_Type": "Date",
+                    "id": "T38",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T43",
+                    "sent_id": "S10"
                 }
             ]
         },
@@ -87,7 +147,7 @@
                 {
                     "text": "crescido",
                     "Class": "Occurrence",
-                    "Event_Type": "Transition",
+                    "Event_Type": "Process",
                     "Pos": "Verb",
                     "Tense": "Present",
                     "Polarity": "Pos",
@@ -102,6 +162,7 @@
                     "Aspect": "Perfective",
                     "VForm": "Participle",
                     "Polarity": "Pos",
+                    "Event_Type": "Transition",
                     "id": "T11",
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T38"

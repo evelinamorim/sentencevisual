@@ -1,6 +1,30 @@
 {
     "sentences": [
         {
+            "text": "Covilh\u00e3, Castelo Branco, 12 out 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "12 out 2020",
+                    "offset": 25,
+                    "id": "T24",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "v\u00e1rios anos",
+                    "Time_Type": "Date",
+                    "id": "T25",
+                    "rel_type": "TLINK_includes",
+                    "arg2": "T24",
+                    "sent_id": "S5"
+                }
+            ]
+        },
+        {
             "text": "Em comunicado enviado \u00e0 ag\u00eancia Lusa, o Departamento de Investiga\u00e7\u00e3o Criminal da Guarda explica que os crimes ter\u00e3o sido praticados de forma \" reiterada \" e ao longo de v\u00e1rios anos.",
             "id": "S5",
             "events": [
@@ -8,11 +32,12 @@
                     "text": "praticados",
                     "Class": "Occurrence",
                     "Event_Type": "Process",
-                    "Pos": "Verb",
                     "Polarity": "Pos",
-                    "Tense": "Future",
+                    "Aspect": "Perfective",
+                    "Mood": "Future",
+                    "Modality": "Poder",
                     "id": "T4",
-                    "rel_type": "TLINK_isIncluded",
+                    "rel_type": "TLINK_before",
                     "arg2": "T25"
                 }
             ],
@@ -24,17 +49,7 @@
                     "Time_Type": "Date"
                 }
             ],
-            "linked_times": [
-                {
-                    "text": "12 out 2020",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time",
-                    "id": "T24",
-                    "rel_type": "TLINK_before",
-                    "arg2": "T25",
-                    "sent_id": "S0"
-                }
-            ]
+            "linked_times": []
         }
     ]
 }

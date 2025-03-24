@@ -1,6 +1,42 @@
 {
     "sentences": [
         {
+            "text": "Portugal contabiliza hoje mais 37 mortos relacionados com a covid-19 e 3.062 novos casos confirmados de infe\u00e7\u00e3o, segundo o boletim epidemiol\u00f3gico da Dire\u00e7\u00e3o - Geral da Sa\u00fade (DGS).",
+            "id": "S2",
+            "events": [
+                {
+                    "text": "contabiliza",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T1",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T28"
+                }
+            ],
+            "times": [
+                {
+                    "text": "hoje",
+                    "offset": 104,
+                    "id": "T28",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T25",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T28",
+                    "sent_id": "S4"
+                }
+            ]
+        },
+        {
             "text": "De acordo com o boletim hoje divulgado, Portugal j\u00e1 contabilizou 144.341 casos confirmados de infe\u00e7\u00e3o pelo novo coronav\u00edrus e 2.544 \u00f3bitos.",
             "id": "S4",
             "events": [
@@ -26,14 +62,6 @@
                 }
             ],
             "linked_times": [
-                {
-                    "text": "hoje",
-                    "Time_Type": "Date",
-                    "id": "T28",
-                    "rel_type": "TLINK_identity",
-                    "arg2": "T25",
-                    "sent_id": "S2"
-                },
                 {
                     "text": "h\u00e1 cerca de duas semanas",
                     "Time_Type": "Date",
@@ -118,6 +146,32 @@
                     "sent_id": "S9"
                 }
             ]
+        },
+        {
+            "text": "Nas \u00faltimas 24 horas s\u00e3o menos dois os doentes internados nas Unidades de Cuidados Intensivos, totalizando 284.",
+            "id": "S9",
+            "events": [
+                {
+                    "text": "internados",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Polarity": "Pos",
+                    "VForm": "Participle",
+                    "id": "T23",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T27"
+                }
+            ],
+            "times": [
+                {
+                    "text": "Nas \u00faltimas 24 horas",
+                    "offset": 684,
+                    "id": "T27",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": []
         }
     ]
 }

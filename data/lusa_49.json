@@ -1,6 +1,72 @@
 {
     "sentences": [
         {
+            "text": "Gouveia, Guarda, 30 dez 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "30 dez 2020",
+                    "offset": 17,
+                    "id": "T1",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "AnnotatorNotes": [
+                        "value=2020-12-30 anchorTime=Publication-Time"
+                    ],
+                    "id": "T3",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T1",
+                    "sent_id": "S2"
+                }
+            ]
+        },
+        {
+            "text": "Um homem de 86 anos morreu hoje em consequ\u00eancia de um inc\u00eandio numa habita\u00e7\u00e3o em Vila Nova de Tazem, Gouveia, disse \u00e0 ag\u00eancia Lusa fonte da Prote\u00e7\u00e3o Civil.",
+            "id": "S2",
+            "events": [
+                {
+                    "text": "morreu",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T2",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T3"
+                }
+            ],
+            "times": [
+                {
+                    "text": "hoje",
+                    "offset": 129,
+                    "id": "T3",
+                    "Time_Type": "Date",
+                    "AnnotatorNotes": [
+                        "value=2020-12-30 anchorTime=Publication-Time"
+                    ]
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "pelas 12:35",
+                    "Time_Type": "Time",
+                    "id": "T4",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T3",
+                    "sent_id": "S4"
+                }
+            ]
+        },
+        {
             "text": "De acordo com fonte do Comando Distrital de Opera\u00e7\u00f5es de Socorro (CDOS) da Guarda, o alerta para a ocorr\u00eancia \u00a0 foi dado pelas 12:35.",
             "id": "S4",
             "events": [
@@ -33,17 +99,6 @@
                     "rel_type": "TLINK_after",
                     "arg2": "T4",
                     "sent_id": "S6"
-                },
-                {
-                    "text": "hoje",
-                    "Time_Type": "Date",
-                    "AnnotatorNotes": [
-                        "value=2020-12-30 anchorTime=Publication-Time"
-                    ],
-                    "id": "T3",
-                    "rel_type": "TLINK_isIncluded",
-                    "arg2": "T4",
-                    "sent_id": "S2"
                 }
             ]
         },

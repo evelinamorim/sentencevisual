@@ -1,6 +1,30 @@
 {
     "sentences": [
         {
+            "text": "Amadora, Lisboa, 11 nov 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "11 nov 2020",
+                    "offset": 17,
+                    "id": "T29",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T30",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T29",
+                    "sent_id": "S4"
+                }
+            ]
+        },
+        {
             "text": "Um grupo de cerca de 30 pessoas apedrejou hoje a PSP no bairro Casal de Mira, na Amadora, no distrito de Lisboa, depois de um motociclista ter sido intercetado por estar a conduzir sem capacete, revelou a pol\u00edcia.",
             "id": "S4",
             "events": [
@@ -26,15 +50,6 @@
                 }
             ],
             "linked_times": [
-                {
-                    "text": "11 nov 2020",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time",
-                    "id": "T29",
-                    "rel_type": "TLINK_identity",
-                    "arg2": "T30",
-                    "sent_id": "S0"
-                },
                 {
                     "text": "pelas 14:49",
                     "Time_Type": "Time",

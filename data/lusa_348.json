@@ -1,6 +1,30 @@
 {
     "sentences": [
         {
+            "text": "Pa\u00e7os de Ferreira, Porto, 09 out 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "09 out 2020",
+                    "offset": 26,
+                    "id": "T30",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T31",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T30",
+                    "sent_id": "S3"
+                }
+            ]
+        },
+        {
             "text": "Um homem de 24 anos com antecedentes criminais foi constitu\u00eddo arguido por suspeita de ser o autor de um atropelamento com fuga em Meixomil, no concelho de Pa\u00e7os de Ferreira, revelou hoje a Guarda.",
             "id": "S3",
             "events": [
@@ -26,15 +50,6 @@
                 }
             ],
             "linked_times": [
-                {
-                    "text": "09 out 2020",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time",
-                    "id": "T30",
-                    "rel_type": "TLINK_identity",
-                    "arg2": "T31",
-                    "sent_id": "S0"
-                },
                 {
                     "text": "na quinta-feira",
                     "Time_Type": "Date",

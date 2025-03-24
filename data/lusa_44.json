@@ -1,6 +1,33 @@
 {
     "sentences": [
         {
+            "text": "14 nov 2020   FCC // JPS",
+            "id": "S1",
+            "events": [],
+            "times": [
+                {
+                    "text": "14 nov 2020",
+                    "offset": 23,
+                    "id": "T1",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "AnnotatorNotes": [
+                        "value=2020-11-14 anchorTime=Publication-Time"
+                    ],
+                    "id": "T3",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T1",
+                    "sent_id": "S4"
+                }
+            ]
+        },
+        {
             "text": "Um pai e uma filha foram encontrados hoje mortos por arma branca numa habita\u00e7\u00e3o em Santa Cruz, no concelho de Torres Vedras, disse \u00e0 ag\u00eancia Lusa fonte policial, acrescentando que n\u00e3o houve suspeitos detidos.",
             "id": "S4",
             "events": [
@@ -36,15 +63,6 @@
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T3",
                     "sent_id": "S6"
-                },
-                {
-                    "text": "14 nov 2020",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time",
-                    "id": "T1",
-                    "rel_type": "TLINK_identity",
-                    "arg2": "T3",
-                    "sent_id": "S1"
                 }
             ]
         },
@@ -83,6 +101,33 @@
                     "sent_id": "S8"
                 }
             ]
+        },
+        {
+            "text": "O suposto duplo homic\u00eddio ter\u00e1 sido praticado durante a noite.",
+            "id": "S8",
+            "events": [
+                {
+                    "text": "praticado",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Aspect": "Perfective",
+                    "Mood": "Future",
+                    "Tense": "Future",
+                    "Modality": "Poder",
+                    "id": "T7",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T6"
+                }
+            ],
+            "times": [
+                {
+                    "text": "a noite",
+                    "offset": 637,
+                    "id": "T6",
+                    "Time_Type": "Time"
+                }
+            ],
+            "linked_times": []
         }
     ]
 }

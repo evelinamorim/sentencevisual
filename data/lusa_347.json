@@ -1,6 +1,30 @@
 {
     "sentences": [
         {
+            "text": "Atenas, 13 dez 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "13 dez 2020",
+                    "offset": 8,
+                    "id": "T22",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T32",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T22",
+                    "sent_id": "S5"
+                }
+            ]
+        },
+        {
             "text": "Quatro elementos das for\u00e7as de seguran\u00e7a gregas foram acusados de ter agredido requerentes de asilo perto do campo de Kara Tepe, na ilha de Lesbos, afirmaram hoje fontes policiais \u00e0 ag\u00eancia France Presse.",
             "id": "S5",
             "events": [
@@ -26,15 +50,6 @@
                 }
             ],
             "linked_times": [
-                {
-                    "text": "13 dez 2020",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time",
-                    "id": "T22",
-                    "rel_type": "TLINK_identity",
-                    "arg2": "T32",
-                    "sent_id": "S0"
-                },
                 {
                     "text": "no s\u00e1bado",
                     "Time_Type": "Date",
@@ -72,6 +87,14 @@
             ],
             "linked_times": [
                 {
+                    "text": "No s\u00e1bado",
+                    "Time_Type": "Date",
+                    "id": "T34",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T36",
+                    "sent_id": "S16"
+                },
+                {
                     "text": "Na sexta-feira",
                     "Time_Type": "Date",
                     "id": "T33",
@@ -80,6 +103,60 @@
                     "sent_id": "S11"
                 }
             ]
+        },
+        {
+            "text": "Na sexta-feira, a pol\u00edcia grega anunciou a abertura de um inqu\u00e9rito ao sucedido.",
+            "id": "S11",
+            "events": [
+                {
+                    "text": "anunciou",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T4",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T33"
+                }
+            ],
+            "times": [
+                {
+                    "text": "Na sexta-feira",
+                    "offset": 731,
+                    "id": "T33",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": []
+        },
+        {
+            "text": "No s\u00e1bado, as tendas onde vivem ficaram inundadas por causa de fortes chuvadas.",
+            "id": "S16",
+            "events": [
+                {
+                    "text": "inundadas",
+                    "Class": "State",
+                    "Event_Type": "State",
+                    "Pos": "Adjective",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T30",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T34"
+                }
+            ],
+            "times": [
+                {
+                    "text": "No s\u00e1bado",
+                    "offset": 1040,
+                    "id": "T34",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": []
         }
     ]
 }

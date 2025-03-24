@@ -1,6 +1,30 @@
 {
     "sentences": [
         {
+            "text": "Odemira, Beja, 11 out 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "11 out 2020",
+                    "offset": 15,
+                    "id": "T6",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T13",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T6",
+                    "sent_id": "S4"
+                }
+            ]
+        },
+        {
             "text": "Um homem de 68 anos morreu hoje na sequ\u00eancia do despiste do ciclomotor que conduzia, num caminho de terra batida perto de Vale Tijoso, no concelho de Odemira (Beja), revelaram a Prote\u00e7\u00e3o Civil e a GNR.",
             "id": "S4",
             "events": [
@@ -26,15 +50,6 @@
                 }
             ],
             "linked_times": [
-                {
-                    "text": "11 out 2020",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time",
-                    "id": "T6",
-                    "rel_type": "TLINK_identity",
-                    "arg2": "T13",
-                    "sent_id": "S0"
-                },
                 {
                     "text": "19:08",
                     "Time_Type": "Time",

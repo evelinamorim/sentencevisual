@@ -1,6 +1,30 @@
 {
     "sentences": [
         {
+            "text": "Montemor-o - Velho, Coimbra, 13 nov 2021",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "13 nov 2021",
+                    "offset": 27,
+                    "id": "T25",
+                    "TemporalFunction": "Publication_Time",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T26",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T25",
+                    "sent_id": "S3"
+                }
+            ]
+        },
+        {
             "text": "Um homem de 44 anos foi detido hoje, em Montemor-o - Velho, na sequ\u00eancia de dois mandados de busca por suspeitas de tr\u00e1fico de drogas, anunciou a GNR.",
             "id": "S3",
             "events": [
@@ -28,20 +52,11 @@
             "linked_times": [
                 {
                     "text": "h\u00e1 cerca de um m\u00eas",
-                    "Time_Type": "Date",
+                    "Time_Type": "Duration",
                     "id": "T27",
-                    "rel_type": "TLINK_before",
+                    "rel_type": "TLINK_includes",
                     "arg2": "T26",
                     "sent_id": "S6"
-                },
-                {
-                    "text": "13 nov 2021",
-                    "TemporalFunction": "Publication_Time",
-                    "Time_Type": "Date",
-                    "id": "T25",
-                    "rel_type": "TLINK_identity",
-                    "arg2": "T26",
-                    "sent_id": "S0"
                 }
             ]
         },
@@ -58,7 +73,7 @@
                     "Aspect": "Imperfective",
                     "Polarity": "Pos",
                     "id": "T6",
-                    "rel_type": "TLINK_begunBy",
+                    "rel_type": "TLINK_simultaneous",
                     "arg2": "T27"
                 }
             ],
@@ -67,7 +82,7 @@
                     "text": "h\u00e1 cerca de um m\u00eas",
                     "offset": 569,
                     "id": "T27",
-                    "Time_Type": "Date"
+                    "Time_Type": "Duration"
                 }
             ],
             "linked_times": []

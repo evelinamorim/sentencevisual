@@ -1,6 +1,38 @@
 {
     "sentences": [
         {
+            "text": "Lisboa, 20 out 2020   DYBS",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "20 out 2020",
+                    "offset": 8,
+                    "id": "T45",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "no s\u00e1bado",
+                    "Time_Type": "Date",
+                    "id": "T40",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T45",
+                    "sent_id": "S3"
+                },
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T41",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T45",
+                    "sent_id": "S3"
+                }
+            ]
+        },
+        {
             "text": "Um homem de 39 anos foi detido por tentativa de homic\u00eddio e viol\u00eancia dom\u00e9stica depois de ter desferido \u201c v\u00e1rios golpes profundos \u201d \u00e0 sua companheira, de 47 anos, num hotel em Lisboa, no s\u00e1bado, informou hoje a Pol\u00edcia Judici\u00e1ria.",
             "id": "S3",
             "events": [
@@ -11,6 +43,7 @@
                     "Pos": "Verb",
                     "VForm": "Infinitive",
                     "Polarity": "Pos",
+                    "Aspect": "Perfective",
                     "id": "T2",
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T40"
@@ -44,15 +77,6 @@
             ],
             "linked_times": [
                 {
-                    "text": "20 out 2020",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time",
-                    "id": "T45",
-                    "rel_type": "TLINK_before",
-                    "arg2": "T40",
-                    "sent_id": "S0"
-                },
-                {
                     "text": "hoje",
                     "Time_Type": "Date",
                     "id": "T41",
@@ -61,21 +85,12 @@
                     "sent_id": "S3"
                 },
                 {
-                    "text": "na madrugada",
-                    "Time_Type": "Time",
-                    "id": "T46",
-                    "rel_type": "TLINK_before",
-                    "arg2": "T41",
-                    "sent_id": "S7"
-                },
-                {
-                    "text": "20 out 2020",
+                    "text": "s\u00e1bado",
                     "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time",
-                    "id": "T45",
+                    "id": "T50",
                     "rel_type": "TLINK_identity",
-                    "arg2": "T41",
-                    "sent_id": "S0"
+                    "arg2": "T40",
+                    "sent_id": "S7"
                 }
             ]
         },

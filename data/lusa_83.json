@@ -1,6 +1,29 @@
 {
     "sentences": [
         {
+            "text": "Espinho, Aveiro, 23 dez 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "23 dez 2020",
+                    "offset": 17,
+                    "id": "T10",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T29",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T10",
+                    "sent_id": "S4"
+                }
+            ]
+        },
+        {
             "text": "A PSP deteve em flagrante delito um homem de 42 anos que estava a tentar roubar uma viatura pelo m\u00e9todo de \" carjacking \" \u00a0 em Espinho, no distrito de Aveiro, informou hoje aquela for\u00e7a policial.",
             "id": "S4",
             "events": [
@@ -27,20 +50,62 @@
             ],
             "linked_times": [
                 {
-                    "text": "23 dez 2020",
-                    "Time_Type": "Date",
-                    "id": "T10",
-                    "rel_type": "TLINK_identity",
-                    "arg2": "T29",
-                    "sent_id": "S0"
-                },
-                {
                     "text": "na ter\u00e7a-feira",
                     "Time_Type": "Date",
                     "id": "T30",
                     "rel_type": "TLINK_before",
                     "arg2": "T29",
                     "sent_id": "S6"
+                }
+            ]
+        },
+        {
+            "text": "Em comunicado, a PSP esclarece que o crime ocorreu na ter\u00e7a-feira, pelas 10:45.",
+            "id": "S6",
+            "events": [
+                {
+                    "text": "ocorreu",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T4",
+                    "rel_type": "TLINK_simultaneous",
+                    "arg2": "T31"
+                }
+            ],
+            "times": [
+                {
+                    "text": "na ter\u00e7a-feira",
+                    "offset": 343,
+                    "id": "T30",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text": "pelas 10:45",
+                    "offset": 359,
+                    "id": "T31",
+                    "Time_Type": "Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "pelas 10:45",
+                    "Time_Type": "Time",
+                    "id": "T31",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T30",
+                    "sent_id": "S6"
+                },
+                {
+                    "text": "No mesmo dia",
+                    "Time_Type": "Date",
+                    "id": "T32",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T30",
+                    "sent_id": "S11"
                 }
             ]
         },
@@ -69,16 +134,7 @@
                     "Time_Type": "Date"
                 }
             ],
-            "linked_times": [
-                {
-                    "text": "na ter\u00e7a-feira",
-                    "Time_Type": "Date",
-                    "id": "T30",
-                    "rel_type": "TLINK_identity",
-                    "arg2": "T32",
-                    "sent_id": "S6"
-                }
-            ]
+            "linked_times": []
         }
     ]
 }

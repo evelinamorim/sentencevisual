@@ -1,6 +1,33 @@
 {
     "sentences": [
         {
+            "text": "Pa\u00e7os de Ferreira, Porto, 21 dez 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "21 dez 2020",
+                    "offset": 26,
+                    "id": "T45",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "AnnotatorNotes": [
+                        "value=2020-12-21"
+                    ],
+                    "id": "T21",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T45",
+                    "sent_id": "S4"
+                }
+            ]
+        },
+        {
             "text": "Um homem de 44 anos foi detido em Pa\u00e7os de Ferreira por viol\u00eancia f\u00edsica e amea\u00e7as de morte \u00e0 ex - companheira de 40 anos, informou hoje fonte da GNR.",
             "id": "S4",
             "events": [
@@ -30,22 +57,13 @@
             ],
             "linked_times": [
                 {
-                    "text": "21 dez 2020",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time",
-                    "id": "T45",
-                    "rel_type": "TLINK_identity",
-                    "arg2": "T21",
-                    "sent_id": "S0"
-                },
-                {
                     "text": "hoje",
                     "Time_Type": "Date",
                     "AnnotatorNotes": [
                         "value=2020-12-21"
                     ],
                     "id": "T22",
-                    "rel_type": "TLINK_identity",
+                    "rel_type": "TLINK_includes",
                     "arg2": "T21",
                     "sent_id": "S8"
                 }

@@ -1,6 +1,30 @@
 {
     "sentences": [
         {
+            "text": "Jacarta, 26 nov 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "26 nov 2020",
+                    "offset": 9,
+                    "id": "T29",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "na quarta-feira",
+                    "Time_Type": "Date",
+                    "id": "T30",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T29",
+                    "sent_id": "S4"
+                }
+            ]
+        },
+        {
             "text": "As autoridades indon\u00e9sias anunciaram, na quarta-feira \u00e0 noite, a deten\u00e7\u00e3o do Ministro dos Assuntos Mar\u00edtimos e das Pescas, Edhy Prabowo, por suspeita de corrup\u00e7\u00e3o.",
             "id": "S4",
             "events": [
@@ -14,7 +38,7 @@
                     "Polarity": "Pos",
                     "id": "T27",
                     "rel_type": "TLINK_isIncluded",
-                    "arg2": "T30"
+                    "arg2": "T39"
                 }
             ],
             "times": [
@@ -33,13 +57,12 @@
             ],
             "linked_times": [
                 {
-                    "text": "26 nov 2020",
+                    "text": "na quarta-feira",
                     "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time",
-                    "id": "T29",
-                    "rel_type": "TLINK_before",
+                    "id": "T31",
+                    "rel_type": "TLINK_identity",
                     "arg2": "T30",
-                    "sent_id": "S0"
+                    "sent_id": "S7"
                 },
                 {
                     "text": "noite",
@@ -48,14 +71,6 @@
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T30",
                     "sent_id": "S4"
-                },
-                {
-                    "text": "na quarta-feira",
-                    "Time_Type": "Date",
-                    "id": "T31",
-                    "rel_type": "TLINK_includes",
-                    "arg2": "T39",
-                    "sent_id": "S7"
                 }
             ]
         },
@@ -92,6 +107,14 @@
                     "rel_type": "TLINK_after",
                     "arg2": "T31",
                     "sent_id": "S11"
+                },
+                {
+                    "text": "setembro do ano passado",
+                    "Time_Type": "Date",
+                    "id": "T36",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T31",
+                    "sent_id": "S15"
                 }
             ]
         },
@@ -101,14 +124,14 @@
             "events": [
                 {
                     "text": "passar",
-                    "Class": "State",
+                    "Class": "I_State",
                     "Event_Type": "State",
                     "Pos": "Verb",
                     "Polarity": "Pos",
                     "Tense": "Present",
                     "Modality": "Poder",
                     "id": "T5",
-                    "rel_type": "TLINK_simultaneous",
+                    "rel_type": "TLINK_during",
                     "arg2": "T33"
                 }
             ],
@@ -120,16 +143,7 @@
                     "Time_Type": "Duration"
                 }
             ],
-            "linked_times": [
-                {
-                    "text": "setembro do ano passado",
-                    "Time_Type": "Date",
-                    "id": "T36",
-                    "rel_type": "TLINK_before",
-                    "arg2": "T33",
-                    "sent_id": "S15"
-                }
-            ]
+            "linked_times": []
         },
         {
             "text": "Em setembro do ano passado, o ent\u00e3o ministro dos Desportos Im\u00e3 Nahrawi demitiu-se, na sequ\u00eancia de uma investiga\u00e7\u00e3o por ter alegadamente recebido subornos.",
@@ -185,12 +199,12 @@
                 },
                 {
                     "text": "pris\u00e3o",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
+                    "Class": "I_State",
+                    "Event_Type": "State",
                     "Pos": "Noun",
                     "Polarity": "Pos",
                     "id": "T25",
-                    "rel_type": "TLINK_simultaneous",
+                    "rel_type": "TLINK_during",
                     "arg2": "T38"
                 }
             ],
@@ -213,7 +227,7 @@
                     "text": "tr\u00eas anos",
                     "Time_Type": "Duration",
                     "id": "T38",
-                    "rel_type": "TLINK_after",
+                    "rel_type": "TLINK_includes",
                     "arg2": "T37",
                     "sent_id": "S17"
                 }

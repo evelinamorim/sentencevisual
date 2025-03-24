@@ -1,6 +1,112 @@
 {
     "sentences": [
         {
+            "text": "Reda\u00e7\u00e3o, 19 out 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "19 out 2020",
+                    "offset": 9,
+                    "id": "T21",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T20",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T21",
+                    "sent_id": "S2"
+                }
+            ]
+        },
+        {
+            "text": "A Pol\u00edcia Judici\u00e1ria confirmou hoje \u00e0 Lusa que deteve, no Barreiro (Set\u00fabal), um homem suspeito de ter baleado a ex - companheira na tarde de domingo na localidade de Muge, concelho de Salvaterra de Magos (Santar\u00e9m).",
+            "id": "S2",
+            "events": [
+                {
+                    "text": "confirmou",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T17",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T20"
+                },
+                {
+                    "text": "baleado",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Aspect": "Perfective",
+                    "VForm": "Infinitive",
+                    "id": "T2",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T22"
+                }
+            ],
+            "times": [
+                {
+                    "text": "hoje",
+                    "offset": 136,
+                    "id": "T20",
+                    "Time_Type": "Date"
+                },
+                {
+                    "text": "na tarde",
+                    "offset": 233,
+                    "id": "T22",
+                    "Time_Type": "Time"
+                },
+                {
+                    "text": "domingo",
+                    "offset": 245,
+                    "id": "T25",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "h\u00e1 uns meses",
+                    "Time_Type": "Duration",
+                    "id": "T23",
+                    "rel_type": "TLINK_includes",
+                    "arg2": "T20",
+                    "sent_id": "S6"
+                },
+                {
+                    "text": "domingo",
+                    "Time_Type": "Date",
+                    "id": "T25",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T20",
+                    "sent_id": "S2"
+                },
+                {
+                    "text": "domingo",
+                    "Time_Type": "Date",
+                    "id": "T25",
+                    "rel_type": "TLINK_includes",
+                    "arg2": "T22",
+                    "sent_id": "S2"
+                },
+                {
+                    "text": "o fim de semana",
+                    "Time_Type": "Date",
+                    "id": "T24",
+                    "rel_type": "TLINK_includes",
+                    "arg2": "T25",
+                    "sent_id": "S6"
+                }
+            ]
+        },
+        {
             "text": "Fontes citadas pela imprensa regional afirmam que o casal, residente no Barreiro e separado h\u00e1 uns meses, estaria a passar o fim de semana na casa do pai do suspeito, juntamente com a filha da v\u00edtima, uma menina de 5 anos, entretanto entregue aos cuidados do pai biol\u00f3gico.",
             "id": "S6",
             "events": [
@@ -8,23 +114,22 @@
                     "text": "separado",
                     "Class": "State",
                     "Event_Type": "State",
-                    "Pos": "Verb",
-                    "VForm": "Participle",
+                    "Pos": "Adjective",
+                    "Polarity": "Pos",
                     "id": "T15",
-                    "rel_type": "TLINK_begunBy",
+                    "rel_type": "TLINK_simultaneous",
                     "arg2": "T23"
                 },
                 {
                     "text": "passar",
-                    "Event_Type": "Transition",
+                    "Event_Type": "State",
                     "Pos": "Verb",
-                    "Aspect": "Perfective_Progressive",
                     "Polarity": "Pos",
-                    "Tense": "Past",
                     "Mood": "Conditional",
-                    "Class": "Occurrence",
+                    "Class": "State",
+                    "Aspect": "Progressive",
                     "id": "T9",
-                    "rel_type": "TLINK_simultaneous",
+                    "rel_type": "TLINK_isIncluded",
                     "arg2": "T24"
                 }
             ],
@@ -33,7 +138,7 @@
                     "text": "h\u00e1 uns meses",
                     "offset": 677,
                     "id": "T23",
-                    "Time_Type": "Date"
+                    "Time_Type": "Duration"
                 },
                 {
                     "text": "o fim de semana",
@@ -44,18 +149,10 @@
             ],
             "linked_times": [
                 {
-                    "text": "domingo",
-                    "Time_Type": "Date",
-                    "id": "T25",
-                    "rel_type": "TLINK_before",
-                    "arg2": "T23",
-                    "sent_id": "S2"
-                },
-                {
                     "text": "o fim de semana",
                     "Time_Type": "Date",
                     "id": "T24",
-                    "rel_type": "TLINK_after",
+                    "rel_type": "TLINK_isIncluded",
                     "arg2": "T23",
                     "sent_id": "S6"
                 }

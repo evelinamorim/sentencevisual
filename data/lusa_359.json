@@ -1,6 +1,81 @@
 {
     "sentences": [
         {
+            "text": "Maputo, 26 out 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "26 out 2020",
+                    "offset": 8,
+                    "id": "T21",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "tr\u00eas anos",
+                    "Time_Type": "Duration",
+                    "id": "T26",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T21",
+                    "sent_id": "S2"
+                }
+            ]
+        },
+        {
+            "text": "Um juiz e uma escriv\u00e3 foram condenados a tr\u00eas anos de pris\u00e3o convertidos em trabalho social pelo desvio de 400 mil meticais (4.632 euros) na prov\u00edncia de Inhambane, sul de Mo\u00e7ambique, noticia hoje a emissora p\u00fablica R\u00e1dio Mo\u00e7ambique (RM).",
+            "id": "S2",
+            "events": [
+                {
+                    "text": "pris\u00e3o convertidos",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Noun",
+                    "Polarity": "Pos",
+                    "id": "T7",
+                    "rel_type": "TLINK_simultaneous",
+                    "arg2": "T26"
+                },
+                {
+                    "text": "noticia",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Present",
+                    "Polarity": "Pos",
+                    "id": "T2",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T22"
+                }
+            ],
+            "times": [
+                {
+                    "text": "tr\u00eas anos",
+                    "offset": 131,
+                    "id": "T26",
+                    "Time_Type": "Duration"
+                },
+                {
+                    "text": "hoje",
+                    "offset": 282,
+                    "id": "T22",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "quarta-feira",
+                    "Time_Type": "Date",
+                    "id": "T23",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T22",
+                    "sent_id": "S6"
+                }
+            ]
+        },
+        {
             "text": "Os arguidos devem devolver o dinheiro que retiraram do Dep\u00f3sito Obrigat\u00f3rio do tribunal, refere a senten\u00e7a, datada de quarta-feira e \u00a0 citada hoje pela RM.",
             "id": "S6",
             "events": [
@@ -44,14 +119,6 @@
                 }
             ],
             "linked_times": [
-                {
-                    "text": "hoje",
-                    "Time_Type": "Date",
-                    "id": "T22",
-                    "rel_type": "TLINK_before",
-                    "arg2": "T23",
-                    "sent_id": "S2"
-                },
                 {
                     "text": "hoje",
                     "Time_Type": "Date",

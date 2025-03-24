@@ -1,6 +1,66 @@
 {
     "sentences": [
         {
+            "text": "Washington, 08 dez 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "08 dez 2020",
+                    "offset": 12,
+                    "id": "T21",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T22",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T21",
+                    "sent_id": "S4"
+                }
+            ]
+        },
+        {
+            "text": "Sem fazer coment\u00e1rios, o tribunal recusou hoje p\u00f4r em causa o processo eleitoral na Pensilv\u00e2nia.",
+            "id": "S4",
+            "events": [
+                {
+                    "text": "recusou",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T6",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T22"
+                }
+            ],
+            "times": [
+                {
+                    "text": "hoje",
+                    "offset": 344,
+                    "id": "T22",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "no dia 14 de dezembro",
+                    "Time_Type": "Date",
+                    "id": "T23",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T22",
+                    "sent_id": "S6"
+                }
+            ]
+        },
+        {
             "text": "O Governador Tom Wolf j\u00e1 certificou a vit\u00f3ria de Biden e os 20 eleitores do Estado v\u00e3o reunir-se no dia 14 de dezembro para votarem em Biden.",
             "id": "S6",
             "events": [
@@ -26,14 +86,6 @@
             ],
             "linked_times": [
                 {
-                    "text": "hoje",
-                    "Time_Type": "Date",
-                    "id": "T22",
-                    "rel_type": "TLINK_after",
-                    "arg2": "T23",
-                    "sent_id": "S4"
-                },
-                {
                     "text": "20 de janeiro",
                     "Time_Type": "Date",
                     "id": "T24",
@@ -42,6 +94,33 @@
                     "sent_id": "S9"
                 }
             ]
+        },
+        {
+            "text": "Biden deve ser investido presidente em 20 de janeiro.",
+            "id": "S9",
+            "events": [
+                {
+                    "text": "investido",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Present",
+                    "Polarity": "Pos",
+                    "Modality": "Dever",
+                    "id": "T18",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T24"
+                }
+            ],
+            "times": [
+                {
+                    "text": "20 de janeiro",
+                    "offset": 782,
+                    "id": "T24",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": []
         }
     ]
 }

@@ -1,6 +1,98 @@
 {
     "sentences": [
         {
+            "text": "Lausana, Su\u00ed\u00e7a, 24 dez 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "24 dez 2020",
+                    "offset": 16,
+                    "id": "T25",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "fevereiro",
+                    "Time_Type": "Date",
+                    "id": "T27",
+                    "rel_type": "TLINK_includes",
+                    "arg2": "T25",
+                    "sent_id": "S2"
+                }
+            ]
+        },
+        {
+            "text": "O Supremo Tribunal Federal su\u00ed\u00e7o anulou a suspens\u00e3o de oito anos do nadador chin\u00eas Sun Yang, pronunciada em fevereiro pelo Tribunal de Arbitragem para o Desporto (TAS), que ter\u00e1 de decidir o caso \u201c numa composi\u00e7\u00e3o diferente \u201d.",
+            "id": "S2",
+            "events": [
+                {
+                    "text": "suspens\u00e3o",
+                    "Class": "I_State",
+                    "Event_Type": "State",
+                    "Pos": "Noun",
+                    "Polarity": "Pos",
+                    "id": "T11",
+                    "rel_type": "TLINK_during",
+                    "arg2": "T26"
+                },
+                {
+                    "text": "pronunciada",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Aspect": "Perfective",
+                    "VForm": "Participle",
+                    "Polarity": "Pos",
+                    "id": "T13",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T27"
+                }
+            ],
+            "times": [
+                {
+                    "text": "oito anos",
+                    "offset": 172,
+                    "id": "T26",
+                    "Time_Type": "Duration"
+                },
+                {
+                    "text": "fevereiro",
+                    "offset": 225,
+                    "id": "T27",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "fevereiro",
+                    "Time_Type": "Date",
+                    "id": "T27",
+                    "rel_type": "TLINK_includes",
+                    "arg2": "T26",
+                    "sent_id": "S2"
+                },
+                {
+                    "text": "oito anos",
+                    "Time_Type": "Duration",
+                    "id": "T19",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T26",
+                    "sent_id": "S8"
+                },
+                {
+                    "text": "fevereiro",
+                    "Time_Type": "Date",
+                    "id": "T28",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T27",
+                    "sent_id": "S8"
+                }
+            ]
+        },
+        {
             "text": "Em fevereiro, Sun Yang, tricampe\u00e3o ol\u00edmpico de nata\u00e7\u00e3o, foi suspenso por oito anos pelo TAS, por ter destru\u00eddo amostras durante um controlo antidoping surpresa.",
             "id": "S8",
             "events": [
@@ -25,7 +117,7 @@
                     "Aspect": "Perfective",
                     "Polarity": "Pos",
                     "id": "T29",
-                    "rel_type": "TLINK_simultaneous",
+                    "rel_type": "TLINK_during",
                     "arg2": "T19"
                 }
             ],
@@ -45,27 +137,11 @@
             ],
             "linked_times": [
                 {
-                    "text": "fevereiro",
-                    "Time_Type": "Date",
-                    "id": "T27",
-                    "rel_type": "TLINK_identity",
-                    "arg2": "T28",
-                    "sent_id": "S2"
-                },
-                {
-                    "text": "oito anos",
-                    "Time_Type": "Duration",
-                    "id": "T19",
-                    "rel_type": "TLINK_after",
-                    "arg2": "T28",
-                    "sent_id": "S8"
-                },
-                {
                     "text": "setembro de 2018",
                     "Time_Type": "Date",
                     "id": "T30",
                     "rel_type": "TLINK_before",
-                    "arg2": "T19",
+                    "arg2": "T28",
                     "sent_id": "S10"
                 }
             ]

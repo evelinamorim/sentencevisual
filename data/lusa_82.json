@@ -1,6 +1,29 @@
 {
     "sentences": [
         {
+            "text": "Arouca, Aveiro, 21 dez 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "dez 2020",
+                    "offset": 19,
+                    "id": "T13",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T15",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T13",
+                    "sent_id": "S4"
+                }
+            ]
+        },
+        {
             "text": "A Pol\u00edcia Judici\u00e1ria (PJ) deteve um homem, de 54 anos, suspeito de tentar matar a \u00a0 mulher, em Arouca, distrito de Aveiro, informou hoje aquele \u00f3rg\u00e3o de pol\u00edcia criminal.",
             "id": "S4",
             "events": [
@@ -27,14 +50,6 @@
             ],
             "linked_times": [
                 {
-                    "text": "dez 2020",
-                    "TemporalFunction": "Publication_Time",
-                    "id": "T13",
-                    "rel_type": "TLINK_identity",
-                    "arg2": "T15",
-                    "sent_id": "S0"
-                },
-                {
                     "text": "no domingo",
                     "Time_Type": "Date",
                     "id": "T9",
@@ -58,7 +73,7 @@
                     "Aspect": "Perfective",
                     "id": "T43",
                     "rel_type": "TLINK_isIncluded",
-                    "arg2": "T9"
+                    "arg2": "T11"
                 }
             ],
             "times": [

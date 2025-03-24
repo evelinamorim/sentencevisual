@@ -1,6 +1,30 @@
 {
     "sentences": [
         {
+            "text": "\u00c9vora, 27 nov 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "27 nov 2020",
+                    "offset": 7,
+                    "id": "T30",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T31",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T30",
+                    "sent_id": "S5"
+                }
+            ]
+        },
+        {
             "text": "A Pol\u00edcia Judici\u00e1ria (PJ) deteve um homem, de 50 anos, suspeito de ter abusado sexualmente de uma filha, presentemente com 18 anos, no distrito de \u00c9vora, foi hoje anunciado.",
             "id": "S5",
             "events": [
@@ -27,15 +51,6 @@
             ],
             "linked_times": [
                 {
-                    "text": "27 nov 2020",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time",
-                    "id": "T30",
-                    "rel_type": "TLINK_identity",
-                    "arg2": "T31",
-                    "sent_id": "S0"
-                },
-                {
                     "text": "finais de 2019",
                     "Time_Type": "Date",
                     "id": "T32",
@@ -51,7 +66,7 @@
             "events": [
                 {
                     "text": "come\u00e7aram",
-                    "Class": "Aspectual",
+                    "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",

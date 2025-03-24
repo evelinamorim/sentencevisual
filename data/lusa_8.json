@@ -1,6 +1,66 @@
 {
     "sentences": [
         {
+            "text": "Praia, 01 dez 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "01 dez 2020",
+                    "offset": 7,
+                    "id": "T35",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T32",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T35",
+                    "sent_id": "S2"
+                }
+            ]
+        },
+        {
+            "text": "Um homem ficou em pris\u00e3o preventiva ap\u00f3s ser detido pela Pol\u00edcia Judici\u00e1ria (PJ) de Cabo Verde, por suspeita da pr\u00e1tica dos crimes de tentativa de homic\u00eddio e deten\u00e7\u00e3o ilegal de arma branca, informou hoje aquela for\u00e7a policial.",
+            "id": "S2",
+            "events": [
+                {
+                    "text": "informou",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Polarity": "Pos",
+                    "Aspect": "Perfective",
+                    "id": "T14",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T32"
+                }
+            ],
+            "times": [
+                {
+                    "text": "hoje",
+                    "offset": 309,
+                    "id": "T32",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "no s\u00e1bado",
+                    "Time_Type": "Date",
+                    "id": "T33",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T32",
+                    "sent_id": "S4"
+                }
+            ]
+        },
+        {
             "text": "A Pol\u00edcia Judici\u00e1ria informou em comunicado que a deten\u00e7\u00e3o aconteceu no s\u00e1bado, fora de flagrante delito, pela Unidade de Investiga\u00e7\u00e3o Criminal da Assomada, no concelho de Santa Catarina de Santiago, em cumprimento de um mandado do Minist\u00e9rio P\u00fablico.",
             "id": "S4",
             "events": [
@@ -27,14 +87,6 @@
             ],
             "linked_times": [
                 {
-                    "text": "hoje",
-                    "Time_Type": "Date",
-                    "id": "T32",
-                    "rel_type": "TLINK_before",
-                    "arg2": "T33",
-                    "sent_id": "S2"
-                },
-                {
                     "text": "no passado dia 25 de novembro",
                     "Time_Type": "Date",
                     "id": "T34",
@@ -55,6 +107,7 @@
                     "Pos": "Verb",
                     "VForm": "Infinitive",
                     "Polarity": "Pos",
+                    "Aspect": "Perfective",
                     "id": "T8",
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T34"

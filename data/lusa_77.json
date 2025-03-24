@@ -1,6 +1,66 @@
 {
     "sentences": [
         {
+            "text": "Porto, 15 dez 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "15 dez 2020",
+                    "offset": 7,
+                    "id": "T34",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T17",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T34",
+                    "sent_id": "S2"
+                }
+            ]
+        },
+        {
+            "text": "Um homem de 54 anos foi detido pela Pol\u00edcia Judici\u00e1ria (PJ) por suspeita de ter tentado matar, a tiro, um homem na sequ\u00eancia de um furto, em Paredes, no distrito do Porto, informou hoje aquela pol\u00edcia.",
+            "id": "S2",
+            "events": [
+                {
+                    "text": "informou",
+                    "Class": "Reporting",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T33",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T17"
+                }
+            ],
+            "times": [
+                {
+                    "text": "hoje",
+                    "offset": 266,
+                    "id": "T17",
+                    "Time_Type": "Date"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "no passado dia 14 de novembro de 2020",
+                    "Time_Type": "Date",
+                    "id": "T18",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T17",
+                    "sent_id": "S6"
+                }
+            ]
+        },
+        {
             "text": "O suspeito foi detido \u201c pela pr\u00e1tica de um crime de homic\u00eddio na forma tentada ocorrido no passado dia 14 de novembro de 2020, em Vilela, Paredes \u201d, refere a PJ.",
             "id": "S6",
             "events": [
@@ -25,16 +85,7 @@
                     "Time_Type": "Date"
                 }
             ],
-            "linked_times": [
-                {
-                    "text": "hoje",
-                    "Time_Type": "Date",
-                    "id": "T17",
-                    "rel_type": "TLINK_before",
-                    "arg2": "T18",
-                    "sent_id": "S2"
-                }
-            ]
+            "linked_times": []
         }
     ]
 }

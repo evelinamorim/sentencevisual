@@ -1,6 +1,30 @@
 {
     "sentences": [
         {
+            "text": "Mogadouro, Bragan\u00e7a, 08 dez 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "08 dez 2020",
+                    "offset": 21,
+                    "id": "T1",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T2",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T1",
+                    "sent_id": "S2"
+                }
+            ]
+        },
+        {
             "text": "Um homem de 57 anos ficou hoje ferido com gravidade na sequ\u00eancia de um acidente durante uma ca\u00e7ada, junto a aldeia de Peredo de Bemposta, no concelho de Mogadouro, disse \u00e0 Lusa fonte dos bombeiros.",
             "id": "S2",
             "events": [
@@ -26,15 +50,6 @@
                 }
             ],
             "linked_times": [
-                {
-                    "text": "08 dez 2020",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time",
-                    "id": "T1",
-                    "rel_type": "TLINK_identity",
-                    "arg2": "T2",
-                    "sent_id": "S0"
-                },
                 {
                     "text": "cerca do meio - dia",
                     "Time_Type": "Time",

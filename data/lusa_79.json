@@ -1,6 +1,30 @@
 {
     "sentences": [
         {
+            "text": "Aveiro, 17 dez 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "17 dez 2020",
+                    "offset": 8,
+                    "id": "T33",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T32",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T33",
+                    "sent_id": "S3"
+                }
+            ]
+        },
+        {
             "text": "A Pol\u00edcia Judici\u00e1ria (PJ) de Aveiro deteve um homem, de 47 anos, \u00a0 suspeito de agredir e violar a m\u00e3e, de 75 anos, na casa onde habitavam, no concelho de Ovar, informou hoje aquele \u00f3rg\u00e3o de pol\u00edcia criminal.",
             "id": "S3",
             "events": [
@@ -25,17 +49,7 @@
                     "Time_Type": "Date"
                 }
             ],
-            "linked_times": [
-                {
-                    "text": "17 dez 2020",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time",
-                    "id": "T33",
-                    "rel_type": "TLINK_identity",
-                    "arg2": "T32",
-                    "sent_id": "S0"
-                }
-            ]
+            "linked_times": []
         }
     ]
 }

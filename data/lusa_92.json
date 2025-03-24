@@ -1,6 +1,37 @@
 {
     "sentences": [
         {
+            "text": "Lisboa, 16 nov 2020   SO (FCC)",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "16 nov 2020",
+                    "offset": 8,
+                    "id": "T28",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "no fim de semana",
+                    "Time_Type": "Date",
+                    "id": "T33",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T28",
+                    "sent_id": "S5"
+                },
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T35",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T28",
+                    "sent_id": "S5"
+                }
+            ]
+        },
+        {
             "text": "O homem suspeito de matar a irm\u00e3, gr\u00e1vida, e o pai, em Torres Vedras, no fim de semana, foi detido na madrugada de hoje na Amadora, disse \u00e0 ag\u00eancia Lusa fonte da PSP.",
             "id": "S5",
             "events": [
@@ -50,20 +81,12 @@
             ],
             "linked_times": [
                 {
-                    "text": "na madrugada",
-                    "Time_Type": "Time",
-                    "id": "T30",
-                    "rel_type": "TLINK_after",
+                    "text": "no s\u00e1bado",
+                    "Time_Type": "Date",
+                    "id": "T29",
+                    "rel_type": "TLINK_isIncluded",
                     "arg2": "T33",
-                    "sent_id": "S5"
-                },
-                {
-                    "text": "16 nov 2020",
-                    "TemporalFunction": "Publication_Time",
-                    "id": "T28",
-                    "rel_type": "TLINK_before",
-                    "arg2": "T33",
-                    "sent_id": "S0"
+                    "sent_id": "S9"
                 },
                 {
                     "text": "hoje",
@@ -118,6 +141,33 @@
                     "sent_id": "S11"
                 }
             ]
+        },
+        {
+            "text": "As autoridades foram alertadas para o eventual crime pelas 11:30.",
+            "id": "S11",
+            "events": [
+                {
+                    "text": "alertadas",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T9",
+                    "rel_type": "TLINK_simultaneous",
+                    "arg2": "T31"
+                }
+            ],
+            "times": [
+                {
+                    "text": "pelas 11:30",
+                    "offset": 576,
+                    "id": "T31",
+                    "Time_Type": "Time"
+                }
+            ],
+            "linked_times": []
         }
     ]
 }

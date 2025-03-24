@@ -1,6 +1,30 @@
 {
     "sentences": [
         {
+            "text": "\u00c9vora, 02 nov 2020",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "02 nov 2020",
+                    "offset": 7,
+                    "id": "T31",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T30",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T31",
+                    "sent_id": "S5"
+                }
+            ]
+        },
+        {
             "text": "Um jovem de 19 anos foi detido pela Unidade Local de Investiga\u00e7\u00e3o Criminal de \u00c9vora por suspeita de tentativa de homic\u00eddio da sua pr\u00f3pria namorada em Montemor-o - Novo, informou hoje a Pol\u00edcia Judici\u00e1ria (PJ).",
             "id": "S5",
             "events": [
@@ -27,21 +51,20 @@
             ],
             "linked_times": [
                 {
-                    "text": "02 nov 2020",
-                    "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time",
-                    "id": "T31",
-                    "rel_type": "TLINK_identity",
-                    "arg2": "T30",
-                    "sent_id": "S0"
-                },
-                {
                     "text": "nos pr\u00f3ximos dias \u201d",
                     "Time_Type": "Date",
                     "id": "T33",
                     "rel_type": "TLINK_after",
                     "arg2": "T30",
                     "sent_id": "S7"
+                },
+                {
+                    "text": "na quinta-feira",
+                    "Time_Type": "Date",
+                    "id": "T29",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T30",
+                    "sent_id": "S9"
                 }
             ]
         },
@@ -54,9 +77,9 @@
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
-                    "Tense": "Present",
                     "Polarity": "Pos",
                     "Mood": "Subjunctive",
+                    "Tense": "Present",
                     "id": "T19",
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T33"
@@ -70,16 +93,7 @@
                     "Time_Type": "Date"
                 }
             ],
-            "linked_times": [
-                {
-                    "text": "na quinta-feira",
-                    "Time_Type": "Date",
-                    "id": "T29",
-                    "rel_type": "TLINK_before",
-                    "arg2": "T33",
-                    "sent_id": "S9"
-                }
-            ]
+            "linked_times": []
         },
         {
             "text": "A acusa\u00e7\u00e3o reporta-se a factos ocorridos na quinta-feira, perto das 19:00, no concelho de Montemor-o - Novo (distrito de \u00c9vora), \u00a0 quando o suspeito, munido de uma arma branca,",
@@ -94,8 +108,8 @@
                     "Aspect": "Perfective",
                     "VForm": "Participle",
                     "id": "T10",
-                    "rel_type": "TLINK_isIncluded",
-                    "arg2": "T29"
+                    "rel_type": "TLINK_simultaneous",
+                    "arg2": "T36"
                 }
             ],
             "times": [

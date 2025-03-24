@@ -1,6 +1,30 @@
 {
     "sentences": [
         {
+            "text": "Vila Flor, Bragan\u00e7a, 04 jan 2021",
+            "id": "S0",
+            "events": [],
+            "times": [
+                {
+                    "text": "04 jan 2021",
+                    "offset": 21,
+                    "id": "T27",
+                    "Time_Type": "Date",
+                    "TemporalFunction": "Publication_Time"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T28",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T27",
+                    "sent_id": "S4"
+                }
+            ]
+        },
+        {
             "text": "Um suspeito de viol\u00eancia dom\u00e9stica foi posto em pris\u00e3o preventiva, em Vila Flor, no distrito de Bragan\u00e7a, por ter cortado a pulseira eletr\u00f3nica aplicada para o afastar da v\u00edtima, informou hoje a GNR.",
             "id": "S4",
             "events": [
@@ -27,13 +51,12 @@
             ],
             "linked_times": [
                 {
-                    "text": "04 jan 2021",
+                    "text": "hoje",
                     "Time_Type": "Date",
-                    "TemporalFunction": "Publication_Time",
-                    "id": "T27",
+                    "id": "T30",
                     "rel_type": "TLINK_identity",
                     "arg2": "T28",
-                    "sent_id": "S0"
+                    "sent_id": "S10"
                 },
                 {
                     "text": "no domingo",
@@ -70,16 +93,7 @@
                     "Time_Type": "Date"
                 }
             ],
-            "linked_times": [
-                {
-                    "text": "hoje",
-                    "Time_Type": "Date",
-                    "id": "T30",
-                    "rel_type": "TLINK_after",
-                    "arg2": "T29",
-                    "sent_id": "S10"
-                }
-            ]
+            "linked_times": []
         },
         {
             "text": "O homem foi detido e presente hoje ao Tribunal Judicial de Vila Flor, que lhe aplicou a medida de coa\u00e7\u00e3o mais grave, a pris\u00e3o preventiva, por viola\u00e7\u00e3o de imposi\u00e7\u00f5es, proibi\u00e7\u00f5es ou interdi\u00e7\u00f5es.",
@@ -89,11 +103,23 @@
                     "text": "presente",
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
-                    "Pos": "Adjective",
+                    "Pos": "Verb",
                     "Polarity": "Pos",
                     "Tense": "Past",
                     "Aspect": "Perfective",
                     "id": "T22",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T30"
+                },
+                {
+                    "text": "detido",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T21",
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T30"
                 }
