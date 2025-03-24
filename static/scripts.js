@@ -264,6 +264,7 @@ function renderTimeline(allFragments, allLinkedTimes) {
     }
 
     // Render yellow boxes
+    let positionTimeline = 0; // position in the timeline
     allFragments.forEach(fragments => {
         fragments.forEach(fragment => {
             if (fragment.type === "yellow-box") {
@@ -276,6 +277,7 @@ function renderTimeline(allFragments, allLinkedTimes) {
 
                 const timeBox = timelineContainer.append("span")
                     .attr("id", fragment.time.id)
+                    .attr("position", positionTimeline)
                     .text(fragment.text)
                     .classed("yellow-box", true)
                     .style("background-color", backColor)
@@ -291,6 +293,7 @@ function renderTimeline(allFragments, allLinkedTimes) {
                         // Toggle sentence highlight when time expression is clicked
                         toggleSentenceHighlight(fragment.time.id);
                     });
+                positionTimeline++;
 
                 timeBoxes.push({
                     id: fragment.time.id,
@@ -418,15 +421,26 @@ function renderTimeline(allFragments, allLinkedTimes) {
 
 
 
-    function getConnectionPoints(rect1, rect2) {
-        // Determine if connection should be vertical or horizontal
+    function getConnectionPoints(rect1, rect2, isConsecutive, isRightSide) {
+        let startX, startY, endX, endY;
+        // For consecutive connections that should be on the right side
+        if (isConsecutive && isRightSide) {
+            // Connect from right side of boxes - This is the key change
+            startX = rect1.left + rect1.width;
+            startY = rect1.top + rect1.height / 2;
+
+            endX = rect2.left + rect2.width;
+            endY = rect2.top + rect2.height / 2;
+
+            return { startX, startY, endX, endY, isVertical: false, isConsecutive: true };
+        }
+
+        // Determine if connection should be vertical or horizontal for non-consecutive connections
         const verticalDistance = Math.abs(rect2.top - rect1.top);
         const horizontalDistance = Math.abs(rect2.left - rect1.left);
-        // if the box is too wide, then the vertical and horizontal distance is too close
-        // the 30 is just an heuristic to try to fix that
-        const isVertical = verticalDistance + 30 > horizontalDistance;
+        // the 90 is just an heuristic to try to fix that
+        const isVertical = verticalDistance + 90 > horizontalDistance;
 
-        let startX, startY, endX, endY;
 
         if (isVertical) {
             // Connect from top or bottom
@@ -458,7 +472,7 @@ function renderTimeline(allFragments, allLinkedTimes) {
             }
         }
 
-        return { startX, startY, endX, endY, isVertical };
+        return { startX, startY, endX, endY, isVertical, isConsecutive: false };
     }
 
     function createArrows() {
@@ -476,9 +490,13 @@ function renderTimeline(allFragments, allLinkedTimes) {
                 const textElement = document.querySelector(`[id="${ext.id}"]`);
                 const arg2Element = document.querySelector(`[id="${ext.arg2}"]`);
 
+                let posArg1 = textElement.getAttribute("position");
+                let posArg2 = arg2Element.getAttribute("position");
+                const isConsecutive = Math.abs(posArg1 - posArg2) > 1;
+
                 if (!textElement || !arg2Element) return;
 
-                drawConnection(textElement, arg2Element, ext.rel_type, timelineColumnRect,"time");
+                drawConnection(textElement, arg2Element, ext.rel_type, timelineColumnRect,"time", isConsecutive);
             });
 
             // Draw event-based connections
@@ -489,7 +507,7 @@ function renderTimeline(allFragments, allLinkedTimes) {
 
                     if (!eventElement || !timeElement) return;
 
-                    drawConnection(eventElement, timeElement, fragment.event.rel_type, timelineColumnRect,"event");
+                    drawConnection(eventElement, timeElement, fragment.event.rel_type, timelineColumnRect,"event", false);
                 }
             });
 
@@ -498,7 +516,7 @@ function renderTimeline(allFragments, allLinkedTimes) {
         }
     }
 
-    function drawConnection(element1, element2, relType, wrapperRect, connectionType) {
+    function drawConnection(element1, element2, relType, wrapperRect, connectionType, isConsecutive) {
         const rect1 = element1.getBoundingClientRect();
         const rect2 = element2.getBoundingClientRect();
 
@@ -508,7 +526,8 @@ function renderTimeline(allFragments, allLinkedTimes) {
             ? relType.split('_')[1]
             : relType;
 
-        const { startX, startY, endX, endY, isVertical } = getConnectionPoints(
+        const isRightSide = isConsecutive;
+        const { startX, startY, endX, endY, isVertical , isConsecutive: isConsec } = getConnectionPoints(
             {
                 top: rect1.top - timelineColumnRect.top,
                 left: rect1.left - timelineColumnRect.left,
@@ -520,7 +539,9 @@ function renderTimeline(allFragments, allLinkedTimes) {
                 left: rect2.left - timelineColumnRect.left,
                 width: rect2.width,
                 height: rect2.height
-            }
+            },
+            isConsecutive,
+            isRightSide
         );
 
         const pathGroup = sharedSVG.append("g");
@@ -529,14 +550,27 @@ function renderTimeline(allFragments, allLinkedTimes) {
 
         // Create path
         if (connectionType == "time"){
-            pathGroup.append("path")
-                .attr("id", pathId)
-                .attr("class", "arrow-path")
-                .attr("fill", "none")
-                .attr("stroke", "DimGray")
-                .attr("stroke-width", 3)
-                .attr("data-rel-type", relType)
-                .attr("d", createPath(startX, startY, endX, endY, isVertical));
+            if (isConsecutive) {
+                // Use special curved path for consecutive time connections on right side
+                pathGroup.append("path")
+                    .attr("id", pathId)
+                    .attr("class", "arrow-path")
+                    .attr("fill", "none")
+                    .attr("stroke", "DimGray")
+                    .attr("stroke-width", 3)
+                    .attr("data-rel-type", relType)
+                    .attr("d", createRightSideCurvedPath(startX, startY, endX, endY));
+            } else{
+                pathGroup.append("path")
+                    .attr("id", pathId)
+                    .attr("class", "arrow-path")
+                    .attr("fill", "none")
+                    .attr("stroke", "DimGray")
+                    .attr("stroke-width", 3)
+                    .attr("data-rel-type", relType)
+                    .attr("d", createPath(startX, startY, endX, endY, isVertical));
+            }
+
         } else{
             pathGroup.append("path")
                 .attr("id", pathId)
@@ -559,6 +593,20 @@ function renderTimeline(allFragments, allLinkedTimes) {
             .text(trimmedRelType);
     }
 
+    function createRightSideCurvedPath(startX, startY, endX, endY) {
+        // Calculate control points for a nice curve on the right side
+        // We move the curve outward to the right by adding a significant offset
+        const horizontalOffset = 100; // Adjust this value to control how far right the curve extends
+
+        // Calculate the midpoint between the two boxes' vertical positions
+        const midY = (startY + endY) / 2;
+
+        // Place control point to the right and at the vertical midpoint
+        const cpX = Math.max(startX, endX) + horizontalOffset;
+        const cpY = midY;
+
+        return `M ${startX},${startY} Q ${cpX},${cpY} ${endX},${endY}`;
+    }
     function createCurvedPath(startX, startY, endX, endY) {
         // Calculate control point (adjust offset for curvature)
         const cpX = (startX + endX) / 2;
