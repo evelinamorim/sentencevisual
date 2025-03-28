@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Pristina, 05 nov 2020",
+            "text": "Pristina, 05 nov 2020   PMC //",
             "id": "S0",
             "events": [],
             "times": [
@@ -23,7 +23,7 @@
                     "id": "T8",
                     "rel_type": "TLINK_before",
                     "arg2": "T3",
-                    "sent_id": "S3"
+                    "sent_id": "S2"
                 },
                 {
                     "text": "hoje",
@@ -34,22 +34,22 @@
                     "id": "T2",
                     "rel_type": "TLINK_identity",
                     "arg2": "T3",
-                    "sent_id": "S3"
+                    "sent_id": "S2"
                 }
             ]
         },
         {
             "text": "O Presidente do Kosovo, Hashim Thaci, l\u00edder guerrilheiro durante a guerra pela independ\u00eancia em rela\u00e7\u00e3o \u00e0 S\u00e9rvia, nos anos 1990, demitiu-se hoje para enfrentar acusa\u00e7\u00f5es de crimes de guerra e contra a humanidade num tribunal especial em Haia.",
-            "id": "S3",
+            "id": "S2",
             "events": [
                 {
-                    "text": "l\u00edder",
-                    "Class": "State",
-                    "Event_Type": "State",
-                    "Polarity": "Pos",
+                    "text": "guerra",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
                     "Pos": "Noun",
-                    "id": "T9",
-                    "rel_type": "TLINK_during",
+                    "Polarity": "Pos",
+                    "id": "T32",
+                    "rel_type": "TLINK_isIncluded",
                     "arg2": "T8"
                 },
                 {
@@ -95,7 +95,7 @@
                     "id": "T2",
                     "rel_type": "TLINK_after",
                     "arg2": "T8",
-                    "sent_id": "S3"
+                    "sent_id": "S2"
                 },
                 {
                     "text": "hoje",
@@ -106,13 +106,13 @@
                     "id": "T5",
                     "rel_type": "TLINK_identity",
                     "arg2": "T2",
-                    "sent_id": "S4"
+                    "sent_id": "S3"
                 }
             ]
         },
         {
             "text": "Thaci anunciou a sua ren\u00fancia ao cargo numa confer\u00eancia de imprensa realizada hoje em Pristina, capital de Kosovo.",
-            "id": "S4",
+            "id": "S3",
             "events": [
                 {
                     "text": "realizada",
@@ -148,13 +148,13 @@
                     "id": "T7",
                     "rel_type": "TLINK_identity",
                     "arg2": "T5",
-                    "sent_id": "S6"
+                    "sent_id": "S4"
                 }
             ]
         },
         {
             "text": "\u201c N\u00e3o vou comparecer em tribunal como Presidente e, [ por isso ] renuncio hoje para proteger a integridade do Estado \u201d, disse Thaci aos jornalistas.",
-            "id": "S6",
+            "id": "S4",
             "events": [
                 {
                     "text": "renuncio",

@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Aveiro, 11 dez 2020",
+            "text": "Aveiro, 11 dez 2020   JDN // ACG",
             "id": "S0",
             "events": [],
             "times": [
@@ -22,7 +22,7 @@
                     "id": "T12",
                     "rel_type": "TLINK_before",
                     "arg2": "T9",
-                    "sent_id": "S4"
+                    "sent_id": "S2"
                 },
                 {
                     "text": "hoje",
@@ -30,13 +30,13 @@
                     "id": "T13",
                     "rel_type": "TLINK_identity",
                     "arg2": "T9",
-                    "sent_id": "S4"
+                    "sent_id": "S2"
                 }
             ]
         },
         {
             "text": "O homem de 51 anos detido na quarta-feira pela PSP de Aveiro por suspeita de tr\u00e1fico de droga vai aguardar o desenrolar do processo em pris\u00e3o preventiva, informou hoje fonte policial.",
-            "id": "S4",
+            "id": "S2",
             "events": [
                 {
                     "text": "detido",
@@ -87,7 +87,7 @@
                     "id": "T13",
                     "rel_type": "TLINK_after",
                     "arg2": "T12",
-                    "sent_id": "S4"
+                    "sent_id": "S2"
                 },
                 {
                     "text": "na quinta-feira",
@@ -98,7 +98,7 @@
                     "id": "T14",
                     "rel_type": "TLINK_after",
                     "arg2": "T12",
-                    "sent_id": "S6"
+                    "sent_id": "S3"
                 },
                 {
                     "text": "este ano",
@@ -109,7 +109,7 @@
                     "id": "T15",
                     "rel_type": "TLINK_includes",
                     "arg2": "T12",
-                    "sent_id": "S12"
+                    "sent_id": "S6"
                 },
                 {
                     "text": "este ano",
@@ -120,7 +120,7 @@
                     "id": "T15",
                     "rel_type": "TLINK_includes",
                     "arg2": "T13",
-                    "sent_id": "S12"
+                    "sent_id": "S6"
                 },
                 {
                     "text": "na quinta-feira",
@@ -131,13 +131,13 @@
                     "id": "T14",
                     "rel_type": "TLINK_before",
                     "arg2": "T13",
-                    "sent_id": "S6"
+                    "sent_id": "S3"
                 }
             ]
         },
         {
             "text": "Segundo uma nota da PSP, o suspeito foi presente na quinta-feira a um primeiro interrogat\u00f3rio judicial, tendo-lhe sido aplicada a medida de coa\u00e7\u00e3o mais gravosa.",
-            "id": "S6",
+            "id": "S3",
             "events": [
                 {
                     "text": "foi presente a um primeiro interrogat\u00f3rio judicial",
@@ -173,13 +173,13 @@
                     "id": "T15",
                     "rel_type": "TLINK_includes",
                     "arg2": "T14",
-                    "sent_id": "S12"
+                    "sent_id": "S6"
                 }
             ]
         },
         {
             "text": "O homem, pescador, que foi detido tr\u00eas vezes este ano pelo mesmo tipo de crime, estava sob a medida de coa\u00e7\u00e3o de apresenta\u00e7\u00f5es bissemanais, na Esquadra Policial da \u00e1rea da sua resid\u00eancia.",
-            "id": "S12",
+            "id": "S6",
             "events": [
                 {
                     "text": "detido",

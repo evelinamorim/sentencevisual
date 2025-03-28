@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Mogadouro, Bragan\u00e7a, 08 dez 2020",
+            "text": "Mogadouro, Bragan\u00e7a, 08 dez 2020   FYP // VC",
             "id": "S0",
             "events": [],
             "times": [
@@ -56,13 +56,13 @@
                     "id": "T3",
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T2",
-                    "sent_id": "S10"
+                    "sent_id": "S8"
                 }
             ]
         },
         {
             "text": "O alerta foi dado por populares cerca do meio - dia.",
-            "id": "S10",
+            "id": "S8",
             "events": [
                 {
                     "text": "dado",

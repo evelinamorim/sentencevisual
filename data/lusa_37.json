@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Almada, Set\u00fabal, 15 nov 2020",
+            "text": "Almada, Set\u00fabal, 15 nov 2020   HYT //",
             "id": "S0",
             "events": [],
             "times": [
@@ -20,13 +20,13 @@
                     "id": "T3",
                     "rel_type": "TLINK_identity",
                     "arg2": "T1",
-                    "sent_id": "S4"
+                    "sent_id": "S3"
                 }
             ]
         },
         {
             "text": "A GNR anunciou hoje que terminou uma festa que reunia cerca de 30 pessoas em desrespeito das normas referentes ao combate \u00e0 covid-19, tendo ainda identificado uma mulher de 40 anos, no concelho de Almada (Set\u00fabal).",
-            "id": "S4",
+            "id": "S3",
             "events": [
                 {
                     "text": "anunciou",
@@ -56,13 +56,13 @@
                     "id": "T52",
                     "rel_type": "TLINK_before",
                     "arg2": "T3",
-                    "sent_id": "S6"
+                    "sent_id": "S4"
                 }
             ]
         },
         {
             "text": "O Comando Territorial de Set\u00fabal da GNR explica, em comunicado, que cessou no s\u00e1bado uma festa no Monte da Caparica, concelho de Almada, na sequ\u00eancia de uma den\u00fancia que dava conta de um evento no interior de uma habita\u00e7\u00e3o.",
-            "id": "S6",
+            "id": "S4",
             "events": [
                 {
                     "text": "cessou",

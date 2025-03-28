@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Moura, Beja, 03 dez 2020",
+            "text": "Moura, Beja, 03 dez 2020   TCA //",
             "id": "S0",
             "events": [],
             "times": [
@@ -25,7 +25,7 @@
             ]
         },
         {
-            "text": "A rixa, de acordo com o CDOS, ocorreu no Monte das Sesmarias, tendo o alerta sido dado \u00e0s 11:59.",
+            "text": "A rixa, de acordo com o CDOS, ocorreu no Monte das Sesmarias, tendo o alerta sido dado \u00e0s 11:59.   Foram mobilizados, segundo o CDOS, bombeiros e ve\u00edculos das corpora\u00e7\u00f5es de Moura e Serpa, al\u00e9m da GNR, num total de 18 elementos, apoiados por nove ve\u00edculos.",
             "id": "S5",
             "events": [
                 {

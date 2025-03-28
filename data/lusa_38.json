@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Porto, 16 nov 2020",
+            "text": "Porto, 16 nov 2020   JRS // JH   Homem com cerca de 30 anos assassinado em Paredes",
             "id": "S0",
             "events": [],
             "times": [
@@ -20,7 +20,7 @@
                     "id": "T4",
                     "rel_type": "TLINK_before",
                     "arg2": "T1",
-                    "sent_id": "S4"
+                    "sent_id": "S1"
                 },
                 {
                     "text": "hoje",
@@ -28,13 +28,13 @@
                     "id": "T25",
                     "rel_type": "TLINK_identity",
                     "arg2": "T1",
-                    "sent_id": "S6"
+                    "sent_id": "S2"
                 }
             ]
         },
         {
             "text": "Um homem, com cerca de 30 anos, morreu no domingo \u00e0 noite, em Cete, no concelho de Paredes, ap\u00f3s ter sido atacado com uma arma branca, disse \u00e0 Lusa fonte da GNR.",
-            "id": "S4",
+            "id": "S1",
             "events": [
                 {
                     "text": "morreu",
@@ -70,7 +70,7 @@
                     "id": "T21",
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T4",
-                    "sent_id": "S4"
+                    "sent_id": "S1"
                 },
                 {
                     "text": "domingo",
@@ -78,7 +78,7 @@
                     "id": "T23",
                     "rel_type": "TLINK_identity",
                     "arg2": "T4",
-                    "sent_id": "S6"
+                    "sent_id": "S2"
                 },
                 {
                     "text": "pelas 22:00",
@@ -86,13 +86,13 @@
                     "id": "T6",
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T21",
-                    "sent_id": "S6"
+                    "sent_id": "S2"
                 }
             ]
         },
         {
             "text": "Segundo a mesma fonte, o suspeito do \" hom\u00edcidio \", que aconteceu pelas 22:00 de domingo, estava pelas 00:30 de hoje \" em fuga \", estando a GNR \" a desenvolver dilig\u00eancias para encontrar o suspeito \", que \u00e9 tamb\u00e9m um homem com cerca de 30 anos.",
-            "id": "S6",
+            "id": "S2",
             "events": [
                 {
                     "text": "aconteceu",
@@ -151,7 +151,7 @@
                     "id": "T23",
                     "rel_type": "TLINK_includes",
                     "arg2": "T6",
-                    "sent_id": "S6"
+                    "sent_id": "S2"
                 },
                 {
                     "text": "hoje",
@@ -159,7 +159,7 @@
                     "id": "T25",
                     "rel_type": "TLINK_after",
                     "arg2": "T23",
-                    "sent_id": "S6"
+                    "sent_id": "S2"
                 },
                 {
                     "text": "hoje",
@@ -167,7 +167,7 @@
                     "id": "T25",
                     "rel_type": "TLINK_includes",
                     "arg2": "T8",
-                    "sent_id": "S6"
+                    "sent_id": "S2"
                 }
             ]
         }

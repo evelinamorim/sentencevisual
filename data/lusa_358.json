@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Atenas, 12 out 2020",
+            "text": "Atenas, 12 out 2020   PSP // FPA",
             "id": "S0",
             "events": [],
             "times": [
@@ -56,7 +56,7 @@
                     "id": "T20",
                     "rel_type": "TLINK_before",
                     "arg2": "T19",
-                    "sent_id": "S4"
+                    "sent_id": "S3"
                 },
                 {
                     "text": "hoje",
@@ -64,13 +64,13 @@
                     "id": "T22",
                     "rel_type": "TLINK_identity",
                     "arg2": "T19",
-                    "sent_id": "S7"
+                    "sent_id": "S5"
                 }
             ]
         },
         {
             "text": "Os membros da dire\u00e7\u00e3o do partido neonazi grego foram considerados culpados na semana passada de participa\u00e7\u00e3o em organiza\u00e7\u00e3o criminosa.",
-            "id": "S4",
+            "id": "S3",
             "events": [
                 {
                     "text": "considerados",
@@ -95,26 +95,18 @@
             ],
             "linked_times": [
                 {
-                    "text": "aos 15 anos",
-                    "Time_Type": "Duration",
-                    "id": "T21",
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T22",
                     "rel_type": "TLINK_after",
                     "arg2": "T20",
-                    "sent_id": "S6"
-                },
-                {
-                    "text": "aos 15 anos",
-                    "Time_Type": "Duration",
-                    "id": "T21",
-                    "rel_type": "TLINK_includes",
-                    "arg2": "T20",
-                    "sent_id": "S6"
+                    "sent_id": "S5"
                 }
             ]
         },
         {
             "text": "O l\u00edder do Aurora Dourada, Nikos \u00a0 Michaloliakos, e seis altos quadros do partido est\u00e3o sujeitos a penas que podem ir at\u00e9 aos 15 anos de pris\u00e3o.",
-            "id": "S6",
+            "id": "S4",
             "events": [
                 {
                     "text": "pris\u00e3o",
@@ -138,18 +130,18 @@
             "linked_times": []
         },
         {
-            "text": "Centenas de manifestantes antifascistas aguardam \u00a0 hoje frente ao Pal\u00e1cio da Justi\u00e7a de Atenas",
-            "id": "S7",
+            "text": "Centenas de manifestantes antifascistas aguardam \u00a0 hoje frente ao Pal\u00e1cio da Justi\u00e7a de Atenas a proclama\u00e7\u00e3o das \u00a0 senten\u00e7as.   \" N\u00e3o h\u00e1 circunst\u00e2ncias atenuantes para os crimes nazis \", \u00e9 uma das palavras de ordem das pessoas que se concentram frente ao edif\u00edcio do Pal\u00e1cio da Justi\u00e7a na capital grega.",
+            "id": "S5",
             "events": [
                 {
                     "text": "aguardam",
-                    "Class": "State",
-                    "Event_Type": "State",
+                    "Class": "Occurrence",
+                    "Event_Type": "Process",
                     "Pos": "Verb",
                     "Tense": "Present",
                     "Polarity": "Pos",
                     "id": "T13",
-                    "rel_type": "TLINK_during",
+                    "rel_type": "TLINK_isIncluded",
                     "arg2": "T22"
                 }
             ],

@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Amadora, Lisboa, 11 nov 2020",
+            "text": "Amadora, Lisboa, 11 nov 2020   JML // MCL",
             "id": "S0",
             "events": [],
             "times": [
@@ -20,13 +20,13 @@
                     "id": "T30",
                     "rel_type": "TLINK_identity",
                     "arg2": "T29",
-                    "sent_id": "S4"
+                    "sent_id": "S2"
                 }
             ]
         },
         {
             "text": "Um grupo de cerca de 30 pessoas apedrejou hoje a PSP no bairro Casal de Mira, na Amadora, no distrito de Lisboa, depois de um motociclista ter sido intercetado por estar a conduzir sem capacete, revelou a pol\u00edcia.",
-            "id": "S4",
+            "id": "S2",
             "events": [
                 {
                     "text": "apedrejou",
@@ -56,13 +56,13 @@
                     "id": "T31",
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T30",
-                    "sent_id": "S6"
+                    "sent_id": "S3"
                 }
             ]
         },
         {
             "text": "Em resposta \u00e0 ag\u00eancia Lusa, o Comando Metropolitano de Lisboa (Cometlis) adiantou que, pelas 14:49, os elementos policiais \u201c visualizaram um motociclista sem capacete \u201d e que, ap\u00f3s ter sido abordado, a situa\u00e7\u00e3o descambou.",
-            "id": "S6",
+            "id": "S3",
             "events": [
                 {
                     "text": "visualizaram",

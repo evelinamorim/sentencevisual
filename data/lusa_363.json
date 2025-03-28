@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Lausana, Su\u00ed\u00e7a, 24 dez 2020",
+            "text": "Lausana, Su\u00ed\u00e7a, 24 dez 2020   MIM // VM",
             "id": "S0",
             "events": [],
             "times": [
@@ -18,7 +18,7 @@
                     "text": "fevereiro",
                     "Time_Type": "Date",
                     "id": "T27",
-                    "rel_type": "TLINK_includes",
+                    "rel_type": "TLINK_before",
                     "arg2": "T25",
                     "sent_id": "S2"
                 }
@@ -69,32 +69,16 @@
                 {
                     "text": "fevereiro",
                     "Time_Type": "Date",
-                    "id": "T27",
-                    "rel_type": "TLINK_includes",
-                    "arg2": "T26",
-                    "sent_id": "S2"
-                },
-                {
-                    "text": "oito anos",
-                    "Time_Type": "Duration",
-                    "id": "T19",
-                    "rel_type": "TLINK_identity",
-                    "arg2": "T26",
-                    "sent_id": "S8"
-                },
-                {
-                    "text": "fevereiro",
-                    "Time_Type": "Date",
                     "id": "T28",
                     "rel_type": "TLINK_identity",
                     "arg2": "T27",
-                    "sent_id": "S8"
+                    "sent_id": "S6"
                 }
             ]
         },
         {
             "text": "Em fevereiro, Sun Yang, tricampe\u00e3o ol\u00edmpico de nata\u00e7\u00e3o, foi suspenso por oito anos pelo TAS, por ter destru\u00eddo amostras durante um controlo antidoping surpresa.",
-            "id": "S8",
+            "id": "S6",
             "events": [
                 {
                     "text": "suspenso",
@@ -142,13 +126,13 @@
                     "id": "T30",
                     "rel_type": "TLINK_before",
                     "arg2": "T28",
-                    "sent_id": "S10"
+                    "sent_id": "S7"
                 }
             ]
         },
         {
             "text": "De acordo com o TAS, ficou provado que Sun Yang, de 28 anos, destruiu com um martelo amostras de sangue e urina e n\u00e3o respeitou as credenciais de um agente de controlo antidoping, num incidente ocorrido em setembro de 2018.",
-            "id": "S10",
+            "id": "S7",
             "events": [
                 {
                     "text": "ocorrido",

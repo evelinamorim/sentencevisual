@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Maputo, 26 out 2020",
+            "text": "Maputo, 26 out 2020   PMA // VM   Juiz e escriv\u00e3 condenados por tribunal do sul de Mo\u00e7ambique",
             "id": "S0",
             "events": [],
             "times": [
@@ -15,27 +15,27 @@
             ],
             "linked_times": [
                 {
-                    "text": "tr\u00eas anos",
-                    "Time_Type": "Duration",
-                    "id": "T26",
-                    "rel_type": "TLINK_after",
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T22",
+                    "rel_type": "TLINK_identity",
                     "arg2": "T21",
-                    "sent_id": "S2"
+                    "sent_id": "S1"
                 }
             ]
         },
         {
             "text": "Um juiz e uma escriv\u00e3 foram condenados a tr\u00eas anos de pris\u00e3o convertidos em trabalho social pelo desvio de 400 mil meticais (4.632 euros) na prov\u00edncia de Inhambane, sul de Mo\u00e7ambique, noticia hoje a emissora p\u00fablica R\u00e1dio Mo\u00e7ambique (RM).",
-            "id": "S2",
+            "id": "S1",
             "events": [
                 {
                     "text": "pris\u00e3o convertidos",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
+                    "Class": "I_State",
+                    "Event_Type": "State",
                     "Pos": "Noun",
                     "Polarity": "Pos",
                     "id": "T7",
-                    "rel_type": "TLINK_simultaneous",
+                    "rel_type": "TLINK_during",
                     "arg2": "T26"
                 },
                 {
@@ -71,13 +71,21 @@
                     "id": "T23",
                     "rel_type": "TLINK_before",
                     "arg2": "T22",
-                    "sent_id": "S6"
+                    "sent_id": "S3"
+                },
+                {
+                    "text": "hoje",
+                    "Time_Type": "Date",
+                    "id": "T24",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T22",
+                    "sent_id": "S3"
                 }
             ]
         },
         {
             "text": "Os arguidos devem devolver o dinheiro que retiraram do Dep\u00f3sito Obrigat\u00f3rio do tribunal, refere a senten\u00e7a, datada de quarta-feira e \u00a0 citada hoje pela RM.",
-            "id": "S6",
+            "id": "S3",
             "events": [
                 {
                     "text": "datada",
@@ -93,7 +101,7 @@
                 },
                 {
                     "text": "citada",
-                    "Class": "Reporting",
+                    "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "VForm": "Participle",
@@ -120,12 +128,20 @@
             ],
             "linked_times": [
                 {
+                    "text": "2019",
+                    "Time_Type": "Date",
+                    "id": "T25",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T23",
+                    "sent_id": "S4"
+                },
+                {
                     "text": "hoje",
                     "Time_Type": "Date",
                     "id": "T24",
                     "rel_type": "TLINK_after",
                     "arg2": "T23",
-                    "sent_id": "S6"
+                    "sent_id": "S3"
                 },
                 {
                     "text": "2019",
@@ -133,13 +149,13 @@
                     "id": "T25",
                     "rel_type": "TLINK_before",
                     "arg2": "T24",
-                    "sent_id": "S8"
+                    "sent_id": "S4"
                 }
             ]
         },
         {
             "text": "O juiz j\u00e1 tinha sido expulso da atividade em 2019 pelo Conselho Superior de \u00a0 Magistratura Judicial (CSMJ) na sequ\u00eancia de um processo disciplinar que lhe foi aberto por causa deste caso.",
-            "id": "S8",
+            "id": "S4",
             "events": [
                 {
                     "text": "expulso",

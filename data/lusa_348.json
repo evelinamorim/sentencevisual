@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Pa\u00e7os de Ferreira, Porto, 09 out 2020",
+            "text": "Pa\u00e7os de Ferreira, Porto, 09 out 2020   JFO // ACG",
             "id": "S0",
             "events": [],
             "times": [
@@ -20,13 +20,13 @@
                     "id": "T31",
                     "rel_type": "TLINK_identity",
                     "arg2": "T30",
-                    "sent_id": "S3"
+                    "sent_id": "S2"
                 }
             ]
         },
         {
             "text": "Um homem de 24 anos com antecedentes criminais foi constitu\u00eddo arguido por suspeita de ser o autor de um atropelamento com fuga em Meixomil, no concelho de Pa\u00e7os de Ferreira, revelou hoje a Guarda.",
-            "id": "S3",
+            "id": "S2",
             "events": [
                 {
                     "text": "revelou",
@@ -56,13 +56,13 @@
                     "id": "T32",
                     "rel_type": "TLINK_before",
                     "arg2": "T31",
-                    "sent_id": "S5"
+                    "sent_id": "S3"
                 }
             ]
         },
         {
-            "text": "Numa a\u00e7\u00e3o levada a cabo na quinta-feira pelo Posto Territorial de Pa\u00e7os de Ferreira, a GNR identificou um homem de 24 anos pelo crime de omiss\u00e3o de aux\u00edlio naquele concelho do distrito do Porto, indica aquela for\u00e7a policial em comunicado.",
-            "id": "S5",
+            "text": "Numa a\u00e7\u00e3o levada a cabo na quinta-feira pelo Posto Territorial de Pa\u00e7os de Ferreira, a GNR identificou um homem de 24 anos pelo crime de omiss\u00e3o de aux\u00edlio naquele concelho do distrito do Porto, indica aquela for\u00e7a policial em comunicado.   \" Ap\u00f3s v\u00e1rias dilig\u00eancias policiais, [ os militares ] procederam \u00e0 identifica\u00e7\u00e3o do alegado autor do atropelamento com fuga em que a v\u00edtima, um homem de 69 anos, teve de receber tratamento m\u00e9dico numa unidade hospitalar \", descreve.",
+            "id": "S3",
             "events": [
                 {
                     "text": "levada a cabo",

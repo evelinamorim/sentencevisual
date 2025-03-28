@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Santa Cruz, Madeira, 26 nov 2020",
+            "text": "Santa Cruz, Madeira, 26 nov 2020   AMB // MLS",
             "id": "S0",
             "events": [],
             "times": [
@@ -20,13 +20,13 @@
                     "id": "T22",
                     "rel_type": "TLINK_identity",
                     "arg2": "T21",
-                    "sent_id": "S5"
+                    "sent_id": "S2"
                 }
             ]
         },
         {
             "text": "Um homem de 29 anos foi detido na Madeira, suspeito da pr\u00e1tica do crime de tr\u00e1fico de estupefacientes, tendo-lhe sido apreendidas 800 doses individuais de hero\u00edna, informou hoje a Pol\u00edcia Judici\u00e1ria.",
-            "id": "S5",
+            "id": "S2",
             "events": [
                 {
                     "text": "informou",

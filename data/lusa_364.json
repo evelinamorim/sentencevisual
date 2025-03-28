@@ -9,8 +9,7 @@
                     "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
-                    "Tense": "Past",
-                    "Aspect": "Perfective",
+                    "Tense": "Present",
                     "Polarity": "Pos",
                     "id": "T1",
                     "rel_type": "TLINK_isIncluded",
@@ -32,13 +31,13 @@
                     "id": "T25",
                     "rel_type": "TLINK_identity",
                     "arg2": "T28",
-                    "sent_id": "S4"
+                    "sent_id": "S3"
                 }
             ]
         },
         {
             "text": "De acordo com o boletim hoje divulgado, Portugal j\u00e1 contabilizou 144.341 casos confirmados de infe\u00e7\u00e3o pelo novo coronav\u00edrus e 2.544 \u00f3bitos.",
-            "id": "S4",
+            "id": "S3",
             "events": [
                 {
                     "text": "divulgado",
@@ -66,15 +65,31 @@
                     "text": "h\u00e1 cerca de duas semanas",
                     "Time_Type": "Date",
                     "id": "T20",
+                    "rel_type": "TLINK_includes",
+                    "arg2": "T25",
+                    "sent_id": "S5"
+                },
+                {
+                    "text": "no s\u00e1bado",
+                    "Time_Type": "Date",
+                    "id": "T26",
                     "rel_type": "TLINK_before",
                     "arg2": "T25",
-                    "sent_id": "S8"
+                    "sent_id": "S5"
+                },
+                {
+                    "text": "agora",
+                    "Time_Type": "Date",
+                    "id": "T22",
+                    "rel_type": "TLINK_includes",
+                    "arg2": "T25",
+                    "sent_id": "S5"
                 }
             ]
         },
         {
             "text": "Em rela\u00e7\u00e3o aos internamentos, o n\u00famero de pessoas hospitalizadas continua a subir h\u00e1 cerca de duas semanas, sendo agora 2.122 pessoas, mais 150 do que no s\u00e1bado.",
-            "id": "S8",
+            "id": "S5",
             "events": [
                 {
                     "text": "subir",
@@ -85,19 +100,30 @@
                     "Polarity": "Pos",
                     "Movement": "Motion_Fictive",
                     "id": "T19",
-                    "rel_type": "TLINK_begunBy",
+                    "rel_type": "TLINK_during",
                     "arg2": "T20"
                 },
                 {
-                    "text": "sendo",
+                    "text": "2.122 pessoas",
                     "Class": "State",
                     "Event_Type": "State",
-                    "Pos": "Verb",
+                    "Pos": "Noun",
                     "VForm": "Gerundive",
                     "Polarity": "Pos",
                     "id": "T21",
                     "rel_type": "TLINK_simultaneous",
                     "arg2": "T22"
+                },
+                {
+                    "text": "mais 150",
+                    "Class": "State",
+                    "Event_Type": "State",
+                    "Pos": "Noun",
+                    "Polarity": "Pos",
+                    "VForm": "Gerundive",
+                    "id": "T31",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T26"
                 }
             ],
             "times": [
@@ -125,39 +151,31 @@
                     "text": "agora",
                     "Time_Type": "Date",
                     "id": "T22",
-                    "rel_type": "TLINK_after",
+                    "rel_type": "TLINK_isIncluded",
                     "arg2": "T20",
-                    "sent_id": "S8"
+                    "sent_id": "S5"
                 },
                 {
                     "text": "no s\u00e1bado",
                     "Time_Type": "Date",
                     "id": "T26",
-                    "rel_type": "TLINK_before",
-                    "arg2": "T22",
-                    "sent_id": "S8"
-                },
-                {
-                    "text": "Nas \u00faltimas 24 horas",
-                    "Time_Type": "Date",
-                    "id": "T27",
-                    "rel_type": "TLINK_after",
-                    "arg2": "T26",
-                    "sent_id": "S9"
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T20",
+                    "sent_id": "S5"
                 }
             ]
         },
         {
             "text": "Nas \u00faltimas 24 horas s\u00e3o menos dois os doentes internados nas Unidades de Cuidados Intensivos, totalizando 284.",
-            "id": "S9",
+            "id": "S6",
             "events": [
                 {
-                    "text": "internados",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
+                    "text": "menos dois os doentes",
+                    "Class": "State",
+                    "Event_Type": "State",
+                    "Pos": "Noun",
                     "Polarity": "Pos",
-                    "VForm": "Participle",
+                    "Tense": "Present",
                     "id": "T23",
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T27"

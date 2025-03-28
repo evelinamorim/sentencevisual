@@ -1,8 +1,8 @@
 {
     "sentences": [
         {
-            "text": "Luanda, 02 dez 2020",
-            "id": "S0",
+            "text": ", 02 dez 2020   NME // PJA",
+            "id": "S1",
             "events": [],
             "times": [
                 {
@@ -20,13 +20,13 @@
                     "id": "T36",
                     "rel_type": "TLINK_identity",
                     "arg2": "T39",
-                    "sent_id": "S2"
+                    "sent_id": "S3"
                 }
             ]
         },
         {
             "text": "Um homem de 18 anos foi detido pelas autoridades angolanas por violar uma sobrinha, de quatro anos, no Lubango, capital da prov\u00edncia angolana da Hu\u00edla, anunciou hoje o Servi\u00e7o de Investiga\u00e7\u00e3o Criminal (SIC).",
-            "id": "S2",
+            "id": "S3",
             "events": [
                 {
                     "text": "anunciou",
@@ -57,6 +57,22 @@
                     "rel_type": "TLINK_before",
                     "arg2": "T36",
                     "sent_id": "S4"
+                },
+                {
+                    "text": "nos \u00faltimos anos",
+                    "Time_Type": "Date",
+                    "id": "T41",
+                    "rel_type": "TLINK_includes",
+                    "arg2": "T36",
+                    "sent_id": "S8"
+                },
+                {
+                    "text": "No m\u00eas passado",
+                    "Time_Type": "Date",
+                    "id": "T43",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T36",
+                    "sent_id": "S7"
                 }
             ]
         },
@@ -90,7 +106,15 @@
                     "text": "No m\u00eas passado",
                     "Time_Type": "Date",
                     "id": "T43",
-                    "rel_type": "TLINK_before",
+                    "rel_type": "TLINK_includes",
+                    "arg2": "T37",
+                    "sent_id": "S7"
+                },
+                {
+                    "text": "nos \u00faltimos anos",
+                    "Time_Type": "Date",
+                    "id": "T41",
+                    "rel_type": "TLINK_includes",
                     "arg2": "T37",
                     "sent_id": "S8"
                 }
@@ -98,7 +122,7 @@
         },
         {
             "text": "No m\u00eas passado, a pol\u00edcia registou 16 casos de viola\u00e7\u00e3o sexual de crian\u00e7as, sem mortes e com igual n\u00famero de detidos.",
-            "id": "S8",
+            "id": "S7",
             "events": [
                 {
                     "text": "registou",
@@ -128,7 +152,7 @@
                     "id": "T41",
                     "rel_type": "TLINK_includes",
                     "arg2": "T43",
-                    "sent_id": "S10"
+                    "sent_id": "S8"
                 },
                 {
                     "text": "agosto",
@@ -136,21 +160,21 @@
                     "id": "T38",
                     "rel_type": "TLINK_before",
                     "arg2": "T43",
-                    "sent_id": "S10"
+                    "sent_id": "S8"
                 }
             ]
         },
         {
             "text": "O abuso sexual de menores em Angola tem crescido significativamente nos \u00faltimos anos, de acordo com um estudo lan\u00e7ado em agosto em Luanda, por uma psic\u00f3loga angolana, concluindo que a maioria das agress\u00f5es acontecem em ambiente familiar.",
-            "id": "S10",
+            "id": "S8",
             "events": [
                 {
                     "text": "crescido",
                     "Class": "Occurrence",
-                    "Event_Type": "Process",
                     "Pos": "Verb",
                     "Tense": "Present",
                     "Polarity": "Pos",
+                    "Event_Type": "Process",
                     "id": "T10",
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T41"
@@ -189,7 +213,7 @@
                     "id": "T38",
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T41",
-                    "sent_id": "S10"
+                    "sent_id": "S8"
                 }
             ]
         }

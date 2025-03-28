@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Braga, 13 nov 2020",
+            "text": "Braga, 13 nov 2020   VCP // JAP",
             "id": "S0",
             "events": [],
             "times": [
@@ -20,13 +20,13 @@
                     "id": "T36",
                     "rel_type": "TLINK_identity",
                     "arg2": "T35",
-                    "sent_id": "S7"
+                    "sent_id": "S2"
                 }
             ]
         },
         {
             "text": "O Tribunal de Braga aplicou hoje pris\u00e3o preventiva aos dois homens detidos pela GNR pela alegada autoria de 16 furtos, 11 dos quais de m\u00e1quinas de venda de tabaco em estabelecimentos comerciais, anunciou hoje aquela for\u00e7a.",
-            "id": "S7",
+            "id": "S2",
             "events": [
                 {
                     "text": "aplicou",
@@ -74,7 +74,7 @@
                     "id": "T37",
                     "rel_type": "TLINK_identity",
                     "arg2": "T36",
-                    "sent_id": "S7"
+                    "sent_id": "S2"
                 },
                 {
                     "text": "na quinta-feira",
@@ -82,13 +82,21 @@
                     "id": "T38",
                     "rel_type": "TLINK_before",
                     "arg2": "T37",
-                    "sent_id": "S11"
+                    "sent_id": "S4"
+                },
+                {
+                    "text": "h\u00e1 dois meses",
+                    "Time_Type": "Duration",
+                    "id": "T39",
+                    "rel_type": "TLINK_includes",
+                    "arg2": "T37",
+                    "sent_id": "S4"
                 }
             ]
         },
         {
             "text": "Os dois homens foram detidos na quinta-feira, em Braga, no \u00e2mbito de uma investiga\u00e7\u00e3o que decorria h\u00e1 dois meses.",
-            "id": "S11",
+            "id": "S4",
             "events": [
                 {
                     "text": "detidos",
@@ -136,7 +144,7 @@
                     "id": "T39",
                     "rel_type": "TLINK_includes",
                     "arg2": "T38",
-                    "sent_id": "S11"
+                    "sent_id": "S4"
                 }
             ]
         }

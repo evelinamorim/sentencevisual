@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Espinho, Aveiro, 23 dez 2020",
+            "text": "Espinho, Aveiro, 23 dez 2020   JDN // ACG",
             "id": "S0",
             "events": [],
             "times": [
@@ -19,13 +19,13 @@
                     "id": "T29",
                     "rel_type": "TLINK_identity",
                     "arg2": "T10",
-                    "sent_id": "S4"
+                    "sent_id": "S2"
                 }
             ]
         },
         {
             "text": "A PSP deteve em flagrante delito um homem de 42 anos que estava a tentar roubar uma viatura pelo m\u00e9todo de \" carjacking \" \u00a0 em Espinho, no distrito de Aveiro, informou hoje aquela for\u00e7a policial.",
-            "id": "S4",
+            "id": "S2",
             "events": [
                 {
                     "text": "informou",
@@ -55,13 +55,13 @@
                     "id": "T30",
                     "rel_type": "TLINK_before",
                     "arg2": "T29",
-                    "sent_id": "S6"
+                    "sent_id": "S3"
                 }
             ]
         },
         {
             "text": "Em comunicado, a PSP esclarece que o crime ocorreu na ter\u00e7a-feira, pelas 10:45.",
-            "id": "S6",
+            "id": "S3",
             "events": [
                 {
                     "text": "ocorreu",
@@ -97,7 +97,7 @@
                     "id": "T31",
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T30",
-                    "sent_id": "S6"
+                    "sent_id": "S3"
                 },
                 {
                     "text": "No mesmo dia",
@@ -105,13 +105,21 @@
                     "id": "T32",
                     "rel_type": "TLINK_identity",
                     "arg2": "T30",
-                    "sent_id": "S11"
+                    "sent_id": "S7"
+                },
+                {
+                    "text": "No mesmo dia",
+                    "Time_Type": "Date",
+                    "id": "T32",
+                    "rel_type": "TLINK_includes",
+                    "arg2": "T31",
+                    "sent_id": "S7"
                 }
             ]
         },
         {
             "text": "No mesmo dia, o detido foi presente a primeiro interrogat\u00f3rio judicial, \u00a0 no Departamento de Investiga\u00e7\u00e3o e A\u00e7\u00e3o Penal de Espinho, tendo-lhe sido aplicada \u00a0 a medida de coa\u00e7\u00e3o de Termo de Identidade e Resid\u00eancia.",
-            "id": "S11",
+            "id": "S7",
             "events": [
                 {
                     "text": "foi presente a primeiro interrogat\u00f3rio judicial",

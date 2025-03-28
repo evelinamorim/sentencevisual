@@ -1,8 +1,8 @@
 {
     "sentences": [
         {
-            "text": "14 nov 2020   FCC // JPS",
-            "id": "S1",
+            "text": "Torres Vedras, Lisboa, 14 nov 2020   FCC // JPS",
+            "id": "S0",
             "events": [],
             "times": [
                 {
@@ -23,13 +23,13 @@
                     "id": "T3",
                     "rel_type": "TLINK_identity",
                     "arg2": "T1",
-                    "sent_id": "S4"
+                    "sent_id": "S2"
                 }
             ]
         },
         {
             "text": "Um pai e uma filha foram encontrados hoje mortos por arma branca numa habita\u00e7\u00e3o em Santa Cruz, no concelho de Torres Vedras, disse \u00e0 ag\u00eancia Lusa fonte policial, acrescentando que n\u00e3o houve suspeitos detidos.",
-            "id": "S4",
+            "id": "S2",
             "events": [
                 {
                     "text": "encontrados",
@@ -62,13 +62,21 @@
                     "id": "T5",
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T3",
-                    "sent_id": "S6"
+                    "sent_id": "S3"
+                },
+                {
+                    "text": "a noite",
+                    "Time_Type": "Time",
+                    "id": "T6",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T3",
+                    "sent_id": "S4"
                 }
             ]
         },
         {
             "text": "A mesma fonte disse \u00e0 Lusa que as autoridades foram alertadas para o eventual crime pelas 11:30, depois de o homem, entre os 50 e os 60, e filha, de 37 anos, terem sido encontrados mortos em casa, no distrito de Lisboa, devido a ferimentos provocados por arma branca.",
-            "id": "S6",
+            "id": "S3",
             "events": [
                 {
                     "text": "alertadas",
@@ -96,15 +104,15 @@
                     "text": "a noite",
                     "Time_Type": "Time",
                     "id": "T6",
-                    "rel_type": "TLINK_after",
+                    "rel_type": "TLINK_before",
                     "arg2": "T5",
-                    "sent_id": "S8"
+                    "sent_id": "S4"
                 }
             ]
         },
         {
             "text": "O suposto duplo homic\u00eddio ter\u00e1 sido praticado durante a noite.",
-            "id": "S8",
+            "id": "S4",
             "events": [
                 {
                     "text": "praticado",

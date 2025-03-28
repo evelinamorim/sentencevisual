@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Lisboa, 21 dez 2020",
+            "text": "Lisboa, 21 dez 2020   GR // MLS",
             "id": "S0",
             "events": [],
             "times": [
@@ -20,7 +20,7 @@
                     "id": "T30",
                     "rel_type": "TLINK_before",
                     "arg2": "T31",
-                    "sent_id": "S3"
+                    "sent_id": "S2"
                 },
                 {
                     "text": "hoje",
@@ -28,13 +28,13 @@
                     "id": "T29",
                     "rel_type": "TLINK_identity",
                     "arg2": "T31",
-                    "sent_id": "S3"
+                    "sent_id": "S2"
                 }
             ]
         },
         {
             "text": "A Pol\u00edcia Judici\u00e1ria (PJ) de Lisboa deteve um homem de 41 anos suspeito de assassinar uma mulher de 75 anos e de incendiar a casa da v\u00edtima, na sequ\u00eancia de um assalto no dia 5 de novembro, foi hoje anunciado.",
-            "id": "S3",
+            "id": "S2",
             "events": [
                 {
                     "text": "assalto",
@@ -80,21 +80,21 @@
                     "id": "T29",
                     "rel_type": "TLINK_after",
                     "arg2": "T30",
-                    "sent_id": "S3"
+                    "sent_id": "S2"
                 },
                 {
                     "text": "agora",
                     "Time_Type": "Time",
                     "id": "T34",
-                    "rel_type": "TLINK_isIncluded",
+                    "rel_type": "TLINK_includes",
                     "arg2": "T29",
-                    "sent_id": "S9"
+                    "sent_id": "S5"
                 }
             ]
         },
         {
             "text": "O detido, que, segundo a PJ, j\u00e1 cumpriu pena por um outro crime de homic\u00eddio e est\u00e1 agora \u00a0 indiciado pelos crimes de homic\u00eddio qualificado, roubo agravado e inc\u00eandio, vai ser presente a primeiro interrogat\u00f3rio judicial para aplica\u00e7\u00e3o de eventuais medidas de coa\u00e7\u00e3o.",
-            "id": "S9",
+            "id": "S5",
             "events": [
                 {
                     "text": "indiciado",

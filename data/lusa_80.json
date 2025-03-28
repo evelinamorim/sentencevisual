@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Pa\u00e7os de Ferreira, Porto, 21 dez 2020",
+            "text": "Pa\u00e7os de Ferreira, Porto, 21 dez 2020   APM // ACG",
             "id": "S0",
             "events": [],
             "times": [
@@ -23,13 +23,13 @@
                     "id": "T21",
                     "rel_type": "TLINK_identity",
                     "arg2": "T45",
-                    "sent_id": "S4"
+                    "sent_id": "S3"
                 }
             ]
         },
         {
             "text": "Um homem de 44 anos foi detido em Pa\u00e7os de Ferreira por viol\u00eancia f\u00edsica e amea\u00e7as de morte \u00e0 ex - companheira de 40 anos, informou hoje fonte da GNR.",
-            "id": "S4",
+            "id": "S3",
             "events": [
                 {
                     "text": "informou",
@@ -63,15 +63,15 @@
                         "value=2020-12-21"
                     ],
                     "id": "T22",
-                    "rel_type": "TLINK_includes",
+                    "rel_type": "TLINK_identity",
                     "arg2": "T21",
-                    "sent_id": "S8"
+                    "sent_id": "S5"
                 }
             ]
         },
         {
             "text": "O suspeito foi detido e vai ser presente hoje a primeiro interrogat\u00f3rio no Tribunal de Instru\u00e7\u00e3o Criminal de Penafiel, para aplica\u00e7\u00e3o das medidas de coa\u00e7\u00e3o.",
-            "id": "S8",
+            "id": "S5",
             "events": [
                 {
                     "text": "ser presente a primeiro interrogat\u00f3rio",

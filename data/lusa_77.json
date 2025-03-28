@@ -1,8 +1,8 @@
 {
     "sentences": [
         {
-            "text": "Porto, 15 dez 2020",
-            "id": "S0",
+            "text": ", 15 dez 2020   PM // JAP   PJ deteve suspeito de tentativa de homic\u00eddio em Paredes",
+            "id": "S1",
             "events": [],
             "times": [
                 {
@@ -56,13 +56,13 @@
                     "id": "T18",
                     "rel_type": "TLINK_before",
                     "arg2": "T17",
-                    "sent_id": "S6"
+                    "sent_id": "S4"
                 }
             ]
         },
         {
             "text": "O suspeito foi detido \u201c pela pr\u00e1tica de um crime de homic\u00eddio na forma tentada ocorrido no passado dia 14 de novembro de 2020, em Vilela, Paredes \u201d, refere a PJ.",
-            "id": "S6",
+            "id": "S4",
             "events": [
                 {
                     "text": "ocorrido",

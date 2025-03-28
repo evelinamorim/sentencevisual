@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Atenas, 13 dez 2020",
+            "text": "Atenas, 13 dez 2020   APN // JLG",
             "id": "S0",
             "events": [],
             "times": [
@@ -20,13 +20,13 @@
                     "id": "T32",
                     "rel_type": "TLINK_identity",
                     "arg2": "T22",
-                    "sent_id": "S5"
+                    "sent_id": "S1"
                 }
             ]
         },
         {
-            "text": "Quatro elementos das for\u00e7as de seguran\u00e7a gregas foram acusados de ter agredido requerentes de asilo perto do campo de Kara Tepe, na ilha de Lesbos, afirmaram hoje fontes policiais \u00e0 ag\u00eancia France Presse.",
-            "id": "S5",
+            "text": "Quatro agentes das for\u00e7as de seguran\u00e7a gregos acusados de bater em requerentes de asilo   Quatro elementos das for\u00e7as de seguran\u00e7a gregas foram acusados de ter agredido requerentes de asilo perto do campo de Kara Tepe, na ilha de Lesbos, afirmaram hoje fontes policiais \u00e0 ag\u00eancia France Presse.",
+            "id": "S1",
             "events": [
                 {
                     "text": "afirmaram",
@@ -56,13 +56,13 @@
                     "id": "T36",
                     "rel_type": "TLINK_before",
                     "arg2": "T32",
-                    "sent_id": "S7"
+                    "sent_id": "S2"
                 }
             ]
         },
         {
             "text": "Os tr\u00eas guardas de fronteira e um pol\u00edcia foram acusados de agress\u00f5es, tortura e delitos racistas no s\u00e1bado depois de uma investiga\u00e7\u00e3o interna da pol\u00edcia e ficaram em liberdade \u00e0 espera de julgamento.",
-            "id": "S7",
+            "id": "S2",
             "events": [
                 {
                     "text": "acusados",
@@ -92,7 +92,7 @@
                     "id": "T34",
                     "rel_type": "TLINK_identity",
                     "arg2": "T36",
-                    "sent_id": "S16"
+                    "sent_id": "S7"
                 },
                 {
                     "text": "Na sexta-feira",
@@ -100,13 +100,13 @@
                     "id": "T33",
                     "rel_type": "TLINK_before",
                     "arg2": "T36",
-                    "sent_id": "S11"
+                    "sent_id": "S4"
                 }
             ]
         },
         {
             "text": "Na sexta-feira, a pol\u00edcia grega anunciou a abertura de um inqu\u00e9rito ao sucedido.",
-            "id": "S11",
+            "id": "S4",
             "events": [
                 {
                     "text": "anunciou",
@@ -129,11 +129,20 @@
                     "Time_Type": "Date"
                 }
             ],
-            "linked_times": []
+            "linked_times": [
+                {
+                    "text": "No s\u00e1bado",
+                    "Time_Type": "Date",
+                    "id": "T34",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T33",
+                    "sent_id": "S7"
+                }
+            ]
         },
         {
             "text": "No s\u00e1bado, as tendas onde vivem ficaram inundadas por causa de fortes chuvadas.",
-            "id": "S16",
+            "id": "S7",
             "events": [
                 {
                     "text": "inundadas",

@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Washington, 08 dez 2020",
+            "text": "Washington, 08 dez 2020   CFF // JPF",
             "id": "S0",
             "events": [],
             "times": [
@@ -20,13 +20,13 @@
                     "id": "T22",
                     "rel_type": "TLINK_identity",
                     "arg2": "T21",
-                    "sent_id": "S4"
+                    "sent_id": "S3"
                 }
             ]
         },
         {
             "text": "Sem fazer coment\u00e1rios, o tribunal recusou hoje p\u00f4r em causa o processo eleitoral na Pensilv\u00e2nia.",
-            "id": "S4",
+            "id": "S3",
             "events": [
                 {
                     "text": "recusou",
@@ -56,13 +56,13 @@
                     "id": "T23",
                     "rel_type": "TLINK_after",
                     "arg2": "T22",
-                    "sent_id": "S6"
+                    "sent_id": "S4"
                 }
             ]
         },
         {
             "text": "O Governador Tom Wolf j\u00e1 certificou a vit\u00f3ria de Biden e os 20 eleitores do Estado v\u00e3o reunir-se no dia 14 de dezembro para votarem em Biden.",
-            "id": "S6",
+            "id": "S4",
             "events": [
                 {
                     "text": "reunir",
@@ -91,13 +91,13 @@
                     "id": "T24",
                     "rel_type": "TLINK_after",
                     "arg2": "T23",
-                    "sent_id": "S9"
+                    "sent_id": "S6"
                 }
             ]
         },
         {
             "text": "Biden deve ser investido presidente em 20 de janeiro.",
-            "id": "S9",
+            "id": "S6",
             "events": [
                 {
                     "text": "investido",

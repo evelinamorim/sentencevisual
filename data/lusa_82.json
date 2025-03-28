@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Arouca, Aveiro, 21 dez 2020",
+            "text": "Arouca, Aveiro, 21 dez 2020   JDN // ACG   PJ deteve homem suspeito de ter tentado matar a mulher em Arouca",
             "id": "S0",
             "events": [],
             "times": [
@@ -19,13 +19,13 @@
                     "id": "T15",
                     "rel_type": "TLINK_identity",
                     "arg2": "T13",
-                    "sent_id": "S4"
+                    "sent_id": "S1"
                 }
             ]
         },
         {
             "text": "A Pol\u00edcia Judici\u00e1ria (PJ) deteve um homem, de 54 anos, suspeito de tentar matar a \u00a0 mulher, em Arouca, distrito de Aveiro, informou hoje aquele \u00f3rg\u00e3o de pol\u00edcia criminal.",
-            "id": "S4",
+            "id": "S1",
             "events": [
                 {
                     "text": "informou",
@@ -55,13 +55,13 @@
                     "id": "T9",
                     "rel_type": "TLINK_before",
                     "arg2": "T15",
-                    "sent_id": "S8"
+                    "sent_id": "S3"
                 }
             ]
         },
         {
             "text": "De acordo com os investigadores, os factos ocorreram no domingo \u00e0 tarde, na morada de fam\u00edlia do casal, em Arouca, num contexto de viol\u00eancia dom\u00e9stica e no decurso de um processo de separa\u00e7\u00e3o.",
-            "id": "S8",
+            "id": "S3",
             "events": [
                 {
                     "text": "ocorreram",
@@ -97,7 +97,7 @@
                     "id": "T11",
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T9",
-                    "sent_id": "S8"
+                    "sent_id": "S3"
                 }
             ]
         }

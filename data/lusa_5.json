@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Porto, 17 nov 2020",
+            "text": "Porto, 17 nov 2020   JGJ (JRS)",
             "id": "S0",
             "events": [],
             "times": [
@@ -23,13 +23,13 @@
                     "id": "T3",
                     "rel_type": "TLINK_identity",
                     "arg2": "T1",
-                    "sent_id": "S3"
+                    "sent_id": "S2"
                 }
             ]
         },
         {
             "text": "A Pol\u00edcia Judici\u00e1ria (PJ) deteve hoje o suspeito de matar um homem de 34 anos com uma arma branca no domingo, \u00e0 noite, em C\u00eate, no concelho de Paredes, distrito do Porto, disse uma fonte policial.",
-            "id": "S3",
+            "id": "S2",
             "events": [
                 {
                     "text": "deteve",
@@ -85,15 +85,7 @@
                     "id": "T5",
                     "rel_type": "TLINK_before",
                     "arg2": "T3",
-                    "sent_id": "S3"
-                },
-                {
-                    "text": "domingo",
-                    "Time_Type": "Date",
-                    "id": "T17",
-                    "rel_type": "TLINK_before",
-                    "arg2": "T3",
-                    "sent_id": "S7"
+                    "sent_id": "S2"
                 },
                 {
                     "text": "hoje",
@@ -101,7 +93,7 @@
                     "id": "T29",
                     "rel_type": "TLINK_identity",
                     "arg2": "T3",
-                    "sent_id": "S9"
+                    "sent_id": "S5"
                 },
                 {
                     "text": "noite",
@@ -109,7 +101,7 @@
                     "id": "T21",
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T5",
-                    "sent_id": "S3"
+                    "sent_id": "S2"
                 },
                 {
                     "text": "domingo",
@@ -117,7 +109,7 @@
                     "id": "T17",
                     "rel_type": "TLINK_identity",
                     "arg2": "T5",
-                    "sent_id": "S7"
+                    "sent_id": "S4"
                 },
                 {
                     "text": "pelas 22:00",
@@ -125,13 +117,13 @@
                     "id": "T8",
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T21",
-                    "sent_id": "S7"
+                    "sent_id": "S4"
                 }
             ]
         },
         {
             "text": "O crime ocorreu pelas 22:00 de domingo, na sequ\u00eancia de uma desaven\u00e7a \u00e0 porta de uma caf\u00e9, e o agressor p\u00f4s-se em fuga.",
-            "id": "S7",
+            "id": "S4",
             "events": [
                 {
                     "text": "ocorreu",
@@ -167,21 +159,21 @@
                     "id": "T17",
                     "rel_type": "TLINK_includes",
                     "arg2": "T8",
-                    "sent_id": "S7"
+                    "sent_id": "S4"
                 },
                 {
-                    "text": "hoje",
-                    "Time_Type": "Date",
-                    "id": "T29",
+                    "text": "na manh\u00e3",
+                    "Time_Type": "Time",
+                    "id": "T10",
                     "rel_type": "TLINK_after",
                     "arg2": "T17",
-                    "sent_id": "S9"
+                    "sent_id": "S5"
                 }
             ]
         },
         {
             "text": "A GNR foi a primeira for\u00e7a a ser chamada ao local, mas o caso transitou para a al\u00e7ada da PJ, que efetuou a deten\u00e7\u00e3o do alegado homicida durante uma opera\u00e7\u00e3o desenvolvida na manh\u00e3 de hoje.",
-            "id": "S9",
+            "id": "S5",
             "events": [
                 {
                     "text": "desenvolvida",
@@ -217,7 +209,7 @@
                     "id": "T29",
                     "rel_type": "TLINK_includes",
                     "arg2": "T10",
-                    "sent_id": "S9"
+                    "sent_id": "S5"
                 }
             ]
         }

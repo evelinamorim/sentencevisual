@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Reda\u00e7\u00e3o, 26 nov 2020",
+            "text": "Reda\u00e7\u00e3o, 26 nov 2020   MAD // MLS   Detido no Algarve homem procurado na Europa por tr\u00e1fico de droga",
             "id": "S0",
             "events": [],
             "times": [
@@ -20,13 +20,13 @@
                     "id": "T29",
                     "rel_type": "TLINK_identity",
                     "arg2": "T28",
-                    "sent_id": "S6"
+                    "sent_id": "S1"
                 }
             ]
         },
         {
             "text": "A Pol\u00edcia Judici\u00e1ria (PJ) informou hoje ter detido numa povoa\u00e7\u00e3o do interior algarvio um homem procurado pelas autoridades alem\u00e3s por tr\u00e1fico de droga e que estava em fuga desde o ver\u00e3o.",
-            "id": "S6",
+            "id": "S1",
             "events": [
                 {
                     "text": "informou",
@@ -74,7 +74,7 @@
                     "id": "T30",
                     "rel_type": "TLINK_before",
                     "arg2": "T29",
-                    "sent_id": "S6"
+                    "sent_id": "S1"
                 },
                 {
                     "text": "agora",
@@ -82,15 +82,7 @@
                     "id": "T21",
                     "rel_type": "TLINK_includes",
                     "arg2": "T29",
-                    "sent_id": "S12"
-                },
-                {
-                    "text": "v\u00e1rios anos",
-                    "Time_Type": "Duration",
-                    "id": "T32",
-                    "rel_type": "TLINK_includes",
-                    "arg2": "T29",
-                    "sent_id": "S8"
+                    "sent_id": "S4"
                 },
                 {
                     "text": "o ver\u00e3o 2020",
@@ -98,13 +90,13 @@
                     "id": "T31",
                     "rel_type": "TLINK_identity",
                     "arg2": "T30",
-                    "sent_id": "S8"
+                    "sent_id": "S2"
                 }
             ]
         },
         {
             "text": "Em comunicado, a PJ adiantou que o detido, de 53 anos, se encontrava em fuga desde o ver\u00e3o 2020, \u201c ap\u00f3s decis\u00e3o judicial que o condenou ao cumprimento de uma pena de pris\u00e3o de v\u00e1rios anos, por pertencer a uma rede de distribui\u00e7\u00e3o de hero\u00edna \u201d.",
-            "id": "S8",
+            "id": "S2",
             "events": [
                 {
                     "text": "em fuga",
@@ -147,7 +139,7 @@
         },
         {
             "text": "O detido vai agora ser presente ao Tribunal da Rela\u00e7\u00e3o em \u00c9vora, que ir\u00e1 apreciar a sua extradi\u00e7\u00e3o para o pa\u00eds requerente.",
-            "id": "S12",
+            "id": "S4",
             "events": [
                 {
                     "text": "vai ser presente ao Tribunal da Rela\u00e7\u00e3o",

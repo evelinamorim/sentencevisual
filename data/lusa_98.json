@@ -20,13 +20,13 @@
                     "id": "T31",
                     "rel_type": "TLINK_identity",
                     "arg2": "T30",
-                    "sent_id": "S5"
+                    "sent_id": "S3"
                 }
             ]
         },
         {
             "text": "A Pol\u00edcia Judici\u00e1ria (PJ) deteve um homem, de 50 anos, suspeito de ter abusado sexualmente de uma filha, presentemente com 18 anos, no distrito de \u00c9vora, foi hoje anunciado.",
-            "id": "S5",
+            "id": "S3",
             "events": [
                 {
                     "text": "anunciado",
@@ -56,13 +56,13 @@
                     "id": "T32",
                     "rel_type": "TLINK_before",
                     "arg2": "T31",
-                    "sent_id": "S9"
+                    "sent_id": "S5"
                 }
             ]
         },
         {
             "text": "Segundo a PJ, os \" factos criminosos \" ocorreram no distrito de \u00c9vora, \" existindo claros ind\u00edcios \" de que as \" pr\u00e1ticas sexuais abusivas \" come\u00e7aram em finais de 2019, tendo o presum\u00edvel agressor \" constrangido f\u00edsica e psicologicamente a v\u00edtima \" a suportar a \" atividade delituosa \" quando esta colocou alguma resist\u00eancia aos abusos, dirigindo-lhe, em momento posterior, \" amea\u00e7as graves que a levaram a tentar o suic\u00eddio \".",
-            "id": "S9",
+            "id": "S5",
             "events": [
                 {
                     "text": "come\u00e7aram",

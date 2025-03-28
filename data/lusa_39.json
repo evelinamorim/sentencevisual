@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Cidade do M\u00e9xico, 29 dez 2020",
+            "text": "Cidade do M\u00e9xico, 29 dez 2020   NO_AUTHOR",
             "id": "S0",
             "events": [],
             "times": [
@@ -20,13 +20,13 @@
                     "id": "T3",
                     "rel_type": "TLINK_before",
                     "arg2": "T1",
-                    "sent_id": "S4"
+                    "sent_id": "S2"
                 }
             ]
         },
         {
             "text": "Cerca de 10,3 milh\u00f5es de pessoas ficaram na segunda-feira \u00e0s escuras no M\u00e9xico devido a uma avaria na rede de eletricidade que atingiu v\u00e1rias zonas do pa\u00eds, incluindo a capital, indicaram as autoridades.",
-            "id": "S4",
+            "id": "S2",
             "events": [
                 {
                     "text": "\u00e0s escuras",

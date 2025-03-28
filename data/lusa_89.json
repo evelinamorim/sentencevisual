@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Lisboa, 03 nov 2020",
+            "text": "Lisboa, 03 nov 2020   FC // JMR",
             "id": "S0",
             "events": [],
             "times": [
@@ -55,13 +55,13 @@
                     "id": "T37",
                     "rel_type": "TLINK_before",
                     "arg2": "T38",
-                    "sent_id": "S4"
+                    "sent_id": "S3"
                 }
             ]
         },
         {
             "text": "Segundo o SEF, o cidad\u00e3o, que provinha de Fortaleza (Brasil) e tinha como destino Londres, foi no \u00faltimo fim de semana e encontra-se em estabelecimento prisional, a fim de ser inquirido no Tribunal da Rela\u00e7\u00e3o de Lisboa (TRL), que \u00e9 competente para apreciar os casos de extradi\u00e7\u00e3o.",
-            "id": "S4",
+            "id": "S3",
             "events": [
                 {
                     "text": "foi",
@@ -85,40 +85,21 @@
                     "Time_Type": "Date"
                 }
             ],
-            "linked_times": [
-                {
-                    "text": "18 meses",
-                    "Time_Type": "Duration",
-                    "id": "T29",
-                    "rel_type": "TLINK_after",
-                    "arg2": "T37",
-                    "sent_id": "S7"
-                }
-            ]
+            "linked_times": []
         },
         {
             "text": "Tamb\u00e9m no aeroporto de Faro, foi intercetado um cidad\u00e3o portugu\u00eas que tinha pendentes dois mandados de deten\u00e7\u00e3o para cumprimento de penas de pris\u00e3o de 18 meses e 13 meses.",
-            "id": "S7",
+            "id": "S6",
             "events": [
                 {
                     "text": "penas de pris\u00e3o",
-                    "Class": "State",
+                    "Class": "I_State",
                     "Event_Type": "State",
                     "Pos": "Noun",
                     "Polarity": "Pos",
                     "id": "T28",
                     "rel_type": "TLINK_during",
                     "arg2": "T29"
-                },
-                {
-                    "text": "penas de pris\u00e3o",
-                    "Class": "State",
-                    "Event_Type": "State",
-                    "Pos": "Noun",
-                    "Polarity": "Pos",
-                    "id": "T28",
-                    "rel_type": "TLINK_during",
-                    "arg2": "T40"
                 }
             ],
             "times": [

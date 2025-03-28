@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Vila Nova de Foz C\u00f4a, Guarda, 21 nov 2020",
+            "text": "Vila Nova de Foz C\u00f4a, Guarda, 21 nov 2020   FYP // FPA",
             "id": "S0",
             "events": [],
             "times": [
@@ -20,13 +20,13 @@
                     "id": "T21",
                     "rel_type": "TLINK_identity",
                     "arg2": "T20",
-                    "sent_id": "S4"
+                    "sent_id": "S2"
                 }
             ]
         },
         {
-            "text": "O Tribunal de Foz C\u00f4a, no distrito de Guarda, decretou hoje pris\u00e3o preventiva para um homem de 71 anos acusado de viol\u00eancia dom\u00e9stica, ap\u00f3s ter sido detido pelas autoridades em flagrante delito na sexta-feira, indicou fonte da GNR.",
-            "id": "S4",
+            "text": "O Tribunal de Foz C\u00f4a, no distrito de Guarda, decretou hoje pris\u00e3o preventiva para um homem de 71 anos acusado de viol\u00eancia dom\u00e9stica, ap\u00f3s ter sido detido pelas autoridades em flagrante delito na sexta-feira, indicou fonte da GNR.   \"",
+            "id": "S2",
             "events": [
                 {
                     "text": "decretou",
@@ -73,7 +73,7 @@
                     "id": "T22",
                     "rel_type": "TLINK_before",
                     "arg2": "T21",
-                    "sent_id": "S4"
+                    "sent_id": "S2"
                 }
             ]
         }

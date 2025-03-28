@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Kampala, 03 nov 2020",
+            "text": "Kampala, 03 nov 2020   MBA // VM",
             "id": "S0",
             "events": [],
             "times": [
@@ -75,7 +75,7 @@
                     "id": "T43",
                     "rel_type": "TLINK_before",
                     "arg2": "T21",
-                    "sent_id": "S10"
+                    "sent_id": "S6"
                 },
                 {
                     "text": "do pr\u00f3ximo ano",
@@ -91,13 +91,13 @@
                     "id": "T36",
                     "rel_type": "TLINK_identity",
                     "arg2": "T46",
-                    "sent_id": "S4"
+                    "sent_id": "S3"
                 }
             ]
         },
         {
             "text": "De acordo com a NBS Television, Bobi Wine, cujo nome verdadeiro \u00e9 Kyagulanyi Ssentamu, foi arrastado do carro pela pol\u00edcia pouco tempo depois de ser oficialmente nomeado como candidato \u00e0s elei\u00e7\u00f5es presidenciais agendadas para o pr\u00f3ximo ano.",
-            "id": "S4",
+            "id": "S3",
             "events": [
                 {
                     "text": "agendadas",
@@ -127,13 +127,13 @@
                     "id": "T44",
                     "rel_type": "TLINK_identity",
                     "arg2": "T36",
-                    "sent_id": "S10"
+                    "sent_id": "S6"
                 }
             ]
         },
         {
             "text": "A deten\u00e7\u00e3o de Bobi Wine surge depois de ter sido nomeado candidato \u00e0s presidenciais de 2021, nas quais vai enfrentar o atual Presidente, Yoweri Museveni, que est\u00e1 no cargo desde 1986, e que os cr\u00edticos dizem que depende cada vez mais das for\u00e7as de seguran\u00e7a para se manter no poder.",
-            "id": "S10",
+            "id": "S6",
             "events": [
                 {
                     "text": "presidenciais",
@@ -171,7 +171,16 @@
                     "Time_Type": "Date"
                 }
             ],
-            "linked_times": []
+            "linked_times": [
+                {
+                    "text": "1986",
+                    "Time_Type": "Date",
+                    "id": "T43",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T44",
+                    "sent_id": "S6"
+                }
+            ]
         }
     ]
 }

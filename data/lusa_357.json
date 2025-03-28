@@ -15,12 +15,12 @@
             ],
             "linked_times": [
                 {
-                    "text": "v\u00e1rios dias",
-                    "Time_Type": "Duration",
-                    "id": "T42",
-                    "rel_type": "TLINK_includes",
+                    "text": "agora",
+                    "Time_Type": "Time",
+                    "id": "T45",
+                    "rel_type": "TLINK_isIncluded",
                     "arg2": "T35",
-                    "sent_id": "S3"
+                    "sent_id": "S10"
                 },
                 {
                     "text": "na quinta-feira",
@@ -28,33 +28,58 @@
                     "id": "T36",
                     "rel_type": "TLINK_before",
                     "arg2": "T35",
-                    "sent_id": "S3"
+                    "sent_id": "S4"
                 },
                 {
-                    "text": "agora",
-                    "Time_Type": "Time",
-                    "id": "T45",
-                    "rel_type": "TLINK_after",
+                    "text": "v\u00e1rios dias",
+                    "Time_Type": "Duration",
+                    "id": "T42",
+                    "rel_type": "TLINK_includes",
                     "arg2": "T35",
-                    "sent_id": "S13"
+                    "sent_id": "S3"
                 }
             ]
         },
         {
-            "text": "O ex - futebolista argentino Diego Maradona ter\u00e1 de ficar internado no hospital durante v\u00e1rios dias, depois de evidenciar \" perturba\u00e7\u00f5es mentais \", na sequ\u00eancia da opera\u00e7\u00e3o a um hematoma subdural, informou na quinta-feira o m\u00e9dico Leopoldo Luque.",
+            "text": "O ex - futebolista argentino Diego Maradona ter\u00e1 de ficar internado no hospital durante v\u00e1rios dias, depois de evidenciar",
             "id": "S3",
             "events": [
                 {
                     "text": "internado",
-                    "Class": "State",
+                    "Class": "I_State",
                     "Event_Type": "State",
                     "Pos": "Adjective",
                     "Polarity": "Pos",
                     "Mood": "Future",
+                    "Modality": "Poder",
                     "id": "T1",
-                    "rel_type": "TLINK_during",
+                    "rel_type": "TLINK_simultaneous",
                     "arg2": "T42"
-                },
+                }
+            ],
+            "times": [
+                {
+                    "text": "v\u00e1rios dias",
+                    "offset": 192,
+                    "id": "T42",
+                    "Time_Type": "Duration"
+                }
+            ],
+            "linked_times": [
+                {
+                    "text": "na quinta-feira",
+                    "Time_Type": "Date",
+                    "id": "T36",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T42",
+                    "sent_id": "S4"
+                }
+            ]
+        },
+        {
+            "text": "\" perturba\u00e7\u00f5es mentais \", na sequ\u00eancia da opera\u00e7\u00e3o a um hematoma subdural, informou na quinta-feira o m\u00e9dico Leopoldo Luque.",
+            "id": "S4",
+            "events": [
                 {
                     "text": "informou",
                     "Class": "Reporting",
@@ -70,12 +95,6 @@
             ],
             "times": [
                 {
-                    "text": "v\u00e1rios dias",
-                    "offset": 192,
-                    "id": "T42",
-                    "Time_Type": "Duration"
-                },
-                {
                     "text": "na quinta-feira",
                     "offset": 308,
                     "id": "T36",
@@ -84,27 +103,34 @@
             ],
             "linked_times": [
                 {
+                    "text": "na ter\u00e7a-feira",
+                    "Time_Type": "Date",
+                    "id": "T37",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T36",
+                    "sent_id": "S7"
+                },
+                {
                     "text": "Horas antes",
                     "Time_Type": "Time",
                     "id": "T44",
-                    "rel_type": "TLINK_includes",
+                    "rel_type": "TLINK_isIncluded",
                     "arg2": "T36",
-                    "sent_id": "S7"
+                    "sent_id": "S6"
                 }
             ]
         },
         {
             "text": "Horas antes, Leopoldo Luque tinha anunciado que \u2018 El Pibe ' iria ter alta do hospital brevemente, manifestando-se otimista com a recupera\u00e7\u00e3o do antigo craque.",
-            "id": "S7",
+            "id": "S6",
             "events": [
                 {
                     "text": "anunciado",
-                    "Class": "Reporting",
+                    "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",
-                    "VForm": "Participle",
                     "Polarity": "Pos",
                     "id": "T8",
                     "rel_type": "TLINK_simultaneous",
@@ -126,13 +152,13 @@
                     "id": "T37",
                     "rel_type": "TLINK_before",
                     "arg2": "T44",
-                    "sent_id": "S9"
+                    "sent_id": "S7"
                 }
             ]
         },
         {
             "text": "O ex - futebolista, que atualmente \u00e9 treinador do Gimnasia de la Plata, foi operado com sucesso na ter\u00e7a-feira \u00e0 noite a um hematoma subdural, detetado durante um ' check - up '.",
-            "id": "S9",
+            "id": "S7",
             "events": [
                 {
                     "text": "operado",
@@ -168,7 +194,7 @@
                     "id": "T47",
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T37",
-                    "sent_id": "S9"
+                    "sent_id": "S7"
                 },
                 {
                     "text": "na segunda-feira",
@@ -176,7 +202,15 @@
                     "id": "T39",
                     "rel_type": "TLINK_before",
                     "arg2": "T37",
-                    "sent_id": "S10"
+                    "sent_id": "S8"
+                },
+                {
+                    "text": "na semana passada",
+                    "Time_Type": "Date",
+                    "id": "T38",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T37",
+                    "sent_id": "S8"
                 },
                 {
                     "text": "na semana passada",
@@ -184,13 +218,13 @@
                     "id": "T38",
                     "rel_type": "TLINK_before",
                     "arg2": "T47",
-                    "sent_id": "S10"
+                    "sent_id": "S8"
                 }
             ]
         },
         {
             "text": "Maradona, que completou 60 anos na semana passada, tinha sido internado na segunda-feira, an\u00e9mico, desidratado e deprimido.",
-            "id": "S10",
+            "id": "S8",
             "events": [
                 {
                     "text": "completou",
@@ -236,15 +270,31 @@
                     "text": "na segunda-feira",
                     "Time_Type": "Date",
                     "id": "T39",
-                    "rel_type": "TLINK_isIncluded",
+                    "rel_type": "TLINK_after",
                     "arg2": "T38",
-                    "sent_id": "S10"
+                    "sent_id": "S8"
+                },
+                {
+                    "text": "1986,",
+                    "Time_Type": "Date",
+                    "id": "T40",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T38",
+                    "sent_id": "S9"
+                },
+                {
+                    "text": "1986,",
+                    "Time_Type": "Date",
+                    "id": "T40",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T39",
+                    "sent_id": "S9"
                 }
             ]
         },
         {
             "text": "O campe\u00e3o mundial pela sele\u00e7\u00e3o da Argentina, em 1986, no M\u00e9xico, foi operado numa cl\u00ednica na prov\u00edncia de Buenos Aires.",
-            "id": "S12",
+            "id": "S9",
             "events": [
                 {
                     "text": "operado",
@@ -267,11 +317,20 @@
                     "Time_Type": "Date"
                 }
             ],
-            "linked_times": []
+            "linked_times": [
+                {
+                    "text": "agora",
+                    "Time_Type": "Time",
+                    "id": "T45",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T40",
+                    "sent_id": "S10"
+                }
+            ]
         },
         {
             "text": "V\u00e1rias pessoas reuniram-se junto \u00e0 porta da cl\u00ednica para demonstrar a admira\u00e7\u00e3o pelo agora treinador do Gimnasia de la Plata, com bandeiras e c\u00e2nticos.",
-            "id": "S13",
+            "id": "S10",
             "events": [
                 {
                     "text": "treinador",

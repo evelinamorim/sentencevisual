@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Odemira, Beja, 11 out 2020",
+            "text": "Odemira, Beja, 11 out 2020   RRL // JH   Homem de 68 anos morre em despiste de ciclomotor no concelho de Odemira",
             "id": "S0",
             "events": [],
             "times": [
@@ -20,13 +20,13 @@
                     "id": "T13",
                     "rel_type": "TLINK_identity",
                     "arg2": "T6",
-                    "sent_id": "S4"
+                    "sent_id": "S1"
                 }
             ]
         },
         {
             "text": "Um homem de 68 anos morreu hoje na sequ\u00eancia do despiste do ciclomotor que conduzia, num caminho de terra batida perto de Vale Tijoso, no concelho de Odemira (Beja), revelaram a Prote\u00e7\u00e3o Civil e a GNR.",
-            "id": "S4",
+            "id": "S1",
             "events": [
                 {
                     "text": "morreu",
@@ -56,13 +56,13 @@
                     "id": "T4",
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T13",
-                    "sent_id": "S6"
+                    "sent_id": "S2"
                 }
             ]
         },
         {
             "text": "O Comando Distrital de Opera\u00e7\u00f5es de Socorro (CDOS) de Beja disse \u00e0 ag\u00eancia Lusa que os bombeiros receberam \u00e0s 19:08 o alerta para o acidente, ocorrido na zona do \u201c monte de Vale Tijoso \u201d, num caminho entre S\u00e3o Teot\u00f3nio, sede de freguesia, e Relva Grande.",
-            "id": "S6",
+            "id": "S2",
             "events": [
                 {
                     "text": "receberam",

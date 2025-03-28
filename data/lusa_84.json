@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Cidade do M\u00e9xico, 16 out 2020",
+            "text": "Cidade do M\u00e9xico, 16 out 2020   JMC // PTA",
             "id": "S0",
             "events": [],
             "times": [
@@ -22,13 +22,13 @@
                     "id": "T20",
                     "rel_type": "TLINK_before",
                     "arg2": "T19",
-                    "sent_id": "S2"
+                    "sent_id": "S1"
                 }
             ]
         },
         {
             "text": "O ex - ministro da Defesa do M\u00e9xico, o general Salvador Cienfuegos, foi detido em Los Angeles, nos Estados Unidos, adiantou na quinta-feira o respons\u00e1vel pela diplomacia mexicana.",
-            "id": "S2",
+            "id": "S1",
             "events": [
                 {
                     "text": "adiantou",
@@ -56,20 +56,12 @@
             ],
             "linked_times": [
                 {
-                    "text": "2012",
-                    "Time_Type": "Date",
-                    "id": "T21",
-                    "rel_type": "TLINK_before",
-                    "arg2": "T20",
-                    "sent_id": "S6"
-                },
-                {
                     "text": "nas pr\u00f3ximas horas \"",
                     "Time_Type": "Time",
                     "id": "T23",
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T20",
-                    "sent_id": "S7"
+                    "sent_id": "S4"
                 },
                 {
                     "text": "2018",
@@ -77,13 +69,21 @@
                     "id": "T22",
                     "rel_type": "TLINK_before",
                     "arg2": "T20",
-                    "sent_id": "S6"
+                    "sent_id": "S3"
+                },
+                {
+                    "text": "2012",
+                    "Time_Type": "Date",
+                    "id": "T21",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T20",
+                    "sent_id": "S3"
                 }
             ]
         },
         {
             "text": "O general serviu de 2012 a 2018 como ministro da Defesa do ent\u00e3o Presidente Enrique Pe\u00f1a Nieto.",
-            "id": "S6",
+            "id": "S3",
             "events": [
                 {
                     "text": "serviu",
@@ -131,18 +131,25 @@
                     "id": "T22",
                     "rel_type": "TLINK_after",
                     "arg2": "T21",
-                    "sent_id": "S6"
+                    "sent_id": "S3"
+                },
+                {
+                    "text": "nas pr\u00f3ximas horas \"",
+                    "Time_Type": "Time",
+                    "id": "T23",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T22",
+                    "sent_id": "S4"
                 }
             ]
         },
         {
             "text": "Ebrard disse que o ex - governante foi detido no aeroporto internacional de Los Angeles, mas n\u00e3o adiantou quais os motivos, referindo apenas que o c\u00f4nsul do M\u00e9xico naquela cidade lhe daria mais detalhes \" nas pr\u00f3ximas horas \" e que Cienfuegos tinha o direito de receber apoio consular.",
-            "id": "S7",
+            "id": "S4",
             "events": [
                 {
                     "text": "daria",
                     "Class": "Occurrence",
-                    "Tense": "Past",
                     "Polarity": "Pos",
                     "Event_Type": "Transition",
                     "Pos": "Verb",

@@ -21,11 +21,19 @@
                     "rel_type": "TLINK_before",
                     "arg2": "T1",
                     "sent_id": "S4"
+                },
+                {
+                    "text": "nos \u00faltimos meses",
+                    "Time_Type": "Date",
+                    "id": "T4",
+                    "rel_type": "TLINK_includes",
+                    "arg2": "T1",
+                    "sent_id": "S6"
                 }
             ]
         },
         {
-            "text": "Em comunicado enviado \u00e0 ag\u00eancia Lusa, o Comando Territorial de Castelo Branco explica que a deten\u00e7\u00e3o foi realizada na quinta-feira, atrav\u00e9s dos Postos Territoriais do Tortosendo e de Caria.",
+            "text": "Em comunicado enviado \u00e0 ag\u00eancia Lusa, o Comando Territorial de Castelo Branco explica que a deten\u00e7\u00e3o foi realizada na quinta-feira, atrav\u00e9s dos Postos Territoriais do Tortosendo e de Caria.   \"",
             "id": "S4",
             "events": [
                 {
@@ -56,18 +64,18 @@
                     "id": "T4",
                     "rel_type": "TLINK_includes",
                     "arg2": "T3",
-                    "sent_id": "S8"
+                    "sent_id": "S6"
                 }
             ]
         },
         {
             "text": "A GNR acrescenta que, \" nos \u00faltimos meses, o suspeito intensificou o comportamento violento, devido ao consumo abusivo de \u00e1lcool, tendo sido dado cumprimento a um mandado de deten\u00e7\u00e3o \".",
-            "id": "S8",
+            "id": "S6",
             "events": [
                 {
                     "text": "intensificou",
                     "Class": "Occurrence",
-                    "Event_Type": "Transition",
+                    "Event_Type": "Process",
                     "Pos": "Verb",
                     "Tense": "Past",
                     "Aspect": "Perfective",

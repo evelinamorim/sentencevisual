@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "\u00cdlhavo, Aveiro, 05 jan 2021",
+            "text": "\u00cdlhavo, Aveiro, 05 jan 2021   JDN // MSP",
             "id": "S0",
             "events": [],
             "times": [
@@ -20,13 +20,13 @@
                     "id": "T30",
                     "rel_type": "TLINK_identity",
                     "arg2": "T29",
-                    "sent_id": "S3"
+                    "sent_id": "S2"
                 }
             ]
         },
         {
             "text": "A GNR deteve um homem de 34 anos suspeito de v\u00e1rios furtos em resid\u00eancias no concelho de \u00cdlhavo, distrito de Aveiro, \u00a0 informou hoje aquela for\u00e7a militar.",
-            "id": "S3",
+            "id": "S2",
             "events": [
                 {
                     "text": "informou",
@@ -56,13 +56,13 @@
                     "id": "T31",
                     "rel_type": "TLINK_before",
                     "arg2": "T30",
-                    "sent_id": "S5"
+                    "sent_id": "S3"
                 }
             ]
         },
         {
-            "text": "Em comunicado, a GNR esclarece que o indiv\u00edduo foi detido na segunda-feira, quando se encontrava a assaltar uma casa na Gafanha da Nazar\u00e9, naquele concelho.",
-            "id": "S5",
+            "text": "Em comunicado, a GNR esclarece que o indiv\u00edduo foi detido na segunda-feira, quando se encontrava a assaltar uma casa na Gafanha da Nazar\u00e9, naquele concelho.   \"",
+            "id": "S3",
             "events": [
                 {
                     "text": "detido",

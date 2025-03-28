@@ -20,13 +20,13 @@
                     "id": "T25",
                     "rel_type": "TLINK_includes",
                     "arg2": "T24",
-                    "sent_id": "S5"
+                    "sent_id": "S4"
                 }
             ]
         },
         {
-            "text": "Em comunicado enviado \u00e0 ag\u00eancia Lusa, o Departamento de Investiga\u00e7\u00e3o Criminal da Guarda explica que os crimes ter\u00e3o sido praticados de forma \" reiterada \" e ao longo de v\u00e1rios anos.",
-            "id": "S5",
+            "text": "Em comunicado enviado \u00e0 ag\u00eancia Lusa, o Departamento de Investiga\u00e7\u00e3o Criminal da Guarda explica que os crimes ter\u00e3o sido praticados de forma \" reiterada \" e ao longo de v\u00e1rios anos.   \"",
+            "id": "S4",
             "events": [
                 {
                     "text": "praticados",
@@ -37,7 +37,7 @@
                     "Mood": "Future",
                     "Modality": "Poder",
                     "id": "T4",
-                    "rel_type": "TLINK_before",
+                    "rel_type": "TLINK_isIncluded",
                     "arg2": "T25"
                 }
             ],

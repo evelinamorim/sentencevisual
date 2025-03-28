@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Gouveia, Guarda, 30 dez 2020",
+            "text": "Gouveia, Guarda, 30 dez 2020   ASR // JEF",
             "id": "S0",
             "events": [],
             "times": [
@@ -62,13 +62,21 @@
                     "id": "T4",
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T3",
+                    "sent_id": "S3"
+                },
+                {
+                    "text": "pelas 15:00",
+                    "Time_Type": "Time",
+                    "id": "T5",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T3",
                     "sent_id": "S4"
                 }
             ]
         },
         {
             "text": "De acordo com fonte do Comando Distrital de Opera\u00e7\u00f5es de Socorro (CDOS) da Guarda, o alerta para a ocorr\u00eancia \u00a0 foi dado pelas 12:35.",
-            "id": "S4",
+            "id": "S3",
             "events": [
                 {
                     "text": "dado",
@@ -98,13 +106,13 @@
                     "id": "T5",
                     "rel_type": "TLINK_after",
                     "arg2": "T4",
-                    "sent_id": "S6"
+                    "sent_id": "S4"
                 }
             ]
         },
         {
             "text": "O corpo da v\u00edtima foi transportado, pelas 15:00, pelos bombeiros, para o Instituto de Medicina Legal da Guarda, para ser autopsiado.",
-            "id": "S6",
+            "id": "S4",
             "events": [
                 {
                     "text": "transportado",

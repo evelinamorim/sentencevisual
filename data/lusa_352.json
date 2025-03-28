@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Seixal, Set\u00fabal, 03 nov 2020   DYBS (AFE)",
+            "text": "Seixal, Set\u00fabal, 03 nov 2020   DYBS (AFE) //",
             "id": "S0",
             "events": [],
             "times": [
@@ -20,13 +20,13 @@
                     "id": "T43",
                     "rel_type": "TLINK_identity",
                     "arg2": "T42",
-                    "sent_id": "S2"
+                    "sent_id": "S3"
                 }
             ]
         },
         {
             "text": "A Pol\u00edcia Judici\u00e1ria informou hoje que ficou em pris\u00e3o preventiva o homem suspeito de ter desferido \u201c mais de 20 facadas \u201d \u00e0 m\u00e3e, causando-lhe a morte, numa resid\u00eancia do Seixal, no distrito de Set\u00fabal.",
-            "id": "S2",
+            "id": "S3",
             "events": [
                 {
                     "text": "informou",
@@ -92,13 +92,21 @@
                     "id": "T53",
                     "rel_type": "TLINK_before",
                     "arg2": "T44",
-                    "sent_id": "S6"
+                    "sent_id": "S5"
+                },
+                {
+                    "text": "no final da tarde",
+                    "Time_Type": "Time",
+                    "id": "T45",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T44",
+                    "sent_id": "S5"
                 }
             ]
         },
         {
             "text": "Segundo a nota, o crime foi cometido no final da tarde de segunda-feira \u201c na sequ\u00eancia de mais uma discuss\u00e3o \u201d entre ambos.",
-            "id": "S6",
+            "id": "S5",
             "events": [
                 {
                     "text": "cometido",
@@ -134,7 +142,7 @@
                     "id": "T49",
                     "rel_type": "TLINK_after",
                     "arg2": "T45",
-                    "sent_id": "S10"
+                    "sent_id": "S7"
                 },
                 {
                     "text": "segunda-feira",
@@ -142,7 +150,7 @@
                     "id": "T53",
                     "rel_type": "TLINK_includes",
                     "arg2": "T45",
-                    "sent_id": "S6"
+                    "sent_id": "S5"
                 },
                 {
                     "text": "na segunda-feira",
@@ -150,13 +158,21 @@
                     "id": "T46",
                     "rel_type": "TLINK_identity",
                     "arg2": "T53",
-                    "sent_id": "S12"
+                    "sent_id": "S8"
+                },
+                {
+                    "text": "algumas horas",
+                    "Time_Type": "Time",
+                    "id": "T49",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T53",
+                    "sent_id": "S7"
                 }
             ]
         },
         {
             "text": "J\u00e1 o homem, ap\u00f3s ter cometido o homic\u00eddio, \u201c fechou-se no quarto, trocou de roupa e fugiu pela janela \u201d, mas foi \u201c localizado algumas horas depois \u201d, indicou a pol\u00edcia.",
-            "id": "S10",
+            "id": "S7",
             "events": [
                 {
                     "text": "localizado",
@@ -186,23 +202,31 @@
                     "id": "T47",
                     "rel_type": "TLINK_after",
                     "arg2": "T49",
-                    "sent_id": "S14"
+                    "sent_id": "S9"
+                },
+                {
+                    "text": "na segunda-feira",
+                    "Time_Type": "Date",
+                    "id": "T46",
+                    "rel_type": "TLINK_includes",
+                    "arg2": "T49",
+                    "sent_id": "S8"
                 }
             ]
         },
         {
             "text": "De acordo com informa\u00e7\u00f5es prestadas pelo Comando Geral da GNR na segunda-feira, \u00a0 a mulher, de 53 anos, \u201c foi encontrada na cozinha da sua resid\u00eancia, pelo marido, com perfura\u00e7\u00f5es no t\u00f3rax e no pesco\u00e7o \u201d.",
-            "id": "S12",
+            "id": "S8",
             "events": [
                 {
-                    "text": "encontrada",
-                    "Class": "Perception",
+                    "text": "prestadas",
+                    "Class": "Occurrence",
                     "Event_Type": "Transition",
                     "Pos": "Verb",
-                    "Tense": "Past",
                     "Aspect": "Perfective",
+                    "VForm": "Participle",
                     "Polarity": "Pos",
-                    "id": "T14",
+                    "id": "T38",
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T46"
                 }
@@ -222,13 +246,21 @@
                     "id": "T51",
                     "rel_type": "TLINK_identity",
                     "arg2": "T46",
-                    "sent_id": "S14"
+                    "sent_id": "S9"
+                },
+                {
+                    "text": "pelas 20:00",
+                    "Time_Type": "Time",
+                    "id": "T47",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T46",
+                    "sent_id": "S9"
                 }
             ]
         },
         {
             "text": "O alerta foi dado pelas 20:00 de segunda-feira.",
-            "id": "S14",
+            "id": "S9",
             "events": [
                 {
                     "text": "dado",
@@ -264,7 +296,7 @@
                     "id": "T51",
                     "rel_type": "TLINK_includes",
                     "arg2": "T47",
-                    "sent_id": "S14"
+                    "sent_id": "S9"
                 }
             ]
         }

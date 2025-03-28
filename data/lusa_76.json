@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Montemor-o - Velho, Coimbra, 06 dez 2020",
+            "text": "Montemor-o - Velho, Coimbra, 06 dez 2020   JDN //",
             "id": "S0",
             "events": [],
             "times": [
@@ -15,26 +15,26 @@
             ],
             "linked_times": [
                 {
-                    "text": "h\u00e1 quase quatro anos",
-                    "Time_Type": "Duration",
-                    "id": "T47",
-                    "rel_type": "TLINK_includes",
-                    "arg2": "T46",
-                    "sent_id": "S3"
-                },
-                {
                     "text": "hoje",
                     "Time_Type": "Time",
                     "id": "T41",
                     "rel_type": "TLINK_identity",
                     "arg2": "T46",
-                    "sent_id": "S3"
+                    "sent_id": "S2"
+                },
+                {
+                    "text": "h\u00e1 quase quatro anos",
+                    "Time_Type": "Date",
+                    "id": "T47",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T46",
+                    "sent_id": "S2"
                 }
             ]
         },
         {
             "text": "A Pol\u00edcia Judici\u00e1ria (PJ) deteve um homem de 34 anos pela presum\u00edvel pr\u00e1tica de um crime de homic\u00eddio qualificado, ocorrido h\u00e1 quase quatro anos em Montemor-o - Velho, no distrito de Coimbra, informou hoje aquele \u00f3rg\u00e3o de pol\u00edcia criminal.",
-            "id": "S3",
+            "id": "S2",
             "events": [
                 {
                     "text": "ocorrido",
@@ -66,7 +66,7 @@
                     "text": "h\u00e1 quase quatro anos",
                     "offset": 234,
                     "id": "T47",
-                    "Time_Type": "Duration"
+                    "Time_Type": "Date"
                 },
                 {
                     "text": "hoje",
@@ -77,12 +77,20 @@
             ],
             "linked_times": [
                 {
+                    "text": "10 de mar\u00e7o de 2017",
+                    "Time_Type": "Date",
+                    "id": "T44",
+                    "rel_type": "TLINK_identity",
+                    "arg2": "T47",
+                    "sent_id": "S3"
+                },
+                {
                     "text": "hoje",
                     "Time_Type": "Time",
                     "id": "T41",
-                    "rel_type": "TLINK_isIncluded",
+                    "rel_type": "TLINK_after",
                     "arg2": "T47",
-                    "sent_id": "S3"
+                    "sent_id": "S2"
                 },
                 {
                     "text": "10 de mar\u00e7o de 2017",
@@ -90,13 +98,29 @@
                     "id": "T44",
                     "rel_type": "TLINK_before",
                     "arg2": "T41",
-                    "sent_id": "S5"
+                    "sent_id": "S3"
+                },
+                {
+                    "text": "recentemente",
+                    "Time_Type": "Date",
+                    "id": "T48",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T41",
+                    "sent_id": "S6"
+                },
+                {
+                    "text": "agora",
+                    "Time_Type": "Time",
+                    "id": "T49",
+                    "rel_type": "TLINK_includes",
+                    "arg2": "T41",
+                    "sent_id": "S6"
                 }
             ]
         },
         {
             "text": "Em comunicado, a PJ esclarece que o crime ocorreu em 10 de mar\u00e7o de 2017, na localidade de Tent\u00fagal, na sequ\u00eancia de \u201c um conflito relacionado com um neg\u00f3cio falhado \u201d.",
-            "id": "S5",
+            "id": "S3",
             "events": [
                 {
                     "text": "ocorreu",
@@ -126,7 +150,7 @@
                     "id": "T48",
                     "rel_type": "TLINK_after",
                     "arg2": "T44",
-                    "sent_id": "S11"
+                    "sent_id": "S6"
                 },
                 {
                     "text": "a madrugada",
@@ -134,22 +158,22 @@
                     "id": "T45",
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T44",
-                    "sent_id": "S7"
+                    "sent_id": "S4"
                 }
             ]
         },
         {
             "text": "De acordo com os investigadores, o detido ter\u00e1 surpreendido a v\u00edtima de 46 anos em sua casa durante a madrugada, e, com um objeto contundente, \u201c desferiu-lhe v\u00e1rios golpes na zona da cabe\u00e7a que lhe provocaram a morte \u201d.",
-            "id": "S7",
+            "id": "S4",
             "events": [
                 {
                     "text": "surpreendido",
                     "Class": "Occurrence",
-                    "Tense": "Future",
                     "Polarity": "Pos",
                     "Pos": "Verb",
                     "Mood": "Future",
                     "Modality": "Poder",
+                    "Event_Type": "Transition",
                     "id": "T3",
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T45"
@@ -163,11 +187,20 @@
                     "Time_Type": "Time"
                 }
             ],
-            "linked_times": []
+            "linked_times": [
+                {
+                    "text": "recentemente",
+                    "Time_Type": "Date",
+                    "id": "T48",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T45",
+                    "sent_id": "S6"
+                }
+            ]
         },
         {
             "text": "A PJ refere ainda que a investiga\u00e7\u00e3o realizada conheceu, recentemente, desenvolvimentos relevantes que conduziram agora \u00e0 identifica\u00e7\u00e3o, localiza\u00e7\u00e3o e deten\u00e7\u00e3o do suspeito.",
-            "id": "S11",
+            "id": "S6",
             "events": [
                 {
                     "text": "conheceu",
@@ -215,7 +248,7 @@
                     "id": "T49",
                     "rel_type": "TLINK_after",
                     "arg2": "T48",
-                    "sent_id": "S11"
+                    "sent_id": "S6"
                 }
             ]
         }

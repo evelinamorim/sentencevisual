@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Porto, 04 nov 2020",
+            "text": "Porto, 04 nov 2020   CCM //",
             "id": "S0",
             "events": [],
             "times": [
@@ -20,7 +20,7 @@
                     "id": "T3",
                     "rel_type": "TLINK_before",
                     "arg2": "T1",
-                    "sent_id": "S2"
+                    "sent_id": "S3"
                 },
                 {
                     "text": "hoje",
@@ -28,13 +28,13 @@
                     "id": "T4",
                     "rel_type": "TLINK_identity",
                     "arg2": "T1",
-                    "sent_id": "S2"
+                    "sent_id": "S3"
                 }
             ]
         },
         {
             "text": "A Pol\u00edcia Judici\u00e1ria (PJ) deteve um homem de 45 anos em Vila Nova de Gaia, no distrito do Porto, por suspeita de crimes de pornografia de menores por via inform\u00e1tica, ocorridos desde julho de 2019, foi hoje anunciado.",
-            "id": "S2",
+            "id": "S3",
             "events": [
                 {
                     "text": "ocorridos",
@@ -82,7 +82,7 @@
                     "id": "T4",
                     "rel_type": "TLINK_after",
                     "arg2": "T3",
-                    "sent_id": "S2"
+                    "sent_id": "S3"
                 }
             ]
         }

@@ -1,7 +1,7 @@
 {
     "sentences": [
         {
-            "text": "Arraiolos, \u00c9vora, 21 dez 2020",
+            "text": "Arraiolos, \u00c9vora, 21 dez 2020   TCA // JLS",
             "id": "S0",
             "events": [],
             "times": [
@@ -23,13 +23,13 @@
                     "id": "T3",
                     "rel_type": "TLINK_identity",
                     "arg2": "T1",
-                    "sent_id": "S4"
+                    "sent_id": "S2"
                 }
             ]
         },
         {
             "text": "Um homem com cerca de 40 anos morreu hoje e outros dois sofreram ferimentos graves na sequ\u00eancia do despiste de um autom\u00f3vel perto de Vimieiro, no concelho de Arraiolos (\u00c9vora) disseram fontes da Prote\u00e7\u00e3o Civil e da GNR.",
-            "id": "S4",
+            "id": "S2",
             "events": [
                 {
                     "text": "morreu",
@@ -62,13 +62,13 @@
                     "id": "T5",
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T3",
-                    "sent_id": "S12"
+                    "sent_id": "S6"
                 }
             ]
         },
         {
             "text": "O alerta, de acordo com o CDOS, foi dado \u00e0s 19:19.",
-            "id": "S12",
+            "id": "S6",
             "events": [
                 {
                     "text": "dado",

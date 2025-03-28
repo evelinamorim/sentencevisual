@@ -1,12 +1,12 @@
 {
     "sentences": [
         {
-            "text": "G\u00f3is, Coimbra, 04 nov 2020",
+            "text": "G\u00f3is, Coimbra, 04",
             "id": "S0",
             "events": [],
             "times": [
                 {
-                    "text": "04 nov 2020",
+                    "text": "04",
                     "offset": 15,
                     "id": "T1",
                     "Time_Type": "Date",
@@ -20,13 +20,26 @@
                     "id": "T3",
                     "rel_type": "TLINK_identity",
                     "arg2": "T1",
-                    "sent_id": "S2"
+                    "sent_id": "S3"
                 }
             ]
         },
         {
+            "text": "nov 2020   SR // SSS",
+            "id": "S1",
+            "events": [],
+            "times": [
+                {
+                    "text": "nov 2020",
+                    "offset": 18,
+                    "id": "T1"
+                }
+            ],
+            "linked_times": []
+        },
+        {
             "text": "Um homem de 54 anos foi detido no concelho de G\u00f3is, distrito de Coimbra, suspeito do crime de tr\u00e1fico de droga, tendo-lhe sido apreendida can\u00e1bis, anunciou hoje a GNR.",
-            "id": "S2",
+            "id": "S3",
             "events": [
                 {
                     "text": "anunciou",
@@ -55,6 +68,14 @@
                     "Time_Type": "Date",
                     "id": "T5",
                     "rel_type": "TLINK_before",
+                    "arg2": "T3",
+                    "sent_id": "S4"
+                },
+                {
+                    "text": "h\u00e1 cerca de um m\u00eas",
+                    "Time_Type": "Duration",
+                    "id": "T6",
+                    "rel_type": "TLINK_includes",
                     "arg2": "T3",
                     "sent_id": "S4"
                 }

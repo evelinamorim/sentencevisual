@@ -20,13 +20,13 @@
                     "id": "T30",
                     "rel_type": "TLINK_identity",
                     "arg2": "T31",
-                    "sent_id": "S5"
+                    "sent_id": "S3"
                 }
             ]
         },
         {
             "text": "Um jovem de 19 anos foi detido pela Unidade Local de Investiga\u00e7\u00e3o Criminal de \u00c9vora por suspeita de tentativa de homic\u00eddio da sua pr\u00f3pria namorada em Montemor-o - Novo, informou hoje a Pol\u00edcia Judici\u00e1ria (PJ).",
-            "id": "S5",
+            "id": "S3",
             "events": [
                 {
                     "text": "informou",
@@ -51,26 +51,26 @@
             ],
             "linked_times": [
                 {
-                    "text": "nos pr\u00f3ximos dias \u201d",
-                    "Time_Type": "Date",
-                    "id": "T33",
-                    "rel_type": "TLINK_after",
-                    "arg2": "T30",
-                    "sent_id": "S7"
-                },
-                {
                     "text": "na quinta-feira",
                     "Time_Type": "Date",
                     "id": "T29",
                     "rel_type": "TLINK_before",
                     "arg2": "T30",
-                    "sent_id": "S9"
+                    "sent_id": "S5"
+                },
+                {
+                    "text": "nos pr\u00f3ximos dias \u201d",
+                    "Time_Type": "Date",
+                    "id": "T33",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T30",
+                    "sent_id": "S4"
                 }
             ]
         },
         {
             "text": "Em comunicado, a PJ adianta que o suspeito foi presente a primeiro interrogat\u00f3rio judicial e ficou sujeito \u00e0 medida de obriga\u00e7\u00e3o de perman\u00eancia na habita\u00e7\u00e3o, com vigil\u00e2ncia eletr\u00f3nica, mantendo-se em pris\u00e3o preventiva at\u00e9 que a mesma seja implementada, \u201c nos pr\u00f3ximos dias \u201d.",
-            "id": "S7",
+            "id": "S4",
             "events": [
                 {
                     "text": "implementada",
@@ -93,11 +93,20 @@
                     "Time_Type": "Date"
                 }
             ],
-            "linked_times": []
+            "linked_times": [
+                {
+                    "text": "na quinta-feira",
+                    "Time_Type": "Date",
+                    "id": "T29",
+                    "rel_type": "TLINK_before",
+                    "arg2": "T33",
+                    "sent_id": "S5"
+                }
+            ]
         },
         {
-            "text": "A acusa\u00e7\u00e3o reporta-se a factos ocorridos na quinta-feira, perto das 19:00, no concelho de Montemor-o - Novo (distrito de \u00c9vora), \u00a0 quando o suspeito, munido de uma arma branca,",
-            "id": "S9",
+            "text": "A acusa\u00e7\u00e3o reporta-se a factos ocorridos na quinta-feira, perto das 19:00, no concelho de Montemor-o - Novo (distrito de \u00c9vora), \u00a0 quando o suspeito, munido de uma arma branca, \u00a0 golpeou a namorada na zona do abd\u00f3men \u00a0 no seguimento de uma discuss\u00e3o.",
+            "id": "S5",
             "events": [
                 {
                     "text": "ocorridos",
@@ -133,7 +142,7 @@
                     "id": "T36",
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T29",
-                    "sent_id": "S9"
+                    "sent_id": "S5"
                 }
             ]
         }

@@ -20,21 +20,21 @@
                     "id": "T45",
                     "rel_type": "TLINK_before",
                     "arg2": "T40",
-                    "sent_id": "S3"
+                    "sent_id": "S2"
                 },
                 {
-                    "text": "no domingo",
+                    "text": "outubro",
                     "Time_Type": "Date",
-                    "id": "T41",
-                    "rel_type": "TLINK_before",
+                    "id": "T26",
+                    "rel_type": "TLINK_includes",
                     "arg2": "T40",
-                    "sent_id": "S4"
+                    "sent_id": "S5"
                 }
             ]
         },
         {
             "text": "O antigo rei dos Belgas Alberto II e a mulher, Paola, reuniram-se com a filha do ex - monarca, cuja paternidade foi recentemente reconhecida ap\u00f3s uma longa batalha judicial, segundo um comunicado do pal\u00e1cio.",
-            "id": "S3",
+            "id": "S2",
             "events": [
                 {
                     "text": "reconhecida",
@@ -62,9 +62,9 @@
                     "text": "outubro",
                     "Time_Type": "Date",
                     "id": "T26",
-                    "rel_type": "TLINK_before",
+                    "rel_type": "TLINK_includes",
                     "arg2": "T45",
-                    "sent_id": "S7"
+                    "sent_id": "S5"
                 },
                 {
                     "text": "no domingo",
@@ -72,13 +72,13 @@
                     "id": "T41",
                     "rel_type": "TLINK_before",
                     "arg2": "T45",
-                    "sent_id": "S4"
+                    "sent_id": "S3"
                 }
             ]
         },
         {
             "text": "Oficialmente designada como princesa Delfine, a filha de Alberto II j\u00e1 se tinha encontrado com o seu meio - irm\u00e3o Filipe, atual rei dos Belgas, e no domingo, segundo o comunicado, reuniu-se com o pai, o que o pal\u00e1cio considera \u201c os primeiros passos de uma via de reconcilia\u00e7\u00e3o \u201d.",
-            "id": "S4",
+            "id": "S3",
             "events": [
                 {
                     "text": "reuniu",
@@ -100,11 +100,20 @@
                     "Time_Type": "Date"
                 }
             ],
-            "linked_times": []
+            "linked_times": [
+                {
+                    "text": "outubro",
+                    "Time_Type": "Date",
+                    "id": "T26",
+                    "rel_type": "TLINK_includes",
+                    "arg2": "T41",
+                    "sent_id": "S5"
+                }
+            ]
         },
         {
             "text": "Delphine foi reconhecida em outubro como sendo filha de Alberto II, ap\u00f3s uma longa batalha judicial.",
-            "id": "S7",
+            "id": "S5",
             "events": [
                 {
                     "text": "reconhecida",
@@ -134,7 +143,7 @@
                     "id": "T42",
                     "rel_type": "TLINK_before",
                     "arg2": "T26",
-                    "sent_id": "S9"
+                    "sent_id": "S6"
                 },
                 {
                     "text": "01 de outubro",
@@ -142,26 +151,14 @@
                     "id": "T43",
                     "rel_type": "TLINK_isIncluded",
                     "arg2": "T26",
-                    "sent_id": "S9"
+                    "sent_id": "S6"
                 }
             ]
         },
         {
             "text": "Em janeiro, depois de ter negado constantemente ser o pai biol\u00f3gico de Delfine, o antigo rei fez um teste de ADN, reconheceu-a como filha e declarou que n\u00e3o voltaria a contestar a paternidade, oficialmente decretada por um tribunal de Bruxelas em 01 de outubro.",
-            "id": "S9",
+            "id": "S6",
             "events": [
-                {
-                    "text": "abdicou",
-                    "Class": "Occurrence",
-                    "Event_Type": "Transition",
-                    "Pos": "Verb",
-                    "Tense": "Past",
-                    "Aspect": "Perfective",
-                    "Polarity": "Pos",
-                    "id": "T38",
-                    "rel_type": "TLINK_isIncluded",
-                    "arg2": "T42"
-                },
                 {
                     "text": "fez",
                     "Class": "Occurrence",
@@ -207,15 +204,44 @@
                     "Time_Type": "Date",
                     "id": "T44",
                     "rel_type": "TLINK_before",
+                    "arg2": "T42",
+                    "sent_id": "S7"
+                },
+                {
+                    "text": "01 de outubro",
+                    "Time_Type": "Date",
+                    "id": "T43",
+                    "rel_type": "TLINK_after",
+                    "arg2": "T42",
+                    "sent_id": "S6"
+                },
+                {
+                    "text": "julho de 2013",
+                    "Time_Type": "Date",
+                    "id": "T44",
+                    "rel_type": "TLINK_before",
                     "arg2": "T43",
-                    "sent_id": "S10"
+                    "sent_id": "S7"
                 }
             ]
         },
         {
             "text": "Alberto II abdicou do t\u00edtulo de rei dos Belgas em julho de 2013, tendo-lhe sucedido o seu filho Filipe.",
-            "id": "S10",
-            "events": [],
+            "id": "S7",
+            "events": [
+                {
+                    "text": "abdicou",
+                    "Class": "Occurrence",
+                    "Event_Type": "Transition",
+                    "Pos": "Verb",
+                    "Tense": "Past",
+                    "Aspect": "Perfective",
+                    "Polarity": "Pos",
+                    "id": "T38",
+                    "rel_type": "TLINK_isIncluded",
+                    "arg2": "T44"
+                }
+            ],
             "times": [
                 {
                     "text": "julho de 2013",
