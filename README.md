@@ -7,6 +7,20 @@ than events and times.
 Current, there are two versions. The first, it is the visualization of sentences with events and time expressions, 
 and connection between them. Next, we detail the input format for the visualization, and the visualizations modes.
 
+## Using locally
+
+To use this application locally, you should install all Python packages listed 
+in requirements.txt within a virtual environment (venv). After that,
+you can execute the following command in the Terminal (Linux/macOS) or 
+PowerShell (Windows):
+
+```sh
+python app.py
+```
+
+Then, open your preferred browser and go to http://127.0.0.1:5001.
+The data should be in the data directory, as shown in this repository.
+
 
 ## JSON Format
 
