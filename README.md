@@ -68,6 +68,6 @@ the sentence) ,`events` (it is a list of events, each with an unique id and text
 expressions, each with an unique id and text) and `ref_times` ((it is a list of times , each with an unique id and text)). 
 
 
-![Description of Image](doc/lusa_example_1.png)
+![Description of Image](doc/lusa_example_2.png)
 
 
