@@ -1,6 +1,9 @@
-# sentencevisual
 
-This is a web application devoted to visualize annotation from sentences. The main goal is of this application is to 
+![Description of Image](Vitra.gif)
+
+# Visualizer of temporal relation annotations
+
+Vitra is a web application devoted to visualize annotation from sentences. The main goal is of this application is to 
 visualize the relations between two different entities' types. In future versions, we hope to include other entities 
 than events and times.  
 
@@ -9,7 +12,7 @@ and connection between them. Next, we detail the input format for the visualizat
 
 ## Using locally
 
-To use this application locally, you should install all Python packages listed 
+To use Vitra locally, you should install all Python packages listed 
 in requirements.txt within a virtual environment (venv). After that,
 you can execute the following command in the Terminal (Linux/macOS) or 
 PowerShell (Windows):
