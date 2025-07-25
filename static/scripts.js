@@ -152,10 +152,10 @@ function renderSentenceTimeline(sentence, index) {
         if (fragment.type === "yellow-box") {
 
             if (fragment.time.Time_Type == "Duration" ||
-                fragment.time.Time_Type == "Set"){
-                backColor = "#ff8800";
+                fragment.time.Time_Type == "Set") {
+                backColor = "#AF8FBA"; // lilás
             } else {
-                backColor = "#ffff00";
+                backColor = "#4B5F92"; // azul escuro
             }
 
             textContainer.append("span")
@@ -169,7 +169,7 @@ function renderSentenceTimeline(sentence, index) {
                 addedEventIds.add(fragment.event.id); // Mark as added
 
                 textContainer.append("span")
-                    .style("background-color", "#b3d9ff") // Blue highlight
+                    .style("background-color", "#AF8FBA") // Blue highlight
                     .style("padding", "2px")
                     .style("border-radius", "3px")
                     .text(fragment.event.text);
@@ -334,9 +334,9 @@ function renderTimeline(allFragments, allLinkedTimes) {
 
                 const eventBox = eventsContainer.append("div")
                     .attr("id", `event-${fragment.event.id}`)
-                    .style("width", "50px")
-                    .style("height", "50px")
-                    .style("background-color", "#b3d9ff")
+                    .style("width", "100px")
+                    .style("height", "100px")
+                    .style("background-color", "#AF8FBA")
                     .style("border-radius", "50%")
                     .style("display", "flex")
                     .style("align-items", "center")
