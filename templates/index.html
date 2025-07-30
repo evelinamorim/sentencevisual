@@ -10,19 +10,27 @@
     <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
-<h1>The Time Annotation Inspector</h1>
+<div class="top-bar">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo do site" class="logo">
+</div>
+
+<h1 class="title">The Time Annotation Inspector</h1>
+
+<div class="container">
+    <!-- restante do conteúdo -->
+</div>
 
 <div class="container">
     <!-- Left Column -->
     <div class="instructions-column">
         <div class="instruction-section">
             <h2>Instructions</h2>
-            <p><strong>1)</strong> Each time expression is shown inside a yellow box, and their order is the same as they appear in the text. The first is shown first, etc.</p>
+            <p><strong>1)</strong> Each time expression is shown inside a blue box, and their order is the same as they appear in the text. The first is shown first, etc.</p>
             <p><strong>2) </strong> Also, time expression has the color
                 <span class="yellow-box2"></span>
-                (yellow), except for Duration and Set type, in which case it presents the color
+                (blue), except for Duration and Set type, in which case it presents the color
                 <span class="orange-box2"></span>
-                (orange).
+                (purple).
             </p>
             <p> <strong>3) </strong>  By hovering over an event, it is possible to see its attributes. </p>
 

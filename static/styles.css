@@ -1,3 +1,17 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    position: relative;
+}
+
+.logo {
+    width: 140px;
+    position: absolute;
+    left: 10px;
+    top: 10px
+}
 body {
     font-family: Arial, sans-serif;
     margin: 0;

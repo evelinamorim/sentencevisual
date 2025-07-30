@@ -258,7 +258,7 @@ function renderTimeline(allFragments, allLinkedTimes) {
             currentlyHighlightedSentence = null;
         } else {
             // Highlight the new sentence
-            sentenceToHighlight.style("background", "#B2FEAB");
+            sentenceToHighlight.style("background", "#F2E7D2");
             currentlyHighlightedSentence = sentenceToHighlight;
         }
     }
