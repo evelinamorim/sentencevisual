@@ -57,6 +57,9 @@ function visualizeJSON(fileName) {
 }
 
 let sharedSVG;
+// Array para armazenar dados das curvas arrastáveis
+let draggableCurves = [];
+
 function setupVisualization() {
     const wrapper = d3.select("#visualization-wrapper");
     wrapper
@@ -110,8 +113,33 @@ function setupVisualization() {
         .append("path")
         .attr("d", "M0,-5L10,0L0,5")
         .attr("fill", "black")
-        .style("outline", "1px solid red"); ;
+        .style("outline", "1px solid red");
+    ;
 
+    // Adicionar estilos CSS para as curvas arrastáveis
+    if (!document.getElementById('draggable-curves-styles')) {
+        const style = document.createElement('style');
+        style.id = 'draggable-curves-styles';
+        style.innerHTML = `
+            .control-point {
+                cursor: move !important;
+            }
+            
+            .arrow-path {
+                cursor: pointer;
+            }
+            
+            .arrow-path:hover {
+                stroke-width: 4 !important;
+                stroke: #333 !important;
+            }
+            
+            .arrow-path {
+                transition: stroke-width 0.2s ease;
+            }
+        `;
+        document.head.appendChild(style);
+    }
 }
 
 
@@ -139,8 +167,9 @@ function renderSentenceTimeline(sentence, index) {
         .attr("data-sentence-index", index)
         .style("margin-bottom", "10px")
         .style("padding", "15px")
-        .style("background", "#f8f8f8");
-
+        .style("background", "white")
+        .style("box-shadow", "-3px 4px 8px rgba(0,0,0,0.15)")
+        .style("border-radius", "8px");
     // Add sentence text to left column
     //textContainer.text(sentence.text);
     const addedEventIds = new Set();
@@ -348,6 +377,8 @@ function renderTimeline(allFragments, allLinkedTimes) {
                     .style("left", function(){
                         const timelineWidth = timelineColumn.node().getBoundingClientRect().width;
 
+
+
                         // If this event is connected to a time expression, add an offset based on position
                         if (timeExpressionId) {
                             const eventPosition = timeExpressionEventCount.get(timeExpressionId) - 1; // 0-based index
@@ -373,8 +404,19 @@ function renderTimeline(allFragments, allLinkedTimes) {
                         }
                         return "20px";
                     })
+
                     .style("pointer-events", "auto")
-                    .text(fragment.event.text || "");
+                    .style("resize", "both")
+                    .classed("resizable", true)
+                    .text(fragment.event.text || "")
+                    .call(d3.drag()
+                        .on("start", function() {
+                            console.log("drag started on", this);  // Mostra qual elemento recebeu o drag
+                        })
+                        .on("drag", dragged)
+                        .on("end", dragended)
+                    );
+
 
                 eventBox
                     .on("mouseover", function() {
@@ -415,6 +457,8 @@ function renderTimeline(allFragments, allLinkedTimes) {
                     element: eventBox,
                     fragment: fragment
                 });
+
+
             }
         });
     });
@@ -477,6 +521,9 @@ function renderTimeline(allFragments, allLinkedTimes) {
 
     function createArrows() {
         try {
+            // Limpar dados das curvas arrastáveis antes de recriar
+            draggableCurves = [];
+
             //const wrapperRect = wrapper.node().getBoundingClientRect();
             const timelineColumnRect = timelineColumn.node().getBoundingClientRect();
 
@@ -514,6 +561,8 @@ function renderTimeline(allFragments, allLinkedTimes) {
         } catch (error) {
             console.error("Error in createArrows:", error);
         }
+        renderTimeline.lastCreateArrows = createArrows;
+
     }
 
     function drawConnection(element1, element2, relType, wrapperRect, connectionType, isConsecutive) {
@@ -545,77 +594,227 @@ function renderTimeline(allFragments, allLinkedTimes) {
         );
 
         const pathGroup = sharedSVG.append("g");
-        // alternative is to name the path as the joining names of the elements it connects
         const pathId = `connection-path-${Math.random().toString(36).substr(2, 9)}`;
 
+        // Criar dados da curva para arrastar
+        const curveData = {
+            id: pathId,
+            startX: startX,
+            startY: startY,
+            endX: endX,
+            endY: endY,
+            controlOffsetX: 0,
+            controlOffsetY: connectionType === "time" && isConsecutive ? 0 : -50,
+            connectionType: connectionType,
+            isConsecutive: isConsecutive,
+            isVertical: isVertical,
+            relType: relType,
+            trimmedRelType: trimmedRelType
+        };
+
+        // Adicionar aos dados das curvas arrastáveis
+        draggableCurves.push(curveData);
+
         // Create path
+        let pathD;
         if (connectionType == "time"){
             if (isConsecutive) {
-                // Use special curved path for consecutive time connections on right side
-                pathGroup.append("path")
-                    .attr("id", pathId)
-                    .attr("class", "arrow-path")
-                    .attr("fill", "none")
-                    .attr("stroke", "DimGray")
-                    .attr("stroke-width", 3)
-                    .attr("data-rel-type", relType)
-                    .attr("d", createRightSideCurvedPath(startX, startY, endX, endY));
+                pathD = createRightSideCurvedPath(startX, startY, endX, endY, curveData.controlOffsetX, curveData.controlOffsetY);
             } else{
-                pathGroup.append("path")
-                    .attr("id", pathId)
-                    .attr("class", "arrow-path")
-                    .attr("fill", "none")
-                    .attr("stroke", "DimGray")
-                    .attr("stroke-width", 3)
-                    .attr("data-rel-type", relType)
-                    .attr("d", createPath(startX, startY, endX, endY, isVertical));
+                pathD = createPath(startX, startY, endX, endY, isVertical, curveData.controlOffsetX, curveData.controlOffsetY);
             }
-
         } else{
-            pathGroup.append("path")
-                .attr("id", pathId)
-                .attr("class", "arrow-path")
-                .attr("fill", "none")
-                .attr("stroke", "DimGray")
-                .attr("stroke-width", 3)
-                .attr("stroke-dasharray", "5,5")
-                .attr("data-rel-type", relType)
-                .attr("d", createCurvedPath(startX, startY, endX, endY, isVertical));
+            pathD = createCurvedPath(startX, startY, endX, endY, curveData.controlOffsetX, curveData.controlOffsetY);
+        }
+
+        const path = pathGroup.append("path")
+            .attr("id", pathId)
+            .attr("class", "arrow-path")
+            .attr("fill", "none")
+            .attr("stroke", "DimGray")
+            .attr("stroke-width", 3)
+            .attr("stroke-linecap", "round")        // Adicionar esta linha
+            .attr("stroke-linejoin", "round")       // Adicionar esta linha
+            .style("pointer-events", "stroke")      // ESTA É A LINHA CHAVE!
+            .attr("data-rel-type", relType)
+            .attr("d", pathD);
+
+        if (connectionType === "event") {
+            path.attr("stroke-dasharray", "5,5");
+        }
+
+        // Criar ponto de controle invisível para arrastar
+        const controlPoint = pathGroup.append("circle")
+            .attr("class", "control-point")
+            .attr("r", 8)
+            .attr("fill", "rgba(255, 0, 0, 0.3)")
+            .attr("stroke", "red")
+            .attr("stroke-width", 2)
+            .attr("opacity", 0)
+            .style("cursor", "move")
+            .style("pointer-events", "all")
+            .attr("cx", (startX + endX) / 2 + curveData.controlOffsetX)
+            .attr("cy", (startY + endY) / 2 + curveData.controlOffsetY);
+        setTimeout(() => {
+            try {
+                const pathLength = path.node().getTotalLength();
+                const textPosition = pathLength * 0.5; // 50% do caminho
+                const textPoint = path.node().getPointAtLength(textPosition);
+                controlPoint.attr("cx", textPoint.x).attr("cy", textPoint.y);
+            } catch(e) {
+                // Se der erro, manter posição original
+                console.log("Erro ao posicionar control point:", e);
+            }
+        }, 10);
+
+        // Mostrar ponto de controle ao passar o mouse sobre a curva
+        // Adicionar variável para controlar qual curva está ativa
+        let activePath = null;
+
+// Fazer a linha clicável para ativação
+        path.style("cursor", "pointer")
+            .on("click", function(event) {
+                event.stopPropagation(); // Evitar conflitos
+
+                // Se esta linha já está ativa, desativar
+                if (activePath === this) {
+                    activePath = null;
+                    controlPoint.attr("opacity", 0);
+                    d3.select(this).attr("stroke-width", 3); // Voltar espessura normal
+                } else {
+                    // Desativar linha anterior se houver
+                    if (activePath) {
+                        d3.select(activePath).attr("stroke-width", 3);
+                        // Esconder ponto de controle da linha anterior
+                        d3.select(activePath.parentNode).select(".control-point").attr("opacity", 0);
+                    }
+
+                    // Ativar esta linha
+                    activePath = this;
+                    controlPoint.attr("opacity", 0.7);
+                    d3.select(this).attr("stroke-width", 5); // Destacar linha ativa
+                }
+            });
+
+// Mostrar/esconder círculo apenas na linha ativa
+        path.on("mousemove", function(event) {
+            if (activePath === this) {
+                controlPoint.attr("opacity", 0.7);
+            }
+        });
+
+        pathGroup.on("mouseleave", function() {
+            // Só esconder se não for a linha ativa
+            if (activePath !== path.node()) {
+                controlPoint.attr("opacity", 0);
+            }
+        });
+
+// Clique fora para desativar todas as linhas
+        d3.select("body").on("click", function(event) {
+            // Se não clicou em uma linha ou círculo de controle
+            if (!event.target.closest('.arrow-path') && !event.target.closest('.control-point')) {
+                if (activePath) {
+                    d3.select(activePath).attr("stroke-width", 3);
+                    d3.select(activePath.parentNode).select(".control-point").attr("opacity", 0);
+                    activePath = null;
+                }
+            }
+        });
+
+        // Tornar o ponto de controle arrastável
+        controlPoint.call(d3.drag()
+            .on("start", function() {
+                controlPoint.attr("opacity", 1);
+            })
+            .on("drag", function(event) {
+                const newX = event.x;
+                const newY = event.y;
+
+                // Atualizar posição do ponto de controle
+                controlPoint.attr("cx", newX).attr("cy", newY);
+
+                // Calcular novos offsets baseados na posição do mouse
+                curveData.controlOffsetX = newX - (startX + endX) / 2;
+                curveData.controlOffsetY = newY - (startY + endY) / 2;
+
+                // Atualizar o caminho da curva
+                let newPathD;
+                if (connectionType == "time"){
+                    if (isConsecutive) {
+                        newPathD = createRightSideCurvedPath(startX, startY, endX, endY, curveData.controlOffsetX, curveData.controlOffsetY);
+                    } else{
+                        newPathD = createPath(startX, startY, endX, endY, isVertical, curveData.controlOffsetX, curveData.controlOffsetY);
+                    }
+                } else{
+                    // Aplicar a mesma lógica de direção aqui
+                    const cpX = (startX + endX) / 2 + curveData.controlOffsetX;
+                    const cpY = (startY + endY) / 2 - 50 + curveData.controlOffsetY;
+
+                    if (endX < startX) {
+                        newPathD = `M ${endX},${endY} Q ${cpX},${cpY} ${startX},${startY}`;
+                    } else {
+                        newPathD = `M ${startX},${startY} Q ${cpX},${cpY} ${endX},${endY}`;
+                    }
+                }
+
+                path.attr("d", newPathD);setTimeout(() => {
+                    try {
+                        const updatedPathLength = path.node().getTotalLength();
+                        const updatedTextPosition = updatedPathLength * 0.5;
+                        const updatedTextPoint = path.node().getPointAtLength(updatedTextPosition);
+                        controlPoint.attr("cx", updatedTextPoint.x).attr("cy", updatedTextPoint.y);
+                    } catch(e) {
+                        // Se der erro, manter funcionamento normal
+                    }
+                }, 5);
+            })
+            .on("end", function() {
+                controlPoint.attr("opacity", 0.7);
+            })
+        );
+
+        let textOffset = "50%";
+        if (connectionType === "time" && isVertical) {
+            // Para linhas verticais de tempo, mover o texto mais para baixo
+            textOffset = "30%";
         }
 
         const textElement = pathGroup.append("text")
             .append("textPath")
             .attr("xlink:href", `#${pathId}`)
-            .attr("startOffset", "50%")
+            .attr("startOffset", textOffset)
             .style("text-anchor", "middle")
             .attr("fill", "black")
             .attr("font-size", "12px")
             .text(trimmedRelType);
+        const pathLength = path.node().getTotalLength();
+        const textPosition = pathLength * (parseFloat(textOffset) / 100);
+        const textPoint = path.node().getPointAtLength(textPosition);
     }
 
-    function createRightSideCurvedPath(startX, startY, endX, endY) {
-        // Calculate control points for a nice curve on the right side
-        // We move the curve outward to the right by adding a significant offset
-        const horizontalOffset = 100; // Adjust this value to control how far right the curve extends
 
-        // Calculate the midpoint between the two boxes' vertical positions
-        const midY = (startY + endY) / 2;
-
-        // Place control point to the right and at the vertical midpoint
+    function createRightSideCurvedPath(startX, startY, endX, endY, controlOffsetX = 0, controlOffsetY = 0) {
+        const horizontalOffset = 100 + controlOffsetX;
+        const midY = (startY + endY) / 2 + controlOffsetY;
         const cpX = Math.max(startX, endX) + horizontalOffset;
         const cpY = midY;
 
         return `M ${startX},${startY} Q ${cpX},${cpY} ${endX},${endY}`;
     }
-    function createCurvedPath(startX, startY, endX, endY) {
-        // Calculate control point (adjust offset for curvature)
-        const cpX = (startX + endX) / 2;
-        const cpY = (startY + endY) / 2 - 50; // Adjust -50 for curvature strength
+    function createCurvedPath(startX, startY, endX, endY, controlOffsetX = 0, controlOffsetY = 0) {
+        const cpX = (startX + endX) / 2 + controlOffsetX;
+        const cpY = (startY + endY) / 2 - 50 + controlOffsetY;
 
-        return `M ${startX},${startY} Q ${cpX},${cpY} ${endX},${endY}`;
+        // Se endX < startX, inverta a direção do path para evitar texto espelhado
+        if (endX < startX) {
+            return `M ${endX},${endY} Q ${cpX},${cpY} ${startX},${startY}`;
+        } else {
+            return `M ${startX},${startY} Q ${cpX},${cpY} ${endX},${endY}`;
+        }
     }
 
-    function createPath(startX, startY, endX, endY, isVertical) {
+    function createPath(startX, startY, endX, endY, isVertical, controlOffsetX = 0, controlOffsetY = 0) {
         const distance = isVertical
             ? Math.abs(endY - startY)
             : Math.abs(endX - startX);
@@ -624,15 +823,25 @@ function renderTimeline(allFragments, allLinkedTimes) {
 
         if (isVertical) {
             const midY = (startY + endY) / 2;
+            const controlY1 = startY + curveOffset + controlOffsetY;
+            const controlY2 = endY - curveOffset + controlOffsetY;
+            const controlX1 = startX + controlOffsetX;
+            const controlX2 = endX + controlOffsetX;
+
             return `M ${startX},${startY} 
-                    C ${startX},${startY + curveOffset} 
-                      ${endX},${endY - curveOffset} 
+                    C ${controlX1},${controlY1} 
+                      ${controlX2},${controlY2} 
                       ${endX},${endY}`;
         } else {
             const midX = (startX + endX) / 2;
+            const controlX1 = startX + curveOffset + controlOffsetX;
+            const controlX2 = endX - curveOffset + controlOffsetX;
+            const controlY1 = startY + controlOffsetY;
+            const controlY2 = endY + controlOffsetY;
+
             return `M ${startX},${startY} 
-                    C ${startX + curveOffset},${startY} 
-                      ${endX - curveOffset},${endY} 
+                    C ${controlX1},${controlY1} 
+                      ${controlX2},${controlY2} 
                       ${endX},${endY}`;
         }
     }
@@ -678,9 +887,9 @@ function createFragments(text, sentence) {
     let fragments = [];
     let highlights = [
         ...sentence.times.map( time => ({
-                text:time.text,
-                type: "yellow-box",
-                time: time
+            text:time.text,
+            type: "yellow-box",
+            time: time
         })) ,
         ...sentence.events.map(event => ({
             text: event.text,
@@ -701,10 +910,10 @@ function createFragments(text, sentence) {
             fragments.push({ text: text.substring(lastIndex, highlight.index), type: "normal" });
         }
         fragments.push({ text: highlight.text,
-                         type: highlight.type,
-                         event: highlight.event,
-                         time: highlight.time
-         });
+            type: highlight.type,
+            event: highlight.event,
+            time: highlight.time
+        });
         lastIndex = highlight.index + highlight.text.length;
     });
 
@@ -723,3 +932,58 @@ function debounce(func, wait) {
     };
 }
 
+function dragstarted(event) {
+    d3.select(this)
+        .raise()
+        .classed("active", true);
+}
+
+function dragged(event, d) {
+    const element = d3.select(this);
+    element.style("left", (event.x) + "px")
+        .style("top", (event.y) + "px");
+
+    // Redesenhar as conexões após o movimento
+    sharedSVG.selectAll("*").remove();
+    requestAnimationFrame(() => {
+        renderTimeline.lastCreateArrows();  // armazenar função no escopo
+    });
+}
+
+function dragended(event) {
+    d3.select(this).classed("active", false);
+}
+document.getElementById('collapseInstructions').addEventListener('click', function () {
+    const instructions = document.querySelector('.instructions-column');
+
+    instructions.classList.toggle('collapsed');
+
+    if (instructions.classList.contains('collapsed')) {
+        this.textContent = '⮞';
+        this.style.position = 'fixed';
+        this.style.top = '55px';
+        this.style.left = '10px';
+        this.style.zIndex = '9999';
+    } else {
+        this.textContent = '⮜';
+        this.style.position = 'static';
+        this.style.zIndex = 'auto';
+    }
+
+    setTimeout(() => {
+        // Forçar o reposicionamento das yellow-boxes
+        const timelineContainer = document.querySelector('.timeline-column div');
+        if (timelineContainer) {
+            // Forçar recalculo do flexbox
+            timelineContainer.style.display = 'none';
+            timelineContainer.offsetHeight; // Trigger reflow
+            timelineContainer.style.display = 'flex';
+        }
+
+        // Redesenhar as conexões
+        if (typeof renderTimeline?.lastCreateArrows === "function") {
+            sharedSVG.selectAll("*").remove();
+            renderTimeline.lastCreateArrows();
+        }
+    }, 310);
+});

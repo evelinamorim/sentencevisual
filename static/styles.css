@@ -125,6 +125,7 @@ h1 {
     border-radius: 6px;
     margin: 2px;
     display: inline-block;
+    z-index: 10;
 }
 .orange-box {
     background-color: #AF8FBA;
@@ -181,8 +182,8 @@ h1 {
 .relation-label rect {
    fill: white;
    fill-opacity: 0.9;
-   rx: 3;
-   ry: 3;
+   rx: auto;
+   ry: auto;
 }
 
 .relation-label:hover text {
@@ -246,13 +247,16 @@ h1 {
 
 .event-time-path {
     stroke: red;
+    position: absolute;
+    z-index:11;
 }
 .time-time-path {
     stroke: blue;
 }
 
 .arrow-path {
-    pointer-events: none; /* Let the rect handle events */
+    pointer-events: all;
+    cursor: pointer; /* Mostra o cursor de mão */
 }
 
 .sentences-column {
@@ -280,3 +284,45 @@ h1 {
     margin-left: 20px;
 }
 
+.resizable {
+    resize: both;
+    overflow: auto;
+}
+.instructions-column {
+    width: 300px; /* ou o valor que já usa */
+    transition: width 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.instructions-column.collapsed {
+    width: 0;
+    padding: 0;
+}
+
+.instructions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.collapse-btn {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+#expandInstructions {
+    position: fixed;
+    top: 20px;
+    left: 10px;
+    z-index: 9999;
+    background: white;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    display: none;
+}
