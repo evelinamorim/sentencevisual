@@ -59,6 +59,8 @@ function visualizeJSON(fileName) {
 let sharedSVG;
 // Array para armazenar dados das curvas arrastáveis
 let draggableCurves = [];
+let modifiedCurves = new Map(); // Adicionar esta linha
+let activePaths = new Set(); // Para controlar quais paths estão ativos
 
 function setupVisualization() {
     const wrapper = d3.select("#visualization-wrapper");
@@ -371,7 +373,11 @@ function renderTimeline(allFragments, allLinkedTimes) {
                     .style("align-items", "center")
                     .style("justify-content", "center")
                     .style("font-size", "14px")
+                    .style("text-align", "center")
+                    .style("line-height", "1.2")
                     .style("box-shadow", "0 2px 4px rgba(0,0,0,0.1)")
+                    .style("word-wrap", "break-word")
+                    .style("overflow-wrap", "break-word")
                     .style("border", borderValue)
                     .style("position", "absolute")
                     .style("left", function(){
@@ -522,7 +528,7 @@ function renderTimeline(allFragments, allLinkedTimes) {
     function createArrows() {
         try {
             // Limpar dados das curvas arrastáveis antes de recriar
-            draggableCurves = [];
+            //draggableCurves = [];
 
             //const wrapperRect = wrapper.node().getBoundingClientRect();
             const timelineColumnRect = timelineColumn.node().getBoundingClientRect();
@@ -596,15 +602,19 @@ function renderTimeline(allFragments, allLinkedTimes) {
         const pathGroup = sharedSVG.append("g");
         const pathId = `connection-path-${Math.random().toString(36).substr(2, 9)}`;
 
-        // Criar dados da curva para arrastar
+        // Criar chave única para esta curva
+        const curveKey = `${relType}-${connectionType}-${Math.round(startX)}-${Math.round(startY)}-${Math.round(endX)}-${Math.round(endY)}`;
+        const savedCurve = modifiedCurves.get(curveKey);
+
         const curveData = {
             id: pathId,
+            key: curveKey, // Adicionar a chave para referência
             startX: startX,
             startY: startY,
             endX: endX,
             endY: endY,
-            controlOffsetX: 0,
-            controlOffsetY: connectionType === "time" && isConsecutive ? 0 : -50,
+            controlOffsetX: savedCurve ? savedCurve.controlOffsetX : 0,
+            controlOffsetY: savedCurve ? savedCurve.controlOffsetY : (connectionType === "time" && isConsecutive ? 0 : -50),
             connectionType: connectionType,
             isConsecutive: isConsecutive,
             isVertical: isVertical,
@@ -737,6 +747,11 @@ function renderTimeline(allFragments, allLinkedTimes) {
                 // Calcular novos offsets baseados na posição do mouse
                 curveData.controlOffsetX = newX - (startX + endX) / 2;
                 curveData.controlOffsetY = newY - (startY + endY) / 2;
+                // Salvar modificações permanentemente
+                modifiedCurves.set(curveData.key, {
+                    controlOffsetX: curveData.controlOffsetX,
+                    controlOffsetY: curveData.controlOffsetY
+                });
 
                 // Atualizar o caminho da curva
                 let newPathD;
